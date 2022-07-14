@@ -1,7 +1,7 @@
 [
   {
     "name": "Frontend Development",
-    "description": "bla bla bla",
+    "description": "In recent years, I built strong skills in Single Page Application development, mainly with Angular and React. I continue to use JQuery for legacy projects or contexts where it is required (e.g. WordPress).",
     "skills": [
       "React.JS",
       "Angular",
@@ -12,10 +12,11 @@
   },
   {
     "name": "Backend Development",
-    "description": "bla bla bla",
+    "description": "I started my working career as a PHP developer and still actively work on it, but I prefer something else. For example, I love Python.️",
     "skills": [
       "PHP",
       "MySQL",
+      "PostgreSQL",
       "Node.JS",
       "Slim Framework",
       "Laravel",
@@ -24,7 +25,7 @@
   },
   {
     "name": "Ecommerce / CMS Development",
-    "description": "bla bla bla",
+    "description": "In the past I have worked a lot with CMS and Ecommerce platforms. I have developed solutions for small and large companies.",
     "skills": [
       "WordPress",
       "WooCommerce",
@@ -34,14 +35,15 @@
   },
   {
     "name": "Tools",
-    "description": "bla bla bla",
+    "description": "By now to develop on the Web these tools are needed and so I don't miss them.",
     "skills": [
       "Webpack",
       "Yarn",
       "Grunt",
       "Bower",
       "Gulp",
-      "Vite"
+      "Vite",
+      "Bash"
     ]
   }
 ]
