@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {FormEvent, FormEventHandler, useState} from 'react';
 
 export const ContactFormSection = () => {
 
@@ -9,12 +9,91 @@ export const ContactFormSection = () => {
     const [subject, setSubject] = useState<string>('');
     const [message, setMessage] = useState<string>('');
 
+    const [errors, setErrors] = useState({});
+
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+    const [showFailureMessage, setShowFailureMessage] = useState(false);
+    const [buttonText, setButtonText] = useState("Submit");
+
+    const handleValidation = () => {
+        let tempErrors = {
+            firstName: false,
+            lastName: false,
+            email: false,
+            phone: false,
+            subject: false,
+            message: false
+        };
+        let isValid = true;
+
+        if (firstName.length <= 0) {
+            tempErrors["firstName"] = true;
+            isValid = false;
+        }
+        if (lastName.length <= 0) {
+            tempErrors["lastName"] = true;
+            isValid = false;
+        }
+        if (email.length <= 0) {
+            tempErrors["email"] = true;
+            isValid = false;
+        }
+        if (subject.length <= 0) {
+            tempErrors["subject"] = true;
+            isValid = false;
+        }
+        if (message.length <= 0) {
+            tempErrors["message"] = true;
+            isValid = false;
+        }
+
+        setErrors({ ...tempErrors });
+        console.log("errors", errors);
+        return isValid;
+    };
+
+    const handleSubmit = async (e : FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        let isValidForm = handleValidation();
+
+        if (isValidForm) {
+            setButtonText("Sending");
+            const res = await fetch("/api/send", {
+                body: JSON.stringify({
+                    email,
+                    firstName,
+                    lastName,
+                    phone,
+                    subject,
+                    message
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                method: "POST",
+            });
+
+            const { error } = await res.json();
+            if (error) {
+                console.log(error);
+                setShowSuccessMessage(false);
+                setShowFailureMessage(true);
+                setButtonText("Send");
+                return;
+            }
+            setShowSuccessMessage(true);
+            setShowFailureMessage(false);
+            setButtonText("Send");
+        }
+    };
+
     return (
     <section id="contact" className="my-1 md:my-[100px]">
         <h2 className="font-roboto text-secondary-color text-center font-extralight uppercase text-3xl md:text-5xl text-white mb-4 leading-normal break-words tracking-tight">CONTACT
             ME</h2>
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-2 gap-4">
                     <div className="flex flex-col">
                         <label htmlFor="first-name">First name</label>
@@ -59,7 +138,7 @@ export const ContactFormSection = () => {
                 <div className="flex justify-end py-4">
                     <button type="submit"
                             className="bg-secondary-color text-indigo-100  hover:bg-indigo-800 font-bold py-2 px-4 rounded inline-flex items-center">
-                        Submit
+                        {buttonText}
                     </button>
                 </div>
             </form>
