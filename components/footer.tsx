@@ -1,6 +1,5 @@
 import Logo from "./logo";
 import Script from "next/script";
-import Image from "next/image";
 
 export const Footer = () => {
 
@@ -13,7 +12,7 @@ export const Footer = () => {
                         <span className="pl-6 font-roboto text-sm font-semibold">Get connected with me on social networks:</span>
                     </div>
                     <div className="flex justify-center">
-                        <a href="#!" className="mr-6 text-gray-400 hover:text-secondary-color">
+                        <a href="https://it-it.facebook.com/debba20" target="_blank" rel="noreferrer" className="mr-6 text-gray-400 hover:text-secondary-color">
                             <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f"
                                  className="w-2.5" role="img" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 320 512">
@@ -22,7 +21,7 @@ export const Footer = () => {
                                 </path>
                             </svg>
                         </a>
-                        <a href="#!" className="mr-6 text-gray-400 hover:text-secondary-color">
+                        <a href="https://www.instagram.com/debba_92/" target="_blank" rel="noreferrer" className="mr-6 text-gray-400 hover:text-secondary-color">
                             <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram"
                                  className="w-3.5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                 <path fill="currentColor"
@@ -30,7 +29,7 @@ export const Footer = () => {
                                 </path>
                             </svg>
                         </a>
-                        <a href="#!" className="mr-6 text-gray-400 hover:text-secondary-color">
+                        <a href="https://it.linkedin.com/in/andrea-debernardi" target="_blank" rel="noreferrer" className="mr-6 text-gray-400 hover:text-secondary-color">
                             <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin-in"
                                  className="w-3.5" role="img" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 448 512">
@@ -39,7 +38,7 @@ export const Footer = () => {
                                 </path>
                             </svg>
                         </a>
-                        <a href="#!" className="text-gray-400 hover:text-secondary-color">
+                        <a href="https://github.com/debba" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-secondary-color">
                             <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github"
                                  className="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
                                 <path fill="currentColor"
@@ -95,7 +94,7 @@ export const Footer = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="pr-6">
+                        <div>
                             <div className="flex items-center flex-shrink-0 text-white mb-3">
                             <span className="font-roboto text-lg uppercase tracking-tight leading-[54px]">
                                 Keep in touch.
@@ -114,6 +113,7 @@ export const Footer = () => {
                                         className="
             block
             w-full
+            md:w-1/2
             mt-1
             text-gray-800
             border-gray-300
@@ -135,19 +135,11 @@ export const Footer = () => {
                                 <div className="mb-6 mt-2">
                                     <button
                                         type="submit"
-                                        className="
-            h-10
-            px-5
-            text-indigo-100
-            bg-secondary-color
-            rounded-lg
-            transition-colors
-            duration-150
-            focus:shadow-outline
-            hover:bg-indigo-800
-          "
+                                        className="bg-secondary-color text-indigo-100  hover:bg-indigo-800 font-bold py-2 px-4 rounded inline-flex items-center"
                                     >
+                                        <span>
                                         Subscribe
+                                            </span>
                                     </button>
                                 </div>
                             </form>
