@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Frontend Development",
+    "description": "bla bla bla",
+    "skills": [
+      "React.JS",
+      "Angular",
+      "jQuery",
+      "NextJS",
+      "Tailwind CSS"
+    ]
+  },
+  {
+    "name": "Backend Development",
+    "description": "bla bla bla",
+    "skills": [
+      "PHP",
+      "MySQL",
+      "Node.JS",
+      "Slim Framework",
+      "Laravel",
+      "Python"
+    ]
+  },
+  {
+    "name": "Ecommerce / CMS Development",
+    "description": "bla bla bla",
+    "skills": [
+      "WordPress",
+      "WooCommerce",
+      "PrestaShop",
+      "Magento"
+    ]
+  },
+  {
+    "name": "Tools",
+    "description": "bla bla bla",
+    "skills": [
+      "Webpack",
+      "Yarn",
+      "Grunt",
+      "Bower",
+      "Gulp",
+      "Vite"
+    ]
+  }
+]

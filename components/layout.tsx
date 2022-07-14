@@ -11,7 +11,7 @@ export const Layout = ({ children } : LayoutProps) => {
         <>
             <Header />
             <main className="px-6 py-6">
-                <section id="page-container" className="my-1 md:my-[100px]">
+                <section id="page-container">
                     <div className="container mx-auto px-4 text-white">
                         {children}
                     </div>
