@@ -1,6 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-export const ContactFormSection = () => (
+export const ContactFormSection = () => {
+
+    const [firstName, setFirstName] = useState<string>('');
+    const [lastName, setLastName] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [phone, setPhone] = useState<string>('');
+    const [subject, setSubject] = useState<string>('');
+    const [message, setMessage] = useState<string>('');
+
+    return (
     <section id="contact" className="my-1 md:my-[100px]">
         <h2 className="font-roboto text-secondary-color text-center font-extralight uppercase text-3xl md:text-5xl text-white mb-4 leading-normal break-words tracking-tight">CONTACT
             ME</h2>
@@ -9,17 +18,17 @@ export const ContactFormSection = () => (
                 <div className="grid grid-cols-2 gap-4">
                     <div className="flex flex-col">
                         <label htmlFor="first-name">First name</label>
-                        <input type="text" id="first-name" name="first-name" className="form-input px-3 py-2 rounded-md"
+                        <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} id="first-name" name="first-name" className="text-gray-800 form-input px-3 py-2 rounded-md"
                                required/>
                     </div>
                     <div className="flex flex-col">
                         <label htmlFor="last-name">Last name</label>
-                        <input type="text" id="last-name" name="last-name" className="form-input px-3 py-2 rounded-md"
+                        <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)}  id="last-name" name="last-name" className="text-gray-800 form-input px-3 py-2 rounded-md"
                                required/>
                     </div>
                     <div className="flex flex-col">
                         <label htmlFor="email">Email</label>
-                        <input type="email" id="email" name="email" className="form-input px-3 py-2 rounded-md"
+                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} id="email" name="email" className="text-gray-800 form-input px-3 py-2 rounded-md"
                                required/>
                     </div>
                     <div className="flex flex-col">
@@ -29,11 +38,11 @@ export const ContactFormSection = () => (
                                 <span className="ml-auto opacity-75">Optional</span>
                             </div>
                         </label>
-                        <input type="tel" id="phone" name="phone" className="form-input px-3 py-2 rounded-md"/>
+                        <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} id="phone" name="phone" className="text-gray-800 form-input px-3 py-2 rounded-md"/>
                     </div>
                     <div className="flex flex-col col-span-2">
                         <label htmlFor="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" className="form-input px-3 py-2 rounded-md"
+                        <input type="text" value={subject} onChange={(e) => setSubject(e.target.value)} id="subject" name="subject" className="text-gray-800 form-input px-3 py-2 rounded-md"
                                required/>
                     </div>
                     <div className="flex flex-col col-span-2">
@@ -43,8 +52,8 @@ export const ContactFormSection = () => (
                                 <span className="ml-auto opacity-75">Max. 500 characters</span>
                             </div>
                         </label>
-                        <textarea maxLength={500} rows={4} id="subject" name="subject"
-                                  className="form-input px-3 py-2 rounded-md" required/>
+                        <textarea value={message} onChange={(e) => setMessage(e.target.value)} maxLength={500} rows={4} id="subject" name="subject"
+                                  className="text-gray-800 form-input px-3 py-2 rounded-md" required/>
                     </div>
                 </div>
                 <div className="flex justify-end py-4">
@@ -56,4 +65,5 @@ export const ContactFormSection = () => (
             </form>
         </div>
     </section>
-);
+    )
+};
