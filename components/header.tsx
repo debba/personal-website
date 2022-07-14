@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {useState} from "react";
 import Logo from "./logo";
 import Link from "next/link";
@@ -7,7 +6,7 @@ export const Header = () => {
     const [isNavOpen, setIsNavOpen] = useState(false);
 
     return (
-        <nav className="flex items-center justify-between flex-wrap bg-extra-dark p-6">
+        <nav className="flex fixed w-full items-center justify-between z-10 flex-wrap bg-extra-dark p-6">
             <Logo/>
             <div className={"block lg:hidden"}>
                 <button onClick={() => setIsNavOpen((prev) => !prev)}

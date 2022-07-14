@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 class MyDocument extends Document {
     render() {
         return (
-            <Html>
+            <Html className="scroll-smooth">
                 <Head>
                     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@200;400;600;700&display=swap" rel="stylesheet" />
                     <title>Andrea Debernardi | Full stack web developer in Genoa. PHP, Python, Node JS, Angular ans so much more.</title>
