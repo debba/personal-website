@@ -8,11 +8,11 @@ export default function handler(
 ) {
 
     const transporter = nodemailer.createTransport({
-        port: 123,
-        host: "mail.ds.it",
+        port: process.env.SMTP_PORT as any,
+        host: process.env.SMTP_HOST,
         auth: {
-            user: 'dss@ds.it',
-            pass: 'dds',
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS,
         },
         secure: true,
     });
@@ -22,7 +22,7 @@ export default function handler(
             name: req.body.firstName +  " "+req.body.lastName,
             address: req.body.email
         },
-        to: 'andrea@debbaweb.it',
+        to: process.env.SMTP_RECIPIENT,
         subject: '[WEBSITE] '+req.body.message,
         text: req.body.message+'\n____________ \nAdditional details:\nPhone: '+req.body.phone
     },  (err, info) => {
