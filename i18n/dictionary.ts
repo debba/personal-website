@@ -15,7 +15,9 @@ export const DICTIONARY = {
         service_ecommerce_development_title: 'Ecommerce / CMS Development',
         service_ecommerce_development_desc: 'In the past I have worked a lot with CMS and Ecommerce platforms. I have developed solutions for small and large companies.',
         service_tools_title: 'Tools',
-        service_tools_desc: 'By now to develop on the Web these tools are needed and so I don\'t miss them.'
+        service_tools_desc: 'By now to develop on the Web these tools are needed and so I don\'t miss them.',
+        section_portfolio: 'Portfolio',
+        section_portfolio_desc: 'A few customers who chose me.'
     },
     it: {
         menu_aboutme: 'Chi sono',
@@ -34,6 +36,8 @@ export const DICTIONARY = {
         service_ecommerce_development_title: 'Sviluppo CMS / Ecommerce',
         service_ecommerce_development_desc: 'In passato ho lavorato molto con piattaforme Ecommerce e CMS, sviluppando integrazioni ad-hoc per piccoli e grandi aziende.',
         service_tools_title: 'Strumenti',
-        service_tools_desc: 'Ci sono strumenti che ormai sono essenziali per sviluppare nel web, per questo motivo questi non me li faccio mancare.'
+        service_tools_desc: 'Ci sono strumenti che ormai sono essenziali per sviluppare nel web, per questo motivo questi non me li faccio mancare.',
+        section_portfolio: 'Portfolio',
+        section_portfolio_desc: 'Qualche azienda che si è rivolta a me.'
     }
 }
