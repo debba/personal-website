@@ -2,6 +2,8 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
     render() {
+        const matomoUrl = process.env.NEXT_PUBLIC_MATOMO_URL;
+
         return (
             <Html className="scroll-smooth">
                 <Head>
@@ -12,11 +14,10 @@ class MyDocument extends Document {
 
                 </Head>
                 <body className="bg-semi-dark">
-                <pre>${JSON.stringify(process.env)}</pre>
                 <Main />
                 <NextScript />
                 {
-                    process.env.NODE_ENV === 'production' && (
+                    process.env.NODE_ENV === 'production' && matomoUrl && (
                         <script dangerouslySetInnerHTML={{
                             __html: `
                     var _paq = window._paq = window._paq || [];
