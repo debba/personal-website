@@ -14,14 +14,9 @@ const getServices = () => {
 }
 
 const getCustomersLogo = () => {
-
-
-    const files = fs.readdirSync(process.cwd() + '/public/images/customers');
-    return files
+    return fs.readdirSync(process.cwd() + '/public/images/customers')
         .filter(el => path.extname(el) === '.jpg')
-        .sort((a, b) => {
-        return parseInt(a, 10) - parseInt(b, 10);
-    });
+        .sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
 }
 
 export async function getStaticProps() {
