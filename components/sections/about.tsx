@@ -4,7 +4,7 @@ export const AboutSection = () => {
     return (
         <section id="about" className="my-3 md:my-[100px]">
             <div className="grid lg:grid-cols-2 gap-4 flex items-center">
-                <div className="text-center">
+                <div className="mt-2 md:mt-0 text-center">
                     <Image className={"object-none object-center"} loading="lazy" src={"/images/me.jpg"}
                            alt="Andrea" width="450px" height="450px"/>
                 </div>
