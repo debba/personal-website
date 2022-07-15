@@ -5,5 +5,6 @@ export interface ServiceItem {
 }
 
 export interface DataProps {
-    services: ServiceItem[]
+    services: ServiceItem[];
+    customersLogo: string[];
 }
