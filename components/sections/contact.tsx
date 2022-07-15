@@ -1,4 +1,5 @@
 import React, {FormEvent, FormEventHandler, useState} from 'react';
+import {validateForm} from "../../helpers/validate.form";
 
 export const ContactFormSection = () => {
 
@@ -15,41 +16,21 @@ export const ContactFormSection = () => {
     const [showFailureMessage, setShowFailureMessage] = useState(false);
     const [buttonText, setButtonText] = useState("Submit");
 
+    const goBackForm = () => {
+        setShowSuccessMessage(false);
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setPhone('');
+        setSubject('');
+        setMessage('');
+    }
+
     const handleValidation = () => {
-        let tempErrors = {
-            firstName: false,
-            lastName: false,
-            email: false,
-            phone: false,
-            subject: false,
-            message: false
-        };
-        let isValid = true;
 
-        if (firstName.length <= 0) {
-            tempErrors["firstName"] = true;
-            isValid = false;
-        }
-        if (lastName.length <= 0) {
-            tempErrors["lastName"] = true;
-            isValid = false;
-        }
-        if (email.length <= 0) {
-            tempErrors["email"] = true;
-            isValid = false;
-        }
-        if (subject.length <= 0) {
-            tempErrors["subject"] = true;
-            isValid = false;
-        }
-        if (message.length <= 0) {
-            tempErrors["message"] = true;
-            isValid = false;
-        }
-
-        setErrors({ ...tempErrors });
-        console.log("errors", errors);
-        return isValid;
+        const {is_valid, errors} = validateForm(firstName, lastName, email, phone, subject, message);
+        setErrors({ ...errors });
+        return is_valid;
     };
 
     const handleSubmit = async (e : FormEvent<HTMLFormElement>) => {
@@ -96,6 +77,12 @@ export const ContactFormSection = () => {
                 <div className="mt-2 bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
                     <p className="font-bold">Email has been succesfully sent.</p>
                     <p className="text-sm">Thanks for contacting me, Ill back to you soon.</p>
+                    <div className="flex justify-end py-4">
+                        <button type="submit" onClick={(e) => goBackForm()}
+                                className="bg-secondary-color text-indigo-100  hover:bg-indigo-800 font-bold py-2 px-4 rounded inline-flex items-center">
+                            Go back
+                        </button>
+                    </div>
                 </div>
             ) : (
                 <div>
