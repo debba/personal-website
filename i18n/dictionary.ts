@@ -1,4 +1,6 @@
-export const DICTIONARY = {
+export const DICTIONARY: Record<string, {
+    [key: string]: string
+}> = {
     en: {
         menu_aboutme: 'About me',
         menu_services: 'Services',
@@ -17,7 +19,21 @@ export const DICTIONARY = {
         service_tools_title: 'Tools',
         service_tools_desc: 'By now to develop on the Web these tools are needed and so I don\'t miss them.',
         section_portfolio: 'Portfolio',
-        section_portfolio_desc: 'A few customers who chose me.'
+        section_portfolio_desc: 'A few customers who chose me.',
+        section_contactme: 'Contact me',
+        section_contactme_firstname: 'First name',
+        section_contactme_lastname: 'Last name',
+        section_contactme_email: 'Email',
+        section_contactme_phone: 'Phone',
+        section_contactme_subject: 'Subject',
+        section_contactme_message: 'Message',
+        section_contactme_maxchars: 'Max. 500 characters',
+        section_contactme_optional: 'Optional',
+        section_contactme_submit: 'Submit',
+        section_contactme_sending: 'Sending...',
+        section_contactme_goback: 'Go back',
+        section_contactme_emailsent: 'Email has been succesfully sent.',
+        section_contactme_emailsent_desc: 'Thanks for contacting me, Ill back to you soon.',
     },
     it: {
         menu_aboutme: 'Chi sono',
@@ -38,6 +54,20 @@ export const DICTIONARY = {
         service_tools_title: 'Strumenti',
         service_tools_desc: 'Ci sono strumenti che ormai sono essenziali per sviluppare nel web, per questo motivo questi non me li faccio mancare.',
         section_portfolio: 'Portfolio',
-        section_portfolio_desc: 'Qualche azienda che si è rivolta a me.'
+        section_portfolio_desc: 'Qualche azienda che si è rivolta a me.',
+        section_contactme: 'Contattami',
+        section_contactme_firstname: 'Nome',
+        section_contactme_lastname: 'Cognome',
+        section_contactme_email: 'Email',
+        section_contactme_phone: 'Telefono',
+        section_contactme_subject: 'Oggetto',
+        section_contactme_message: 'Messaggio',
+        section_contactme_maxchars: 'Massimo 500 caratteri',
+        section_contactme_optional: 'Opzionale',
+        section_contactme_submit: 'Invia',
+        section_contactme_sending: 'Invio in corso...',
+        section_contactme_goback: 'Torna indietro',
+        section_contactme_emailsent: 'L\'email è stata inviata con successo.',
+        section_contactme_emailsent_desc: 'Grazie per avermi contattato, cercherò di risponderti il prima possibile.',
     }
 }
