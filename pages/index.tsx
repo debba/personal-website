@@ -4,6 +4,7 @@ import ServicesSection from "../components/sections/services";
 import fs from 'fs';
 import {DataProps} from "../interfaces/props";
 import {ContactFormSection} from "../components/sections/contact";
+import PortfolioSection from "../components/sections/portfolio";
 
 
 export async function getStaticProps() {
@@ -25,6 +26,7 @@ const Home: NextPage<DataProps> = ({services} ) => {
         <>
             <AboutSection/>
             <ServicesSection services={services}/>
+            <PortfolioSection />
             <ContactFormSection />
         </>
     )

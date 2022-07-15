@@ -31,6 +31,12 @@ export const Header = () => {
                             SERVICES
                         </a>
                     </Link>
+                    <Link href="/#portfolio">
+                        <a className="font-roboto font-semibold block mt-4 lg:inline-block lg:mt-0 text-white
+                            hover:text-secondary-color mr-4">
+                            PORTFOLIO
+                        </a>
+                    </Link>
                     <Link href="/#contact">
                         <a
                             className="font-roboto font-semibold  block mt-4 lg:inline-block lg:mt-0 text-white hover:text-secondary-color">
