@@ -17,8 +17,10 @@ const getCustomersLogo = () => {
 
 
     const files = fs.readdirSync(process.cwd() + '/public/images/customers');
-    return files.filter(el => path.extname(el) === '.jpg').sort((a, b) => {
-        return a.localeCompare(b);
+    return files
+        .filter(el => path.extname(el) === '.jpg')
+        .sort((a, b) => {
+        return parseInt(a, 10) - parseInt(b, 10);
     });
 }
 
