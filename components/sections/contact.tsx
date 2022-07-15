@@ -77,7 +77,7 @@ export const ContactFormSection = () => {
     };
 
     return (
-        <section id="contact" className="py-3 md:py-[100px]">
+        <section id="contacts" className="py-3 md:py-[100px]">
             <h2 className="font-roboto text-secondary-color text-center font-extralight uppercase text-3xl md:text-5xl text-white mb-4 leading-normal break-words tracking-tight">
                 {t('section_contactme') as string}
             </h2>

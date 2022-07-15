@@ -2,19 +2,19 @@ import {MenuItem} from "../interfaces/data";
 
 export const MENU : MenuItem[] = [
     {
-        link: '/#/aboutme',
+        link: '/#about',
         i18n: 'menu_aboutme'
     },
     {
-        link: '/#/services',
+        link: '/#services',
         i18n: 'menu_services'
     },
     {
-        link: '/#/portfolio',
+        link: '/#portfolio',
         i18n: 'menu_portfolio'
     },
     {
-        link: '/#/contacts',
+        link: '/#contacts',
         i18n: 'menu_contacts'
     }
 ]

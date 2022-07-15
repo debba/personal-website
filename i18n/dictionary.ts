@@ -34,6 +34,7 @@ export const DICTIONARY: Record<string, {
         section_contactme_goback: 'Go back',
         section_contactme_emailsent: 'Email has been succesfully sent.',
         section_contactme_emailsent_desc: 'Thanks for contacting me, Ill back to you soon.',
+        footer_socialnetwork_connect: 'Get connected with me on social networks:'
     },
     it: {
         menu_aboutme: 'Chi sono',
@@ -69,5 +70,6 @@ export const DICTIONARY: Record<string, {
         section_contactme_goback: 'Torna indietro',
         section_contactme_emailsent: 'L\'email è stata inviata con successo.',
         section_contactme_emailsent_desc: 'Grazie per avermi contattato, cercherò di risponderti il prima possibile.',
+        footer_socialnetwork_connect: 'Collegati con me sui social:'
     }
 }

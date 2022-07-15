@@ -1,7 +1,10 @@
 import Logo from "./logo";
 import Script from "next/script";
+import {useG11n} from "next-g11n";
+import {DICTIONARY} from "../i18n/dictionary";
 
 export const Footer = () => {
+    const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
 
     return (
         <>
@@ -9,7 +12,9 @@ export const Footer = () => {
                 <div
                     className="flex justify-center items-center lg:justify-between p-6 border-b border-t border-gray-300">
                     <div className="mr-12 hidden lg:block">
-                        <span className="pl-6 font-roboto text-sm font-semibold">Get connected with me on social networks:</span>
+                        <span className="pl-6 font-roboto text-sm font-semibold">
+                            {t('footer_socialnetwork_connect') as string}
+                        </span>
                     </div>
                     <div className="flex justify-center">
                         <a href="https://it-it.facebook.com/debba20" target="_blank" rel="noreferrer" className="mr-6 text-gray-400 hover:text-secondary-color">
