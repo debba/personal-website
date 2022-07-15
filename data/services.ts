@@ -2,8 +2,8 @@ import {ServiceItem} from "../interfaces/data";
 
 export const SERVICES : ServiceItem[] = [
   {
-    "name": "Frontend Development",
-    "description": "In recent years, I built strong skills in Single Page Application development, mainly with Angular and React. I continue to use JQuery for legacy projects or contexts where it is required (e.g. WordPress).",
+    "name": "service_frontend_development_title",
+    "description": "service_frontend_development_desc",
     "skills": [
       "React.JS",
       "Angular",
@@ -13,8 +13,8 @@ export const SERVICES : ServiceItem[] = [
     ]
   },
   {
-    "name": "Backend Development",
-    "description": "I started my working career as a PHP developer and still actively work on it, but I prefer something else. For example, I love Python.️",
+    "name": "service_backend_development_title",
+    "description": "service_backend_development_desc",
     "skills": [
       "PHP",
       "MySQL",
@@ -26,8 +26,8 @@ export const SERVICES : ServiceItem[] = [
     ]
   },
   {
-    "name": "Ecommerce / CMS Development",
-    "description": "In the past I have worked a lot with CMS and Ecommerce platforms. I have developed solutions for small and large companies.",
+    "name": "service_ecommerce_development_title",
+    "description": "service_ecommerce_development_desc",
     "skills": [
       "WordPress",
       "WooCommerce",
@@ -36,8 +36,8 @@ export const SERVICES : ServiceItem[] = [
     ]
   },
   {
-    "name": "Tools",
-    "description": "By now to develop on the Web these tools are needed and so I don't miss them.",
+    "name": "service_tools_title",
+    "description": "service_tools_desc",
     "skills": [
       "Webpack",
       "Yarn",
