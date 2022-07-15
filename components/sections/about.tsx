@@ -3,12 +3,12 @@ import Image from "next/image";
 export const AboutSection = () => {
     return (
         <section id="about" className="my-3 md:my-[100px]">
-            <div className="grid lg:grid-cols-2 gap-4 flex items-start">
-                <div className="mt-12 lg:mt-0 text-center">
+            <div className="grid lg:grid-cols-2 gap-4 flex items-center">
+                <div className="text-center">
                     <Image className={"object-none object-center"} loading="lazy" src={"/images/me.jpg"}
                            alt="Andrea" width="450px" height="450px"/>
                 </div>
-                <div className="mb-12 lg:mb-0 py-8">
+                <div className="lg:mb-0">
                     <div className="md:w-1/2">
                         <h1 className={"font-roboto text-secondary-color font-extralight uppercase text-3xl md:text-5xl text-white mb-4 leading-normal break-words tracking-tight"}>
                             Andrea Debernardi
