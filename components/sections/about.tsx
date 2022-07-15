@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const AboutSection = () => {
     return (
-        <section id="about" className="my-3 md:my-[100px]">
+        <section id="about" className="py-3 md:py-[100px]">
             <div className="grid lg:grid-cols-2 gap-4 flex items-center">
                 <div className="mt-12 lg:mt-0 text-center">
                     <Image loading="lazy" src={"/images/me.jpg"}

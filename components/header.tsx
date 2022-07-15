@@ -6,7 +6,7 @@ export const Header = () => {
     const [isNavOpen, setIsNavOpen] = useState(false);
 
     return (
-        <nav className="flex fixed w-full items-center justify-between z-10 flex-wrap bg-extra-dark p-6">
+        <nav className="flex fixed w-full items-center justify-between z-10 flex-wrap bg-extra-dark p-6 md:p-4">
             <Logo/>
             <div className={"block lg:hidden"}>
                 <button onClick={() => setIsNavOpen((prev) => !prev)}
