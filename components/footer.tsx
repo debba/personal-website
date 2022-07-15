@@ -94,7 +94,7 @@ export const Footer = () => {
                                 </p>
                             </div>
                         </div>
-                        <div>
+                        <div className="pl-3 md:pl-0">
                             <div className="flex items-center flex-shrink-0 text-white mb-3">
                             <span className="font-roboto text-lg uppercase tracking-tight leading-[54px]">
                                 Keep in touch.
