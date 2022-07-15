@@ -17,7 +17,8 @@ export const Footer = () => {
                         </span>
                     </div>
                     <div className="flex justify-center">
-                        <a href="https://it-it.facebook.com/debba20" target="_blank" rel="noreferrer" className="mr-6 text-gray-400 hover:text-secondary-color">
+                        <a href="https://it-it.facebook.com/debba20" target="_blank" rel="noreferrer"
+                           className="mr-6 text-gray-400 hover:text-secondary-color">
                             <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f"
                                  className="w-2.5" role="img" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 320 512">
@@ -26,7 +27,8 @@ export const Footer = () => {
                                 </path>
                             </svg>
                         </a>
-                        <a href="https://www.instagram.com/debba_92/" target="_blank" rel="noreferrer" className="mr-6 text-gray-400 hover:text-secondary-color">
+                        <a href="https://www.instagram.com/debba_92/" target="_blank" rel="noreferrer"
+                           className="mr-6 text-gray-400 hover:text-secondary-color">
                             <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram"
                                  className="w-3.5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                 <path fill="currentColor"
@@ -34,7 +36,8 @@ export const Footer = () => {
                                 </path>
                             </svg>
                         </a>
-                        <a href="https://it.linkedin.com/in/andrea-debernardi" target="_blank" rel="noreferrer" className="mr-6 text-gray-400 hover:text-secondary-color">
+                        <a href="https://it.linkedin.com/in/andrea-debernardi" target="_blank" rel="noreferrer"
+                           className="mr-6 text-gray-400 hover:text-secondary-color">
                             <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin-in"
                                  className="w-3.5" role="img" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 448 512">
@@ -43,7 +46,8 @@ export const Footer = () => {
                                 </path>
                             </svg>
                         </a>
-                        <a href="https://github.com/debba" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-secondary-color">
+                        <a href="https://github.com/debba" target="_blank" rel="noreferrer"
+                           className="text-gray-400 hover:text-secondary-color">
                             <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github"
                                  className="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
                                 <path fill="currentColor"
@@ -59,12 +63,12 @@ export const Footer = () => {
                             <Logo/>
                             <div className="pl-[18px]">
                                 <p className="flex items-center justify-start mb-4 text-sm">
-                                    <svg xmlns="http://www.w3.org/2000/svg"  className="w-4 mr-4"  fill="none"
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 mr-4" fill="none"
                                          viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                         <path strokeLinecap="round" strokeLinejoin="round" focusable="false"
                                               d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                                     </svg>
-                                    DEBBAWEB di Debernardi Andrea <br />
+                                    DEBBAWEB di Debernardi Andrea <br/>
                                     VAT number: 01719480095
                                 </p>
                                 <p className="flex items-center justify-start mb-4 text-sm">
@@ -102,7 +106,7 @@ export const Footer = () => {
                         <div className="pl-3 md:pl-0">
                             <div className="flex items-center flex-shrink-0 text-white mb-3">
                             <span className="font-roboto text-lg uppercase tracking-tight leading-[54px]">
-                                Keep in touch.
+                                {t('footer_keep_in_touch') as string}
                             </span>
                             </div>
                             <form
@@ -111,7 +115,9 @@ export const Footer = () => {
                                 encType="multipart/form-data"
                             >
                                 <label className="block mb-6">
-                                    <span className="text-white text-sm">Email address:</span>
+                                    <span className="text-white text-sm">
+                                        {t('footer_newsletter_email') as string}
+                                    </span>
                                     <input
                                         id="field-1" name="field[-1]"
                                         type="email"
@@ -129,7 +135,7 @@ export const Footer = () => {
             focus:ring-indigo-200
             focus:ring-opacity-50
           "
-                                        placeholder="Please provide your email"
+                                        placeholder={t('footer_newsletter_email_placeholder') as string}
                                     />
                                 </label>
 
@@ -143,7 +149,7 @@ export const Footer = () => {
                                         className="bg-secondary-color text-indigo-100  hover:bg-indigo-800 font-bold py-2 px-4 rounded inline-flex items-center"
                                     >
                                         <span>
-                                        Subscribe
+                                        {t('footer_newsletter_email_subscribe') as string}
                                             </span>
                                     </button>
                                 </div>
