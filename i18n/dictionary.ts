@@ -35,7 +35,7 @@ export const DICTIONARY: Record<string, {
         section_contactme_emailsent: 'Email has been succesfully sent.',
         section_contactme_emailsent_desc: 'Thanks for contacting me, Ill back to you soon.',
         footer_socialnetwork_connect: 'Get connected with me on social networks:',
-        footer_keep_in_touch: 'Keep in touch',
+        footer_keep_in_touch: 'Keep in touch.',
         footer_newsletter_email: 'Email address:',
         footer_newsletter_email_placeholder: 'Please provide your email',
         footer_newsletter_email_subscribe: 'Subcribe'
@@ -75,7 +75,7 @@ export const DICTIONARY: Record<string, {
         section_contactme_emailsent: 'L\'email è stata inviata con successo.',
         section_contactme_emailsent_desc: 'Grazie per avermi contattato, cercherò di risponderti il prima possibile.',
         footer_socialnetwork_connect: 'Collegati con me sui social:',
-        footer_keep_in_touch: 'Restiamo in contatto',
+        footer_keep_in_touch: 'Restiamo in contatto.',
         footer_newsletter_email: 'Indirizzo email:',
         footer_newsletter_email_placeholder: 'Fornisci il tuo indirizzo email',
         footer_newsletter_email_subscribe: 'Iscriviti'
