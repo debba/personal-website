@@ -1,7 +1,7 @@
-import {ServiceItem} from "../../interfaces/props";
 import React from "react";
 import ServiceBox from "./_services/box";
 import PortfolioCustomer from "./_portfolio/customer";
+import {ServiceItem} from "../../interfaces/data";
 
 export const PortfolioSection : React.FC<{ customersLogo: string[]  }> = ({customersLogo}) => {
     return (

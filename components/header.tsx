@@ -1,6 +1,7 @@
 import {useState} from "react";
 import Logo from "./logo";
-import Link from "next/link";
+import {MENU} from "../data/menu";
+import MenuItemSection from "./sections/_header/menu.item";
 
 export const Header = () => {
     const [isNavOpen, setIsNavOpen] = useState(false);
@@ -23,30 +24,9 @@ export const Header = () => {
             </div>
             <div className="w-full block lg:flex lg:items-center lg:w-auto">
                 <div className={!isNavOpen ? "hidden lg:block" : ''}>
-                    <Link href="/#about">
-                        <a
-                            className="font-roboto block font-semibold mt-4 lg:inline-block lg:mt-0 text-white hover:text-secondary-color mr-4">
-                            ABOUT ME
-                        </a>
-                    </Link>
-                    <Link href="/#services">
-                        <a className="font-roboto font-semibold block mt-4 lg:inline-block lg:mt-0 text-white
-                            hover:text-secondary-color mr-4">
-                            SERVICES
-                        </a>
-                    </Link>
-                    <Link href="/#portfolio">
-                        <a className="font-roboto font-semibold block mt-4 lg:inline-block lg:mt-0 text-white
-                            hover:text-secondary-color mr-4">
-                            PORTFOLIO
-                        </a>
-                    </Link>
-                    <Link href="/#contact">
-                        <a
-                            className="font-roboto font-semibold  block mt-4 lg:inline-block lg:mt-0 text-white hover:text-secondary-color">
-                            CONTACT
-                        </a>
-                    </Link>
+                    {
+                        MENU.map((menuItem, key) => <MenuItemSection menuItem={menuItem} key={key}/>)
+                    }
                 </div>
 
             </div>

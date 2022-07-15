@@ -1,4 +1,6 @@
-[
+import {ServiceItem} from "../interfaces/data";
+
+export const SERVICES : ServiceItem[] = [
   {
     "name": "Frontend Development",
     "description": "In recent years, I built strong skills in Single Page Application development, mainly with Angular and React. I continue to use JQuery for legacy projects or contexts where it is required (e.g. WordPress).",

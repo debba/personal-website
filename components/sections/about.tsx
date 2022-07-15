@@ -1,6 +1,10 @@
 import Image from "next/image";
+import {useG11n} from "next-g11n";
+import {DICTIONARY} from "../../i18n/dictionary";
 
 export const AboutSection = () => {
+    const { translate : t } = useG11n<typeof DICTIONARY>(DICTIONARY, false)
+
     return (
         <section id="about" className="py-3 md:py-[100px]">
             <div className="grid lg:grid-cols-2 gap-4 flex items-center">
@@ -15,9 +19,7 @@ export const AboutSection = () => {
                         </h1>
                     </div>
                     <h2 className="font-roboto text-normal uppercase text-xl">Full stack web developer</h2>
-                    <p className="mt-5 font-roboto font-semibold text-sm">After taking my first steps into the MS-DOS environment thanks to dad’s help, I soon started to explore the world of colours and windows. Driven by an unquenchable curiosity, I quickly learned all the things that now – together with some more knowledge and maturity – represent my profession.
-                        But in this field knowledge is never enough, and there is no limit to my curiosity: therefore, I always keep my skills up to date and continuously look for new and more efficient tools.
-                        I like to engage in new challenges, I hate to waste time and I love traveling, music, movies and quality food.</p>
+                    <p className="mt-5 font-roboto font-semibold text-sm">{ t('about_claim') as string }</p>
                 </div>
             </div>
         </section>

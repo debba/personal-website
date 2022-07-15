@@ -2,16 +2,12 @@ import type {NextPage} from 'next'
 import AboutSection from "../components/sections/about";
 import ServicesSection from "../components/sections/services";
 import fs from 'fs';
-import {DataProps, ServiceItem} from "../interfaces/props";
+import {DataProps} from "../interfaces/props";
 import {ContactFormSection} from "../components/sections/contact";
 import PortfolioSection from "../components/sections/portfolio";
 import path from "path";
-
-
-const getServices = () => {
-    const data = fs.readFileSync(process.cwd() + '/data/services.json', 'utf8');
-    return JSON.parse(data) as ServiceItem[];
-}
+import {ServiceItem} from "../interfaces/data";
+import {SERVICES} from "../data/services";
 
 const getCustomersLogo = () => {
     return fs.readdirSync(process.cwd() + '/public/images/customers')
@@ -23,7 +19,7 @@ export async function getStaticProps() {
 
     return {
         props: {
-            services: getServices(),
+            services: SERVICES,
             customersLogo : getCustomersLogo()
         }
     }
@@ -32,7 +28,6 @@ export async function getStaticProps() {
 
 
 const Home: NextPage<DataProps> = ({services, customersLogo} ) => {
-    console.log({customersLogo});
     return (
         <>
             <AboutSection/>

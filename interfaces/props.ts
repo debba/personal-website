@@ -1,8 +1,4 @@
-export interface ServiceItem {
-    name: string;
-    description: string;
-    skills: string[];
-}
+import {ServiceItem} from "./data";
 
 export interface DataProps {
     services: ServiceItem[];

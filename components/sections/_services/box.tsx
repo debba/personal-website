@@ -1,6 +1,6 @@
 import React from "react";
-import {ServiceItem} from "../../../interfaces/props";
 import ServiceBoxSkill from "./skill";
+import {ServiceItem} from "../../../interfaces/data";
 
 export const ServiceBox : React.FC<{ service: ServiceItem}> = ({service}) => {
     return (
