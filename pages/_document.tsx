@@ -12,6 +12,7 @@ class MyDocument extends Document {
 
                 </Head>
                 <body className="bg-semi-dark">
+                <pre>${JSON.stringify(process.env)}</pre>
                 <Main />
                 <NextScript />
                 {
