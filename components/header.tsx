@@ -2,6 +2,7 @@ import {useState} from "react";
 import Logo from "./logo";
 import {MENU} from "../data/menu";
 import MenuItemSection from "./sections/_header/menu.item";
+import LanguagePicker from "./sections/_header/language.picker";
 
 export const Header = () => {
     const [isNavOpen, setIsNavOpen] = useState(false);
@@ -27,6 +28,7 @@ export const Header = () => {
                     {
                         MENU.map((menuItem, key) => <MenuItemSection menuItem={menuItem} key={key}/>)
                     }
+                    <LanguagePicker />
                 </div>
 
             </div>

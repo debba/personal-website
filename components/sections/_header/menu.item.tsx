@@ -4,7 +4,7 @@ import {MenuItem} from "../../../interfaces/data";
 import {useG11n} from "next-g11n";
 import {DICTIONARY} from "../../../i18n/dictionary";
 
-export const MenuItemSection : React.FC<{ menuItem: MenuItem}> = ({menuItem}) => {
+const MenuItemSection : React.FC<{ menuItem: MenuItem}> = ({menuItem}) => {
 
     const { translate : t } = useG11n<typeof DICTIONARY>(DICTIONARY, true);
     const menuItemTitle = menuItem['i18n'] as 'menu_aboutme' ;

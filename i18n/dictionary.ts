@@ -3,6 +3,7 @@ export const DICTIONARY: Record<string, {
 }> = {
     en: {
         site_title: 'Andrea Debernardi | Full stack web developer in Genoa. PHP, Python, Node JS, Angular ans so much more.',
+        menu_languagepicker_label: 'Language: ',
         menu_aboutme: 'About me',
         menu_services: 'Services',
         menu_portfolio: 'Portfolio',
@@ -44,6 +45,7 @@ export const DICTIONARY: Record<string, {
     },
     it: {
         site_title: 'Andrea Debernardi | Full stack web developer a Genova. PHP, Python, Node JS, Angular e tanto altro ancora.',
+        menu_languagepicker_label: 'Lingua: ',
         menu_aboutme: 'Chi sono',
         menu_contacts: 'Contatti',
         menu_services: 'Competenze',

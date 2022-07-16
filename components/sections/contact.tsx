@@ -1,4 +1,4 @@
-import React, {FormEvent, FormEventHandler, useState} from 'react';
+import React, {FormEvent, useState} from 'react';
 import {validateForm} from "../../helpers/validate.form";
 import {useG11n} from "next-g11n";
 import {DICTIONARY} from "../../i18n/dictionary";
