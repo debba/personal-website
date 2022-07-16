@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type {NextApiRequest, NextApiResponse} from 'next'
 import * as nodemailer from "nodemailer";
 import {validateForm} from "../../helpers/validate.form";
 
@@ -20,11 +20,14 @@ export default function handler(
             secure: true,
         });
 
-        if (process.env.NODE_ENV === "development"){
+        if (process.env.NODE_ENV === "development") {
             res.status(200).json({messageId: 'dummy', type: 'testing_purpose'})
         } else {
 
-            const {is_valid, errors} = validateForm(req.body.firstName, req.body.lastName, req.body.email, req.body.phone, req.body.subject, req.body.message);
+            const {
+                is_valid,
+                errors
+            } = validateForm(req.body.firstName, req.body.lastName, req.body.email, req.body.phone, req.body.subject, req.body.message);
 
             if (is_valid) {
 
@@ -51,8 +54,8 @@ export default function handler(
 
         }
 
+    } else {
+        res.status(404).json({message: "Not found"};
     }
-
-    res.status(404).json({message: "Not found"})
 
 }
