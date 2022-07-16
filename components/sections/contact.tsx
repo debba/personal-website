@@ -10,6 +10,7 @@ export const ContactFormSection = () => {
     const sendingButtonText = t('section_contactme_sending') as string;
     const submitButtonText = t('section_contactme_submit') as string;
 
+    const [formSending, setFormSending] = useState<'ready' | 'pending'>('ready');
 
     const [firstName, setFirstName] = useState<string>('');
     const [lastName, setLastName] = useState<string>('');
@@ -44,6 +45,8 @@ export const ContactFormSection = () => {
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
+        setFormSending('pending');
+
         let isValidForm = handleValidation();
 
         if (isValidForm) {
@@ -68,12 +71,13 @@ export const ContactFormSection = () => {
                 setShowSuccessMessage(false);
                 setShowFailureMessage(true);
                 setButtonText(submitButtonText);
-                return;
+            } else {
+                setShowSuccessMessage(true);
+                setShowFailureMessage(false);
+                setButtonText(submitButtonText);
             }
-            setShowSuccessMessage(true);
-            setShowFailureMessage(false);
-            setButtonText(submitButtonText);
         }
+        setFormSending('ready');
     };
 
     return (
@@ -167,7 +171,7 @@ export const ContactFormSection = () => {
                                 </div>
                             </div>
                             <div className="flex justify-end py-4">
-                                <button type="submit"
+                                <button disabled={formSending === 'pending'} type="submit"
                                         className="bg-secondary-color text-indigo-100  hover:bg-indigo-800 font-bold py-2 px-4 rounded inline-flex items-center">
                                     {buttonText}
                                 </button>
