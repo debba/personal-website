@@ -6,8 +6,10 @@ import {DataProps} from "../interfaces/props";
 import {ContactFormSection} from "../components/sections/contact";
 import PortfolioSection from "../components/sections/portfolio";
 import path from "path";
-import {ServiceItem} from "../interfaces/data";
 import {SERVICES} from "../data/services";
+import Head from "next/head";
+import {useG11n} from "next-g11n";
+import {DICTIONARY} from "../i18n/dictionary";
 
 const getCustomersLogo = () => {
     return fs.readdirSync(process.cwd() + '/public/images/customers')
@@ -28,8 +30,13 @@ export async function getStaticProps() {
 
 
 const Home: NextPage<DataProps> = ({services, customersLogo} ) => {
+    const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
     return (
         <>
+            <Head>
+                <title>{t('site_title') as string}</title>
+                <meta property="og:title" content={t('site_title') as string} />
+            </Head>
             <AboutSection/>
             <ServicesSection services={services}/>
             <PortfolioSection customersLogo={customersLogo} />

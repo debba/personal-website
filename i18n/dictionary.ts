@@ -43,7 +43,7 @@ export const DICTIONARY: Record<string, {
         footer_project_opensource: 'This project is open source.'
     },
     it: {
-        site_tile: 'Andrea Debernardi | Full stack web developer a Genova. PHP, Python, Node JS, Angular e tanto altro ancora.',
+        site_title: 'Andrea Debernardi | Full stack web developer a Genova. PHP, Python, Node JS, Angular e tanto altro ancora.',
         menu_aboutme: 'Chi sono',
         menu_contacts: 'Contatti',
         menu_services: 'Competenze',
