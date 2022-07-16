@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Script from "next/script";
 
 class MyDocument extends Document {
     render() {
@@ -15,7 +16,10 @@ class MyDocument extends Document {
                 </Head>
                 <body className="bg-semi-dark">
                 <Main />
+
                 <NextScript />
+                <Script strategy="beforeInteractive"
+                        src="https://app.emailchef.com/signup/form.js/7o22666s726q5s6964223n2234353634227q/en/api"/>
                 {
                     process.env.NODE_ENV === 'production' && matomoUrl && (
                         <script dangerouslySetInnerHTML={{

@@ -158,12 +158,13 @@ export const Footer = () => {
                     </div>
                 </div>
                 <div className="text-center p-6 text-xs text-light-grey">
-                    <span>© 2022 Copyright:</span>
-                    <a className="pl-1 font-semibold" href="#">Andrea Debernardi</a>
+                    <p><span>© 2022 Copyright:</span>
+                        <a className="pl-1 font-semibold" href="#">Andrea Debernardi</a></p>
+                    <p>{t('footer_project_opensource') as string} ❤ ️| <a
+                        href="https://github.com/debba/personal-website" target="_blank" rel="noreferrer">Github Repo</a>
+                    </p>
                 </div>
             </footer>
-            <Script strategy="beforeInteractive"
-                    src="https://app.emailchef.com/signup/form.js/7o22666s726q5s6964223n2234353634227q/en/api"/>
             <Script strategy="lazyOnload"
                     src="https://www.google.com/recaptcha/api.js?onload=renderRecaptcha&render=explicit"/>
         </>

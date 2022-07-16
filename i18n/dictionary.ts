@@ -2,6 +2,7 @@ export const DICTIONARY: Record<string, {
     [key: string]: string
 }> = {
     en: {
+        site_title: 'Andrea Debernardi | Full stack web developer in Genoa. PHP, Python, Node JS, Angular ans so much more.',
         menu_aboutme: 'About me',
         menu_services: 'Services',
         menu_portfolio: 'Portfolio',
@@ -38,9 +39,11 @@ export const DICTIONARY: Record<string, {
         footer_keep_in_touch: 'Keep in touch.',
         footer_newsletter_email: 'Email address:',
         footer_newsletter_email_placeholder: 'Please provide your email',
-        footer_newsletter_email_subscribe: 'Subcribe'
+        footer_newsletter_email_subscribe: 'Subcribe',
+        footer_project_opensource: 'This project is open source.'
     },
     it: {
+        site_tile: 'Andrea Debernardi | Full stack web developer a Genova. PHP, Python, Node JS, Angular e tanto altro ancora.',
         menu_aboutme: 'Chi sono',
         menu_contacts: 'Contatti',
         menu_services: 'Competenze',
@@ -78,6 +81,7 @@ export const DICTIONARY: Record<string, {
         footer_keep_in_touch: 'Restiamo in contatto.',
         footer_newsletter_email: 'Indirizzo email:',
         footer_newsletter_email_placeholder: 'Fornisci il tuo indirizzo email',
-        footer_newsletter_email_subscribe: 'Iscriviti'
+        footer_newsletter_email_subscribe: 'Iscriviti',
+        footer_project_opensource: 'Questo progetto è open source.'
     }
 }
