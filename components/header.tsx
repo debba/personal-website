@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import Logo from "./logo";
 import {MENU} from "../data/menu";
 import MenuItemSection from "./sections/_header/menu.item";
@@ -7,9 +7,29 @@ import LanguagePicker from "./sections/_header/language.picker";
 export const Header = () => {
     const [isNavOpen, setIsNavOpen] = useState(false);
 
+    const closeNav = () => setIsNavOpen(false);
+
+    const navRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() =>{
+        if (!isNavOpen) return;
+        function handleClick(event: MouseEvent) {
+
+            const target = event.target as HTMLDivElement;
+
+            if (navRef.current && !navRef.current.contains(target) ) {
+                closeNav();
+            }
+
+        }
+        window.addEventListener("click", handleClick);
+
+        return () => window.removeEventListener("click", handleClick);
+    }, [isNavOpen]);
+
     return (
-        <nav className="flex fixed w-full items-center justify-between z-10 flex-wrap bg-extra-dark p-4">
-            <Logo/>
+        <nav ref={navRef} className="flex fixed w-full items-center justify-between z-10 flex-wrap bg-extra-dark p-4">
+            <Logo onClick={() => closeNav()}/>
             <div className={"block lg:hidden"}>
                 <button onClick={() => setIsNavOpen((prev) => !prev)}
                         className="flex items-center px-3 py-2 border rounded text-secondary-color border-secondary-color hover:text-white hover:border-white">
@@ -26,9 +46,9 @@ export const Header = () => {
             <div className="w-full block lg:flex lg:items-center lg:w-auto">
                 <div className={!isNavOpen ? "hidden lg:block" : ''}>
                     {
-                        MENU.map((menuItem, key) => <MenuItemSection menuItem={menuItem} key={key}/>)
+                        MENU.map((menuItem, key) => <MenuItemSection menuItem={menuItem} menuItemSelection={() => closeNav()} key={key}/>)
                     }
-                    <LanguagePicker />
+                    <LanguagePicker onCloseLanguagePicker={() => closeNav() } />
                 </div>
 
             </div>

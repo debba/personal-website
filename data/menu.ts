@@ -10,6 +10,10 @@ export const MENU : MenuItem[] = [
         i18n: 'menu_services'
     },
     {
+        link: '/#projects',
+        i18n: 'menu_projects'
+    },
+    {
         link: '/#portfolio',
         i18n: 'menu_portfolio'
     },

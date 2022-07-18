@@ -8,6 +8,7 @@ export const DICTIONARY: Record<string, {
         lang_it_label: "Italian",
         menu_aboutme: 'About me',
         menu_services: 'Services',
+        menu_projects: 'Projects',
         menu_portfolio: 'Portfolio',
         menu_contacts: 'Contacts',
         about_claim: 'After taking my first steps into the MS-DOS environment thanks to dad’s help, I soon started to explore the world of colours and windows. Driven by an unquenchable curiosity, I quickly learned all the things that now – together with some more knowledge and maturity – represent my profession.\n' +
@@ -24,6 +25,7 @@ export const DICTIONARY: Record<string, {
         service_tools_desc: 'By now to develop on the Web these tools are needed and so I don\'t miss them.',
         section_portfolio: 'Portfolio',
         section_portfolio_desc: 'A few customers who chose me.',
+        section_projects: 'Projects',
         section_contactme: 'Contact me',
         section_contactme_firstname: 'First name',
         section_contactme_lastname: 'Last name',
@@ -53,6 +55,7 @@ export const DICTIONARY: Record<string, {
         menu_aboutme: 'Chi sono',
         menu_contacts: 'Contatti',
         menu_services: 'Competenze',
+        menu_projects: 'Progetti',
         menu_portfolio: 'Portfolio',
         about_claim: 'Dopo aver mosso i miei primissimi passi in ambiente MS-DOS grazie alle basi del papà, sono passato rapidamente al mondo dei colori e delle finestre.\n' +
             'Spinto da una continua curiosità ho imparato molto in fretta a fare tutto quello che adesso, con un pò di conoscenza in più, è diventata la mia professione.\n' +
@@ -69,6 +72,7 @@ export const DICTIONARY: Record<string, {
         service_tools_desc: 'Ci sono strumenti che ormai sono essenziali per sviluppare nel web, per questo motivo questi non me li faccio mancare.',
         section_portfolio: 'Portfolio',
         section_portfolio_desc: 'Qualche azienda che si è rivolta a me.',
+        section_projects: 'Progetti',
         section_contactme: 'Contattami',
         section_contactme_firstname: 'Nome',
         section_contactme_lastname: 'Cognome',

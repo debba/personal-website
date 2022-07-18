@@ -4,7 +4,7 @@ import {DICTIONARY} from "../../../i18n/dictionary";
 import {useRouter} from "next/router";
 import Link from "next/link";
 
-const LanguagePicker: React.FC<{}> = ({}) => {
+const LanguagePicker: React.FC<{onCloseLanguagePicker: Function}> = ({onCloseLanguagePicker}) => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
     const router = useRouter()
     const g11nLocale = getLocale(router);
@@ -26,12 +26,13 @@ const LanguagePicker: React.FC<{}> = ({}) => {
 
             if (languagePicker.current && !languagePicker.current.contains(target) || target.classList.contains('language-menu-item')) {
                 setIsLanguagePickerOpen(false);
+                onCloseLanguagePicker();
             }
         }
         window.addEventListener("click", handleClick);
 
         return () => window.removeEventListener("click", handleClick);
-    }, [isLanguagePickerOpen]);
+    }, [isLanguagePickerOpen, onCloseLanguagePicker]);
 
     return (
         <div className="md:relative md:inline-block text-left mt-4 md:mt-0"
