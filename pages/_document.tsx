@@ -4,6 +4,7 @@ import Script from "next/script";
 class MyDocument extends Document {
     render() {
         const matomoUrl = process.env.NEXT_PUBLIC_MATOMO_URL;
+        const cookieBotDomainId = process.env.NEXT_PUBLIC_COOKIEBOT_DOMAIN_ID;
 
         return (
             <Html className="scroll-smooth">
@@ -12,12 +13,20 @@ class MyDocument extends Document {
                     <title>Andrea Debernardi | Full stack web developer in Genoa. PHP, Python, Node JS, Angular ans so much more.</title>
                     <meta property="og:title" content="Full stack web developer in Genoa. PHP, Python, Node JS, Angular ans so much more." />
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                    {
+                        process.env.NODE_ENV === 'production' && cookieBotDomainId && (
+                            <Script data-blockingmode={"auto"} id="Cookiebot" src="https://consent.cookiebot.com/uc.js"
+                                    data-cbid={cookieBotDomainId} type="text/javascript"></Script>
+                        )
+                    }
 
                 </Head>
                 <body className="bg-semi-dark">
                 <Main />
 
                 <NextScript />
+
+
                 <Script strategy="beforeInteractive"
                         src="https://app.emailchef.com/signup/form.js/7o22666s726q5s6964223n2234353634227q/en/api"/>
                 {
@@ -28,7 +37,7 @@ class MyDocument extends Document {
                     _paq.push(['trackPageView']);
                     _paq.push(['enableLinkTracking']);
                     (function() {
-                    var u="//${process.env.NEXT_PUBLIC_MATOMO_URL}/";
+                    var u="//${matomoUrl}/";
                     _paq.push(['setTrackerUrl', u+'matomo.php']);
                     _paq.push(['setSiteId', '1']);
                     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
