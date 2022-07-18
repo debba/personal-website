@@ -1,20 +1,48 @@
-import React from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {getLocale, useG11n} from "next-g11n";
 import {DICTIONARY} from "../../../i18n/dictionary";
 import {useRouter} from "next/router";
+import Link from "next/link";
 
-const LanguagePicker : React.FC<{}> = ({}) => {
+const LanguagePicker: React.FC<{}> = ({}) => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
     const router = useRouter()
     const g11nLocale = getLocale(router);
+
+    const [isLanguagePickerOpen, setIsLanguagePickerOpen] = useState(false);
+
+    const flag: Record<string, string> = {
+        "en": "gb",
+        "it": "it"
+    };
+
+    const languagePicker = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (!isLanguagePickerOpen) return;
+        function handleClick(event: MouseEvent) {
+
+            const target = event.target as HTMLDivElement;
+
+            if (languagePicker.current && !languagePicker.current.contains(target) || target.classList.contains('language-menu-item')) {
+                setIsLanguagePickerOpen(false);
+            }
+        }
+        window.addEventListener("click", handleClick);
+
+        return () => window.removeEventListener("click", handleClick);
+    }, [isLanguagePickerOpen]);
+
     return (
-        <div className="relative inline-block text-left">
+        <div className="md:relative md:inline-block text-left mt-4 md:mt-0"
+             ref={languagePicker}>
             <div>
-                <button type="button"
-                        className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+                <button type="button" onClick={() => setIsLanguagePickerOpen((prev) => !prev)}
+                        className="inline-flex md:justify-center w-full rounded-md md:border md:border-secondary-color shadow-sm md:px-4 md:py-2 bg-semi-dark font-semibold font-roboto text-white uppercase md:focus:outline-none md:focus:ring-2 md:focus:ring-offset-2 md:focus:ring-offset-gray-100 md:focus:ring-indigo-500"
                         id="menu-button" aria-expanded="true" aria-haspopup="true">
-                    <p className={"xs:hidden sm:hidden md:inline-block"}>
-                        {t('menu_languagepicker_label') as string} <span className={"fi fi-"+g11nLocale}></span>
+                    <p>
+                        {t('menu_languagepicker_label') as string} <span
+                        className={"fi fi-" + flag[g11nLocale || 'en']}></span>
                     </p>
                     <svg className="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                          fill="currentColor" aria-hidden="true">
@@ -25,16 +53,31 @@ const LanguagePicker : React.FC<{}> = ({}) => {
                 </button>
             </div>
 
-            <div
-                className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
-                role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex={-1}>
-                <div className="py-1" role="none">
-                    <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex={-1}
-                       id="menu-item-0">Account settings</a>
-                    <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex={-1}
-                       id="menu-item-1">Support</a>
-                </div>
-            </div>
+            {
+                isLanguagePickerOpen && (
+                    <div
+                        className="md:origin-top-right md:absolute md:border md:border-secondary-color md:bg-semidark md:right-0 mt-2 md:w-56 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none font-semibold font-roboto text-white uppercase md:bg-semi-dark "
+                        role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex={-1}>
+                        <div className="py-1" role="none">
+
+                            {
+                                router.locales?.map(
+                                    (locale, key) => (
+                                        <Link key={key} href={"/"} locale={locale}>
+                                            <a className="block px-4 py-2 hover:bg-secondary-color language-menu-item" role="menuitem" tabIndex={-1}><span
+                                                className={"fi fi-" + flag[locale]}></span> {t(`lang_${locale}_label`) as string}
+                                            </a>
+                                        </Link>
+                                    )
+                                )
+                            }
+
+                        </div>
+                    </div>
+                )
+            }
+
+
         </div>
     )
 }

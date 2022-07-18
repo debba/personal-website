@@ -160,7 +160,7 @@ export const Footer = () => {
                 <div className="text-center p-6 text-xs text-light-grey">
                     <p><span>© 2022 Copyright:</span>
                         <a className="pl-1 font-semibold" href="#">Andrea Debernardi</a></p>
-                    <p>{t('footer_project_opensource') as string} ❤ ️| <a
+                    <p>{t('footer_project_opensource') as string} ❤ ️<a
                         href="https://github.com/debba/personal-website" target="_blank" rel="noreferrer">Github Repo</a>
                     </p>
                 </div>
