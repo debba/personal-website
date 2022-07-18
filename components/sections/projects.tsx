@@ -14,6 +14,10 @@ export const ProjectsSection : React.FC<{ }> = ({}) => {
                 { t('section_projects') as string }
             </h2>
 
+            <p className={"text-center text-white font-roboto"}>
+                Under construction
+            </p>
+
         </section>
     )
 }
