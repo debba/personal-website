@@ -10,6 +10,7 @@ import {SERVICES} from "../data/services";
 import Head from "next/head";
 import {useG11n} from "next-g11n";
 import {DICTIONARY} from "../i18n/dictionary";
+import ProjectsSection from "../components/sections/projects";
 
 const getCustomersLogo = () => {
     return fs.readdirSync(process.cwd() + '/public/images/customers')
@@ -39,6 +40,7 @@ const Home: NextPage<DataProps> = ({services, customersLogo} ) => {
             </Head>
             <AboutSection/>
             <ServicesSection services={services}/>
+            <ProjectsSection />
             <PortfolioSection customersLogo={customersLogo} />
             <ContactFormSection />
         </>
