@@ -15,7 +15,7 @@ class MyDocument extends Document {
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                     {
                         process.env.NODE_ENV === 'production' && cookieBotDomainId && (
-                            <Script strategy="beforeInteractive" data-blockingmode={"auto"} id="Cookiebot" src="https://consent.cookiebot.com/uc.js"
+                            <Script strategy="afterInteractive" data-blockingmode={"auto"} id="Cookiebot" src="https://consent.cookiebot.com/uc.js"
                                     data-cbid={cookieBotDomainId} type="text/javascript"></Script>
                         )
                     }
@@ -27,7 +27,7 @@ class MyDocument extends Document {
                 <NextScript />
 
 
-                <Script strategy="beforeInteractive"
+                <Script strategy="afterInteractive"
                         src="https://app.emailchef.com/signup/form.js/7o22666s726q5s6964223n2234353634227q/en/api"/>
                 {
                     process.env.NODE_ENV === 'production' && matomoUrl && (
