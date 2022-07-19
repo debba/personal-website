@@ -11,6 +11,7 @@ import Head from "next/head";
 import {useG11n} from "next-g11n";
 import {DICTIONARY} from "../i18n/dictionary";
 import ActivitiesSection from "../components/sections/activites";
+import {ACTIVITIES} from "../data/activities";
 
 const getCustomersLogo = () => {
     return fs.readdirSync(process.cwd() + '/public/images/customers')
@@ -23,6 +24,7 @@ export async function getStaticProps() {
     return {
         props: {
             services: SERVICES,
+            activities: ACTIVITIES,
             customersLogo : getCustomersLogo()
         }
     }
@@ -30,7 +32,7 @@ export async function getStaticProps() {
 
 
 
-const Home: NextPage<DataProps> = ({services, customersLogo} ) => {
+const Home: NextPage<DataProps> = ({services, customersLogo, activities} ) => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
     return (
         <>
@@ -40,7 +42,7 @@ const Home: NextPage<DataProps> = ({services, customersLogo} ) => {
             </Head>
             <AboutSection/>
             <ServicesSection services={services}/>
-            <ActivitiesSection />
+            <ActivitiesSection  activities={activities} />
             <PortfolioSection customersLogo={customersLogo} />
             <ContactFormSection />
         </>

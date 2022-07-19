@@ -1,10 +1,10 @@
 import React from "react";
 import {useG11n} from "next-g11n";
 import {DICTIONARY} from "../../i18n/dictionary";
-import {ACTIVITIES} from "../../data/activities";
 import ActivityBox from "./_activities/box";
+import {ActivityItem} from "../../interfaces/data";
 
-export const ActivitiesSection: React.FC<{}> = ({}) => {
+export const ActivitiesSection: React.FC<{ activities: ActivityItem[] }> = ({activities}) => {
 
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false)
 
@@ -22,7 +22,7 @@ export const ActivitiesSection: React.FC<{}> = ({}) => {
             <section className="grid lg:grid-cols-3 grid-cols-1 gap-10 mt-5 antialiased">
 
                 {
-                    ACTIVITIES
+                    activities
                         .map((activity, key) => (
                             <ActivityBox activity={activity} key={key}/>
                         ))
