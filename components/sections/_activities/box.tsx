@@ -21,7 +21,7 @@ export const ActivityBox : React.FC<{ activity: ActivityItem}> = ({activity}) =>
             {
                 activity.logo && (
                     <div className={"text-center mt-5"}>
-                        <Image src={activity.logo} alt={activity.name} width={90} height={90} />
+                        <Image loading={"lazy"} src={activity.logo} alt={activity.name} width={90} height={90} />
                     </div>
                 )
             }

@@ -15,7 +15,7 @@ class MyDocument extends Document {
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                     {
                         process.env.NODE_ENV === 'production' && cookieBotDomainId && (
-                            <Script data-blockingmode={"auto"} id="Cookiebot" src="https://consent.cookiebot.com/uc.js"
+                            <Script strategy="beforeInteractive" data-blockingmode={"auto"} id="Cookiebot" src="https://consent.cookiebot.com/uc.js"
                                     data-cbid={cookieBotDomainId} type="text/javascript"></Script>
                         )
                     }

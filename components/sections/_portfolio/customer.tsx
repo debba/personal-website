@@ -5,7 +5,7 @@ export const PortfolioCustomer : React.FC<{ customerName: string}> = ({customerN
     return (
 
         <div className="w-full lg:max-w-full lg:flex">
-            <Image src={ `/images/customers/${customerName}`} width={400} height={250} alt={customerName} />
+            <Image loading={"lazy"} src={ `/images/customers/${customerName}`} width={400} height={250} alt={customerName} />
         </div>
     )
 }
