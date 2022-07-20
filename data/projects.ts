@@ -50,5 +50,17 @@ export const PROJECTS: ProjectItem[] = [
                 '<li class="py-2"><strong>Lingue</strong>: questo plugin è disponibile in Italiano, Inglese e Spagnolo</li>\n' +
                 '</ol>'
         }
+    },
+    {
+        github_name: 'less2scss',
+        name: "Less2scss",
+        short_description: {
+            en: "Npm package for converting LESS files to SCSS.",
+            it: "Npm package for converting LESS files to SCSS."
+        },
+        description: {
+            en: '<p>You can provide an entire folder, this package will scan all less files whose find in subfolders and it\'ll create SCSS files in the same folder or in the new directory provided recreating the source hierarchy.</p>',
+            it: '<p>You can provide an entire folder, this package will scan all less files whose find in subfolders and it\'ll create SCSS files in the same folder or in the new directory provided recreating the source hierarchy.</p>',
+        }
     }
 ];
