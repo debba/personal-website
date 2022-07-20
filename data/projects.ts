@@ -56,11 +56,11 @@ export const PROJECTS: ProjectItem[] = [
         name: "Less2scss",
         short_description: {
             en: "Npm package for converting LESS files to SCSS.",
-            it: "Npm package for converting LESS files to SCSS."
+            it: "Pacchetto NPM per convertire i file LESS in SCSS."
         },
         description: {
             en: '<p>You can provide an entire folder, this package will scan all less files whose find in subfolders and it\'ll create SCSS files in the same folder or in the new directory provided recreating the source hierarchy.</p>',
-            it: '<p>You can provide an entire folder, this package will scan all less files whose find in subfolders and it\'ll create SCSS files in the same folder or in the new directory provided recreating the source hierarchy.</p>',
+            it: '<p>Puoi fornire un\'intera cartella, questo pacchetto scansionare tutti i files LESS (anche all\'interno delle sottocartelle) e genererà i files SCSS nella stessa cartella o in una nuova indicata ricreando la stessa gerarchia.</p>',
         }
     }
 ];
