@@ -21,5 +21,34 @@ export const PROJECTS: ProjectItem[] = [
                 '<p>Basta allegare il proprio certificato e immediatamente avviene la lettura dei dati dal QR Code.</p>\n' +
                 '<p>Nessun dato inviato viene salvato e dal momento che è open-source è possibile creare una propria istanza forkando il progetto di Github.</p>'
         }
+    },
+    {
+        github_name: 'wp-two-factor-authentication-with-telegram',
+        image: "/images/projects/wp-factor-login-telegram.png",
+        name: "WP Two Factor Authentication with Telegram",
+        short_description: {
+            en: "Enable Two-factor authentication for WordPress Login using Telegram",
+            it: "Abilita l’autenticazione a 2 fattori su WordPress utilizzando Telegram"
+        },
+        description: {
+            en: '<ol  class="list-outside hover:list-inside list-decimal">\n' +
+                '<li class="py-2"><strong>Easy Configuration</strong>: install plugin and setup in a few seconds.</li>\n' +
+                '<li class="py-2"><strong>Increase security</strong>: increase the level of security in your blog / website by adding and additional authentication factor</li>\n' +
+                '<li class="py-2"><strong>Speed</strong>: Forget additional apps, sms or captcha. Use Telegram for a very fast experience!</li>\n' +
+                '<li class="py-2"><strong>Allow users to enable Two-factor authentication</strong>: every user directly from own profile may decide to require secure login.</li>\n' +
+                '<li class="py-2"><strong>Send alert</strong>: set a Telegram Chat Id for an admin to receive  for receiving notifications every time users fail login.</li>\n' +
+                '<li class="py-2"><strong>FAQ</strong>: read the FAQ inside plugin for create your Telegram Bot</li>\n' +
+                '<li class="py-2"><strong>Languages</strong>: plugin is available in Italian, English and Spanish languages.</li>\n' +
+                '</ol>',
+            it: '<ol  class="list-outside hover:list-inside list-decimal">\n' +
+                '<li class="py-2"><strong>Facile Configurazione</strong>: installa il plugin e configuralo in pochi secondi.</li>\n' +
+                '<li class="py-2"><strong>Rafforza la sicurezza</strong>: aumenta il livello di sicurezza nel tuo blog / sito web aggiungendo un fattore di autenticazione in più</li>\n' +
+                '<li class="py-2"><strong>Velocità</strong>: Dimentica app addizionali, SMS o sistemi captcha. Usa Telegram per un’esperienza molto più veloce!</li>\n' +
+                '<li class="py-2"><strong>Permetti agli utenti di abilitare l’autenticazione a due fattori</strong>: ogni utente direttamente dal proprio profilo potrà decidere di richiedere un’autenticazione sicura.</li>\n' +
+                '<li class="py-2"><strong>Invio notifiche</strong>: imposta una Telegram Chat ID per un amministratore per riceve notifiche ogni volta che gli utenti falliscono il login.</li>\n' +
+                '<li class="py-2"><strong>FAQ</strong> consulta le FAQ all’interno del plugin per creare il tuo Bot su Telegram</li>\n' +
+                '<li class="py-2"><strong>Lingue</strong>: questo plugin è disponibile in Italiano, Inglese e Spagnolo</li>\n' +
+                '</ol>'
+        }
     }
 ];
