@@ -11,7 +11,7 @@ export const PortfolioSection : React.FC<{ customersLogo: string[]  }> = ({custo
 
     return (
         <section id="portfolio" className="py-3 md:py-[100px]">
-            <h2 className="font-roboto text-secondary-color text-center font-extralight uppercase text-3xl md:text-5xl text-white mb-4 leading-normal break-words tracking-tight">
+            <h2 className="font-roboto text-secondary-color text-center font-extralight uppercase text-3xl md:text-5xl mb-4 leading-normal break-words tracking-tight">
                 {t('section_portfolio') as string}
             </h2>
 

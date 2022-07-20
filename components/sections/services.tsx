@@ -10,7 +10,7 @@ export const ServicesSection : React.FC<{ services: ServiceItem[] }> = ({service
 
     return (
         <section id="services" className="py-3 md:py-[100px]">
-            <h2 className="font-roboto text-secondary-color text-center font-extralight uppercase text-3xl md:text-5xl text-white mb-4 leading-normal break-words tracking-tight">
+            <h2 className="font-roboto text-secondary-color text-center font-extralight uppercase text-3xl md:text-5xl mb-4 leading-normal break-words tracking-tight">
                 { t('section_services') as string }
             </h2>
 

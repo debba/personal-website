@@ -4,6 +4,15 @@ export interface ServiceItem {
     skills: string[];
 }
 
+export interface ProjectItem {
+    github_name: string;
+    localeBlacklist?: string[];
+    image?: string;
+    name: string;
+    description: string;
+    short_description: string;
+}
+
 export interface MenuItem {
     link: string;
     i18n: string;

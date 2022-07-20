@@ -14,7 +14,7 @@ export const AboutSection = () => {
                 </div>
                 <div className="mb-12 lg:mb-0 py-8">
                     <div className="md:w-1/2">
-                        <h1 className={"font-roboto text-secondary-color font-extralight uppercase text-3xl md:text-5xl text-white mb-4 leading-normal break-words tracking-tight"}>
+                        <h1 className={"font-roboto text-secondary-color font-extralight uppercase text-3xl md:text-5xl mb-4 leading-normal break-words tracking-tight"}>
                             Andrea Debernardi
                         </h1>
                     </div>

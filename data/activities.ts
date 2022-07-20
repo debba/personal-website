@@ -9,7 +9,7 @@ export const ACTIVITIES: ActivityItem[] = [
         bg_color: 'bg-[#28549e]',
         hover_button_bg_color: 'hover:bg-[#28549e]',
         link: 'https://www.dueclic.com',
-        logo: "/images/projects/dueclic_logo.svg"
+        logo: "/images/activities/dueclic_logo.svg"
     },
     {
         id: 'consultance',
