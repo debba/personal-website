@@ -61,7 +61,7 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
             <meta property="og:title" content={t('site_title_osp') as string+' - '+data.name} />
         </Head>
         <section id="project" className="py-3 md:py-[100px]">
-            <h2 className="font-roboto text-secondary-color text-center font-extralight uppercase text-3xl md:text-5xl mb-4 leading-normal break-words tracking-tight">
+            <h2 className="mt-[100px] md:mt-0 font-roboto text-secondary-color text-center font-extralight uppercase text-3xl md:text-5xl mb-4 leading-normal break-words tracking-tight">
                 {data.name}
             </h2>
 

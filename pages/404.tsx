@@ -2,8 +2,8 @@
 import Link from 'next/link'
 
 export default function FourOhFourd() {
-    return <div  className="my-1 md:my-[100px]">
-        <h1 className="font-roboto text-3xl font-bold uppercase text-center">404 - Page Not Found</h1>
+    return <div  className="py-3 md:py-[100px]">
+        <h1 className="mt-[100px] md:mt-0 font-roboto text-3xl font-bold uppercase text-center">404 - Page Not Found</h1>
         <p className={"text-center font-roboto mt-2"}>
 
             <Link href="/">
