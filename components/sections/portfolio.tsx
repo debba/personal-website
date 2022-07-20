@@ -15,11 +15,11 @@ export const PortfolioSection : React.FC<{ customersLogo: string[]  }> = ({custo
                 {t('section_portfolio') as string}
             </h2>
 
-            <p className="text-center font-roboto text-xl mb-2">
+            <p className="text-center font-roboto font-semibold text-sm mb-2">
                 {t('section_portfolio_desc') as string}
             </p>
 
-            <div className="md:p-10 grid grid-cols-3 md:grid-cols-5 gap-5 md:gap-12">
+            <div className="p-10 grid grid-cols-3 md:grid-cols-5 gap-5 md:gap-12">
 
                 {customersLogo.map((customerName,  key) => (
                     <PortfolioCustomer customerName={customerName} key={key}/>

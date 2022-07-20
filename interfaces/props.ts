@@ -22,5 +22,5 @@ export interface ProjectProps {
     image?: string;
     name: string;
     description:  string | ProjectNameLocalized;
-    short_description: string;
+    short_description: string | ProjectNameLocalized;
 }

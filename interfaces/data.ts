@@ -14,7 +14,7 @@ export interface ProjectItem {
     image?: string;
     name: string;
     description: string | ProjectNameLocalized;
-    short_description: string;
+    short_description: string | ProjectNameLocalized;
 }
 
 export interface MenuItem {

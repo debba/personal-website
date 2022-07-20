@@ -6,7 +6,10 @@ export const PROJECTS: ProjectItem[] = [
         github_name: 'greenpass-covid19-qrcode-decoder',
         image: "/images/projects/greenpass-covid19-qrcode-decoder.png",
         name: "GreenPass Covid-19 QR Code Decoder",
-        short_description: "An easy tool for decoding Green Pass Covid-19 QrCode\n",
+        short_description: {
+            en: "An easy web app for decoding Green Pass Covid-19 QrCode",
+            it: "Una semplice web app per decodificare il QrCode del Green Pass Covid-19"
+        },
         description: {
             en: '<p>In 2021 I developed a simple web app for decoding data from EU Green Pass QR Code.</p>\n' +
                 '<p>I used Python with Flask and deployed my app using Heroku.</p>\n' +
