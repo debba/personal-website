@@ -4,8 +4,9 @@ import {PROJECTS} from "../../data/projects";
 import {ProjectProps} from "../../interfaces/props";
 import Image from "next/image";
 import Head from "next/head";
-import {useG11n} from "next-g11n";
+import {getLocale, useG11n} from "next-g11n";
 import {DICTIONARY} from "../../i18n/dictionary";
+import {useRouter} from "next/router";
 
 export const getStaticProps: GetStaticProps<ProjectProps, { slug: string }> = async (context) => {
 
@@ -54,6 +55,10 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async ({locales}
 
 const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
+    const router = useRouter()
+    const g11nLocale = getLocale(router);
+
+    const description = typeof data.description === 'string' ? data.description : (g11nLocale in data.description ? data.description[g11nLocale] : '');
 
     return <>
         <Head>
@@ -116,7 +121,7 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
                         <div className="pt-12 sm:pt-16 lg:pt-20">
                             <h3 className="text-xl font-bold font-roboto text-center">{data.short_description}</h3>
                             <div className="mt-6  font-roboto font-semibold text-sm space-y-6"
-                                 dangerouslySetInnerHTML={{__html: data.description}}>
+                                 dangerouslySetInnerHTML={{__html: description}}>
                             </div>
                         </div>
 

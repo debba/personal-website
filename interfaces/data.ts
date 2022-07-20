@@ -4,12 +4,16 @@ export interface ServiceItem {
     skills: string[];
 }
 
+export interface ProjectNameLocalized {
+    [key : string]: string;
+}
+
 export interface ProjectItem {
     github_name: string;
     localeBlacklist?: string[];
     image?: string;
     name: string;
-    description: string;
+    description: string | ProjectNameLocalized;
     short_description: string;
 }
 
