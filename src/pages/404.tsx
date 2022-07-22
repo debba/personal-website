@@ -6,7 +6,7 @@ export default function FourOhFourd() {
         <h1 className="mt-[100px] md:mt-0 font-roboto text-3xl font-bold uppercase text-center">404 - Page Not Found</h1>
         <p className={"text-center font-roboto mt-2"}>
 
-            <Link href="/">
+            <Link href="/src/pages">
                 <a
                     className="bg-secondary-color text-indigo-100  hover:bg-indigo-800 font-bold py-2 px-4 rounded inline-flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24"

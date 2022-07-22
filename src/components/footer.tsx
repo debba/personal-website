@@ -27,7 +27,7 @@ export const Footer = () => {
                                 </path>
                             </svg>
                         </a>
-                        <a href="https://www.instagram.com/debba_92/" target="_blank" rel="noreferrer"
+                        <a href="src/components/footer" target="_blank" rel="noreferrer"
                            className="mr-6 text-gray-400 hover:text-secondary-color">
                             <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram"
                                  className="w-3.5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -159,7 +159,7 @@ export const Footer = () => {
                 </div>
                 <div className="text-center p-6 text-xs text-light-grey">
                     <p><span>© 2022 Copyright:</span>
-                        <a className="pl-1 font-semibold" href="#">Andrea Debernardi</a></p>
+                        <a className="pl-1 font-semibold" href="src/components/footer#">Andrea Debernardi</a></p>
                     <p>{t('footer_project_opensource') as string} ❤ ️<a
                         href="https://github.com/debba/personal-website" target="_blank" rel="noreferrer">Github Repo</a>
                     </p>
