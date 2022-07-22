@@ -5,17 +5,15 @@ import {DICTIONARY} from "../../../i18n/dictionary";
 import Image from "next/image";
 import Button from "../../atoms/button";
 
-export const ActivityBox : React.FC<{ activity: ActivityItem}> = ({activity}) => {
+export const ActivityBox: React.FC<{ activity: ActivityItem }> = ({activity}) => {
 
-    const { translate : t } = useG11n<typeof DICTIONARY>(DICTIONARY, false);
+    const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
 
-    const activityName = t(activity.name  as 'section_activity_webagency' ) as string;
-    const activityTitle = t(activity.title  as 'section_activity_webagency_title' ) as string;
-    const activitySummary = t(activity.full_desc  as 'section_activity_webagency_summary' ) as string;
+    const activityName = t(activity.name as 'section_activity_webagency') as string;
+    const activityTitle = t(activity.title as 'section_activity_webagency_title') as string;
+    const activitySummary = t(activity.full_desc as 'section_activity_webagency_summary') as string;
     const activityBgColor = activity.bg_color;
-    const activityHoverButtonBgColor = activity.hover_button_bg_color;
     const activityAdditionalClasses = activity?.add_class || '';
-    const activtyFillButtonIcon = activity?.button_icon_fill ? `fill-${activity?.button_icon_fill}` : '';
 
     return (
         <article
@@ -23,7 +21,7 @@ export const ActivityBox : React.FC<{ activity: ActivityItem}> = ({activity}) =>
             {
                 activity.logo && (
                     <div className={"text-center mt-5"}>
-                        <Image loading={"lazy"} src={activity.logo} alt={activity.name} width={90} height={90} />
+                        <Image loading={"lazy"} src={activity.logo} alt={activity.name} width={90} height={90}/>
                     </div>
                 )
             }
@@ -33,17 +31,22 @@ export const ActivityBox : React.FC<{ activity: ActivityItem}> = ({activity}) =>
                 {activitySummary}
             </p>
             {
-                activity.link && (
-                    <div className={"text-center mt-5"}>
-                        <Button
-                            className={`bg-white text-gray-800 ${activityHoverButtonBgColor} hover:text-white hover:border hover:border-white font-bold py-2 px-4 rounded inline-flex items-center`}
-                            svgClassName={`${activtyFillButtonIcon} w-4 h-4 mr-2`}
-                            url={activity.link}
-                            title={t(activity.button_text  || 'section_activity_gotolink') as string}
-                            icon={activity.button_icon || "M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"}
-                        />
-                    </div>
-                )
+                activity.buttons && activity.buttons.map(button => {
+                    const activityHoverButtonBgColor = button.hover_button_bg_color;
+                    const activityFillButtonIcon = button?.button_icon_fill ? `fill-${button?.button_icon_fill}` : '';
+                    return (
+                        <div key={button.link} className={"text-center mt-5"}>
+                            <Button
+                                className={`bg-white text-gray-800 ${activityHoverButtonBgColor} hover:text-white hover:border hover:border-white font-bold py-2 px-4 rounded inline-flex items-center`}
+                                svgClassName={`${activityFillButtonIcon} w-4 h-4 mr-2`}
+                                url={button.link}
+                                openSelf={!button.external}
+                                title={t(button.button_text || 'section_activity_gotolink') as string}
+                                icon={button.button_icon || "M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"}
+                            />
+                        </div>
+                    )
+                })
             }
 
 

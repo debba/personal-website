@@ -22,17 +22,22 @@ export interface MenuItem {
     i18n: string;
 }
 
+export interface ActivityItemButton {
+    hover_button_bg_color?: string;
+    button_text?: string;
+    button_icon?: string;
+    external?: boolean;
+    button_icon_fill?: string;
+    link: string;
+}
+
 export interface ActivityItem {
     id: string;
     logo?: string;
-    link?: string;
     name: string;
     title: string;
     full_desc: string;
     bg_color: string;
-    hover_button_bg_color?: string;
-    button_text?: string;
-    button_icon?: string;
-    button_icon_fill?: string;
     add_class?: string;
+    buttons?: ActivityItemButton[];
 }

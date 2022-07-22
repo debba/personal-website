@@ -39,6 +39,7 @@ export const DICTIONARY: Record<string, {
         section_activity_opensource_title: 'Creator / Developer',
         section_activity_opensource_summary: 'Occasionally I get some free time, I try to invest it by developing something new and most of the time I publish my side-projects in opensource so that it can be used/refined by others. I also try to contribute to some external projects if possible.',
         section_activity_opensource_button_text: 'Github profile',
+        section_activity_opensource_button_explore_text: "Explore projects",
         section_contactme: 'Contact me',
         section_contactme_firstname: 'First name',
         section_contactme_lastname: 'Last name',
@@ -58,7 +59,8 @@ export const DICTIONARY: Record<string, {
         footer_newsletter_email: 'Email address:',
         footer_newsletter_email_placeholder: 'Please provide your email',
         footer_newsletter_email_subscribe: 'Subcribe',
-        footer_project_opensource: 'This project is open source.'
+        footer_project_opensource: 'This project is open source.',
+        projects_title: 'Recent Open source projects'
     },
     it: {
         site_title: 'Andrea Debernardi | Full stack web developer a Genova. PHP, Python, Node JS, Angular e tanto altro ancora.',
@@ -99,6 +101,7 @@ export const DICTIONARY: Record<string, {
         section_activity_consultance_summary: 'Da diversi anni mi occupo in prima persona di consulenza tecnica per piccole / medie aziende, sviluppo software e manutenzione di Ecommerce e sistemi informativi.',
         section_activity_opensource_summary: 'Ogni tanto mi capita di avere del tempo libero, cerco di investirlo nello sviluppo di qualcosa di nuovo. La maggior parte dei miei side-projects li pubblico in opensource in modo che possano essere utilizzati / migliorati da altri sviluppatori. Cerco anche di contribuire a qualche progetto esterno, ogni volta che è possibile.',
         section_activity_opensource_button_text: 'Profilo GitHub',
+        section_activity_opensource_button_explore_text: "Esplora progetti",
         section_contactme: 'Contattami',
         section_contactme_firstname: 'Nome',
         section_contactme_lastname: 'Cognome',
@@ -118,6 +121,7 @@ export const DICTIONARY: Record<string, {
         footer_newsletter_email: 'Indirizzo email:',
         footer_newsletter_email_placeholder: 'Fornisci il tuo indirizzo email',
         footer_newsletter_email_subscribe: 'Iscriviti',
-        footer_project_opensource: 'Questo progetto è open source.'
+        footer_project_opensource: 'Questo progetto è open source.',
+        projects_title: 'Progetti open source recenti'
     }
 }
