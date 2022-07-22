@@ -62,7 +62,7 @@ export const DICTIONARY: Record<string, {
         footer_newsletter_email_placeholder: 'Please provide your email',
         footer_newsletter_email_subscribe: 'Subcribe',
         footer_project_opensource: 'This project is open source.',
-        projects_title: 'Recent Open source projects'
+        projects_title: 'Open source projects'
     },
     it: {
         site_title: 'Andrea Debernardi | Full stack web developer a Genova. PHP, Python, Node JS, Angular e tanto altro ancora.',
@@ -126,6 +126,6 @@ export const DICTIONARY: Record<string, {
         footer_newsletter_email_placeholder: 'Fornisci il tuo indirizzo email',
         footer_newsletter_email_subscribe: 'Iscriviti',
         footer_project_opensource: 'Questo progetto è open source.',
-        projects_title: 'Progetti open source recenti'
+        projects_title: 'Progetti open source'
     }
 }

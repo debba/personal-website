@@ -8,6 +8,7 @@ import {getLocale, useG11n} from "next-g11n";
 import {DICTIONARY} from "../../i18n/dictionary";
 import {useRouter} from "next/router";
 import GithubButton from "../../components/atoms/ghbutton";
+import Link from "next/link";
 
 export const getStaticProps: GetStaticProps<ProjectProps, { slug: string }> = async (context) => {
 
@@ -75,7 +76,54 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
             }
         </Head>
         <section id="project" className="py-3 md:py-[100px]">
-            <h2 className="mt-[100px] md:mt-0 font-roboto text-secondary-color text-center font-extralight uppercase text-3xl md:text-5xl mb-4 leading-normal break-words tracking-tight">
+
+            <nav className="flex mt-[100px] md:mt-0 " aria-label="Breadcrumb">
+                <ol role="list" className="flex items-center space-x-2 text-white font-roboto">
+                    <li>
+                        <div>
+                            <Link href="/" locale={g11nLocale}>
+                                <a className=" hover:text-gray-500">
+                                    <svg className="flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path
+                                            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                                    </svg>
+                                    <span className="sr-only">Home</span>
+                                </a>
+                            </Link>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div className="flex items-center">
+                            <svg className="flex-shrink-0 h-5 w-5 text-gray-300" xmlns="http://www.w3.org/2000/svg"
+                                 fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z"/>
+                            </svg>
+                            <Link href={"/projects"} locale={g11nLocale}>
+                            <a
+                               className="ml-4 text-sm font-medium text-white hover:text-gray-700">{t('projects_title') as string}</a>
+                            </Link>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div className="flex items-center">
+                            <svg className="flex-shrink-0 h-5 w-5 text-gray-300" xmlns="http://www.w3.org/2000/svg"
+                                 fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z"/>
+                            </svg>
+                            <span className="ml-4 text-sm font-medium text-gray-500"
+                               aria-current="page">
+                                {data.name}
+                            </span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+
+
+            <h2 className="mt-5 font-roboto text-secondary-color text-center font-extralight uppercase text-3xl md:text-5xl mb-4 leading-normal break-words tracking-tight">
                 {data.name}
             </h2>
 
