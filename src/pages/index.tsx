@@ -39,6 +39,8 @@ const Home: NextPage<DataProps> = ({services, customersLogo, activities} ) => {
             <Head>
                 <title>{t('site_title') as string}</title>
                 <meta property="og:title" content={t('site_title') as string} />
+                <meta property="og:description" content={t('site_description') as string} />
+                <meta property="description" content={t('site_description') as string} />
             </Head>
             <AboutSection/>
             <ServicesSection services={services}/>

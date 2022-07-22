@@ -1,12 +1,16 @@
 // 404.js
 import Link from 'next/link'
+import {useRouter} from "next/router";
+import {getLocale} from "next-g11n";
 
 export default function FourOhFourd() {
+    const router = useRouter();
+    const g11nLocale = getLocale(router);
     return <div  className="py-3 md:py-[100px]">
         <h1 className="mt-[100px] md:mt-0 font-roboto text-3xl font-bold uppercase text-center">404 - Page Not Found</h1>
         <p className={"text-center font-roboto mt-2"}>
 
-            <Link href="/src/pages">
+            <Link href="/" locale={g11nLocale}>
                 <a
                     className="bg-secondary-color text-indigo-100  hover:bg-indigo-800 font-bold py-2 px-4 rounded inline-flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24"

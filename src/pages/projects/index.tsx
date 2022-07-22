@@ -26,6 +26,8 @@ const Projects: NextPage = () => {
     return <>
         <Head>
             <title>{t('site_title_osp') as string}</title>
+            <meta property="og:description" content={t('site_description_osp') as string}/>
+            <meta property="description" content={t('site_description_osp') as string}/>
             <meta property="og:title" content={t('site_title_osp') as string}/>
         </Head>
         <section id="project" className="py-3 md:py-[100px]">

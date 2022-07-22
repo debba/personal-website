@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import Script from "next/script";
+import React from "react";
 
 class MyDocument extends Document {
     render() {
@@ -12,6 +13,11 @@ class MyDocument extends Document {
                     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@200;400;600;700&display=swap" rel="stylesheet" />
                     <title>Andrea Debernardi | Full stack web developer in Genoa. PHP, Python, Node JS, Angular ans so much more.</title>
                     <meta property="og:title" content="Full stack web developer in Genoa. PHP, Python, Node JS, Angular ans so much more." />
+                    {
+                        process.env.NODE_ENV === 'production' && (
+                            <meta property="og:image" content={(process.env.VERCEL_URL || '')+'/images/me.jpg'}/>
+                        )
+                    }
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                     {
                         process.env.NODE_ENV === 'production' && cookieBotDomainId && (

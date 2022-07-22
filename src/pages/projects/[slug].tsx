@@ -66,6 +66,13 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
         <Head>
             <title>{t('site_title_osp') as string} - {data.name}</title>
             <meta property="og:title" content={t('site_title_osp') as string + ' - ' + data.name}/>
+            <meta property="description" content={shortDescription}/>
+            <meta property="og:descriptin" content={shortDescription}/>
+            {
+                process.env.NODE_ENV === 'production' && data.image && (
+                    <meta property="og:image" content={(process.env.VERCEL_URL || '')+data.image}/>
+                )
+            }
         </Head>
         <section id="project" className="py-3 md:py-[100px]">
             <h2 className="mt-[100px] md:mt-0 font-roboto text-secondary-color text-center font-extralight uppercase text-3xl md:text-5xl mb-4 leading-normal break-words tracking-tight">
