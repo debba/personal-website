@@ -3,6 +3,7 @@ import {ActivityItem} from "../../../interfaces/data";
 import {useG11n} from "next-g11n";
 import {DICTIONARY} from "../../../i18n/dictionary";
 import Image from "next/image";
+import Button from "../../atoms/button";
 
 export const ActivityBox : React.FC<{ activity: ActivityItem}> = ({activity}) => {
 
@@ -14,6 +15,7 @@ export const ActivityBox : React.FC<{ activity: ActivityItem}> = ({activity}) =>
     const activityBgColor = activity.bg_color;
     const activityHoverButtonBgColor = activity.hover_button_bg_color;
     const activityAdditionalClasses = activity?.add_class || '';
+    const activtyFillButtonIcon = activity?.button_icon_fill ? `fill-${activity?.button_icon_fill}` : '';
 
     return (
         <article
@@ -33,15 +35,13 @@ export const ActivityBox : React.FC<{ activity: ActivityItem}> = ({activity}) =>
             {
                 activity.link && (
                     <div className={"text-center mt-5"}>
-                        <a href={activity.link} target={"_blank"}
-                            className={`bg-white text-gray-800 ${activityHoverButtonBgColor} hover:text-white hover:border hover:border-white font-bold py-2 px-4 rounded inline-flex items-center`} rel="noreferrer">
-                            <svg xmlns="http://www.w3.org/2000/svg" className={`${activity.button_icon ? 'fill-current' : ''} w-4 h-4 mr-2`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d={activity.button_icon || "M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"} />
-                            </svg>
-                            <span>
-                                {t(activity.button_text  || 'section_activity_gotolink') as string}
-                            </span>
-                        </a>
+                        <Button
+                            className={`bg-white text-gray-800 ${activityHoverButtonBgColor} hover:text-white hover:border hover:border-white font-bold py-2 px-4 rounded inline-flex items-center`}
+                            svgClassName={`${activtyFillButtonIcon} w-4 h-4 mr-2`}
+                            url={activity.link}
+                            title={t(activity.button_text  || 'section_activity_gotolink') as string}
+                            icon={activity.button_icon || "M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"}
+                        />
                     </div>
                 )
             }

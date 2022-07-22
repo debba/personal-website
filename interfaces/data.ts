@@ -33,5 +33,6 @@ export interface ActivityItem {
     hover_button_bg_color?: string;
     button_text?: string;
     button_icon?: string;
+    button_icon_fill?: string;
     add_class?: string;
 }
