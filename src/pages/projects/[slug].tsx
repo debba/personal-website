@@ -68,7 +68,7 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
             <title>{t('site_title_osp') as string} - {data.name}</title>
             <meta property="og:title" content={t('site_title_osp') as string + ' - ' + data.name}/>
             <meta property="description" content={shortDescription}/>
-            <meta property="og:descriptin" content={shortDescription}/>
+            <meta property="og:description" content={shortDescription}/>
             {
                 process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_SITEURL && (
                     <meta property="og:image" content={process.env.NEXT_PUBLIC_SITEURL+data.image}/>
