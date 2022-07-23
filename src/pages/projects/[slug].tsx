@@ -70,8 +70,8 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
             <meta property="description" content={shortDescription}/>
             <meta property="og:descriptin" content={shortDescription}/>
             {
-                process.env.NODE_ENV === 'production' && data.image && (
-                    <meta property="og:image" content={(process.env.VERCEL_URL || '')+data.image}/>
+                process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_SITEURL && (
+                    <meta property="og:image" content={process.env.NEXT_PUBLIC_SITEURL+data.image}/>
                 )
             }
         </Head>

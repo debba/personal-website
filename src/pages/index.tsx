@@ -41,8 +41,8 @@ const Home: NextPage<DataProps> = ({services, customersLogo, activities} ) => {
                 <title>{t('site_title') as string}</title>
                 <meta property="og:title" content={t('site_title') as string} />
                 {
-                    process.env.NODE_ENV === 'production' && (
-                        <meta property="og:image" content={(process.env.VERCEL_URL || '')+'/images/me.jpg'}/>
+                    process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_SITEURL  && (
+                        <meta property="og:image" content={process.env.NEXT_PUBLIC_SITEURL+'/images/me.jpg'}/>
                     )
                 }
                 <meta property="og:description" content={t('site_description') as string} />
