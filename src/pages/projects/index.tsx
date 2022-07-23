@@ -29,6 +29,11 @@ const Projects: NextPage = () => {
             <meta property="og:description" content={t('site_description_osp') as string}/>
             <meta property="description" content={t('site_description_osp') as string}/>
             <meta property="og:title" content={t('site_title_osp') as string}/>
+            {
+                process.env.NODE_ENV === 'production' && (
+                    <meta property="og:image" content={(process.env.VERCEL_URL || '')+'/images/me.jpg'}/>
+                )
+            }
         </Head>
         <section id="project" className="py-3 md:py-[100px]">
             <h2 className="mt-[100px] md:mt-0 font-roboto text-secondary-color text-center font-extralight uppercase text-3xl md:text-5xl mb-4 leading-normal break-words tracking-tight">

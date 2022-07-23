@@ -12,6 +12,7 @@ import {useG11n} from "next-g11n";
 import {DICTIONARY} from "../i18n/dictionary";
 import ActivitiesSection from "../components/sections/activites";
 import {ACTIVITIES} from "../data/activities";
+import React from "react";
 
 const getCustomersLogo = () => {
     return fs.readdirSync(process.cwd() + '/public/images/customers')
@@ -39,6 +40,11 @@ const Home: NextPage<DataProps> = ({services, customersLogo, activities} ) => {
             <Head>
                 <title>{t('site_title') as string}</title>
                 <meta property="og:title" content={t('site_title') as string} />
+                {
+                    process.env.NODE_ENV === 'production' && (
+                        <meta property="og:image" content={(process.env.VERCEL_URL || '')+'/images/me.jpg'}/>
+                    )
+                }
                 <meta property="og:description" content={t('site_description') as string} />
                 <meta property="description" content={t('site_description') as string} />
             </Head>
