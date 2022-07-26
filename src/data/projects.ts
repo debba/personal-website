@@ -25,7 +25,7 @@ export const PROJECTS: ProjectItem[] = [
     {
         github_name: 'wp-two-factor-authentication-with-telegram',
         image: "/images/projects/wp-factor-login-telegram.png",
-        name: "WP Two Factor Authentication with Telegram",
+        name: "WP 2FA with Telegram",
         short_description: {
             en: "Enable Two-factor authentication for WordPress Login using Telegram",
             it: "Abilita l’autenticazione a 2 fattori su WordPress utilizzando Telegram"
