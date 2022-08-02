@@ -13,7 +13,6 @@ import Link from "next/link";
 export const getStaticProps: GetStaticProps<ProjectProps, { slug: string }> = async (context) => {
 
     const {slug} = context.params;
-
     const project = PROJECTS.find(project => project.github_name === slug);
 
     if (!project) {

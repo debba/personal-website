@@ -145,50 +145,22 @@ export const PROJECTS: ProjectItem[] = [
         hide_stats: true,
         description: {
             en: '<ul class="list-inside list-disc">' +
-                '<li class="py-2">' +
-                '<p><strong>Easy setup</strong>: our plugin is ready to be used! It doesn’t need advanced configuration. No special skills required: just fill in sender’s credentials and you’re done.</p>' +
-                '</li>' +
-                '<li class="py-2">' +
-                '<p><strong>Transactional emails</strong>: the turboSMTP plugin can be used to deliver all the outgoing emails of the website working on behalf of the wp_mail() function. In fact, once activated, it will be automatically set as default. You don’t have to set anything! This way you’ll be able to deliver the email confirmation of your subscription form, the system notification and so on…</p>' +
-                '</li>' +
-                '<li class="py-2">' +
-                '<p><strong>100% compatible</strong>: turboSMTP plugin will take charge of important emails such as your WordPress system emails, Woocommerce plugin and security alert ones.</p>' +
-                '</li>' +
-                '<li class="py-2">' +
-                '<p><strong>Reports</strong>: your statistics are always under control thanks to the real time reports about clicks, opens, bounces and much more…</p>' +
-                '</li>' +
-                '<li class="py-2">' +
-                '<p><strong>Test email</strong>: you can check the service status at anytime thanks to the test email feature</p>' +
-                '</li>' +
-                '<li class="py-2">' +
-                '<p><strong>Whitelisted servers</strong>: the delivery of your emails is always fast and successful.</p>' +
-                '</li>' +
-                '<li class="py-2">' +
-                '<p><strong>Languages</strong>: the plugin is available in english and italian languages. Soon available the french and spanish ones.</p>' +
-                '</li>' +
+                '<li class="py-2"><strong>Easy setup</strong>: our plugin is ready to be used! It doesn’t need advanced configuration. No special skills required: just fill in sender’s credentials and you’re done.</li>' +
+                '<li class="py-2"><strong>Transactional emails</strong>: the turboSMTP plugin can be used to deliver all the outgoing emails of the website working on behalf of the wp_mail() function. In fact, once activated, it will be automatically set as default. You don’t have to set anything! This way you’ll be able to deliver the email confirmation of your subscription form, the system notification and so on…</li>' +
+                '<li class="py-2"><strong>100% compatible</strong>: turboSMTP plugin will take charge of important emails such as your WordPress system emails, Woocommerce plugin and security alert ones.</li>' +
+                '<li class="py-2"><strong>Reports</strong>: your statistics are always under control thanks to the real time reports about clicks, opens, bounces and much more...</li>' +
+                '<li class="py-2"><strong>Test email</strong>: you can check the service status at anytime thanks to the test email feature</li>' +
+                '<li class="py-2"><strong>Whitelisted servers</strong>: the delivery of your emails is always fast and successful.</li>' +
+                '<li class="py-2"><strong>Languages</strong>: the plugin is available in english and italian languages. Soon available the french and spanish ones.</li>' +
                 '</ul>',
             it: '<ul class="list-inside list-disc">' +
-                '<li class="py-2">' +
-                '<p><strong>Setup semplice</strong>: il plugin è subito pronto ad essere usato! Non necessita configurazioni avanzate né particolari competenze tecniche: inserisci solo le tue credenziali e sarai pronto.</p>' +
-                '</li>' +
-                '<li class="py-2">' +
-                '<p><strong>Email transazionali</strong>: il plugin di turboSMTP può essere utilizzato per consegnare tutte le mail in uscita, lavorando al posto della funzione “wp_mail()”. Infatti, appena attivato, sarà impostato automaticamente di default. Il tutto senza intervenire manualmente nei settaggi. In questo modo sarai in grado di consegnare, ad esempio, le email di conferma iscrizione del tuo form, le notifiche di sistema e così via…</p>' +
-                '</li>' +
-                '<li class="py-2">' +
-                '<p><strong>Compatibile al 100%</strong>: il plugin turboSMTP avrà l’incarico di gestire le email del tuo sistema, notifiche del sistema Woocommerce e avvisi di sicurezza.</p>' +
-                '</li>' +
-                '<li class="py-2">' +
-                '<p><strong>Statistiche</strong>: Grazie ai report in tempo reale avrai sempre sotto controllo statistiche come click, aperture, bounce ecc.</p>' +
-                '</li>' +
-                '<li class="py-2">' +
-                '<p><strong>Invio di prova</strong>: potrai verificare lo stato di invio tutte le volte che vorrai grazie alla funzione “test”.</p>' +
-                '</li>' +
-                '<li class="py-2">' +
-                '<p><strong>Server autorizzati</strong>: la consegna delle email andrà sempre a buon fine in pochi attimi.</p>' +
-                '</li>' +
-                '<li class="py-2">' +
-                '<p><strong>Lingue</strong>: il plugin è attualmente disponibile in italiano e in inglese. Presto rilasceremo anche la versione in francese e in spagnolo.</p>' +
-                '</li>' +
+                '<li class="py-2"><strong>Setup semplice</strong>: il plugin è subito pronto ad essere usato! Non necessita configurazioni avanzate né particolari competenze tecniche: inserisci solo le tue credenziali e sarai pronto.</li>' +
+                '<li class="py-2"><strong>Email transazionali</strong>: il plugin di turboSMTP può essere utilizzato per consegnare tutte le mail in uscita, lavorando al posto della funzione “wp_mail()”. Infatti, appena attivato, sarà impostato automaticamente di default. Il tutto senza intervenire manualmente nei settaggi. In questo modo sarai in grado di consegnare, ad esempio, le email di conferma iscrizione del tuo form, le notifiche di sistema e così via...</li>' +
+                '<li class="py-2"><strong>Compatibile al 100%</strong>: il plugin turboSMTP avrà l’incarico di gestire le email del tuo sistema, notifiche del sistema Woocommerce e avvisi di sicurezza.</li>' +
+                '<li class="py-2"><strong>Statistiche</strong>: Grazie ai report in tempo reale avrai sempre sotto controllo statistiche come click, aperture, bounce ecc.</li>' +
+                '<li class="py-2"><strong>Invio di prova</strong>: potrai verificare lo stato di invio tutte le volte che vorrai grazie alla funzione “test”.</li>' +
+                '<li class="py-2"><strong>Server autorizzati</strong>: la consegna delle email andrà sempre a buon fine in pochi attimi.</li>' +
+                '<li class="py-2"><strong>Lingue</strong>: il plugin è attualmente disponibile in italiano e in inglese. Presto rilasceremo anche la versione in francese e in spagnolo.</li>' +
                 '</ul>'
         }
     }
