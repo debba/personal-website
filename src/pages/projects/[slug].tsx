@@ -14,26 +14,27 @@ export const getStaticProps: GetStaticProps<ProjectProps, { slug: string }> = as
 
     const {slug} = context.params;
 
-    const res = await fetch(`https://api.github.com/repos/debba/${slug}`);
-
     const project = PROJECTS.find(project => project.github_name === slug);
 
-    return {
-
-        ...!project ? {
+    if (!project) {
+        return {
             notFound: true
-        } : {
-            props: {
-                githubData: await res.json(),
-                ...project?.image && {
-                    image: project.image
-                },
-                name: project.name,
-                description: project.description,
-                short_description: project.short_description
-            },
-            revalidate: 60 * 60 * 24
         }
+    }
+
+    const res = await fetch(`https://api.github.com/repos/${project.github_user}/${slug}`);
+    return {
+        props: {
+            githubData: await res.json(),
+            ...project?.image && {
+                image: project.image
+            },
+            name: project.name,
+            description: project.description,
+            hide_stats: project?.hide_stats,
+            short_description: project.short_description
+        },
+        revalidate: 60 * 60 * 24
     }
 }
 
@@ -129,9 +130,9 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
 
             <div className="relative py-16 sm:py-24">
                 <div
-                    className={`lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid ${data.image ? 'lg:grid-cols-2' : ''} lg:gap-24 lg:items-start`}>
+                    className={`lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid ${data.image?.cover ? 'lg:grid-cols-2' : ''} lg:gap-24 lg:items-start`}>
                     {
-                        data.image && (
+                        data.image?.cover && (
                             <div className="relative sm:py-16 lg:py-0">
                                 <div aria-hidden="true"
                                      className="hidden sm:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen">
@@ -155,7 +156,7 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
                                     <div className="relative pt-64 pb-10 md:rounded-2xl shadow-xl overflow-hidden">
 
                                         <Image loading={"lazy"} className="absolute inset-0 h-full w-full object-cover"
-                                               layout={"fill"} src={data.image} alt={shortDescription}/>
+                                               layout={"fill"} src={data.image.cover} alt={shortDescription}/>
                                         <div className="absolute inset-0 white-500 mix-blend-multiply"></div>
                                         <div
                                             className="absolute inset-0 bg-gradient-to-t from-white-600 via-white-600 opacity-90"></div>
@@ -177,41 +178,46 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
                             </div>
                         </div>
 
-                        <div className="mt-10 pb-12 sm:pb-16">
-                            <div className={`relative  ${data.image ? 'max-w-4xl' : ''}  mx-auto`}>
-                                <dl className="rounded-lg bg-slate-800 shadow-lg sm:grid sm:grid-cols-3">
-                                    <div
-                                        className="flex flex-col border-b  border-slate-500/30 p-6 text-center sm:border-0 sm:border-r">
-                                        <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500 font-roboto">STARS</dt>
-                                        <dd className="order-1 text-5xl font-extrabold text-gray-300 font-roboto">
-                                            <a href={githubData.stargazers_url} target="_blank"
-                                               rel="noopener noreferrer">
-                                                {githubData.stargazers_count}
-                                            </a>
-                                        </dd>
+                        {
+                            ! data.hide_stats && (
+                                <div className="mt-10 pb-12 sm:pb-16">
+                                    <div className={`relative  ${data.image ? 'max-w-4xl' : ''}  mx-auto`}>
+                                        <dl className="rounded-lg bg-slate-800 shadow-lg sm:grid sm:grid-cols-3">
+                                            <div
+                                                className="flex flex-col border-b  border-slate-500/30 p-6 text-center sm:border-0 sm:border-r">
+                                                <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500 font-roboto">STARS</dt>
+                                                <dd className="order-1 text-5xl font-extrabold text-gray-300 font-roboto">
+                                                    <a href={githubData.stargazers_url} target="_blank"
+                                                       rel="noopener noreferrer">
+                                                        {githubData.stargazers_count}
+                                                    </a>
+                                                </dd>
+                                            </div>
+                                            <div
+                                                className="flex flex-col border-t border-b  border-slate-500/30 p-6 text-center sm:border-0 sm:border-l sm:border-r">
+                                                <dt className="order-2 mt-2 text-lg leading-6 font-medium  text-gray-500 font-roboto">FORKS</dt>
+                                                <dd className="order-1 text-5xl font-extrabold text-gray-300 font-roboto">
+                                                    <a href={githubData.forks_url} target="_blank"
+                                                       rel="noopener noreferrer">
+                                                        {githubData.forks_count}
+                                                    </a>
+                                                </dd>
+                                            </div>
+                                            <div
+                                                className="flex flex-col border-t  border-slate-500/30 p-6 text-center sm:border-0 sm:border-l">
+                                                <dt className="order-2 mt-2 text-lg leading-6 font-medium  text-gray-500 font-roboto">OPEN
+                                                    ISSUES
+                                                </dt>
+                                                <dd className="order-1 text-5xl font-extrabold text-gray-300 font-roboto">
+                                                    {githubData.open_issues_count}
+                                                </dd>
+                                            </div>
+                                        </dl>
                                     </div>
-                                    <div
-                                        className="flex flex-col border-t border-b  border-slate-500/30 p-6 text-center sm:border-0 sm:border-l sm:border-r">
-                                        <dt className="order-2 mt-2 text-lg leading-6 font-medium  text-gray-500 font-roboto">FORKS</dt>
-                                        <dd className="order-1 text-5xl font-extrabold text-gray-300 font-roboto">
-                                            <a href={githubData.forks_url} target="_blank"
-                                               rel="noopener noreferrer">
-                                                {githubData.forks_count}
-                                            </a>
-                                        </dd>
-                                    </div>
-                                    <div
-                                        className="flex flex-col border-t  border-slate-500/30 p-6 text-center sm:border-0 sm:border-l">
-                                        <dt className="order-2 mt-2 text-lg leading-6 font-medium  text-gray-500 font-roboto">OPEN
-                                            ISSUES
-                                        </dt>
-                                        <dd className="order-1 text-5xl font-extrabold text-gray-300 font-roboto">
-                                            {githubData.open_issues_count}
-                                        </dd>
-                                    </div>
-                                </dl>
-                            </div>
-                        </div>
+                                </div>
+                            )
+                        }
+
                     </div>
 
                 </div>

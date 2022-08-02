@@ -3,8 +3,9 @@ import React from "react";
 
 export const PROJECTS: ProjectItem[] = [
     {
+        github_user: 'debba',
         github_name: 'greenpass-covid19-qrcode-decoder',
-        image: "/images/projects/greenpass-covid19-qrcode-decoder.png",
+        image: {cover: "/images/projects/cover/greenpass-covid19-qrcode-decoder.png"},
         name: "GreenPass Covid-19 QR Code Decoder",
         short_description: {
             en: "An easy web app for decoding Green Pass Covid-19 QrCode",
@@ -23,8 +24,12 @@ export const PROJECTS: ProjectItem[] = [
         }
     },
     {
+        github_user: 'debba',
         github_name: 'wp-two-factor-authentication-with-telegram',
-        image: "/images/projects/wp-factor-login-telegram.png",
+        image: {
+            cover: "/images/projects/cover/wp-factor-login-telegram.png",
+            icon: "/images/projects/icon/wp-factor-login-telegram.png"
+        },
         name: "WP 2FA with Telegram",
         short_description: {
             en: "Enable Two-factor authentication for WordPress Login using Telegram",
@@ -52,6 +57,7 @@ export const PROJECTS: ProjectItem[] = [
         }
     },
     {
+        github_user: 'debba',
         github_name: 'less2scss',
         name: "Less2scss",
         short_description: {
@@ -61,6 +67,62 @@ export const PROJECTS: ProjectItem[] = [
         description: {
             en: '<p>You can provide an entire folder, this package will scan all less files whose find in subfolders and it\'ll create SCSS files in the same folder or in the new directory provided recreating the source hierarchy.</p>',
             it: '<p>Puoi fornire un\'intera cartella, questo pacchetto scansionare tutti i files LESS (anche all\'interno delle sottocartelle) e genererà i files SCSS nella stessa cartella o in una nuova indicata ricreando la stessa gerarchia.</p>',
+        }
+    },
+    {
+        github_user: 'dueclic',
+        github_name: 'emailchef-for-wordpress',
+        image: {
+            cover: "/images/projects/cover/emailchef-for-wordpress.png",
+            icon: "/images/projects/icon/emailchef-for-wordpress.png"
+        },
+        name: "eMailChef for WordPress",
+        short_description: {
+            en: "This is the perfect marketing WordPress tool to add an intuitive and solid email campaign solution with eMailChef to your website.",
+            it: "Strumento di marketing perfetto per aggiungere al tuo sito web WordPress una soluzione intuitiva e solida per le campagne e-mail con eMailChef."
+        },
+        hide_stats: true,
+        description: {
+            en: '<p>Send your email marketing campaigns through the interface provided on emailchef.com.</p>' +
+                '<p>With eMailChef you can choose between multiple subscription plans divided by functionality and contacts and you can also decide to subscribe to a custom plan, built to suit your needs.</p>' +
+                '<p>This is the perfect marketing tool to add an intuitive and solid email campaign solution to your website.</p>' +
+                '<p>Every form submission from WPForms, Contact Form 7, Fast Secure Contact Form (FSCF) and Jetpack (more supported plugins coming: contact us for advices!) will be automatically synced with the selected eMailChef contact list.</p>' +
+                '<p>It also supports customized fields you can use to segment your customers! E.g. if in a form you ask for customers type (reseller, hotels, etc.) you can easily create a newsletter just for them.</p>',
+            it: '<p>Send your email marketing campaigns through the interface provided on emailchef.com.</p>' +
+                '<p>With eMailChef you can choose between multiple subscription plans divided by functionality and contacts and you can also decide to subscribe to a custom plan, built to suit your needs.</p>' +
+                '<p>This is the perfect marketing tool to add an intuitive and solid email campaign solution to your website.</p>' +
+                '<p>Every form submission from WPForms, Contact Form 7, Fast Secure Contact Form (FSCF) and Jetpack (more supported plugins coming: contact us for advices!) will be automatically synced with the selected eMailChef contact list.</p>' +
+                '<p>It also supports customized fields you can use to segment your customers! E.g. if in a form you ask for customers type (reseller, hotels, etc.) you can easily create a newsletter just for them.</p>'
+        }
+    },
+    {
+        github_user: 'dueclic',
+        github_name: 'emailchef-for-woocommerce',
+        image: {
+            cover: "/images/projects/cover/emailchef-for-woocommerce.png",
+            icon: "/images/projects/icon/emailchef-for-woocommerce.png"
+        },
+        name: "eMailChef for WooCommerce",
+        short_description: {
+            en: "Using this WooCommerce plugin, eMailChef can communicate with your online store and it creates easy, simply and automatic targeted campaigns. ",
+            it: "Usando questo plugin per WooCommerce, eMailChef può comunicare con il tuo negozio online e potrai creare in modo semplice automazioni per i tuoi clienti."
+        },
+        hide_stats: true,
+        description: {
+            en: '<p>Send your email marketing campaigns through the interface provided on emailchef.com.</p>' +
+                '<p>With eMailChef you can choose between multiple subscription plans divided by functionality and contacts and you can also decide to subscribe to a custom plan, built to suit your needs.</p>' +
+                '<p>This is the perfect marketing tool to add an intuitive and solid email campaign solution to your website.</p>' +
+                '<p>Every form submission from WPForms, Contact Form 7, Fast Secure Contact Form (FSCF) and Jetpack (more supported plugins coming: contact us for advices!) will be automatically synced with the selected eMailChef contact list.</p>' +
+                '<p>It also supports customized fields you can use to segment your customers! E.g. if in a form you ask for customers type (reseller, hotels, etc.) you can easily create a newsletter just for them.</p>',
+            it: '<p>Se possiedi un e-commerce, l’email marketing è uno degli strumenti più potenti ed efficaci per incrementare le vendite e fidelizzare i clienti.</p>' +
+                '<p>Il plugin di eMailChef per WooCommerce ti consente di:</p>' +
+                '<ul>' +
+                '<li><strong>trasferire le informazioni relative ai clienti e ai loro ordini</strong> nel tuo account eMailChef</li>' +
+                '<li><strong>segmentare i clienti</strong> in base agli ordini, ai carrelli abbandonati, ecc.</li>' +
+                '<li><strong>gestire e sincronizzare le iscrizioni alla newsletter</strong> da WooCommerce a eMailChef</li>' +
+                '<li><strong>risparmiare soldi con le newsletter</strong> mantenendo i tuoi clienti coinvolti</li>' +
+                '<li><strong>Creare automazioni</strong> per carrelli abbandonati, ricomponese, ordini ricorrenti e molto altro.</li>' +
+                '</ul>'
         }
     }
 ];

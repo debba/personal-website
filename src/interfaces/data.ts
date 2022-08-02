@@ -8,11 +8,18 @@ export interface ProjectNameLocalized {
     [key : string]: string;
 }
 
+export interface ProjectImage {
+    cover?: string;
+    icon?: string;
+}
+
 export interface ProjectItem {
+    github_user: string;
     github_name: string;
     localeBlacklist?: string[];
-    image?: string;
+    image?: ProjectImage;
     name: string;
+    hide_stats?: boolean;
     description: string | ProjectNameLocalized;
     short_description: string | ProjectNameLocalized;
 }

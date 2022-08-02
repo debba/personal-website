@@ -1,4 +1,4 @@
-import {ActivityItem, ProjectNameLocalized, ServiceItem} from "./data";
+import {ActivityItem, ProjectImage, ProjectNameLocalized, ServiceItem} from "./data";
 
 export interface DataProps {
     services: ServiceItem[];
@@ -19,7 +19,8 @@ interface ProjectDetail {
 
 export interface ProjectProps {
     githubData: ProjectDetail;
-    image?: string;
+    hide_stats: boolean;
+    image?: ProjectImage;
     name: string;
     description:  string | ProjectNameLocalized;
     short_description: string | ProjectNameLocalized;
