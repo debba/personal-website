@@ -12,7 +12,7 @@ export const getServerSideProps: GetServerSideProps = async ({res, locales}) => 
     const dynamicPages = PROJECTS
         .map(project => `projects/${project.github_name}`)
 
-    const pages = [...locales, '']
+    const pages = locales
         .flatMap(
             locale => {
                 return [...staticPages, ...dynamicPages]
