@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps<ProjectProps, { slug: string }> = as
             },
             name: project.name,
             description: project.description,
-            hide_stats: project?.hide_stats,
+            hide_stats: project?.hide_stats || false,
             short_description: project.short_description
         },
         revalidate: 60 * 60 * 24
@@ -173,7 +173,7 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
                         className={`relative mx-auto max-w-md px-0 md:px-4 ${data.image ? 'sm:max-w-3xl' : ''} sm:px-6 lg:px-0`}>
                         <div className="pt-12 sm:pt-16 lg:pt-20">
                             <h3 className="text-xl font-bold font-roboto text-center">{shortDescription}</h3>
-                            <div className="mt-6  font-roboto font-semibold text-sm space-y-6"
+                            <div className="mt-6  font-roboto  text-sm space-y-6"
                                  dangerouslySetInnerHTML={{__html: description}}>
                             </div>
                         </div>
