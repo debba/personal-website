@@ -22,7 +22,7 @@ export const Button: React.FC<{ url: string, title: string, icon: string, classN
             <a
                 target={openSelf ? "_self" : "_blank"}
                 className={
-                    className || 'bg-white text-gray-800 hover:bg-slate-500 hover:text-white hover:border hover:border-white font-bold py-2 px-4 rounded inline-flex items-center'
+                    className || 'ml-2 bg-white text-gray-800 hover:bg-slate-500 hover:text-white hover:border hover:border-white font-bold py-2 px-4 rounded inline-flex items-center'
                 }
                 rel="noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" className={svgClassName || `fill-current w-4 h-4 mr-2`}

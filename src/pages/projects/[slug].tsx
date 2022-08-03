@@ -9,6 +9,7 @@ import {DICTIONARY} from "../../i18n/dictionary";
 import {useRouter} from "next/router";
 import GithubButton from "../../components/atoms/ghbutton";
 import Link from "next/link";
+import ProjectLinks from "../../components/sections/_projects/links";
 
 export const getStaticProps: GetStaticProps<ProjectProps, { slug: string }> = async (context) => {
 
@@ -163,7 +164,7 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
                                     </div>
                                 </div>
                                 <div className={"relative text-center mt-5"}>
-                                    <GithubButton url={githubData.html_url} title={'Github Repo'}/>
+                                    <ProjectLinks githubData={githubData} />
                                 </div>
                             </div>
                         )
@@ -222,9 +223,7 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
                 </div>
                 {
                     !data.image && (
-                        <div className={"relative text-center mt-5"}>
-                            <GithubButton url={githubData.html_url} title={'Github Repo'}/>
-                        </div>
+                        <ProjectLinks githubData={githubData} />
                     )
                 }
             </div>

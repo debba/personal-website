@@ -7,6 +7,7 @@ export interface DataProps {
 }
 
 interface ProjectDetail {
+    homepage: string;
     html_url  : string;
     description: string;
     stargazers_count: number;

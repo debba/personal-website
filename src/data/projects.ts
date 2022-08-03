@@ -4,6 +4,27 @@ import React from "react";
 export const PROJECTS: ProjectItem[] = [
     {
         github_user: 'debba',
+        github_name: 'fs-access-api-react-demo',
+        name: "File System Access API Demo",
+        short_description: {
+            en: "File System Access API Demo in a React Application with Typescript",
+            it: "Applicazione che illustra il funzionamento delle File System Access API con React e Typescript"
+        },
+        description: {
+            en: '<p><strong>Demo features:</strong></p><ol class="list-inside list-decimal">' +
+                '<li class="py-2">Open file from local file system</li>' +
+                '<li class="py-2">Write the file to local file system</li>' +
+                '<li class="py-2">Fallback for unsupported browsers</li>' +
+                '</ul>',
+            it: '<p><strong>Funzionalità nella demo:</strong></p><ol class="list-inside list-decimal">' +
+                '<li class="py-2">Apertura di un file di testo da file system locale</li>' +
+                '<li class="py-2">Scrittura di un file di testo da file system locale</li>' +
+                '<li class="py-2">Fallback per i browsers non supportati.</li>' +
+                '</ul>'
+        }
+    },
+    {
+        github_user: 'debba',
         github_name: 'greenpass-covid19-qrcode-decoder',
         image: {cover: "/images/projects/cover/greenpass-covid19-qrcode-decoder.png"},
         name: "GreenPass Covid-19 QR Code Decoder",
