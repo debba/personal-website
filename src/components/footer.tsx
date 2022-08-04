@@ -2,6 +2,7 @@ import Logo from "./logo";
 import Script from "next/script";
 import {useG11n} from "next-g11n";
 import {DICTIONARY} from "../i18n/dictionary";
+import Image from "next/image";
 
 export const Footer = () => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
@@ -157,11 +158,26 @@ export const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="text-center p-6 text-xs text-light-grey">
+                <div className="text-center py-3 text-xs text-light-grey">
                     <p><span>© 2022 Copyright:</span>
                         <a className="pl-1 font-semibold" href="src/components/footer#">Andrea Debernardi</a></p>
-                    <p>{t('footer_project_opensource') as string} ❤ ️<a
-                        href="https://github.com/debba/personal-website" target="_blank" rel="noreferrer">Github Repo</a>
+                    <p>{t('footer_project_opensource') as string} ❤ ️<a className={"hover:underline"}
+                        href="https://github.com/debba/personal-website" target="_blank" rel="noreferrer">Github
+                        Repo</a>
+                    </p>
+                </div>
+                <div className="text-center pb-2 text-xs text-light-grey">
+                    <p>
+                        <a href="https://github.com/debba/personal-website">
+                            <span>
+                                <Image loading={"lazy"} src={"https://img.shields.io/github/stars/debba/personal-website?style=social"}
+                                       alt="GitHub stars" width={82} height={20}/>
+                            </span>
+                            <span className="pl-2">
+                            <Image loading={"lazy"} src={"https://img.shields.io/github/last-commit/debba/personal-website"}
+                                   alt="GitHub last commit" width={140} height={20}/>
+                                </span>
+                        </a>
                     </p>
                 </div>
             </footer>

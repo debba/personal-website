@@ -22,7 +22,7 @@ export const Logo : React.FC<LogoProps> = (props) => {
               onMouseLeave={onMouseLeave} className="text-white hover:text-secondary-color">
             <Link href="/" locale={g11nLocale}>
                 <a  className="flex items-center flex-shrink-0  mb-3">
-                    <Image src={`/images/logo-single${isHovering ? '-blue': ''}.png`} alt={"Andrea Debernardi"} width={54} height={54}/>
+                    <Image priority={true} src={`/images/logo-single${isHovering ? '-blue': ''}.png`} alt={"Andrea Debernardi"} width={54} height={54}/>
                     <span className="font-roboto text-lg uppercase tracking-tight">Andrea Debernardi</span>
                 </a>
             </Link>
