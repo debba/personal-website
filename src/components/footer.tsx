@@ -170,13 +170,13 @@ export const Footer = () => {
                     <p>
                         <a href="https://github.com/debba/personal-website">
                             <span>
-                                <Image loading={"lazy"} src={"https://img.shields.io/github/stars/debba/personal-website?style=social"}
+                                <Image loading={"lazy"} unoptimized src={"https://img.shields.io/github/stars/debba/personal-website?style=social"}
                                        alt="GitHub stars" width={82} height={20}/>
                             </span>
                             <span className="pl-2">
-                            <Image loading={"lazy"} src={"https://img.shields.io/github/last-commit/debba/personal-website"}
+                            <Image loading={"lazy"} unoptimized src={"https://img.shields.io/github/last-commit/debba/personal-website"}
                                    alt="GitHub last commit" width={140} height={20}/>
-                                </span>
+                            </span>
                         </a>
                     </p>
                 </div>
