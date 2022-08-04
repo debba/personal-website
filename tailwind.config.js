@@ -9,6 +9,9 @@ module.exports = {
       sans: ['Roboto', 'sans-serif']
     },
     extend: {
+      transitionProperty: {
+        'bg-size': 'background-size',
+      },
       colors: {
         'extra-dark': '#000101',
         'semi-dark': '#040f0c',

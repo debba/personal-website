@@ -29,7 +29,7 @@ const MenuItemSection : React.FC<{ menuItem: MenuItem, menuItemSelection: Functi
     return (
         <Link href={menuItem['link']}>
             <a ref={linkRef}
-                className="uppercase menu-item font-roboto block font-semibold mt-4 lg:inline-block lg:mt-0 hover:text-secondary-color text-white mr-4">
+                className="pb-1 border-b-0 bg-[length:0_3px] bg-[0_100%] bg-no-repeat mt-2 bg-gradient-to-b from-transparent to-white transition-bg-size duration-500 ease-in-out  bg-gradient-to-b from-transparent to-secondary-color hover:bg-[length:100%_3px] uppercase menu-item font-roboto block font-semibold mt-4 lg:inline-block lg:mt-0 hover:text-secondary-color text-white mr-4">
                 { t( menuItemTitle ) as string }
             </a>
         </Link>
