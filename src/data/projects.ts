@@ -106,14 +106,12 @@ export const PROJECTS: ProjectItem[] = [
         description: {
             en: '<p>Send your email marketing campaigns through the interface provided on emailchef.com.</p>' +
                 '<p>With eMailChef you can choose between multiple subscription plans divided by functionality and contacts and you can also decide to subscribe to a custom plan, built to suit your needs.</p>' +
-                '<p>This is the perfect marketing tool to add an intuitive and solid email campaign solution to your website.</p>' +
                 '<p>Every form submission from WPForms, Contact Form 7, Fast Secure Contact Form (FSCF) and Jetpack (more supported plugins coming: contact us for advices!) will be automatically synced with the selected eMailChef contact list.</p>' +
                 '<p>It also supports customized fields you can use to segment your customers! E.g. if in a form you ask for customers type (reseller, hotels, etc.) you can easily create a newsletter just for them.</p>',
-            it: '<p>Send your email marketing campaigns through the interface provided on emailchef.com.</p>' +
-                '<p>With eMailChef you can choose between multiple subscription plans divided by functionality and contacts and you can also decide to subscribe to a custom plan, built to suit your needs.</p>' +
-                '<p>This is the perfect marketing tool to add an intuitive and solid email campaign solution to your website.</p>' +
-                '<p>Every form submission from WPForms, Contact Form 7, Fast Secure Contact Form (FSCF) and Jetpack (more supported plugins coming: contact us for advices!) will be automatically synced with the selected eMailChef contact list.</p>' +
-                '<p>It also supports customized fields you can use to segment your customers! E.g. if in a form you ask for customers type (reseller, hotels, etc.) you can easily create a newsletter just for them.</p>'
+            it: '<p>Invia le tue campagne di email marketing attraverso la app di eMailChef.</p>' +
+                '<p>Con eMailChef puoi scegliere tra più piani di abbonamento suddivisi per funzionalità e contatti e puoi anche decidere di sottoscrivere un piano personalizzato, costruito in base alle vostre esigenze.</p>' +
+                '<p>Ogni invio di moduli da WPForms, Contact Form 7, Fast Secure Contact Form (FSCF) e Jetpack (altri plugin supportati sono in arrivo: contattateci per consigli!) sarà sincronizzato automaticamente con la lista eMailChef selezionata.</p>' +
+                '<p>Supporta anche campi personalizzati che puoi utilizzare per segmentare i tuoi clienti! Ad esempio, se in un modulo chiedi il tipo di cliente (rivenditore, hotel, ecc.) puoi facilmente creare una newsletter solo per il tipo richiesto.</p>'
         }
     },
     {
