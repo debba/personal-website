@@ -28,7 +28,7 @@ export const Footer = () => {
                                 </path>
                             </svg>
                         </a>
-                        <a href="src/components/footer" target="_blank" rel="noreferrer"
+                        <a href="https://www.instagram.com/debba_92/?hl=it" target="_blank" rel="noreferrer"
                            className="mr-6 text-gray-400 hover:text-secondary-color">
                             <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram"
                                  className="w-3.5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
