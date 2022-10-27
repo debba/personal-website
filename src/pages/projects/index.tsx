@@ -50,21 +50,24 @@ const Projects: NextPage = () => {
                                 <div className="flex-1 bg-slate-800  p-6 flex flex-col justify-between">
                                     <div className="flex-1 ">
 
-                                        <Link href={`/projects/${project.github_name}`} locale={g11nLocale}>
-                                            <a className="block mt-2 md:flex items-center">
-                                                {
-                                                    project.image?.icon && (
-                                                        <div className="md:flex-initial md:w-auto mb-1 md:mb-0 text-center">
-                                                            <Image src={project.image?.icon} width={100} height={100}
-                                                                   alt={project.name} className="rounded-lg "/>
-                                                        </div>
-                                                    )
-                                                }
-                                                <div className="md:flex-initial md:w-full md:pl-4">
-                                                    <p className="text-xl font-semibold text-white font-roboto">{project.name}</p>
-                                                    <p className="mt-3 text-sm md:text-xs font-roboto text-gray-100">{project.short_description}</p>
-                                                </div>
-                                            </a>
+                                        <Link
+                                            href={`/projects/${project.github_name}`}
+                                            locale={g11nLocale}
+                                            className="block mt-2 md:flex items-center">
+
+                                            {
+                                                project.image?.icon && (
+                                                    <div className="md:flex-initial md:w-auto mb-1 md:mb-0 text-center">
+                                                        <Image src={project.image?.icon} width={100} height={100}
+                                                               alt={project.name} className="rounded-lg "/>
+                                                    </div>
+                                                )
+                                            }
+                                            <div className="md:flex-initial md:w-full md:pl-4">
+                                                <p className="text-xl font-semibold text-white font-roboto">{project.name}</p>
+                                                <p className="mt-3 text-sm md:text-xs font-roboto text-gray-100">{project.short_description}</p>
+                                            </div>
+
                                         </Link>
                                     </div>
                                 </div>
@@ -74,7 +77,7 @@ const Projects: NextPage = () => {
                 </div>
             </div>
         </section>
-    </>
+    </>;
 }
 
 export default Projects;

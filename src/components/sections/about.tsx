@@ -10,7 +10,7 @@ export const AboutSection = () => {
             <div className="grid lg:grid-cols-2 gap-4 flex items-center">
                 <div className="mt-12 lg:mt-0 text-center">
                     <Image loading="lazy" src={"/images/me.jpg"}
-                           alt="Andrea" width="450px" height="450px"/>
+                           alt="Andrea" width="450" height="450"/>
                 </div>
                 <div className="mb-12 lg:mb-0 py-8">
                     <div className="md:w-1/2">

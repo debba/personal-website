@@ -26,16 +26,16 @@ export const getStaticProps: GetStaticProps<ProjectProps, { slug: string }> = as
     return {
         props: {
             githubData: await res.json(),
-            ...project?.image && {
+            ...(project?.image && {
                 image: project.image
-            },
+            }),
             name: project.name,
             description: project.description,
             hide_stats: project?.hide_stats || false,
             short_description: project.short_description
         },
         revalidate: 60 * 60 * 24
-    }
+    };
 }
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async ({locales}) => {
@@ -82,15 +82,15 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
                 <ol role="list" className="flex items-center space-x-2 text-white font-roboto">
                     <li>
                         <div>
-                            <Link href="/" locale={g11nLocale}>
-                                <a className=" hover:text-gray-500">
-                                    <svg className="flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg"
-                                         viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path
-                                            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
-                                    </svg>
-                                    <span className="sr-only">Home</span>
-                                </a>
+                            <Link href="/" locale={g11nLocale} className=" hover:text-gray-500">
+
+                                <svg className="flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path
+                                        d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                                </svg>
+                                <span className="sr-only">Home</span>
+
                             </Link>
                         </div>
                     </li>
@@ -101,9 +101,11 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
                                  fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                                 <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z"/>
                             </svg>
-                            <Link href={"/projects"} locale={g11nLocale}>
-                            <a
-                               className="ml-4 text-sm font-medium text-white hover:text-gray-700">{t('projects_title') as string}</a>
+                            <Link
+                                href={"/projects"}
+                                locale={g11nLocale}
+                                className="ml-4 text-sm font-medium text-white hover:text-gray-700">
+                            {t('projects_title') as string}
                             </Link>
                         </div>
                     </li>
@@ -229,7 +231,7 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
             </div>
 
         </section>
-    </>
+    </>;
 };
 
 export default ProjectNamePage;
