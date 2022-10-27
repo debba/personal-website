@@ -65,11 +65,17 @@ const LanguagePicker: React.FC<{onCloseLanguagePicker: Function}> = ({onCloseLan
                             {
                                 router.locales?.map(
                                     (locale, key) => (
-                                        <Link key={key} href={asPath} locale={locale}>
-                                            <a className="block px-4 py-2 hover:bg-secondary-color language-menu-item" role="menuitem" tabIndex={-1}><span
+                                        (<Link
+                                            key={key}
+                                            href={asPath}
+                                            locale={locale}
+                                            className="block px-4 py-2 hover:bg-secondary-color language-menu-item"
+                                            role="menuitem"
+                                            tabIndex={-1}>
+                                            <span
                                                 className={"fi fi-" + flag[locale]}></span> {t(`lang_${locale}_label`) as string}
-                                            </a>
-                                        </Link>
+
+                                        </Link>)
                                     )
                                 )
                             }
@@ -81,7 +87,7 @@ const LanguagePicker: React.FC<{onCloseLanguagePicker: Function}> = ({onCloseLan
 
 
         </div>
-    )
+    );
 }
 
 export default LanguagePicker;

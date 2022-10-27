@@ -20,14 +20,17 @@ export const Logo : React.FC<LogoProps> = (props) => {
     return (
         <div onClick={() => props.onClick && props.onClick()} onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave} className="text-white hover:text-secondary-color">
-            <Link href="/" locale={g11nLocale}>
-                <a  className="flex items-center flex-shrink-0  mb-3">
-                    <Image priority={true} src={`/images/logo-single${isHovering ? '-blue': ''}.png`} alt={"Andrea Debernardi"} width={54} height={54}/>
-                    <span className="font-roboto text-lg uppercase tracking-tight">Andrea Debernardi</span>
-                </a>
+            <Link
+                href="/"
+                locale={g11nLocale}
+                className="flex items-center flex-shrink-0  mb-3">
+
+                <Image priority={true} src={`/images/logo-single${isHovering ? '-blue': ''}.png`} alt={"Andrea Debernardi"} width={54} height={54}/>
+                <span className="font-roboto text-lg uppercase tracking-tight">Andrea Debernardi</span>
+
             </Link>
         </div>
-    )
+    );
 }
 
 export default Logo;
