@@ -165,7 +165,7 @@ export const ContactFormSection = () => {
                                            required/>
                                 </div>
                                 <div className="flex flex-col col-span-2">
-                                    <label htmlFor="subject">
+                                    <label htmlFor="text">
                                         <div className="flex align-items">
                                             {t('section_contactme_message') as string}
                                             <span className="ml-auto opacity-75">
@@ -176,7 +176,7 @@ export const ContactFormSection = () => {
                                     </label>
                                     <textarea value={message} onChange={(e) => handleMessageChange(e.target.value)}
                                               maxLength={500}
-                                              rows={4} id="subject" name="subject"
+                                              rows={4} id="text" name="text"
                                               className="text-gray-800 form-input px-3 py-2 rounded-md" required/>
                                 </div>
                             </div>
