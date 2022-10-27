@@ -25,6 +25,10 @@ export const ContactFormSection = () => {
     const [showFailureMessage, setShowFailureMessage] = useState(false);
     const [buttonText, setButtonText] = useState(submitButtonText);
 
+    const totalNumbersChars = 500;
+
+    const [countMessageCharsRemaining, setCountMessageCharsRemaining] = useState<number>(totalNumbersChars);
+
     const goBackForm = () => {
         setShowSuccessMessage(false);
         setFirstName('');
@@ -41,6 +45,11 @@ export const ContactFormSection = () => {
         setErrors({...errors});
         return is_valid;
     };
+
+    const handleMessageChange = (message: string) => {
+        setMessage(message);
+        setCountMessageCharsRemaining(totalNumbersChars-(message.length));
+    }
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -160,11 +169,12 @@ export const ContactFormSection = () => {
                                         <div className="flex align-items">
                                             {t('section_contactme_message') as string}
                                             <span className="ml-auto opacity-75">
-                                            {t('section_contactme_maxchars') as string}
+                                            {t('section_contactme_maxchars', {total: totalNumbersChars}) as string}
                                             </span>
+                                            <span className={"ml-2 opacity-60 "}>{t('section_contactme_remainingchars', {total: countMessageCharsRemaining}) as string}</span>
                                         </div>
                                     </label>
-                                    <textarea value={message} onChange={(e) => setMessage(e.target.value)}
+                                    <textarea value={message} onChange={(e) => handleMessageChange(e.target.value)}
                                               maxLength={500}
                                               rows={4} id="subject" name="subject"
                                               className="text-gray-800 form-input px-3 py-2 rounded-md" required/>
