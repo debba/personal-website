@@ -157,8 +157,7 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
                                     className="relative mx-auto max-w-md px-0 md:px-4 sm:max-w-3xl sm:px-6 lg:px-0 lg:max-w-none lg:py-20">
                                     <div className="relative pt-64 pb-10 md:rounded-2xl shadow-xl overflow-hidden">
 
-                                        <Image loading={"lazy"} className="absolute inset-0 h-full w-full object-contain"
-                                               layout={"fill"} src={data.image.cover} alt={shortDescription}/>
+                                        <Image loading={"lazy"} fill={true} className="absolute inset-0 h-full w-full object-contain" src={data.image.cover} alt={shortDescription}/>
                                         <div className="absolute inset-0 white-500 mix-blend-multiply"></div>
                                         <div
                                             className="absolute inset-0 bg-gradient-to-t from-white-600 via-white-600 opacity-90"></div>
