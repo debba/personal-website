@@ -149,9 +149,9 @@
   version "18.11.9"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.9.tgz#02d013de7058cea16d36168ef2fc653464cfbad4"
 
-"@types/nodemailer@^6.4.6":
-  version "6.4.6"
-  resolved "https://registry.npmjs.org/@types/nodemailer/-/nodemailer-6.4.6.tgz"
+"@types/nodemailer@^6.4.7":
+  version "6.4.7"
+  resolved "https://registry.yarnpkg.com/@types/nodemailer/-/nodemailer-6.4.7.tgz#658f4bca47c1a895b1d7e054b3b54030a5e1f5e0"
   dependencies:
     "@types/node" "*"
 
