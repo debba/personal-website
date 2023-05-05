@@ -7,9 +7,9 @@ import Head from "next/head";
 import {getLocale, useG11n} from "next-g11n";
 import {DICTIONARY} from "../../i18n/dictionary";
 import {useRouter} from "next/router";
-import GithubButton from "../../components/atoms/ghbutton";
 import Link from "next/link";
 import ProjectLinks from "../../components/sections/_projects/links";
+import {Counter} from "../../components/atoms/counter";
 
 export const getStaticProps: GetStaticProps<ProjectProps, { slug: string }> = async (context) => {
 
@@ -64,9 +64,11 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
     const description = typeof data.description === 'string' ? data.description : (g11nLocale in data.description ? data.description[g11nLocale] : '');
     const shortDescription = typeof data.short_description === 'string' ? data.short_description : (g11nLocale in data.short_description ? data.short_description[g11nLocale] : '');
 
+    const pageTitle = `${t('site_title_osp')} - ${data.name}`;
+
     return <>
         <Head>
-            <title>{t('site_title_osp') as string} - {data.name}</title>
+            <title>{pageTitle}</title>
             <meta property="og:title" content={t('site_title_osp') as string + ' - ' + data.name}/>
             <meta property="description" content={shortDescription}/>
             <meta property="og:description" content={shortDescription}/>
@@ -190,7 +192,7 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
                                                 <dd className="order-1 text-5xl font-extrabold text-gray-300 font-roboto">
                                                     <a href={githubData.stargazers_url} target="_blank"
                                                        rel="noopener noreferrer">
-                                                        {githubData.stargazers_count}
+                                                        <Counter end={githubData.stargazers_count} duration={2}></Counter>
                                                     </a>
                                                 </dd>
                                             </div>
@@ -200,7 +202,7 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
                                                 <dd className="order-1 text-5xl font-extrabold text-gray-300 font-roboto">
                                                     <a href={githubData.forks_url} target="_blank"
                                                        rel="noopener noreferrer">
-                                                        {githubData.forks_count}
+                                                        <Counter end={githubData.forks_count} duration={2}></Counter>
                                                     </a>
                                                 </dd>
                                             </div>
@@ -210,7 +212,7 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
                                                     ISSUES
                                                 </dt>
                                                 <dd className="order-1 text-5xl font-extrabold text-gray-300 font-roboto">
-                                                    {githubData.open_issues_count}
+                                                    <Counter end={githubData.open_issues_count} duration={2}></Counter>
                                                 </dd>
                                             </div>
                                         </dl>

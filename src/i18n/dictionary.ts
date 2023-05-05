@@ -81,7 +81,7 @@ export const DICTIONARY: Record<string, {
         menu_activities: 'Attività',
         menu_portfolio: 'Portfolio',
         about_claim: 'Dopo aver mosso i miei primissimi passi in ambiente MS-DOS grazie alle basi del papà, sono passato rapidamente al mondo dei colori e delle finestre.\n' +
-            'Spinto da una continua curiosità ho imparato molto in fretta a fare tutto quello che adesso, con un pò di conoscenza in più, è diventata la mia professione.\n' +
+            'Spinto da una continua curiosità ho imparato molto in fretta a fare tutto quello che adesso, con un pò di conoscenza in più, è diventato la mia professione.\n' +
             'Ma la conoscenza nel mio settore non è mai abbastanza  e la curiosità non finisce mai così continuo ad aggiornarmi e a ricercare tecniche nuove e sempre più efficienti.\n' +
             'Mi piace impegnarmi costantemente in qualcosa di nuovo, odio gli sprechi di tempo e adoro viaggiare, la musica, il cinema e la buona cucina. ',
         section_services: 'Le mie competenze',
