@@ -127,8 +127,10 @@ export const Footer = () => {
             w-full
             md:w-1/2
             mt-1
-            text-gray-800
-            border-gray-300
+            text-secondary-color
+            border-secondary-color
+            dark:text-gray-800
+            dark:border-gray-300
             rounded-md
             shadow-sm
             focus:border-indigo-300
