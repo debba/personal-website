@@ -81,7 +81,7 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
         <section id="project" className="py-3 md:py-[100px]">
 
             <nav className="flex mt-[100px] md:mt-0 " aria-label="Breadcrumb">
-                <ol role="list" className="flex items-center space-x-2 text-white font-roboto">
+                <ol role="list" className="flex items-center space-x-2 text-secondary-color dark:text-white font-roboto">
                     <li>
                         <div>
                             <Link href="/" locale={g11nLocale} className=" hover:text-gray-500">
@@ -99,14 +99,14 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
 
                     <li>
                         <div className="flex items-center">
-                            <svg className="flex-shrink-0 h-5 w-5 text-gray-300" xmlns="http://www.w3.org/2000/svg"
+                            <svg className="flex-shrink-0 h-5 w-5  text-secondary-color dark:text-gray-300" xmlns="http://www.w3.org/2000/svg"
                                  fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                                 <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z"/>
                             </svg>
                             <Link
                                 href={"/projects"}
                                 locale={g11nLocale}
-                                className="ml-4 text-sm font-medium text-white hover:text-gray-700">
+                                className="ml-4 text-sm font-medium text-secondary-color dark:text-gray-700">
                             {t('projects_title') as string}
                             </Link>
                         </div>
@@ -175,8 +175,8 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
                     <div
                         className={`relative mx-auto max-w-md px-0 md:px-4 ${data.image ? 'sm:max-w-3xl' : ''} sm:px-6 lg:px-0`}>
                         <div className="pt-12 sm:pt-16 lg:pt-20">
-                            <h3 className="text-xl font-bold font-roboto text-center">{shortDescription}</h3>
-                            <div className="mt-6  font-roboto  text-sm space-y-6"
+                            <h3 className="text-xl font-bold font-roboto text-center text-black dark:text-white">{shortDescription}</h3>
+                            <div className="mt-6  font-roboto  text-sm space-y-6 text-black dark:text-white"
                                  dangerouslySetInnerHTML={{__html: description}}>
                             </div>
                         </div>

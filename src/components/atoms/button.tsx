@@ -23,7 +23,7 @@ export const Button: React.FC<{ url: string, title: string, icon: string, classN
             locale={g11nLocale}
             target={openSelf ? "_self" : "_blank"}
             className={
-                className || 'ml-2 bg-white text-gray-800 hover:bg-slate-500 hover:text-white hover:border hover:border-white font-bold py-2 px-4 rounded inline-flex items-center'
+                className || 'ml-2 text-white dark:text-gray-800 bg-secondary-color dark:bg-white hover:bg-slate-600 dark:hover:bg-slate-500 dark:hover:text-white hover:border dark:hover:border-white font-bold py-2 px-4 rounded inline-flex items-center'
             }
             rel="noreferrer">
 

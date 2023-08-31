@@ -15,7 +15,7 @@ export const PortfolioSection : React.FC<{ customersLogo: string[]  }> = ({custo
                 {t('section_portfolio') as string}
             </h2>
 
-            <p className="text-center font-roboto font-semibold text-sm mb-2">
+            <p className="text-black dark:text-white text-center font-roboto font-semibold text-sm mb-2">
                 {t('section_portfolio_desc') as string}
             </p>
 

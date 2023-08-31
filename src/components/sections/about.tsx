@@ -18,8 +18,8 @@ export const AboutSection = () => {
                             Andrea Debernardi
                         </h1>
                     </div>
-                    <h2 className="font-roboto text-normal uppercase text-xl">Full stack web developer</h2>
-                    <p className="mt-5 font-roboto font-semibold text-sm">{ t('about_claim') as string }</p>
+                    <h2 className="font-roboto text-secondary-color dark:text-white text-normal uppercase text-xl">Full stack web developer</h2>
+                    <p className="mt-5 text-black dark:text-white font-roboto font-semibold text-sm">{ t('about_claim') as string }</p>
                 </div>
             </div>
         </section>

@@ -14,7 +14,7 @@ export const ActivitiesSection: React.FC<{ activities: ActivityItem[] }> = ({act
                 {t('section_activities') as string}
             </h2>
 
-            <p className={"text-center font-roboto font-semibold text-sm mb-2"}>
+            <p className={"text-black dark:text-white text-center font-roboto font-semibold text-sm mb-2"}>
                 {t('section_activities_desc') as string}
             </p>
 

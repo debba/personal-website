@@ -19,7 +19,7 @@ class MyDocument extends Document {
                     }
 
                 </Head>
-                <body className="bg-semi-dark">
+                <body className="bg-white dark:bg-semi-dark">
                 <Main />
 
                 <NextScript />

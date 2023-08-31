@@ -4,7 +4,7 @@ import {DICTIONARY} from "../../../i18n/dictionary";
 import {useRouter} from "next/router";
 import Link from "next/link";
 
-const LanguagePicker: React.FC<{onCloseLanguagePicker: Function}> = ({onCloseLanguagePicker}) => {
+const LanguagePicker: React.FC<{onCloseLanguagePicker: Function, navOpened: boolean}> = ({onCloseLanguagePicker, navOpened}) => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
     const router = useRouter()
     const g11nLocale = getLocale(router);
@@ -40,7 +40,11 @@ const LanguagePicker: React.FC<{onCloseLanguagePicker: Function}> = ({onCloseLan
              ref={languagePicker}>
             <div>
                 <button type="button" onClick={() => setIsLanguagePickerOpen((prev) => !prev)}
-                        className="inline-flex md:justify-center w-full rounded-md md:border md:border-secondary-color shadow-sm md:px-4 md:py-2 bg-semi-dark font-semibold font-roboto text-white uppercase md:focus:outline-none md:focus:ring-2 md:focus:ring-offset-2 md:focus:ring-offset-gray-100 md:focus:ring-indigo-500"
+                        className={`
+                        inline-flex md:justify-center w-full rounded-md md:border md:border-secondary-color shadow-sm md:px-4 md:py-2 ${!navOpened ? ' text-white bg-secondary-color' : 'text-secondary-color dark:text-white' } 
+                        dark:bg-semi-dark font-semibold font-roboto uppercase md:focus:outline-none 
+                        md:focus:ring-2 md:focus:ring-offset-2 md:focus:ring-offset-gray-100 md:focus:ring-indigo-500
+                        `}
                         id="menu-button" aria-expanded="true" aria-haspopup="true">
                     <p>
                         {t('menu_languagepicker_label') as string} <span
@@ -58,7 +62,7 @@ const LanguagePicker: React.FC<{onCloseLanguagePicker: Function}> = ({onCloseLan
             {
                 isLanguagePickerOpen && (
                     <div
-                        className="md:origin-top-right md:absolute md:border md:border-secondary-color md:bg-semidark md:right-0 mt-2 md:w-56 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none font-semibold font-roboto text-white uppercase md:bg-semi-dark "
+                        className="md:origin-top-right md:absolute md:border md:border-secondary-color bg-white md:right-0 mt-2 md:w-56 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none font-semibold font-roboto text-secondary-color dark:text-white uppercase dark:bg-semi-dark "
                         role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex={-1}>
                         <div className="py-1" role="none">
 
@@ -69,7 +73,7 @@ const LanguagePicker: React.FC<{onCloseLanguagePicker: Function}> = ({onCloseLan
                                             key={key}
                                             href={asPath}
                                             locale={locale}
-                                            className="block px-4 py-2 hover:bg-secondary-color language-menu-item"
+                                            className="block px-4 py-2 hover:text-white hover:bg-secondary-color dark:hover:bg-secondary-color language-menu-item"
                                             role="menuitem"
                                             tabIndex={-1}>
                                             <span

@@ -9,11 +9,11 @@ export const Footer = () => {
 
     return (
         <>
-            <footer className="text-center lg:text-left bg-extra-dark text-white">
+            <footer className="text-center lg:text-left bg-white dark:bg-extra-dark text-white">
                 <div
-                    className="flex justify-center items-center lg:justify-between p-6 border-b border-t border-gray-300">
+                    className="flex justify-center items-center lg:justify-between p-6 border-b border-t border-secondary-color dark:border-gray-300">
                     <div className="mr-12 hidden lg:block">
-                        <span className="pl-6 font-roboto text-sm font-semibold">
+                        <span className="pl-6 font-roboto text-sm font-semibold text-secondary-color dark:text-white">
                             {t('footer_socialnetwork_connect') as string}
                         </span>
                     </div>
@@ -62,7 +62,7 @@ export const Footer = () => {
                     <div className="grid grid-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
                         <div className="pr-6">
                             <Logo/>
-                            <div className="pl-[18px]">
+                            <div className="pl-[18px] text-black dark:text-white">
                                 <p className="flex items-center justify-start mb-4 text-sm">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 mr-4" fill="none"
                                          viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -106,7 +106,7 @@ export const Footer = () => {
                         </div>
                         <div className="pl-3 md:pl-0">
                             <div className="flex items-center flex-shrink-0 text-white mb-3">
-                            <span className="font-roboto text-lg uppercase tracking-tight leading-[54px]">
+                            <span className="font-roboto text-lg uppercase tracking-tight leading-[54px] text-secondary-color dark:text-white">
                                 {t('footer_keep_in_touch') as string}
                             </span>
                             </div>
@@ -116,7 +116,7 @@ export const Footer = () => {
                                 encType="multipart/form-data"
                             >
                                 <label className="block mb-6">
-                                    <span className="text-white text-sm">
+                                    <span className="text-black dark:text-white text-sm">
                                         {t('footer_newsletter_email') as string}
                                     </span>
                                     <input

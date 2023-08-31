@@ -116,7 +116,7 @@ export const ContactFormSection = () => {
                         <form onSubmit={handleSubmit}>
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="flex flex-col">
-                                    <label htmlFor="first-name">
+                                    <label className="text-black dark:text-white" htmlFor="first-name">
                                         {t('section_contactme_firstname') as string}
                                     </label>
                                     <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)}
@@ -125,7 +125,7 @@ export const ContactFormSection = () => {
                                            required/>
                                 </div>
                                 <div className="flex flex-col">
-                                    <label htmlFor="last-name">
+                                    <label className="text-black dark:text-white" htmlFor="last-name">
                                         {t('section_contactme_lastname') as string}
                                     </label>
                                     <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)}
@@ -134,7 +134,7 @@ export const ContactFormSection = () => {
                                            required/>
                                 </div>
                                 <div className="flex flex-col">
-                                    <label htmlFor="email">
+                                    <label className="text-black dark:text-white" htmlFor="email">
                                         {t('section_contactme_email') as string}
                                     </label>
                                     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}
@@ -143,7 +143,7 @@ export const ContactFormSection = () => {
                                            required/>
                                 </div>
                                 <div className="flex flex-col">
-                                    <label htmlFor="phone">
+                                    <label className="text-black dark:text-white" htmlFor="phone">
                                         <div className="flex align-items">
                                             {t('section_contactme_phone') as string}
                                             <span className="ml-auto opacity-75">
@@ -156,7 +156,7 @@ export const ContactFormSection = () => {
                                            name="phone" className="text-gray-800 form-input px-3 py-2 rounded-md"/>
                                 </div>
                                 <div className="flex flex-col col-span-2">
-                                    <label htmlFor="subject">
+                                    <label className="text-black dark:text-white" htmlFor="subject">
                                         {t('section_contactme_subject') as string}
                                     </label>
                                     <input type="text" value={subject} onChange={(e) => setSubject(e.target.value)}
@@ -165,7 +165,7 @@ export const ContactFormSection = () => {
                                            required/>
                                 </div>
                                 <div className="flex flex-col col-span-2">
-                                    <label htmlFor="text">
+                                    <label className="text-black dark:text-white" htmlFor="text">
                                         <div className="flex align-items">
                                             {t('section_contactme_message') as string}
                                             <span className="ml-auto opacity-75">
