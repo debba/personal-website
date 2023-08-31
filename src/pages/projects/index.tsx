@@ -57,9 +57,9 @@ const Projects: NextPage = () => {
 
                                             {
                                                 project.image?.icon && (
-                                                    <div className="md:flex-initial md:w-auto mb-1 md:mb-0 text-center">
+                                                    <div className="md:flex-initial md:w-auto mb-1 md:mb-0 text-center center">
                                                         <Image src={project.image?.icon} width={100} height={100}
-                                                               alt={project.name} className="rounded-lg "/>
+                                                               alt={project.name} className="mx-auto my-2 rounded-lg "/>
                                                     </div>
                                                 )
                                             }
