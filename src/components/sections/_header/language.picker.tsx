@@ -41,7 +41,9 @@ const LanguagePicker: React.FC<{onCloseLanguagePicker: Function, navOpened: bool
             <div>
                 <button type="button" onClick={() => setIsLanguagePickerOpen((prev) => !prev)}
                         className={`
-                        inline-flex md:justify-center w-full rounded-md md:border md:border-secondary-color shadow-sm md:px-4 md:py-2 ${!navOpened ? ' text-white bg-secondary-color' : 'text-secondary-color dark:text-white' } 
+                        inline-flex md:justify-center w-full md:rounded-md md:border md:border-secondary-color 
+                        md:shadow-sm md:px-4 md:py-2 text-secondary-color md:text-white 
+                        dark:text-white md:bg-secondary-color dark:md:text-white
                         dark:bg-semi-dark font-semibold font-roboto uppercase md:focus:outline-none 
                         md:focus:ring-2 md:focus:ring-offset-2 md:focus:ring-offset-gray-100 md:focus:ring-indigo-500
                         `}
@@ -62,9 +64,13 @@ const LanguagePicker: React.FC<{onCloseLanguagePicker: Function, navOpened: bool
             {
                 isLanguagePickerOpen && (
                     <div
-                        className="md:origin-top-right md:absolute md:border md:border-secondary-color bg-white md:right-0 mt-2 md:w-56 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none font-semibold font-roboto text-secondary-color dark:text-white uppercase dark:bg-semi-dark "
+                        className="
+                        md:origin-top-right md:absolute md:border md:border-secondary-color bg-white
+                        md:right-0 mt-2 md:w-56 md:rounded-md md:shadow-lg md:ring-1
+                        md:ring-black ring-opacity-5 focus:outline-none font-semibold
+                        font-roboto text-secondary-color dark:text-white uppercase dark:bg-semi-dark "
                         role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex={-1}>
-                        <div className="py-1" role="none">
+                        <div role="none">
 
                             {
                                 router.locales?.map(
@@ -73,7 +79,10 @@ const LanguagePicker: React.FC<{onCloseLanguagePicker: Function, navOpened: bool
                                             key={key}
                                             href={asPath}
                                             locale={locale}
-                                            className="block px-4 py-2 hover:text-white hover:bg-secondary-color dark:hover:bg-secondary-color language-menu-item"
+                                            className={`
+                                            block px-4 py-2 hover:text-white hover:bg-secondary-color dark:hover:bg-secondary-color language-menu-item
+                                            ${g11nLocale === locale ? 'bg-secondary-color text-white' : ''}
+                                            `}
                                             role="menuitem"
                                             tabIndex={-1}>
                                             <span
