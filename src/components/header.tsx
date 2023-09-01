@@ -53,10 +53,10 @@ export const Header = () => {
                         MENU.map((menuItem, key) => <MenuItemSection menuItem={menuItem}
                                                                      menuItemSelection={() => closeNav()} key={key}/>)
                     }
-                    <LanguagePicker navOpened={isNavOpen} onCloseLanguagePicker={() => closeNav()}/>
+                    <LanguagePicker onCloseLanguagePicker={() => closeNav()}/>
                 </div>
                 <div className={!isNavOpen ? "hidden lg:block" : ''}>
-                    <ToggleDarkModeButton navOpened={isNavOpen}/>
+                    <ToggleDarkModeButton />
                 </div>
             </div>
         </nav>

@@ -4,7 +4,7 @@ import {DICTIONARY} from "../../../i18n/dictionary";
 import {useRouter} from "next/router";
 import Link from "next/link";
 
-const LanguagePicker: React.FC<{onCloseLanguagePicker: Function, navOpened: boolean}> = ({onCloseLanguagePicker, navOpened}) => {
+const LanguagePicker: React.FC<{onCloseLanguagePicker: Function}> = ({onCloseLanguagePicker}) => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
     const router = useRouter()
     const g11nLocale = getLocale(router);
@@ -18,6 +18,12 @@ const LanguagePicker: React.FC<{onCloseLanguagePicker: Function, navOpened: bool
     };
 
     const languagePicker = useRef<HTMLDivElement>(null);
+
+    const audioRef = useRef<HTMLAudioElement>();
+
+    const playAudio = async() =>  {
+        await audioRef?.current?.play();
+    }
 
     useEffect(() => {
         if (!isLanguagePickerOpen) return;
@@ -38,6 +44,7 @@ const LanguagePicker: React.FC<{onCloseLanguagePicker: Function, navOpened: bool
     return (
         <div className="md:relative md:inline-block text-left mt-4 md:mt-0"
              ref={languagePicker}>
+            <audio ref={audioRef} src='/audio/switch.mp3' />
             <div>
                 <button type="button" onClick={() => setIsLanguagePickerOpen((prev) => !prev)}
                         className={`
@@ -79,6 +86,7 @@ const LanguagePicker: React.FC<{onCloseLanguagePicker: Function, navOpened: bool
                                             key={key}
                                             href={asPath}
                                             locale={locale}
+                                            onClick={() => playAudio()}
                                             className={`
                                             block px-4 py-2 hover:text-white hover:bg-secondary-color dark:hover:bg-secondary-color language-menu-item
                                             ${g11nLocale === locale ? 'bg-secondary-color text-white' : ''}

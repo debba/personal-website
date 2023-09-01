@@ -3,9 +3,15 @@ import Script from "next/script";
 import {useG11n} from "next-g11n";
 import {DICTIONARY} from "../i18n/dictionary";
 import Image from "next/image";
+import React, {useRef} from "react";
 
 export const Footer = () => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
+
+    const audioRef = useRef<HTMLAudioElement>();
+    const goUp = async () => {
+        await audioRef?.current?.play();
+    };
 
     return (
         <>
@@ -61,7 +67,8 @@ export const Footer = () => {
                 <div className="mx-6 py-10 text-center md:text-left">
                     <div className="grid grid-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
                         <div className="pr-6">
-                            <Logo/>
+                            <audio ref={audioRef} src='/audio/success.mp3' />
+                            <Logo onClick={() => goUp()}/>
                             <div className="pl-[18px] text-black dark:text-white">
                                 <p className="flex items-center justify-start mb-4 text-sm">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 mr-4" fill="none"
