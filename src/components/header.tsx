@@ -47,7 +47,7 @@ export const Header = () => {
                     </svg>
                 </button>
             </div>
-            <div className="w-full block lg:flex lg:items-center lg:w-auto">
+            <div className="px-3 md:px-0 w-full block lg:flex lg:items-center lg:w-auto">
                 <div className={!isNavOpen ? "hidden lg:block" : ''}>
                     {
                         MENU.map((menuItem, key) => <MenuItemSection menuItem={menuItem}

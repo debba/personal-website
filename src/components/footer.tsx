@@ -66,11 +66,13 @@ export const Footer = () => {
                 </div>
                 <div className="mx-6 py-10 text-center md:text-left">
                     <div className="grid grid-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-                        <div className="pr-6">
+                        <div className="md:pr-6">
                             <audio ref={audioRef} src='/audio/success.mp3' />
-                            <Logo onClick={() => goUp()}/>
-                            <div className="pl-[18px] text-black dark:text-white">
-                                <p className="flex items-center justify-start mb-4 text-sm">
+                            <div className={"hidden md:block"}>
+                                <Logo onClick={() => goUp()}/>
+                            </div>
+                            <div className="md:pl-[18px] text-black dark:text-white">
+                                <p className="flex text-left items-center justify-start mb-4 text-sm">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 mr-4" fill="none"
                                          viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                         <path strokeLinecap="round" strokeLinejoin="round" focusable="false"
@@ -111,7 +113,7 @@ export const Footer = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="pl-3 md:pl-0">
+                        <div className="md:pl-0">
                             <div className="flex items-center flex-shrink-0 text-white mb-3">
                             <span className="font-roboto text-lg uppercase tracking-tight leading-[54px] text-secondary-color dark:text-white">
                                 {t('footer_keep_in_touch') as string}

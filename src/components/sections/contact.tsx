@@ -146,7 +146,7 @@ export const ContactFormSection = () => {
                                     <label className="text-black dark:text-white" htmlFor="phone">
                                         <div className="flex align-items">
                                             {t('section_contactme_phone') as string}
-                                            <span className="ml-auto opacity-75">
+                                            <span className="text-sm ml-auto opacity-75">
                                     {t('section_contactme_optional') as string}
                                         </span>
                                         </div>
@@ -168,10 +168,10 @@ export const ContactFormSection = () => {
                                     <label className="text-black dark:text-white" htmlFor="text">
                                         <div className="flex align-items">
                                             {t('section_contactme_message') as string}
-                                            <span className="ml-auto opacity-75">
+                                            <span className="text-xs ml-auto opacity-60 hidden md:inline">
                                             {t('section_contactme_maxchars', {total: totalNumbersChars}) as string}
                                             </span>
-                                            <span className={"ml-2 opacity-60 "}>{t('section_contactme_remainingchars', {total: countMessageCharsRemaining}) as string}</span>
+                                            <span className={"text-xs ml-auto opacity-60 "}>{t('section_contactme_remainingchars', {total: countMessageCharsRemaining}) as string}</span>
                                         </div>
                                     </label>
                                     <textarea value={message} onChange={(e) => handleMessageChange(e.target.value)}

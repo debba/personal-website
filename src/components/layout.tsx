@@ -10,9 +10,9 @@ export const Layout = ({ children } : LayoutProps) => {
     return (
         <>
             <Header />
-            <main className="px-6 py-6">
+            <main className="px-3 md:px-6 py-6">
                 <section id="page-container">
-                    <div className="container mx-auto px-4 text-white">
+                    <div className="container mx-auto px-2 md:px-4 text-white">
                         {children}
                     </div>
                 </section>
