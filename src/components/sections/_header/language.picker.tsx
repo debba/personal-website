@@ -42,10 +42,10 @@ const LanguagePicker: React.FC<{onCloseLanguagePicker: Function}> = ({onCloseLan
     }, [isLanguagePickerOpen, onCloseLanguagePicker]);
 
     return (
-        <div className="md:relative md:inline-block text-left mt-4 md:mt-0"
+        <div className="md:relative md:inline-block max-md:landscape:flex text-left mt-4 md:mt-0"
              ref={languagePicker}>
             <audio ref={audioRef} src='/audio/switch.mp3' />
-            <div>
+            <div className="max-md:landscape:mx-auto">
                 <button type="button" onClick={() => setIsLanguagePickerOpen((prev) => !prev)}
                         className={`
                         inline-flex md:justify-center w-full md:rounded-md md:border md:border-secondary-color 
@@ -53,6 +53,8 @@ const LanguagePicker: React.FC<{onCloseLanguagePicker: Function}> = ({onCloseLan
                         dark:text-white md:bg-secondary-color dark:md:text-white
                         dark:bg-semi-dark font-semibold font-roboto uppercase md:focus:outline-none 
                         md:focus:ring-2 md:focus:ring-offset-2 md:focus:ring-offset-gray-100 md:focus:ring-indigo-500
+                        max-md:landscape:border-0 max-md:landscape:mt-0 max-md:landscape:py-0 max-md:landscape:ring-0 max-md:landscape:focus:ring-offset-0 
+                        max-md:landscape:focus:ring-0
                         `}
                         id="menu-button" aria-expanded="true" aria-haspopup="true">
                     <p>

@@ -32,7 +32,7 @@ export const Header = () => {
 
     return (
         <nav ref={navRef}
-             className="border-b-2 border-secondary-color dark:border-b-0 flex fixed w-full items-center justify-between z-10 flex-wrap bg-white dark:bg-extra-dark p-4">
+             className="border-b-2 border-secondary-color dark:border-b-0 flex fixed max-md:landscape:relative w-full items-center justify-between z-10 flex-wrap bg-white dark:bg-extra-dark p-4">
             <Logo onClick={() => closeNav()}/>
             <div className={"block lg:hidden"}>
                 <button onClick={() => setIsNavOpen((prev) => !prev)}

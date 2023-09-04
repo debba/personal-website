@@ -14,9 +14,9 @@ const ToggleDarkModeButton = () => {
     }
 
     return (
-        <div className="mt-4 md:mt-0">
+        <div className="mt-4 md:mt-0 max-md:landscape:text-center">
             <button
-                onClick={() => theme == "dark"? setTheme('light'): setTheme("dark")}
+                onClick={() => theme == "dark" || theme == 'system' ? setTheme('light'): setTheme("dark")}
                 className="cursor-pointer md:px-4 md:py-2 uppercase">
                 <svg width="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     {

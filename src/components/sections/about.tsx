@@ -8,7 +8,7 @@ export const AboutSection = () => {
     return (
         <section id="about" className="py-3 md:py-[100px]">
             <div className="grid lg:grid-cols-2 gap-4 flex items-center">
-                <div className="mt-12 lg:mt-0 text-center">
+                <div className="mt-12 lg:mt-0 text-center mx-auto">
                     <Image loading="lazy" src={"/images/me.jpg"}
                            alt="Andrea" width="450" height="450"/>
                 </div>
