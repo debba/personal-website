@@ -66,6 +66,7 @@ export const DICTIONARY: Record<string, {
         projects_title: 'Open source projects',
         project_url: 'Project URL',
         github_repo: 'Github repository',
+        footer_vat_number: 'VAT Number'
     },
     it: {
         site_title: 'Andrea Debernardi | Full stack web developer a Genova. PHP, Python, Node JS, Angular e tanto altro ancora.',
@@ -132,6 +133,7 @@ export const DICTIONARY: Record<string, {
         footer_project_opensource: 'Questo progetto è open source.',
         projects_title: 'Progetti open source',
         project_url: 'URL Progetto',
-        github_repo: 'Repository Github'
+        github_repo: 'Repository Github',
+        footer_vat_number: 'Partita IVA'
     }
 }
