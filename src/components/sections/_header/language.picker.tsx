@@ -4,13 +4,13 @@ import {DICTIONARY} from "../../../i18n/dictionary";
 import {useRouter} from "next/router";
 import Link from "next/link";
 
-const LanguagePicker: React.FC<{onCloseLanguagePicker: Function}> = ({onCloseLanguagePicker}) => {
+const LanguagePicker: React.FC<{ onCloseLanguagePicker: Function }> = ({onCloseLanguagePicker}) => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
     const router = useRouter()
     const g11nLocale = getLocale(router);
 
     const [isLanguagePickerOpen, setIsLanguagePickerOpen] = useState(false);
-    const { asPath } = useRouter();
+    const {asPath} = useRouter();
 
     const flag: Record<string, string> = {
         "en": "gb",
@@ -21,12 +21,13 @@ const LanguagePicker: React.FC<{onCloseLanguagePicker: Function}> = ({onCloseLan
 
     const audioRef = useRef<HTMLAudioElement>();
 
-    const playAudio = async() =>  {
+    const playAudio = async () => {
         await audioRef?.current?.play();
     }
 
     useEffect(() => {
         if (!isLanguagePickerOpen) return;
+
         function handleClick(event: MouseEvent) {
 
             const target = event.target as HTMLDivElement;
@@ -36,16 +37,17 @@ const LanguagePicker: React.FC<{onCloseLanguagePicker: Function}> = ({onCloseLan
                 onCloseLanguagePicker();
             }
         }
+
         window.addEventListener("click", handleClick);
 
         return () => window.removeEventListener("click", handleClick);
     }, [isLanguagePickerOpen, onCloseLanguagePicker]);
 
     return (
-        <div className="md:relative md:inline-block max-md:landscape:flex text-left mt-4 md:mt-0"
+        <div className="md:relative md:inline-block max-lg:landscape:flex text-left mt-4 max-lg:landscape:mt-4 max-lg:landscape:flex-row max-lg:landscape:flex-wrap md:mt-0"
              ref={languagePicker}>
-            <audio ref={audioRef} src='/audio/switch.mp3' />
-            <div className="max-md:landscape:mx-auto">
+            <audio ref={audioRef} src='/audio/switch.mp3'/>
+            <div className="max-lg:landscape:mx-auto">
                 <button type="button" onClick={() => setIsLanguagePickerOpen((prev) => !prev)}
                         className={`
                         inline-flex md:justify-center w-full md:rounded-md md:border md:border-secondary-color 
@@ -53,8 +55,10 @@ const LanguagePicker: React.FC<{onCloseLanguagePicker: Function}> = ({onCloseLan
                         dark:text-white md:bg-secondary-color dark:md:text-white
                         dark:bg-semi-dark font-semibold font-roboto uppercase md:focus:outline-none 
                         md:focus:ring-2 md:focus:ring-offset-2 md:focus:ring-offset-gray-100 md:focus:ring-indigo-500
-                        max-md:landscape:border-0 max-md:landscape:mt-0 max-md:landscape:py-0 max-md:landscape:ring-0 max-md:landscape:focus:ring-offset-0 
-                        max-md:landscape:focus:ring-0
+                        max-lg:landscape:border-0 max-lg:landscape:mt-0 max-lg:landscape:py-0 max-lg:landscape:ring-0 max-lg:landscape:focus:ring-offset-0 
+                        max-lg:landscape:focus:ring-0
+                        max-lg:landscape:bg-white max-lg:landscape:text-secondary-color max-lg:landscape:shadow-none
+                        max-lg:landscape:px-0
                         `}
                         id="menu-button" aria-expanded="true" aria-haspopup="true">
                     <p>
@@ -73,11 +77,16 @@ const LanguagePicker: React.FC<{onCloseLanguagePicker: Function}> = ({onCloseLan
             {
                 isLanguagePickerOpen && (
                     <div
-                        className="
+                        className={
+                        `
                         md:origin-top-right md:absolute md:border md:border-secondary-color bg-white
-                        md:right-0 mt-2 md:w-56 md:rounded-md md:shadow-lg md:ring-1
+                        md:right-0 mt-2 md:w-56 max-lg:landscape:w-full md:rounded-md md:shadow-lg md:ring-1
                         md:ring-black ring-opacity-5 focus:outline-none font-semibold
-                        font-roboto text-secondary-color dark:text-white uppercase dark:bg-semi-dark "
+                        font-roboto text-secondary-color dark:text-white uppercase dark:bg-semi-dark
+                        max-lg:landscape:relative max-lg:landscape:text-center
+                        max-lg:landscape:border-0 max-lg:landscape:ring-0
+                        `
+                        }
                         role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex={-1}>
                         <div role="none">
 
@@ -90,7 +99,7 @@ const LanguagePicker: React.FC<{onCloseLanguagePicker: Function}> = ({onCloseLan
                                             locale={locale}
                                             onClick={() => playAudio()}
                                             className={`
-                                            block px-4 py-2 hover:text-white hover:bg-secondary-color dark:hover:bg-secondary-color language-menu-item
+                                            block px-4 py-2 hover:text-white hover:bg-secondary-color dark:hover:bg-secondary-color language-menu-item max-lg:landscape:px-0
                                             ${g11nLocale === locale ? 'bg-secondary-color text-white' : ''}
                                             `}
                                             role="menuitem"

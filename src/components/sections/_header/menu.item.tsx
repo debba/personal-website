@@ -34,8 +34,8 @@ const MenuItemSection : React.FC<{ menuItem: MenuItem, menuItemSelection: Functi
             pb-1 border-b-0 bg-[length:0_3px] bg-[0_100%] bg-no-repeat transition-bg-size duration-500 ease-in-out
             bg-gradient-to-b from-secondary-color to-transparent dark:from-transparent dark:to-secondary-color
             hover:bg-[length:100%_3px] uppercase menu-item font-roboto block font-semibold mt-4 lg:inline-block
-            lg:mt-0 dark:hover:text-secondary-color text-secondary-color dark:text-white mr-4 max-md:landscape:mr-0
-            max-md:landscape:text-center  max-md:landscape:text-lg
+            lg:mt-0 dark:hover:text-secondary-color text-secondary-color dark:text-white mr-4 max-lg:landscape:mr-0
+            max-lg:landscape:text-center  max-lg:landscape:text-lg
             ">
 
             { t( menuItemTitle ) as string }
