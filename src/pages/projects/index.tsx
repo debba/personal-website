@@ -36,7 +36,7 @@ const Projects: NextPage = () => {
                 )
             }
         </Head>
-        <section id="project" className="py-3 md:py-[100px]">
+        <section id="project" className="py-3 md:py-[100px] max-lg:landscape:py-3">
 
             <nav className="flex mt-[100px] md:mt-0 " aria-label="Breadcrumb">
                 <ol role="list" className="flex items-center space-x-2 text-secondary-color dark:text-white font-roboto">

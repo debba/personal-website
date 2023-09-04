@@ -6,7 +6,7 @@ export const AboutSection = () => {
     const { translate : t } = useG11n<typeof DICTIONARY>(DICTIONARY, false)
 
     return (
-        <section id="about" className="py-3 md:py-[100px]">
+        <section id="about" className="py-3 md:py-[100px] max-lg:landscape:py-3">
             <div className="grid lg:grid-cols-2 gap-4 flex items-center">
                 <div className="mt-12 lg:mt-0 text-center mx-auto">
                     <Image loading="lazy" src={"/images/me.jpg"}

@@ -7,7 +7,7 @@ export default function FourOhFourd() {
     const router = useRouter();
     const g11nLocale = getLocale(router);
     return (
-        <div  className="py-3 md:py-[100px]">
+        <div  className="py-3 md:py-[100px] max-lg:landscape:py-3">
             <h1 className="mt-[100px] md:mt-0 font-roboto text-3xl font-bold uppercase text-center">404 - Page Not Found</h1>
             <p className={"text-center font-roboto mt-2"}>
 
