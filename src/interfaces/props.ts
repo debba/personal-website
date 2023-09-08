@@ -3,7 +3,13 @@ import {ActivityItem, ProjectImage, ProjectNameLocalized, ServiceItem} from "./d
 export interface DataProps {
     services: ServiceItem[];
     activities: ActivityItem[];
-    customersLogo: string[];
+    customers: CustomerPortfolio[];
+}
+
+export interface CustomerPortfolio {
+    url_name: string;
+    name: string;
+    description?: string;
 }
 
 interface ProjectDetail {

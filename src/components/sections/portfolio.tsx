@@ -1,11 +1,10 @@
 import React from "react";
-import ServiceBox from "./_services/box";
 import PortfolioCustomer from "./_portfolio/customer";
-import {ServiceItem} from "../../interfaces/data";
 import {useG11n} from "next-g11n";
 import {DICTIONARY} from "../../i18n/dictionary";
+import {CustomerPortfolio} from "../../interfaces/props";
 
-export const PortfolioSection : React.FC<{ customersLogo: string[]  }> = ({customersLogo}) => {
+export const PortfolioSection : React.FC<{ customers: CustomerPortfolio[]  }> = ({customers}) => {
 
     const { translate : t } = useG11n<typeof DICTIONARY>(DICTIONARY, false)
 
@@ -21,8 +20,8 @@ export const PortfolioSection : React.FC<{ customersLogo: string[]  }> = ({custo
 
             <div className="p-10 grid grid-cols-3 md:grid-cols-5 gap-5 md:gap-12">
 
-                {customersLogo.map((customerName,  key) => (
-                    <PortfolioCustomer customerName={customerName} key={key}/>
+                {customers.map((customer,  key) => (
+                    <PortfolioCustomer customer={customer} key={key}/>
                 ))}
 
             </div>

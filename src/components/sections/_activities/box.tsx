@@ -20,7 +20,7 @@ export const ActivityBox: React.FC<{ activity: ActivityItem }> = ({activity}) =>
             className={`flex flex-col shadow-xl mx-auto max-w-sm ${activityBgColor} py-10 px-12 transform duration-500 hover:-translate-y-2 cursor-pointer max-h-190 rounded-md ${activityAdditionalClasses}`}>
             {
                 activity.logo && (
-                    <div className={"text-center mt-5"}>
+                    <div className={"max-md:mx-auto text-center mt-5"}>
                         <Image loading={"lazy"} src={activity.logo} alt={activity.name} width={90} height={90}/>
                     </div>
                 )

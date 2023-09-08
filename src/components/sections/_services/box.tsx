@@ -20,7 +20,7 @@ export const ServiceBox : React.FC<{ service: ServiceItem}> = ({service}) => {
                     <h3 className="text-xl font-bold font-roboto text-center">{serviceName}</h3>
                     <p className="py-2 text-sm font-normal font-roboto">{serviceDesc}</p>
                 </div>
-                <div className="flex flex-wrap justify-center space-x-2 p-2 w-full">
+                <div className="flex flex-wrap justify-center space-x-2 p-2 mb-2 w-full">
                     {service.skills.map((skill, key) => (
                         <ServiceBoxSkill skill={skill} key={key}/>
                     ))}
