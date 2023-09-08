@@ -1,16 +1,26 @@
 import Image from "next/image";
 import {useG11n} from "next-g11n";
 import {DICTIONARY} from "../../i18n/dictionary";
+import {useState} from "react";
 
 export const AboutSection = () => {
-    const { translate : t } = useG11n<typeof DICTIONARY>(DICTIONARY, false)
+    const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false)
+    const [image, setImage] = useState('/images/me.jpg');
+
+    function handleMousePosition() {
+        setImage(
+            image === '/images/me.jpg' ?
+                '/images/me_cartoon.jpg' :
+                '/images/me.jpg');
+    }
 
     return (
         <section id="about" className="py-3 md:py-[100px] max-lg:landscape:py-3">
-            <div className="grid lg:grid-cols-2 gap-4 flex items-center">
-                <div className="mt-12 lg:mt-0 text-center mx-auto">
-                    <Image loading="lazy" src={"/images/me.jpg"}
-                           alt="Andrea" width="450" height="450"/>
+            <div className="grid lg:grid-cols-2 gap-4 items-center">
+                <div onMouseOver={handleMousePosition} onMouseOut={handleMousePosition}
+                     className="mt-12 lg:mt-0 text-center mx-auto group">
+                    <Image loading="lazy" src={image} className="aspect-square group-hover:scale-110 transition duration-500 ease-in-out"
+                           alt="Andrea" width="400" height="400"/>
                 </div>
                 <div className="mb-12 lg:mb-0 py-8">
                     <div className="md:w-1/2">
@@ -18,8 +28,9 @@ export const AboutSection = () => {
                             Andrea Debernardi
                         </h1>
                     </div>
-                    <h2 className="font-roboto text-secondary-color dark:text-white text-normal uppercase text-xl">Full stack web developer</h2>
-                    <p className="mt-5 text-black dark:text-white font-roboto font-semibold text-sm">{ t('about_claim') as string }</p>
+                    <h2 className="font-roboto text-secondary-color dark:text-white text-normal uppercase text-xl">Full
+                        stack web developer</h2>
+                    <p className="mt-5 text-black dark:text-white font-roboto font-semibold text-sm">{t('about_claim') as string}</p>
                 </div>
             </div>
         </section>
