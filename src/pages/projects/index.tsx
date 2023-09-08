@@ -82,8 +82,7 @@ const Projects: NextPage = () => {
                         {getProjects().map((project) => (
                             <div key={project.github_name}
                                  className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-                                <div className="flex-1 bg-slate-800  p-6 flex flex-col justify-between">
-                                    <div className="flex-1 ">
+                                <div className="flex-1 bg-slate-800 hover:bg-secondary-color p-6 flex flex-col justify-between">
 
                                         <Link
                                             href={`/projects/${project.github_name}`}
@@ -104,7 +103,6 @@ const Projects: NextPage = () => {
                                             </div>
 
                                         </Link>
-                                    </div>
                                 </div>
                             </div>
                         ))}
