@@ -4,7 +4,8 @@ import {Layout} from "../components/layout";
 import Head from 'next/head'
 import {ThemeProvider} from "next-themes"
 import {Roboto_Mono} from "next/font/google";
-
+import {useEffect} from "react";
+import { init } from "@socialgouv/matomo-next";
 
 export const roboto = Roboto_Mono({
     subsets: ['latin'],
@@ -12,9 +13,18 @@ export const roboto = Roboto_Mono({
     variable: '--font-roboto',
     display: 'swap',
 });
+const matomoUrl = process.env.NEXT_PUBLIC_MATOMO_URL;
 
 function MyApp({Component, pageProps}: AppProps) {
 
+    useEffect(() => {
+        if (process.env.NODE_ENV === 'production' && matomoUrl ) {
+            init({
+                url: matomoUrl,
+                siteId: "1"
+            });
+        }
+    }, []);
 
     return (
         <>
