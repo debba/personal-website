@@ -2,16 +2,18 @@ import Image from "next/image";
 import {useG11n} from "next-g11n";
 import {DICTIONARY} from "../../i18n/dictionary";
 import {useState} from "react";
+import {ImageState} from "../../interfaces/states";
 
 export const AboutSection = () => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false)
-    const [image, setImage] = useState('/images/me.jpg');
+    const [image, setImage] = useState<ImageState>('me');
 
     function handleMousePosition() {
         setImage(
-            image === '/images/me.jpg' ?
-                '/images/me_cartoon.jpg' :
-                '/images/me.jpg');
+            image === 'me' ?
+                'me_cartoon' :
+                'me'
+        );
     }
 
     return (
@@ -19,7 +21,8 @@ export const AboutSection = () => {
             <div className="grid lg:grid-cols-2 gap-4 items-center">
                 <div onMouseOver={handleMousePosition} onMouseOut={handleMousePosition}
                      className="mt-12 lg:mt-0 text-center mx-auto group">
-                    <Image loading="lazy" src={image} className="aspect-square group-hover:scale-110 transition duration-500 ease-in-out"
+                    <Image loading="lazy" src={`/images/${image}.jpg`}
+                           className="aspect-square group-hover:scale-110 transition duration-500 ease-in-out"
                            alt="Andrea" width="400" height="400"/>
                 </div>
                 <div className="mb-12 lg:mb-0 py-8">
