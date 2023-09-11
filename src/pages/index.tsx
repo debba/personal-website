@@ -12,6 +12,8 @@ import ActivitiesSection from "../components/sections/activites";
 import {ACTIVITIES} from "../data/activities";
 import React from "react";
 import {CUSTOMERS} from "../data/customers";
+import scrollHandler from "../hooks/scroll.handler";
+import useScrollHandler from "../hooks/scroll.handler";
 
 export async function getStaticProps() {
 
@@ -28,6 +30,7 @@ export async function getStaticProps() {
 
 const Home: NextPage<DataProps> = ({services, customers, activities} ) => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
+    const activeSection = useScrollHandler();
     return (
         <>
             <Head>

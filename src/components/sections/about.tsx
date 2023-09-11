@@ -17,7 +17,7 @@ export const AboutSection = () => {
     }
 
     return (
-        <section id="about" className="py-3 md:py-[100px] max-lg:landscape:py-3">
+        <section id="about" className="section py-3 md:py-[100px] max-lg:landscape:py-3">
             <div className="grid lg:grid-cols-2 gap-4 items-center">
                 <div onMouseOver={handleMousePosition} onMouseOut={handleMousePosition}
                      className="mt-12 lg:mt-0 text-center mx-auto group">
