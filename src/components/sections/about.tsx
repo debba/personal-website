@@ -1,19 +1,21 @@
 import Image from "next/image";
 import {useG11n} from "next-g11n";
 import {DICTIONARY} from "../../i18n/dictionary";
-import {useState} from "react";
+import React, {useRef, useState} from "react";
 import {ImageState} from "../../interfaces/states";
 
 export const AboutSection = () => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false)
     const [image, setImage] = useState<ImageState>('me');
+    const audioRef = useRef<HTMLAudioElement>();
 
-    function handleMousePosition() {
+    async function  handleMousePosition() {
         setImage(
             image === 'me' ?
                 'me_cartoon' :
                 'me'
         );
+        await audioRef?.current?.play();
     }
 
     return (
@@ -24,6 +26,7 @@ export const AboutSection = () => {
                     <Image loading="eager" priority={true} src={`/images/${image}.jpg`}
                            className="aspect-square group-hover:scale-110 transition duration-500 ease-in-out"
                            alt="Andrea" width="400" height="400"/>
+                    <audio ref={audioRef} src='/audio/flip_page.mp3' />
                 </div>
                 <div className="mb-12 lg:mb-0 py-8">
                     <div className="md:w-1/2">
