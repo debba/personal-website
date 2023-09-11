@@ -21,7 +21,7 @@ export const AboutSection = () => {
             <div className="grid lg:grid-cols-2 gap-4 items-center">
                 <div onMouseOver={handleMousePosition} onMouseOut={handleMousePosition}
                      className="mt-12 lg:mt-0 text-center mx-auto group">
-                    <Image loading="lazy" src={`/images/${image}.jpg`}
+                    <Image src={`/images/${image}.jpg`}
                            className="aspect-square group-hover:scale-110 transition duration-500 ease-in-out"
                            alt="Andrea" width="400" height="400"/>
                 </div>
