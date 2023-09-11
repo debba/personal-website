@@ -1,8 +1,10 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, {Head, Html, Main, NextScript} from 'next/document'
 import Script from "next/script";
 import React from "react";
+import {roboto} from "./_app";
 
 class MyDocument extends Document {
+
     render() {
         const matomoUrl = process.env.NEXT_PUBLIC_MATOMO_URL;
         const cookieBotDomainId = process.env.NEXT_PUBLIC_COOKIEBOT_DOMAIN_ID;
@@ -10,7 +12,6 @@ class MyDocument extends Document {
         return (
             <Html className="scroll-smooth">
                 <Head>
-                    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@200;400;600;700&display=swap" rel="stylesheet" />
                     {
                         process.env.NODE_ENV === 'production' && cookieBotDomainId && (
                             <Script strategy="afterInteractive" data-blockingmode={"auto"} id="Cookiebot" src="https://consent.cookiebot.com/uc.js"
@@ -19,7 +20,7 @@ class MyDocument extends Document {
                     }
 
                 </Head>
-                <body className="bg-white dark:bg-semi-dark">
+                <body className={`${roboto.variable} bg-white dark:bg-semi-dark`}>
                 <Main />
 
                 <NextScript />

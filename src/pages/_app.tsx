@@ -3,8 +3,19 @@ import type {AppProps} from 'next/app'
 import {Layout} from "../components/layout";
 import Head from 'next/head'
 import {ThemeProvider} from "next-themes"
+import {Roboto_Mono} from "next/font/google";
+
+
+export const roboto = Roboto_Mono({
+    subsets: ['latin'],
+    weight: "variable",
+    variable: '--font-roboto',
+    display: 'swap',
+});
 
 function MyApp({Component, pageProps}: AppProps) {
+
+
     return (
         <>
             <ThemeProvider attribute="class">

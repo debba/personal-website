@@ -20,7 +20,7 @@ module.exports = {
         'light-grey': '#838887'
       },
       fontFamily: {
-        'roboto': ['Roboto Mono', 'monospace']
+        'roboto': ['var(--font-roboto)']
       }
     },
   },
