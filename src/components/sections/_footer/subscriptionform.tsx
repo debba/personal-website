@@ -1,14 +1,14 @@
-import React, {useState} from "react";
+import React from "react";
 import {useG11n} from "next-g11n";
 import {DICTIONARY} from "../../../i18n/dictionary";
 
 const SubscriptionForm: React.FC<{ }> = ({}) => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
-    const emailchefSignupUrl = process.env.NEXT_PUBLIC_EMAILCHEF_SIGNUP_URL;
+    const emailchefSignupKey = process.env.NEXT_PUBLIC_EMAILCHEF_SIGNUP_KEY;
 
     return <form
         method="POST"
-        action={emailchefSignupUrl}
+        action={`https://app.emailchef.com/signupwl/${emailchefSignupKey}/en`}
         encType="multipart/form-data"
     >
         <label className="block mb-6">

@@ -7,6 +7,7 @@ class MyDocument extends Document {
 
     render() {
         const cookieBotDomainId = process.env.NEXT_PUBLIC_COOKIEBOT_DOMAIN_ID;
+        const emailchefSignupKey = process.env.NEXT_PUBLIC_EMAILCHEF_SIGNUP_KEY;
 
         return (
             <Html className="scroll-smooth">
@@ -26,7 +27,7 @@ class MyDocument extends Document {
 
 
                 <Script strategy="afterInteractive"
-                        src="https://app.emailchef.com/signup/form.js/7o22666s726q5s6964223n2234353634227q/en/api"/>
+                        src={`https://app.emailchef.com/signup/form.js/${emailchefSignupKey}/en/api`}/>
                 </body>
             </Html>
         )
