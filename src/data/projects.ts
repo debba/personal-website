@@ -1,7 +1,27 @@
 import {ProjectItem} from "../interfaces/data";
-import React from "react";
 
 export const PROJECTS: ProjectItem[] = [
+    {
+        github_user: 'debba',
+        github_name: 'gh-contributions-tetris-gif-maker',
+        image: {cover: "/images/projects/cover/gh-contributions-tetris-gif-maker.gif"},
+        name: "GitHub Contributions Tetris GIF Maker",
+        short_description: {
+            en: "A script to generate an animated Tetris-style GIF based on a GitHub user's contributions for a specific year",
+            it: "Uno script per generare una GIF animata in stile Tetris basata sui contributi di un utente GitHub per un anno specifico"
+        },
+        description: {
+            en: '<p>This script generates an animated Tetris-style GIF based on a GitHub user\'s contributions for a specific year.</p>' +
+                '<p>It uses Python with libraries such as PIL and imageio to create the GIF.</p>' +
+                '<p>You just need to provide the username and year to generate the GIF.</p>' +
+                '<p>The script is open-source, and you can customize it according to your needs.</p>',
+            it: '<p>Questo script genera una GIF animata in stile Tetris basata sui contributi di un utente GitHub per un anno specifico.</p>' +
+                '<p>Utilizza Python con librerie come PIL e imageio per creare la GIF.</p>' +
+                '<p>Basta fornire il nome utente e l\'anno per generare la GIF.</p>' +
+                '<p>Lo script è open-source, e puoi personalizzarlo secondo le tue esigenze.</p>'
+        }
+    }
+    ,
     {
         github_user: 'debba',
         github_name: 'fs-access-api-react-demo',
