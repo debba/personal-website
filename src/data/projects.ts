@@ -202,5 +202,23 @@ export const PROJECTS: ProjectItem[] = [
                 '<li class="py-2"><strong>Lingue</strong>: il plugin è attualmente disponibile in italiano e in inglese. Presto rilasceremo anche la versione in francese e in spagnolo.</li>' +
                 '</ul>'
         }
+    },
+    {
+        github_user: 'dueclic',
+        github_name: 'turbosmtp-email-validator-for-wordpress',
+        image: {
+            cover: "/images/projects/cover/turbosmtp-email-validator-for-wordpress.png",
+            icon: "/images/projects/icon/turbosmtp-email-validator-for-wordpress.png"
+        },
+        name: "turboSMTP Email Validator for WordPress",
+        short_description: {
+            en: "Validates email addresses using the turboSMTP AP",
+            it: "Valida gli indirizzi email utilizzando l’API di turboSMTP"
+        },
+        hide_stats: true,
+        description: {
+            en: '',
+            it: ''
+        }
     }
 ];
