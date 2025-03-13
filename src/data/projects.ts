@@ -217,8 +217,28 @@ export const PROJECTS: ProjectItem[] = [
         },
         hide_stats: true,
         description: {
-            en: '',
-            it: ''
+            en: '<p class="mb-2">Validates email addresses using the turboSMTP API in:</p>' +
+                '<ul class="list-inside list-disc">' +
+                '<li class="py-2">WooCommerce registration and checkout</li>' +
+                '<li class="py-2">Contact Form 7</li>' +
+                '<li class="py-2">WpForms</li>' +
+                '<li class="py-2">WordPress comments and registration</li>' +
+                '<li class="py-2">MC4WP</li>' +
+                '<li class="py-2">Gravity Forms</li>' +
+                '<li class="py-2">Elementor Forms</li>' +
+                '</ul>' +
+                '<p class="my-2">The turboSMTP Email Validator for WordPress plugin ensures that email addresses provided during user registration and checkout are valid. It uses the turboSMTP API to perform the validation, enhancing the quality of email addresses collected and reducing the number of invalid emails in your database.</p>',
+            it: '<p class="mb-2">Valida gli indirizzi email utilizzando l’API di turboSMTP in:</p>' +
+                '<ul class="list-inside list-disc">' +
+                '<li class="py-2">Registrazione e checkout di WooCommerce</li>' +
+                '<li class="py-2">Contact Form 7</li>' +
+                '<li class="py-2">WpForms</li>' +
+                '<li class="py-2">Commenti e registrazione di WordPress</li>' +
+                '<li class="py-2">MC4WP</li>' +
+                '<li class="py-2">Gravity Forms</li>' +
+                '<li class="py-2">Elementor Forms</li>' +
+                '</ul>' +
+                '<p class="my-2">Il plugin turboSMTP Email Validator for WordPress garantisce che gli indirizzi email forniti durante la registrazione degli utenti e il checkout siano validi. Utilizza l’API di turboSMTP per eseguire la validazione, migliorando la qualità degli indirizzi email raccolti e riducendo il numero di email non valide nel tuo database.</p>'
         }
     }
 ];
