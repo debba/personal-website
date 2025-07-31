@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import {useEffect, useState} from 'react';
 
 const useScrollHandler = () => {
-    const router = useRouter();
     const [activeSection, setActiveSection] = useState<string | null>(null);
 
     useEffect(() => {
@@ -23,12 +21,6 @@ const useScrollHandler = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-
-    useEffect(() => {
-        if (activeSection) {
-            router.replace(`#${activeSection}`, undefined, { shallow: true });
-        }
-    }, [activeSection]);
 
     return activeSection;
 };

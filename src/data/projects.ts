@@ -3,6 +3,26 @@ import {ProjectItem} from "../interfaces/data";
 export const PROJECTS: ProjectItem[] = [
     {
         github_user: 'debba',
+        github_name: 'rewindtty',
+        image: {cover: "/images/projects/cover/rewindtty.png", icon: "/images/projects/icon/rewindtty.png" },
+        name: "RewindTTY",
+        short_description: {
+            en: "Terminal session recorder and replayer with JSON and ANSI escape sequences support",
+            it: "Registratore e riproduttore di sessioni terminale con supporto per sequenze ANSI e output in JSON"
+        },
+        description: {
+            en: '<p>RewindTTY is an advanced terminal session recorder and player written in C.</p>' +
+                '<p>It captures input/output streams using PTYs and stores the session as structured JSON, including timestamp, command, output, and stderr.</p>' +
+                '<p>It also supports ANSI escape sequences, making it suitable for TUI applications like Vim, htop, or ncurses-based tools.</p>' +
+                '<p>The project is open-source and aims to offer a lightweight alternative to tools like asciinema with a focus on simplicity and integration potential.</p>',
+            it: '<p>RewindTTY è un registratore e riproduttore avanzato di sessioni terminale scritto in C.</p>' +
+                '<p>Cattura i flussi di input/output utilizzando PTY e salva la sessione in formato JSON strutturato, includendo timestamp, comando, output e stderr.</p>' +
+                '<p>Supporta anche le sequenze ANSI, rendendolo perfetto per applicazioni TUI come Vim, htop o strumenti basati su ncurses.</p>' +
+                '<p>Il progetto è open-source e mira a offrire un\'alternativa leggera a strumenti come asciinema, con un focus sulla semplicità e l’integrazione.</p>'
+        }
+    },
+    {
+        github_user: 'debba',
         github_name: 'gh-contributions-tetris-gif-maker',
         image: {cover: "/images/projects/cover/gh-contributions-tetris-gif-maker.gif"},
         name: "GitHub Contributions Tetris GIF Maker",
@@ -20,8 +40,7 @@ export const PROJECTS: ProjectItem[] = [
                 '<p>Basta fornire il nome utente e l\'anno per generare la GIF.</p>' +
                 '<p>Lo script è open-source, e puoi personalizzarlo secondo le tue esigenze.</p>'
         }
-    }
-    ,
+    },
     {
         github_user: 'debba',
         github_name: 'fs-access-api-react-demo',
