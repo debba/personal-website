@@ -6,7 +6,7 @@ import {useTheme} from "next-themes";
 const ToggleDarkModeButton = () => {
     const { theme, setTheme : _setTheme } = useTheme();
 
-    const audioRef = useRef<HTMLAudioElement>();
+    const audioRef = useRef<HTMLAudioElement>(null);
 
     const setTheme = async(theme: string) =>  {
         _setTheme(theme);

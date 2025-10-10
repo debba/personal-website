@@ -17,27 +17,24 @@ export const Button: React.FC<{ url: string, title: string, icon: string, classN
     const router = useRouter();
     const g11nLocale = getLocale(router);
 
-    return (
-        (<Link
-            href={url}
-            locale={g11nLocale}
-            target={openSelf ? "_self" : "_blank"}
-            className={
-                className || 'ml-2 text-white dark:text-gray-800 bg-secondary-color dark:bg-white hover:bg-slate-600 dark:hover:bg-slate-500 dark:hover:text-white hover:border dark:hover:border-white font-bold py-2 px-4 rounded inline-flex items-center'
-            }
-            rel="noreferrer">
+    return url && <Link
+        href={url}
+        locale={g11nLocale}
+        target={openSelf ? "_self" : "_blank"}
+        className={
+            className || 'ml-2 text-white dark:text-gray-800 bg-secondary-color dark:bg-white hover:bg-slate-600 dark:hover:bg-slate-500 dark:hover:text-white hover:border dark:hover:border-white font-bold py-2 px-4 rounded inline-flex items-center'
+        }
+        rel="noreferrer">
 
-            <svg xmlns="http://www.w3.org/2000/svg" className={svgClassName || `fill-current w-4 h-4 mr-2`}
-                 fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round"
-                      d={icon}/>
-            </svg>
-            <span>
+        <svg xmlns="http://www.w3.org/2000/svg" className={svgClassName || `fill-current w-4 h-4 mr-2`}
+             fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round"
+                  d={icon}/>
+        </svg>
+        <span>
                 {title}
            </span>
-
-        </Link>)
-    );
+    </Link>;
 }
 
 export default Button;

@@ -112,8 +112,8 @@ export const PROJECTS: ProjectItem[] = [
         },
         name: "AuthPress",
         short_description: {
-            en: "Enable Two-factor authentication for WordPress Login using Telegram",
-            it: "Abilita l’autenticazione a 2 fattori su WordPress utilizzando Telegram"
+            en: "Enable Two-factor authentication for WordPress Login",
+            it: "Abilita l’autenticazione a 2 fattori su WordPress"
         },
         description: {
             en: '<ol class="list-inside list-decimal">' +

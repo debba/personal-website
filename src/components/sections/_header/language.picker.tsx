@@ -19,7 +19,7 @@ const LanguagePicker: React.FC<{ onCloseLanguagePicker: Function }> = ({onCloseL
 
     const languagePicker = useRef<HTMLDivElement>(null);
 
-    const audioRef = useRef<HTMLAudioElement>();
+    const audioRef = useRef<HTMLAudioElement>(null);
 
     const playAudio = async () => {
         await audioRef?.current?.play();

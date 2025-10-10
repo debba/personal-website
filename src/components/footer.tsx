@@ -9,7 +9,7 @@ import SubscriptionForm from "./sections/_footer/subscriptionform";
 export const Footer = () => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
 
-    const audioRef = useRef<HTMLAudioElement>();
+    const audioRef = useRef<HTMLAudioElement>(null);
     const goUp = async () => {
         await audioRef?.current?.play();
     };

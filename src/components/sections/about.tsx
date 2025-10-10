@@ -7,7 +7,7 @@ import {ImageState} from "../../interfaces/states";
 export const AboutSection = () => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false)
     const [image, setImage] = useState<ImageState>('me');
-    const audioRef = useRef<HTMLAudioElement>();
+    const audioRef = useRef<HTMLAudioElement>(null);
 
     async function  handleMousePosition() {
         setImage(

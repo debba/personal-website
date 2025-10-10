@@ -1,9 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
+  outputFileTracingRoot: __dirname,
   images: {
-    domains: ['img.shields.io']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'img.shields.io',
+      },
+    ],
   },
   async redirects() {
     return [
@@ -11,13 +16,18 @@ const nextConfig = {
         source: '/qrdata',
         destination: '/projects/greenpass-covid19-qrcode-decoder',
         permanent: true
-      }
+      },
+        {
+            source: '/projects/wp-two-factor-authentication-with-telegram',
+            destination: '/projects/authpress',
+            permanent: true
+        }
     ]
   },
   i18n: {
     locales: ['it', 'en'],
     defaultLocale: 'en',
-    localeDetection: true,
+    localeDetection: false,
   },
   trailingSlash: true
 }
