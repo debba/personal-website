@@ -3,6 +3,26 @@ import {ProjectItem} from "../interfaces/data";
 export const PROJECTS: ProjectItem[] = [
     {
         github_user: 'debba',
+        github_name: 'storytel-player',
+        image: {cover: "/images/projects/cover/storytel-player.png"},
+        name: "Storytel Player",
+        short_description: {
+            en: "Unofficial cross-platform desktop application for Storytel audiobook streaming with offline support",
+            it: "Applicazione desktop non ufficiale multi-piattaforma per Storytel con supporto offline"
+        },
+        description: {
+            en: '<p>Storytel Player is an unofficial, open-source desktop application for Storytel audiobook streaming built with Electron, React, and TypeScript.</p>' +
+                '<p>It features native desktop integration with system tray, comprehensive library browsing, advanced HTML5 audio player with bookmarks, and offline audiobook downloading capabilities.</p>' +
+                '<p>The app supports Windows, macOS, and Linux with a compact UI optimized for desktop use and includes automatic updates, multi-language support, and secure authentication.</p>' +
+                '<p>The project is open-source under MIT license and is not affiliated with Storytel. An active Storytel subscription is required to use the application.</p>',
+            it: '<p>Storytel Player è un\'applicazione desktop non ufficiale open-source per lo streaming di audiolibri Storytel, sviluppata con Electron, React e TypeScript.</p>' +
+                '<p>Offre integrazione nativa con il tray di sistema, esplorazione completa della libreria, player audio HTML5 avanzato con segnalibri e possibilità di scaricare audiolibri per l\'ascolto offline.</p>' +
+                '<p>L\'app supporta Windows, macOS e Linux con un\'interfaccia compatta ottimizzata per desktop e include aggiornamenti automatici, supporto multilingua e autenticazione sicura.</p>' +
+                '<p>Il progetto è open-source con licenza MIT e non è affiliato con Storytel. È richiesto un abbonamento attivo a Storytel per utilizzare l\'applicazione.</p>'
+        }
+    },
+    {
+        github_user: 'rewindtty',
         github_name: 'rewindtty',
         image: {cover: "/images/projects/cover/rewindtty.png", icon: "/images/projects/icon/rewindtty.png" },
         name: "RewindTTY",
