@@ -174,6 +174,36 @@ export const PROJECTS: ProjectItem[] = [
         }
     },
     {
+        github_user: 'debba',
+        github_name: 'github-tray-gnome-extension',
+        image: {
+            cover: "/images/projects/github-tray-gnome-extension.png"
+        },
+        name: "GitHub Tray GNOME Extension",
+        short_description: {
+            en: "A GNOME Shell extension for monitoring GitHub repositories from your desktop.",
+            it: "Un'estensione GNOME Shell per monitorare i repository GitHub dal desktop."
+        },
+        description: {
+            en: '<p>A GNOME Shell extension that integrates GitHub repository monitoring directly into the desktop\'s top panel.</p>' +
+                '<p>Track repository statistics and activity without opening a web browser, with features including:</p>' +
+                '<ul class="list-outside hover:list-inside list-disc">' +
+                '<li class="py-1">Real-time notifications for new stars, issues, and forks</li>' +
+                '<li class="py-1">Repository metrics: stars, forks, issues, programming language, and last update</li>' +
+                '<li class="py-1">Direct links to open repositories on GitHub or locally in your editor</li>' +
+                '<li class="py-1">Automatic refresh every 5 minutes with sortable lists</li>' +
+                '</ul>',
+            it: '<p>Un\'estensione GNOME Shell che integra il monitoraggio dei repository GitHub direttamente nel pannello superiore del desktop.</p>' +
+                '<p>Tieni traccia delle statistiche e dell\'attività dei repository senza aprire un browser web, con funzionalità tra cui:</p>' +
+                '<ul class="list-outside hover:list-inside list-disc">' +
+                '<li class="py-1">Notifiche in tempo reale per nuove stelle, issue e fork</li>' +
+                '<li class="py-1">Metriche del repository: stelle, fork, issue, linguaggio di programmazione e ultimo aggiornamento</li>' +
+                '<li class="py-1">Link diretti per aprire i repository su GitHub o localmente nel tuo editor</li>' +
+                '<li class="py-1">Aggiornamento automatico ogni 5 minuti con liste ordinabili</li>' +
+                '</ul>'
+        }
+    },
+    {
         github_user: 'dueclic',
         github_name: 'emailchef-for-woocommerce',
         image: {
@@ -197,7 +227,7 @@ export const PROJECTS: ProjectItem[] = [
                 '<li class="py-2"><strong>Save money with automatic newsletters</strong> to keep your customers involved</li>' +
                 '<li class="py-2">Create <strong>targeted marketing actions</strong> to save <strong>abandoned shopping carts</strong>, rewards for <strong>recurring orders</strong> and more follow up practices</li>' +
                 '</ul>',
-            it: '<p>Se possiedi un e-commerce, l’email marketing è uno degli strumenti più potenti ed efficaci per incrementare le vendite e fidelizzare i clienti.</p>' +
+            it: '<p>Se possiedi un e-commerce, l\'email marketing è uno degli strumenti più potenti ed efficaci per incrementare le vendite e fidelizzare i clienti.</p>' +
                 '<p>Il plugin di eMailChef per WooCommerce ti consente di:</p>' +
                 '<ul class="list-inside list-disc">' +
                 '<li class="py-2"><strong>trasferire le informazioni relative ai clienti e ai loro ordini</strong> nel tuo account eMailChef</li>' +
@@ -217,14 +247,14 @@ export const PROJECTS: ProjectItem[] = [
         },
         name: "turboSMTP for WordPress",
         short_description: {
-            en: " turboSMTP’s official plugin for WordPress is a professional tool that delivers and tracks your transactional emails in real time. ",
+            en: " turboSMTP's official plugin for WordPress is a professional tool that delivers and tracks your transactional emails in real time. ",
             it: "Il plugin ufficiale di turboSMTP per WordPress è uno strumento professionale che ti permette di consegnare e tracciare in tempo reale tutte le email inviate dal tuo sito web. "
         },
         hide_stats: true,
         description: {
             en: '<ul class="list-inside list-disc">' +
-                '<li class="py-2"><strong>Easy setup</strong>: our plugin is ready to be used! It doesn’t need advanced configuration. No special skills required: just fill in sender’s credentials and you’re done.</li>' +
-                '<li class="py-2"><strong>Transactional emails</strong>: the turboSMTP plugin can be used to deliver all the outgoing emails of the website working on behalf of the wp_mail() function. In fact, once activated, it will be automatically set as default. You don’t have to set anything! This way you’ll be able to deliver the email confirmation of your subscription form, the system notification and so on…</li>' +
+                '<li class="py-2"><strong>Easy setup</strong>: our plugin is ready to be used! It doesn\'t need advanced configuration. No special skills required: just fill in sender\'s credentials and you\'re done.</li>' +
+                '<li class="py-2"><strong>Transactional emails</strong>: the turboSMTP plugin can be used to deliver all the outgoing emails of the website working on behalf of the wp_mail() function. In fact, once activated, it will be automatically set as default. You don\'t have to set anything! This way you\'ll be able to deliver the email confirmation of your subscription form, the system notification and so on…</li>' +
                 '<li class="py-2"><strong>100% compatible</strong>: turboSMTP plugin will take charge of important emails such as your WordPress system emails, Woocommerce plugin and security alert ones.</li>' +
                 '<li class="py-2"><strong>Reports</strong>: your statistics are always under control thanks to the real time reports about clicks, opens, bounces and much more...</li>' +
                 '<li class="py-2"><strong>Test email</strong>: you can check the service status at anytime thanks to the test email feature</li>' +
@@ -233,12 +263,44 @@ export const PROJECTS: ProjectItem[] = [
                 '</ul>',
             it: '<ul class="list-inside list-disc">' +
                 '<li class="py-2"><strong>Setup semplice</strong>: il plugin è subito pronto ad essere usato! Non necessita configurazioni avanzate né particolari competenze tecniche: inserisci solo le tue credenziali e sarai pronto.</li>' +
-                '<li class="py-2"><strong>Email transazionali</strong>: il plugin di turboSMTP può essere utilizzato per consegnare tutte le mail in uscita, lavorando al posto della funzione “wp_mail()”. Infatti, appena attivato, sarà impostato automaticamente di default. Il tutto senza intervenire manualmente nei settaggi. In questo modo sarai in grado di consegnare, ad esempio, le email di conferma iscrizione del tuo form, le notifiche di sistema e così via...</li>' +
-                '<li class="py-2"><strong>Compatibile al 100%</strong>: il plugin turboSMTP avrà l’incarico di gestire le email del tuo sistema, notifiche del sistema Woocommerce e avvisi di sicurezza.</li>' +
+                '<li class="py-2"><strong>Email transazionali</strong>: il plugin di turboSMTP può essere utilizzato per consegnare tutte le mail in uscita, lavorando al posto della funzione "wp_mail()". Infatti, appena attivato, sarà impostato automaticamente di default. Il tutto senza intervenire manualmente nei settaggi. In questo modo sarai in grado di consegnare, ad esempio, le email di conferma iscrizione del tuo form, le notifiche di sistema e così via...</li>' +
+                '<li class="py-2"><strong>Compatibile al 100%</strong>: il plugin turboSMTP avrà l\'incarico di gestire le email del tuo sistema, notifiche del sistema Woocommerce e avvisi di sicurezza.</li>' +
                 '<li class="py-2"><strong>Statistiche</strong>: Grazie ai report in tempo reale avrai sempre sotto controllo statistiche come click, aperture, bounce ecc.</li>' +
-                '<li class="py-2"><strong>Invio di prova</strong>: potrai verificare lo stato di invio tutte le volte che vorrai grazie alla funzione “test”.</li>' +
+                '<li class="py-2"><strong>Invio di prova</strong>: potrai verificare lo stato di invio tutte le volte che vorrai grazie alla funzione "test".</li>' +
                 '<li class="py-2"><strong>Server autorizzati</strong>: la consegna delle email andrà sempre a buon fine in pochi attimi.</li>' +
                 '<li class="py-2"><strong>Lingue</strong>: il plugin è attualmente disponibile in italiano e in inglese. Presto rilasceremo anche la versione in francese e in spagnolo.</li>' +
+                '</ul>'
+        }
+    },
+    {
+        github_user: 'debba',
+        github_name: 'tabularis',
+        image: {
+            cover: "/images/projects/tabularis.png"
+        },
+        name: "Tabularis",
+        short_description: {
+            en: "A lightweight database management tool built with Tauri and React.",
+            it: "Un tool leggero per la gestione di database costruito con Tauri e React."
+        },
+        description: {
+            en: '<p>A modern, developer-focused database management desktop application built with Tauri and React.</p>' +
+                '<p>Tabularis enables developers to manage and interact with databases through an intuitive interface with features like:</p>' +
+                '<ul class="list-outside hover:list-inside list-disc">' +
+                '<li class="py-1"><strong>Database Support</strong>: MySQL/MariaDB with ongoing PostgreSQL and SQLite compatibility</li>' +
+                '<li class="py-1"><strong>SQL Editor</strong>: Monaco editor integration with syntax highlighting and multi-tab support</li>' +
+                '<li class="py-1"><strong>Visual Query Builder</strong>: Drag-and-drop interface for constructing queries with automatic SQL generation</li>' +
+                '<li class="py-1"><strong>AI Integration</strong>: Optional text-to-SQL conversion powered by OpenAI, Anthropic, or Ollama</li>' +
+                '<li class="py-1"><strong>Connection Management</strong>: Secure profile storage with SSH tunneling capabilities</li>' +
+                '</ul>',
+            it: '<p>Un\'applicazione desktop moderna per la gestione di database, focalizzata sugli sviluppatori, costruita con Tauri e React.</p>' +
+                '<p>Tabularis permette agli sviluppatori di gestire e interagire con i database attraverso un\'interfaccia intuitiva con funzionalità come:</p>' +
+                '<ul class="list-outside hover:list-inside list-disc">' +
+                '<li class="py-1"><strong>Supporto Database</strong>: MySQL/MariaDB con compatibilità PostgreSQL e SQLite in sviluppo</li>' +
+                '<li class="py-1"><strong>Editor SQL</strong>: Integrazione con Monaco editor con syntax highlighting e supporto multi-tab</li>' +
+                '<li class="py-1"><strong>Query Builder Visuale</strong>: Interfaccia drag-and-drop per costruire query con generazione automatica SQL</li>' +
+                '<li class="py-1"><strong>Integrazione AI</strong>: Conversione opzionale da testo a SQL con OpenAI, Anthropic o Ollama</li>' +
+                '<li class="py-1"><strong>Gestione Connessioni</strong>: Archiviazione sicura dei profili con capacità di tunneling SSH</li>' +
                 '</ul>'
         }
     },
@@ -252,7 +314,7 @@ export const PROJECTS: ProjectItem[] = [
         name: "turboSMTP Email Validator for WordPress",
         short_description: {
             en: "Validates email addresses using the turboSMTP AP",
-            it: "Valida gli indirizzi email utilizzando l’API di turboSMTP"
+            it: "Valida gli indirizzi email utilizzando l'API di turboSMTP"
         },
         hide_stats: true,
         description: {
@@ -267,7 +329,7 @@ export const PROJECTS: ProjectItem[] = [
                 '<li class="py-2">Elementor Forms</li>' +
                 '</ul>' +
                 '<p class="my-2">The turboSMTP Email Validator for WordPress plugin ensures that email addresses provided during user registration and checkout are valid. It uses the turboSMTP API to perform the validation, enhancing the quality of email addresses collected and reducing the number of invalid emails in your database.</p>',
-            it: '<p class="mb-2">Valida gli indirizzi email utilizzando l’API di turboSMTP in:</p>' +
+            it: '<p class="mb-2">Valida gli indirizzi email utilizzando l\'API di turboSMTP in:</p>' +
                 '<ul class="list-inside list-disc">' +
                 '<li class="py-2">Registrazione e checkout di WooCommerce</li>' +
                 '<li class="py-2">Contact Form 7</li>' +
@@ -277,7 +339,34 @@ export const PROJECTS: ProjectItem[] = [
                 '<li class="py-2">Gravity Forms</li>' +
                 '<li class="py-2">Elementor Forms</li>' +
                 '</ul>' +
-                '<p class="my-2">Il plugin turboSMTP Email Validator for WordPress garantisce che gli indirizzi email forniti durante la registrazione degli utenti e il checkout siano validi. Utilizza l’API di turboSMTP per eseguire la validazione, migliorando la qualità degli indirizzi email raccolti e riducendo il numero di email non valide nel tuo database.</p>'
+                '<p class="my-2">Il plugin turboSMTP Email Validator for WordPress garantisce che gli indirizzi email forniti durante la registrazione degli utenti e il checkout siano validi. Utilizza l\'API di turboSMTP per eseguire la validazione, migliorando la qualità degli indirizzi email raccolti e riducendo il numero di email non valide nel tuo database.</p>'
+        }
+    },
+    {
+        github_user: 'debba',
+        github_name: 'zed-freemarker',
+        name: "Zed Freemarker",
+        short_description: {
+            en: "Syntax highlighting and language support for Apache Freemarker in Zed editor.",
+            it: "Syntax highlighting e supporto linguaggio per Apache Freemarker nell'editor Zed."
+        },
+        description: {
+            en: '<p>A Zed editor extension that provides full-featured syntax highlighting and language support for Apache Freemarker Template Language (FTL) files using tree-sitter parsing.</p>' +
+                '<ul class="list-outside hover:list-inside list-disc">' +
+                '<li class="py-1">Complete syntax highlighting for FTL directives and expressions</li>' +
+                '<li class="py-1">Support for both angle bracket and square bracket comment styles</li>' +
+                '<li class="py-1">Smart bracket matching with automatic closing</li>' +
+                '<li class="py-1">Seamless HTML syntax integration within templates</li>' +
+                '<li class="py-1">Full directive support including conditionals, loops, macros, and variable assignment</li>' +
+                '</ul>',
+            it: '<p>Un\'estensione per l\'editor Zed che fornisce syntax highlighting completo e supporto linguaggio per i file Apache Freemarker Template Language (FTL) utilizzando il parsing tree-sitter.</p>' +
+                '<ul class="list-outside hover:list-inside list-disc">' +
+                '<li class="py-1">Syntax highlighting completo per direttive ed espressioni FTL</li>' +
+                '<li class="py-1">Supporto per commenti sia con parentesi angolari che quadre</li>' +
+                '<li class="py-1">Corrispondenza intelligente delle parentesi con chiusura automatica</li>' +
+                '<li class="py-1">Integrazione perfetta della sintassi HTML nei template</li>' +
+                '<li class="py-1">Supporto completo per direttive inclusi condizionali, loop, macro e assegnazione variabili</li>' +
+                '</ul>'
         }
     }
 ];

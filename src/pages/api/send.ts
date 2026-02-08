@@ -38,7 +38,7 @@ export default function handler(
                     },
                     to: process.env.SMTP_RECIPIENT,
                     subject: '[WEBSITE] ' + req.body.subject,
-                    text: req.body.message + '\n____________ \nAdditional details:\nPhone: ' + req.body.phone
+                    text: req.body.message + '____________ Additional details:Phone: ' + req.body.phone
                 }, (err, info) => {
                     if (err) {
                         res.status(400).json({err})
