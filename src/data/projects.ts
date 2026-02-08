@@ -177,7 +177,7 @@ export const PROJECTS: ProjectItem[] = [
         github_user: 'debba',
         github_name: 'github-tray-gnome-extension',
         image: {
-            cover: "/images/projects/github-tray-gnome-extension.png"
+            cover: "/images/projects/cover/github-tray-gnome-extension.png"
         },
         name: "GitHub Tray GNOME Extension",
         short_description: {
@@ -276,7 +276,8 @@ export const PROJECTS: ProjectItem[] = [
         github_user: 'debba',
         github_name: 'tabularis',
         image: {
-            cover: "/images/projects/tabularis.png"
+          cover: "/images/projects/cover/tabularis.png",
+          icon: "/images/projects/icon/tabularis.png"
         },
         name: "Tabularis",
         short_description: {
