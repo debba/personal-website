@@ -1,10 +1,8 @@
 import Logo from "./logo";
-import Script from "next/script";
 import {useG11n} from "next-g11n";
 import {DICTIONARY} from "../i18n/dictionary";
 import Image from "next/image";
 import React from "react";
-import SubscriptionForm from "./sections/_footer/subscriptionform";
 import {SOCIALS} from "../data/socials";
 
 const ContactLine: React.FC<{ viewBox: string, path: string, stroke?: boolean, children: React.ReactNode }> = ({viewBox, path, stroke, children}) => (
@@ -23,7 +21,7 @@ export const Footer = () => {
     return (
         <>
             <footer className="mt-8 border-t border-line pb-24 md:pb-0">
-                <div className="container mx-auto grid gap-10 px-4 py-14 md:grid-cols-2 md:px-6 lg:grid-cols-[1.2fr_1fr_1fr]">
+                <div className="container mx-auto grid gap-10 px-4 py-14 md:grid-cols-2 md:px-6 lg:grid-cols-[1.2fr_1fr]">
                     <div>
                         <Logo/>
                         <h2 className="sr-only">{t('footer_contacts_label') as string}</h2>
@@ -62,15 +60,6 @@ export const Footer = () => {
                             ))}
                         </ul>
                     </div>
-                    <div>
-                        <h2 className="tile-label">
-                            {t('footer_keep_in_touch') as string}
-                        </h2>
-                        <p className="mt-3 text-sm text-muted">{t('footer_newsletter_desc') as string}</p>
-                        <div className="mt-4">
-                            <SubscriptionForm/>
-                        </div>
-                    </div>
                 </div>
                 <div className="border-t border-line">
                     <div className="container mx-auto flex flex-col items-center justify-between gap-3 px-4 py-6 text-xs text-muted md:flex-row md:px-6">
@@ -90,8 +79,6 @@ export const Footer = () => {
                     </div>
                 </div>
             </footer>
-            <Script strategy="lazyOnload"
-                    src="https://www.google.com/recaptcha/api.js?onload=renderRecaptcha&render=explicit"/>
         </>
     )
 }

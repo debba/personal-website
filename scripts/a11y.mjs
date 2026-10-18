@@ -65,7 +65,6 @@ for (const viewport of VIEWPORTS) {
 
             const results = await new AxeBuilder({page})
                 .withTags(TAGS)
-                .exclude(".grecaptcha-badge")
                 .analyze();
 
             for (const violation of results.violations) {

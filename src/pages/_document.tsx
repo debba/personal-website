@@ -8,7 +8,6 @@ class MyDocument extends Document {
 
     render() {
         const cookieBotDomainId = process.env.NEXT_PUBLIC_COOKIEBOT_DOMAIN_ID;
-        const emailchefSignupKey = process.env.NEXT_PUBLIC_EMAILCHEF_SIGNUP_KEY;
 
         return (
             <Html data-theme="auto" suppressHydrationWarning>
@@ -32,10 +31,6 @@ class MyDocument extends Document {
                 <Main />
 
                 <NextScript />
-
-
-                <Script strategy="afterInteractive"
-                        src={`https://app.emailchef.com/signup/form.js/${emailchefSignupKey}/en/api`}/>
                 </body>
             </Html>
         )

@@ -28,6 +28,8 @@ Project pages call the GitHub API at build time. Set `GITHUB_TOKEN` to avoid the
 - Open source projects live in `src/data/projects.ts`; images go in `public/images/projects/{cover,icon}/`. Animated GIF covers need a `still` frame, shown when the visitor prefers reduced motion and in the project grid.
 - Translations live in `src/i18n/dictionary.ts`.
 
+On the home page, Next.js selects Italian or English from the browser's `Accept-Language` preferences, falling back to English when neither is supported. Language links in the header let visitors switch manually; explicit locale URLs are respected.
+
 ## Appearance and accessibility
 
 Colors and the Urbanist typeface follow the tabularis website. Colors are CSS tokens in `src/styles/globals.css`, exposed to Tailwind in `tailwind.config.js`. The same file defines the shared type scale (`page-title`, `section-title`, `tile-title`, `tile-label`, `tile-text`), tiles (`tile`, `bento`) and controls (`btn-*`, `segmented`); use them instead of ad hoc styles; keep the explicit dark palette and the automatic dark media query in sync.
