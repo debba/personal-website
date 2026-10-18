@@ -1,7 +1,8 @@
 import Document, {Head, Html, Main, NextScript} from 'next/document'
 import Script from "next/script";
 import React from "react";
-import {roboto} from "./_app";
+import {urbanist} from "./_app";
+import {themeBootstrapScript} from "../lib/theme";
 
 class MyDocument extends Document {
 
@@ -10,8 +11,15 @@ class MyDocument extends Document {
         const emailchefSignupKey = process.env.NEXT_PUBLIC_EMAILCHEF_SIGNUP_KEY;
 
         return (
-            <Html className="scroll-smooth">
+            <Html data-theme="auto" suppressHydrationWarning>
                 <Head>
+                    <script dangerouslySetInnerHTML={{__html: themeBootstrapScript}}/>
+                    <meta name="color-scheme" content="light dark"/>
+                    <link rel="icon" href="/favicon.ico" sizes="32x32"/>
+                    <link rel="icon" href="/icon.svg" type="image/svg+xml"/>
+                    <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+                    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"/>
+                    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#030712"/>
                     {
                         process.env.NODE_ENV === 'production' && cookieBotDomainId && (
                             <Script strategy="afterInteractive" data-blockingmode={"auto"} id="Cookiebot" src="https://consent.cookiebot.com/uc.js"
@@ -20,7 +28,7 @@ class MyDocument extends Document {
                     }
 
                 </Head>
-                <body className={`${roboto.variable} bg-white dark:bg-semi-dark`}>
+                <body className={urbanist.variable}>
                 <Main />
 
                 <NextScript />

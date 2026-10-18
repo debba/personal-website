@@ -7,7 +7,7 @@ const Sitemap = () => {
 export const getServerSideProps: GetServerSideProps = async ({res, locales}) => {
     const baseUrl = process.env.NEXT_PUBLIC_SITEURL || 'http://localhost:3000';
 
-    const staticPages = ["", "projects"];
+    const staticPages = ["", "projects", "about", "contacts"];
     const dynamicPages = PROJECTS
         .map(project => `projects/${project.github_name}`)
 

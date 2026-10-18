@@ -7,25 +7,44 @@ import Head from "next/head";
 import {getLocale, useG11n} from "next-g11n";
 import {DICTIONARY} from "../../i18n/dictionary";
 import {useRouter} from "next/router";
-import Link from "next/link";
 import ProjectLinks from "../../components/sections/_projects/links";
 import {Counter} from "../../components/atoms/counter";
+import Breadcrumb from "../../components/atoms/breadcrumb";
+import ProjectCover from "../../components/atoms/project-cover";
+import {localize} from "../../helpers/localize";
+
+// An optional token avoids the low unauthenticated GitHub rate limit during builds.
+const githubHeaders = (): HeadersInit => process.env.GITHUB_TOKEN ? {Authorization: `Bearer ${process.env.GITHUB_TOKEN}`} : {};
+
+// Sums the download counts of every release asset, following pagination.
+const fetchReleaseDownloads = async (repoUrl: string): Promise<number> => {
+    let total = 0;
+    for (let page = 1; page <= 10; page++) {
+        const res = await fetch(`${repoUrl}/releases?per_page=100&page=${page}`, {headers: githubHeaders()});
+        if (!res.ok) break;
+        const releases: { assets: { download_count: number }[] }[] = await res.json();
+        total += releases.reduce((sum, release) => sum + release.assets.reduce((acc, asset) => acc + asset.download_count, 0), 0);
+        if (releases.length < 100) break;
+    }
+    return total;
+}
 
 export const getStaticProps: GetStaticProps<ProjectProps, { slug: string }> = async (context) => {
-
     const {slug} = context.params;
     const project = PROJECTS.find(project => project.github_name === slug);
-
     if (!project) {
         return {
             notFound: true
         }
     }
 
-    const res = await fetch(`https://api.github.com/repos/${project.github_user}/${slug}`);
+    const repoUrl = `https://api.github.com/repos/${project.github_user}/${slug}`;
+    const res = await fetch(repoUrl, {headers: githubHeaders()});
+
     return {
         props: {
             githubData: await res.json(),
+            downloads: await fetchReleaseDownloads(repoUrl),
             ...(project?.image && {
                 image: project.image
             }),
@@ -39,7 +58,6 @@ export const getStaticProps: GetStaticProps<ProjectProps, { slug: string }> = as
 }
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async ({locales}) => {
-
     return {
         paths: PROJECTS
             .flatMap(
@@ -56,182 +74,87 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async ({locales}
     }
 }
 
-const ProjectNamePage: NextPage<ProjectProps> = ({githubData, ...data}) => {
+const ProjectNamePage: NextPage<ProjectProps> = ({githubData, downloads, ...data}) => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
     const router = useRouter()
     const g11nLocale = getLocale(router);
+    const description = localize(data.description, g11nLocale);
+    const shortDescription = localize(data.short_description, g11nLocale);
+    const pageTitle = `${data.name} | Andrea Debernardi`;
 
-    const description = typeof data.description === 'string' ? data.description : (g11nLocale in data.description ? data.description[g11nLocale] : '');
-    const shortDescription = typeof data.short_description === 'string' ? data.short_description : (g11nLocale in data.short_description ? data.short_description[g11nLocale] : '');
-
-    const pageTitle = `${t('site_title_osp')} - ${data.name}`;
+    const stats = [
+        {label: t('project_stars') as string, value: githubData.stargazers_count, href: `${githubData.html_url}/stargazers`},
+        {label: t('project_forks') as string, value: githubData.forks_count, href: `${githubData.html_url}/forks`},
+        {label: t('project_issues') as string, value: githubData.open_issues_count, href: `${githubData.html_url}/issues`},
+        // Only projects that publish release binaries have downloads to show.
+        ...(downloads > 0 ? [{label: t('project_downloads') as string, value: downloads, href: `${githubData.html_url}/releases`}] : []),
+    ];
 
     return <>
         <Head>
             <title>{pageTitle}</title>
-            <meta property="og:title" content={t('site_title_osp') as string + ' - ' + data.name}/>
-            <meta property="description" content={shortDescription}/>
+            <meta property="og:title" content={pageTitle}/>
+            <meta name="description" content={shortDescription}/>
             <meta property="og:description" content={shortDescription}/>
             {
-                process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_SITEURL && (
-                    <meta property="og:image" content={process.env.NEXT_PUBLIC_SITEURL+data.image}/>
+                process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_SITEURL && data.image?.cover && (
+                    <meta property="og:image" content={process.env.NEXT_PUBLIC_SITEURL + (data.image.still || data.image.cover)}/>
                 )
             }
         </Head>
-        <section id="project" className="py-3 md:py-[100px] max-lg:landscape:py-3">
+        <article aria-labelledby="project-title" className="py-6 md:py-10">
+            <Breadcrumb items={[{label: t('projects_title') as string, href: '/projects'}, {label: data.name}]}/>
 
-            <nav className="flex mt-[100px] md:mt-0 " aria-label="Breadcrumb">
-                <ol role="list" className="flex items-center space-x-2 text-secondary-color dark:text-white font-roboto">
-                    <li>
-                        <div>
-                            <Link href="/" locale={g11nLocale} className=" hover:text-gray-500">
-
-                                <svg className="flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path
-                                        d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
-                                </svg>
-                                <span className="sr-only">Home</span>
-
-                            </Link>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div className="flex items-center">
-                            <svg className="flex-shrink-0 h-5 w-5  text-secondary-color dark:text-gray-300" xmlns="http://www.w3.org/2000/svg"
-                                 fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z"/>
-                            </svg>
-                            <Link
-                                href={"/projects"}
-                                locale={g11nLocale}
-                                className="ml-4 text-sm font-medium text-secondary-color dark:text-gray-700">
-                            {t('projects_title') as string}
-                            </Link>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div className="flex items-center">
-                            <svg className="flex-shrink-0 h-5 w-5 text-gray-300" xmlns="http://www.w3.org/2000/svg"
-                                 fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z"/>
-                            </svg>
-                            <span className="ml-4 text-sm font-medium text-gray-500"
-                               aria-current="page">
-                                {data.name}
-                            </span>
-                        </div>
-                    </li>
-                </ol>
-            </nav>
-
-
-            <h2 className="mt-5 font-roboto text-secondary-color text-center font-extralight uppercase text-3xl md:text-5xl mb-4 leading-normal break-words tracking-tight">
-                {data.name}
-            </h2>
-
-            <div className="relative py-16 sm:py-24">
-                <div
-                    className={`lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid ${data.image?.cover ? 'lg:grid-cols-2' : ''} lg:gap-24 lg:items-start`}>
-                    {
-                        data.image?.cover && (
-                            <div className="relative sm:py-16 lg:py-0">
-                                <div aria-hidden="true"
-                                     className="hidden sm:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen">
-                                    <div className="absolute inset-y-0 right-1/2 w-full rounded-r-3xl lg:right-72"></div>
-                                    <svg className="absolute top-8 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12"
-                                         width="404"
-                                         height="392" fill="none" viewBox="0 0 404 392">
-                                        <defs>
-                                            <pattern id="02f20b47-fd69-4224-a62a-4c9de5c763f7" x="0" y="0" width="20"
-                                                     height="20"
-                                                     patternUnits="userSpaceOnUse">
-                                                <rect x="0" y="0" width="4" height="4" className="text-gray-200"
-                                                      fill="currentColor"/>
-                                            </pattern>
-                                        </defs>
-                                        <rect width="404" height="392" fill="url(#02f20b47-fd69-4224-a62a-4c9de5c763f7)"/>
-                                    </svg>
-                                </div>
-                                <div
-                                    className="relative mx-auto max-w-md px-0 md:px-4 sm:max-w-3xl sm:px-6 lg:px-0 lg:max-w-none lg:py-20">
-                                    <div className="relative pt-64 pb-10 md:rounded-2xl shadow-xl overflow-hidden">
-
-                                        <Image loading={"lazy"} fill={true} className="absolute inset-0 h-full w-full object-contain" src={data.image.cover} alt={shortDescription}/>
-                                        <div className="absolute inset-0 white-500 mix-blend-multiply"></div>
-                                        <div
-                                            className="absolute inset-0 bg-gradient-to-t from-white-600 via-white-600 opacity-90"></div>
-
-                                    </div>
-                                </div>
-                                <div className={"relative text-center mt-5"}>
-                                    <ProjectLinks githubData={githubData} />
-                                </div>
-                            </div>
-                        )
-                    }
-                    <div
-                        className={`relative mx-auto max-w-md px-0 md:px-4 ${data.image ? 'sm:max-w-3xl' : ''} sm:px-6 lg:px-0`}>
-                        <div className="pt-12 sm:pt-16 lg:pt-20">
-                            <h3 className="text-xl font-bold font-roboto text-center text-black dark:text-white">{shortDescription}</h3>
-                            <div className="mt-6  font-roboto  text-sm space-y-6 text-black dark:text-white"
-                                 dangerouslySetInnerHTML={{__html: description}}>
-                            </div>
-                        </div>
-
-                        {
-                            ! data.hide_stats && (
-                                <div className="mt-10 pb-12 sm:pb-16">
-                                    <div className={`relative  ${data.image ? 'max-w-4xl' : ''}  mx-auto`}>
-                                        <dl className="rounded-lg bg-slate-800 shadow-lg sm:grid sm:grid-cols-3">
-                                            <div
-                                                className="flex flex-col border-b  border-slate-500/30 p-6 text-center sm:border-0 sm:border-r">
-                                                <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500 font-roboto">STARS</dt>
-                                                <dd className="order-1 text-5xl font-extrabold text-gray-300 font-roboto">
-                                                    <a href={githubData.stargazers_url} target="_blank"
-                                                       rel="noopener noreferrer">
-                                                        <Counter end={githubData.stargazers_count} duration={2}></Counter>
-                                                    </a>
-                                                </dd>
-                                            </div>
-                                            <div
-                                                className="flex flex-col border-t border-b  border-slate-500/30 p-6 text-center sm:border-0 sm:border-l sm:border-r">
-                                                <dt className="order-2 mt-2 text-lg leading-6 font-medium  text-gray-500 font-roboto">FORKS</dt>
-                                                <dd className="order-1 text-5xl font-extrabold text-gray-300 font-roboto">
-                                                    <a href={githubData.forks_url} target="_blank"
-                                                       rel="noopener noreferrer">
-                                                        <Counter end={githubData.forks_count} duration={2}></Counter>
-                                                    </a>
-                                                </dd>
-                                            </div>
-                                            <div
-                                                className="flex flex-col border-t  border-slate-500/30 p-6 text-center sm:border-0 sm:border-l">
-                                                <dt className="order-2 mt-2 text-lg leading-6 font-medium  text-gray-500 font-roboto">OPEN
-                                                    ISSUES
-                                                </dt>
-                                                <dd className="order-1 text-5xl font-extrabold text-gray-300 font-roboto">
-                                                    <Counter end={githubData.open_issues_count} duration={2}></Counter>
-                                                </dd>
-                                            </div>
-                                        </dl>
-                                    </div>
-                                </div>
-                            )
-                        }
-
-                    </div>
-
+            <header className="mt-10 flex flex-col items-start gap-6 md:flex-row md:items-center">
+                {data.image?.icon && (
+                    <Image src={data.image.icon} width={80} height={80} alt=""
+                           className="h-20 w-20 shrink-0 rounded-2xl shadow-sm"/>
+                )}
+                <div className="flex-1">
+                    <h1 id="project-title" className="page-title">
+                        {data.name}
+                    </h1>
+                    <p className="page-desc max-w-3xl">{shortDescription}</p>
                 </div>
-                {
-                    !data.image && (
-                        <ProjectLinks githubData={githubData} />
-                    )
-                }
+            </header>
+
+            <div className="mt-8">
+                <ProjectLinks githubData={githubData}/>
             </div>
 
-        </section>
+            <div className={`mt-12 grid gap-10 ${data.image?.cover ? 'lg:grid-cols-[1.1fr_0.9fr]' : ''} lg:items-start`}>
+                {data.image?.cover && (
+                    <div className="tile relative aspect-video lg:sticky lg:top-24">
+                        <ProjectCover image={data.image} alt={shortDescription}
+                                      sizes="(min-width: 1024px) 55vw, 100vw"
+                                      className="h-full w-full object-contain p-4"/>
+                    </div>
+                )}
+                <div className="tile prose-project space-y-4 p-7 text-base md:p-9"
+                     dangerouslySetInnerHTML={{__html: description}}/>
+            </div>
+
+            {
+                !data.hide_stats && (
+                    <section aria-labelledby="project-stats" className="mt-14">
+                        <h2 id="project-stats" className="sr-only">{t('project_stats_label') as string}</h2>
+                        <dl className={`grid gap-4 sm:grid-cols-2 ${stats.length > 3 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'}`}>
+                            {stats.map(stat => (
+                                <div key={stat.label} className="tile flex flex-col-reverse p-6 text-center">
+                                    <dt className="tile-label mt-2">{stat.label}</dt>
+                                    <dd className="font-sans text-4xl font-bold text-fg">
+                                        <a href={stat.href} target="_blank" rel="noopener noreferrer" className="rounded hover:text-accent">
+                                            <Counter end={stat.value ?? 0} duration={2} locale={g11nLocale}/>
+                                            <span className="sr-only"> {t('opens_new_tab') as string}</span>
+                                        </a>
+                                    </dd>
+                                </div>
+                            ))}
+                        </dl>
+                    </section>
+                )
+            }
+        </article>
     </>;
 };
 

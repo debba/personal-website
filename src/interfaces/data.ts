@@ -11,11 +11,14 @@ export interface ProjectNameLocalized {
 export interface ProjectImage {
     cover?: string;
     icon?: string;
+    // Still frame shown instead of an animated cover when motion should be reduced.
+    still?: string;
 }
 
 export interface ProjectItem {
     github_user: string;
     github_name: string;
+    emoji?: string;
     localeBlacklist?: string[];
     image?: ProjectImage;
     name: string;
@@ -41,6 +44,9 @@ export interface ActivityItemButton {
 export interface ActivityItem {
     id: string;
     logo?: string;
+    logo_alt?: string;
+    // Shown instead of a logo.
+    emoji?: string;
     name: string;
     title: string;
     full_desc: string;

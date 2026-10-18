@@ -5,10 +5,10 @@ export const SERVICES : ServiceItem[] = [
     "name": "service_frontend_development_title",
     "description": "service_frontend_development_desc",
     "skills": [
-      "React.JS",
+      "React",
       "Angular",
       "jQuery",
-      "NextJS",
+      "Next.js",
       "Tailwind CSS"
     ]
   },
@@ -19,7 +19,7 @@ export const SERVICES : ServiceItem[] = [
       "PHP",
       "MySQL",
       "PostgreSQL",
-      "Node.JS",
+      "Node.js",
       "Slim Framework",
       "Laravel",
       "Python"

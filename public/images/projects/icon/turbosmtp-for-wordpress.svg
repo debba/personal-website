@@ -1,22 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="256px" height="256px" viewBox="0 251.21 256 256" enable-background="new 0 251.21 256 256" xml:space="preserve">
-<g>
-	<path fill="#0A71B3" d="M161.184,392.409c-0.653-0.696-1.419-1.464-2.247-2.254c-8.008,6.093-16.024,12.193-24.032,18.288
-		c-5.838,4.432-11.975,10.602-19.692,5.487c-9.056-6.885-18.118-13.767-27.178-20.659c-1.367-1.037-2.73-2.081-4.098-3.116
-		c-0.714,0.729-1.42,1.475-2.13,2.225c-18.42,19.617-36.859,39.236-55.292,58.845c-3.067,3.264-6.13,6.519-9.184,9.769
-		l165.992,44.479c11.481,3.077,23.295-3.74,26.356-15.228l9.645-35.966c-11.118-11.832-22.245-23.678-33.37-35.525
-		C177.697,409.973,169.436,401.187,161.184,392.409z"/>
-	<path fill="#0A71B3" d="M123.598,361.652c2.741,2.094,5.503,4.175,8.234,6.254c0.908,0.695,3.142,1.775,2.326,2.386
-		c32.691-24.863,65.408-49.724,98.11-74.586L72.659,252.951c-11.492-3.082-23.302,3.743-26.375,15.221l-7.72,28.821
-		c19.079,14.504,38.165,29.02,57.247,43.526C105.072,347.566,114.333,354.606,123.598,361.652z"/>
-	<path fill="#0A71B3" d="M254.965,317.117c-0.779,0.62-1.573,1.232-2.421,1.858c-8.502,6.476-17.005,12.931-25.493,19.388
-		c-10.467,7.965-20.938,15.924-31.401,23.883c1.719,1.835,3.437,3.65,5.156,5.475c10.818,11.526,21.639,23.039,32.458,34.552
-		l21.014-78.379C254.882,321.619,255.09,319.335,254.965,317.117z"/>
-	<path fill="#0A71B3" d="M62.483,373.839c-12.333-9.369-24.652-18.747-36.985-28.124L1.705,434.528
-		c-0.429,1.593-0.647,3.18-0.706,4.751c0.65-0.688,1.297-1.397,1.965-2.093c12.351-13.147,24.708-26.288,37.059-39.435
-		C47.512,389.779,54.993,381.82,62.483,373.839z"/>
+<!-- Generator: Adobe Illustrator 27.8.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+		<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+		<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+		<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+		<!ENTITY ns_vars "http://ns.adobe.com/Variables/1.0/">
+		<!ENTITY ns_imrep "http://ns.adobe.com/ImageReplacement/1.0/">
+		<!ENTITY ns_sfw "http://ns.adobe.com/SaveForWeb/1.0/">
+		<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
+		<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
+		]>
+<svg version="1.1" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 189.73 189.7"
+	 enable-background="new 0 0 189.73 189.7" xml:space="preserve">
+<metadata>
+	<sfw  xmlns="&ns_sfw;">
+		<slices></slices>
+		<sliceSourceBounds  bottomLeftOrigin="true" height="189.7" width="189.73" x="326.38" y="-392.69"></sliceSourceBounds>
+	</sfw>
+</metadata>
+	<g>
+	<g>
+
+			<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="41.7175" y1="410.856" x2="148.7186" y2="596.1871" gradientTransform="matrix(1 0 0 1 0 -408.8823)">
+			<stop  offset="0.1672" style="stop-color:#497EBD"/>
+				<stop  offset="0.8374" style="stop-color:#325490"/>
+		</linearGradient>
+		<path fill="url(#SVGID_1_)" d="M119.6,104.55c-0.5-0.5-1.1-1.1-1.7-1.7c-6,4.6-12,9.1-17.9,13.7c-4.4,3.3-8.9,7.9-14.7,4.1
+			c-6.8-5.1-13.5-10.3-20.3-15.4c-1-0.8-2-1.6-3.1-2.3c-0.5,0.5-1.1,1.1-1.6,1.7c-13.8,14.7-27.5,29.3-41.3,44
+			c-2.3,2.4-4.6,4.9-6.9,7.3l124,33.2c8.6,2.3,17.4-2.8,19.7-11.4l7.2-26.9c-8.3-8.8-16.6-17.7-24.9-26.5
+			C132,117.75,125.8,111.15,119.6,104.55z M91.6,81.65c2.1,1.6,4.1,3.1,6.2,4.7c0.7,0.5,2.3,1.3,1.7,1.8
+			c24.4-18.6,48.8-37.1,73.3-55.7L53.6,0.55c-8.6-2.3-17.4,2.8-19.7,11.4l-5.8,21.5c14.2,10.8,28.5,21.7,42.8,32.5
+			C77.7,71.05,84.7,76.35,91.6,81.65z M189.7,48.35c-0.6,0.5-1.2,0.9-1.8,1.4c-6.4,4.8-12.7,9.7-19,14.5
+			c-7.8,5.9-15.6,11.9-23.4,17.8c1.3,1.4,2.6,2.7,3.8,4.1c8.1,8.6,16.2,17.2,24.2,25.8l15.7-58.5
+			C189.6,51.75,189.8,50.05,189.7,48.35z M45.9,90.75c-9.2-7-18.4-14-27.6-21l-17.8,66.3c-0.3,1.2-0.5,2.4-0.5,3.6
+			c0.5-0.5,1-1,1.5-1.6c9.2-9.8,18.5-19.6,27.7-29.5C34.7,102.65,40.3,96.65,45.9,90.75z"/>
+	</g>
 </g>
 </svg>

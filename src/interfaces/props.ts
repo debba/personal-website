@@ -1,10 +1,4 @@
-import {ActivityItem, ProjectImage, ProjectNameLocalized, ServiceItem} from "./data";
-
-export interface DataProps {
-    services: ServiceItem[];
-    activities: ActivityItem[];
-    customers: CustomerPortfolio[];
-}
+import {ProjectImage, ProjectNameLocalized} from "./data";
 
 export interface CustomerPortfolio {
     url_name: string;
@@ -26,6 +20,8 @@ interface ProjectDetail {
 
 export interface ProjectProps {
     githubData: ProjectDetail;
+    // Total downloads of GitHub release assets.
+    downloads: number;
     hide_stats: boolean;
     image?: ProjectImage;
     name: string;

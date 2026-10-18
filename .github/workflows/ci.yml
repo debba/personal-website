@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build, typecheck and accessibility
+    runs-on: ubuntu-latest
+    env:
+      # Raises the GitHub API rate limit used by the project pages at build time.
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm typecheck
+
+      - run: pnpm build
+
+      - name: Install Chromium for Playwright
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Start the site
+        run: |
+          pnpm start --port 3000 &
+          npx --yes wait-on@8 --timeout 60000 http://localhost:3000/
+
+      - name: Accessibility check (axe-core, WCAG 2.2 AA)
+        run: pnpm test:a11y
+        env:
+          BASE_URL: http://localhost:3000

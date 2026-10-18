@@ -1,31 +1,38 @@
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+
 module.exports = {
-  darkMode: 'class',
+  // "dark" applies to an explicit dark choice, or to "auto" when the device prefers dark.
+  darkMode: ['variant', [
+    '&:is([data-theme="dark"] *)',
+    '@media (prefers-color-scheme: dark) { &:is([data-theme="auto"] *) }',
+  ]],
   content: [
     "./src/data/**/*.{js,ts,jsx,tsx}",
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    fontFamily: {
-      sans: ['Roboto', 'sans-serif']
-    },
     extend: {
-      transitionProperty: {
-        'bg-size': 'background-size',
+      fontFamily: {
+        sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
-        'extra-dark': '#000101',
-        'semi-dark': '#040f0c',
-        'secondary-color': '#28549e',
-        'light-grey': '#838887'
+        bg: token('bg'),
+        surface: token('surface'),
+        'surface-2': token('surface-2'),
+        fg: token('fg'),
+        muted: token('muted'),
+        line: 'var(--line)',
+        teal: token('teal'),
+        accent: token('accent'),
+        'accent-strong': token('accent-strong'),
+        'on-accent': token('on-accent'),
+        danger: token('danger'),
+        success: token('success'),
       },
-      fontFamily: {
-        'roboto': ['var(--font-roboto)']
-      }
     },
   },
   plugins: [
     require('@tailwindcss/forms'),
-    // ...
   ]
 }

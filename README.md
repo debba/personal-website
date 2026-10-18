@@ -1,34 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# debbaweb.it
 
-## Getting Started
+Personal website of Andrea Debernardi, built with [Next.js](https://nextjs.org/) (pages router), Tailwind CSS and `next-g11n` for Italian/English content.
 
-First, run the development server:
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
+pnpm install
+pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+| Script | What it does |
+| --- | --- |
+| `pnpm dev` | Development server |
+| `pnpm build` / `pnpm start` | Production build and server |
+| `pnpm typecheck` | TypeScript check |
+| `pnpm lint` | ESLint |
+| `pnpm test:a11y` | axe-core accessibility check against a running server (`BASE_URL`, default `http://localhost:3000`) |
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Project pages call the GitHub API at build time. Set `GITHUB_TOKEN` to avoid the unauthenticated rate limit.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Content
 
-## Learn More
+- Pages: home (bento overview), `/projects`, `/projects/[slug]`, `/about` (bio, services, activities, customers) and `/contacts` (direct contacts and form). The home page is a bento grid of tiles (`src/components/home/`). Tile spans in `src/pages/index.tsx` are tuned so every row is full at 4 columns; check the layout when adding or removing tiles.
+- `HOME_PROJECTS` in `src/data/projects.ts` picks the projects shown as home tiles; `DOCK_PROJECTS` picks the ones in the dock tile.
+- Open source projects live in `src/data/projects.ts`; images go in `public/images/projects/{cover,icon}/`. Animated GIF covers need a `still` frame, shown when the visitor prefers reduced motion and in the project grid.
+- Translations live in `src/i18n/dictionary.ts`.
 
-To learn more about Next.js, take a look at the following resources:
+## Appearance and accessibility
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Colors and the Urbanist typeface follow the tabularis website. Colors are CSS tokens in `src/styles/globals.css`, exposed to Tailwind in `tailwind.config.js`. The same file defines the shared type scale (`page-title`, `section-title`, `tile-title`, `tile-label`, `tile-text`), tiles (`tile`, `bento`) and controls (`btn-*`, `segmented`); use them instead of ad hoc styles; keep the explicit dark palette and the automatic dark media query in sync.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The header offers Light / Dark / Auto. Auto follows `prefers-color-scheme`, including live system changes. The `debbaweb.theme` preference is stored locally, and if storage is blocked the site falls back to the device theme. An inline head script applies the stored preference before first paint, so the page never flashes the wrong theme.
 
-## Deploy on Vercel
+The site includes a skip link, visible focus indicators, a mobile menu that closes with Escape and returns focus, labeled form errors, reduced-motion and forced-colors support, still frames for animated covers, and touch targets of at least 24px.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+CI (`.github/workflows/ci.yml`) runs typecheck, build and `pnpm test:a11y`. The check covers home, projects, project pages, about, contacts and the 404 page in both languages, light and dark themes, and at 1280px and 320px widths. It applies the axe-core WCAG 2.2 AA rules plus best practices, and also fails on horizontal overflow or a theme that was not applied. Automated checks supplement keyboard, zoom and screen reader testing; they do not replace it.

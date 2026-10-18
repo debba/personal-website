@@ -3,371 +3,458 @@ import {ProjectItem} from "../interfaces/data";
 export const PROJECTS: ProjectItem[] = [
     {
         github_user: 'debba',
-        github_name: 'storytel-player',
-        image: {cover: "/images/projects/cover/storytel-player.png"},
-        name: "Storytel Player",
+        github_name: 'gitdeck',
+        emoji: '🧭',
+        image: {cover: "/images/projects/cover/gitdeck.webp", icon: "/images/projects/icon/gitdeck.png"},
+        name: "Gitdeck",
         short_description: {
-            en: "Unofficial cross-platform desktop application for Storytel audiobook streaming with offline support",
-            it: "Applicazione desktop non ufficiale multi-piattaforma per Storytel con supporto offline"
+            en: 'Repositories, issues, pull requests and CI from GitHub, GitLab and Forgejo in one dashboard.',
+            it: 'Repository, issue, pull request e CI di GitHub, GitLab e Forgejo in un’unica dashboard.'
         },
         description: {
-            en: '<p>Storytel Player is an unofficial, open-source desktop application for Storytel audiobook streaming built with Electron, React, and TypeScript.</p>' +
-                '<p>It features native desktop integration with system tray, comprehensive library browsing, advanced HTML5 audio player with bookmarks, and offline audiobook downloading capabilities.</p>' +
-                '<p>The app supports Windows, macOS, and Linux with a compact UI optimized for desktop use and includes automatic updates, multi-language support, and secure authentication.</p>' +
-                '<p>The project is open-source under MIT license and is not affiliated with Storytel. An active Storytel subscription is required to use the application.</p>',
-            it: '<p>Storytel Player è un\'applicazione desktop non ufficiale open-source per lo streaming di audiolibri Storytel, sviluppata con Electron, React e TypeScript.</p>' +
-                '<p>Offre integrazione nativa con il tray di sistema, esplorazione completa della libreria, player audio HTML5 avanzato con segnalibri e possibilità di scaricare audiolibri per l\'ascolto offline.</p>' +
-                '<p>L\'app supporta Windows, macOS e Linux con un\'interfaccia compatta ottimizzata per desktop e include aggiornamenti automatici, supporto multilingua e autenticazione sicura.</p>' +
-                '<p>Il progetto è open-source con licenza MIT e non è affiliato con Storytel. È richiesto un abbonamento attivo a Storytel per utilizzare l\'applicazione.</p>'
+            en: '<p>Gitdeck brings your repositories and their activity into one local dashboard. Connect multiple accounts on GitHub, GitLab and Forgejo-compatible platforms, including Codeberg and self-hosted instances.</p>' +
+                '<p>Review issues and pull requests across repositories, organise work on a kanban board and catch up with a daily digest. Alerts, health scores and security findings from Dependabot and code scanning help you see what needs attention.</p>' +
+                '<p>Each repository has a dedicated view for CI workflows, releases, traffic, contributors and projects that depend on it, alongside mentions and trends in stars and forks.</p>' +
+                '<p>Built with TypeScript, React and Vite, with a Node.js backend for OAuth, API requests and caching. A native app is also available for iPhone and iPad.</p>',
+            it: '<p>Gitdeck riunisce i tuoi repository e le loro attività in una dashboard locale. Puoi collegare più account GitHub, GitLab e piattaforme compatibili con Forgejo, tra cui Codeberg e istanze self-hosted.</p>' +
+                '<p>Gestisci issue e pull request di più repository, organizzi il lavoro su una bacheca kanban e ritrovi le novità in un riepilogo giornaliero. Avvisi, indicatori sullo stato dei progetti e segnalazioni di sicurezza da Dependabot e code scanning aiutano a capire cosa richiede attenzione.</p>' +
+                '<p>Ogni repository ha una vista dedicata a workflow CI, release, traffico, collaboratori e progetti che lo usano come dipendenza, oltre a menzioni e andamento di stelle e fork.</p>' +
+                '<p>È sviluppato con TypeScript, React e Vite, con un backend Node.js per OAuth, richieste API e cache. È disponibile anche un’app nativa per iPhone e iPad.</p>'
+        }
+    },
+    {
+        github_user: 'debba',
+        github_name: 'melicum',
+        emoji: '🔊',
+        image: {cover: "/images/projects/cover/melicum.png", icon: "/images/projects/icon/melicum.png"},
+        name: "Melicum",
+        short_description: {
+            en: 'Control HDMI and DisplayPort audio on macOS with your usual volume keys.',
+            it: 'Regola l’audio HDMI e DisplayPort su macOS con i tasti volume di sempre.'
+        },
+        description: {
+            en: '<p>Melicum lets you control the volume of HDMI and DisplayPort audio outputs on macOS, even when the device has no hardware volume control. It adjusts the audio level in software.</p>' +
+                '<p>An optional component connects Melicum to the macOS volume slider and keyboard controls, keeping volume and mute settings in sync.</p>' +
+                '<p>For more control over your sound, it includes equalizers with three levels of detail, a spectrum analyser, a per-app mixer, spatial audio, Audio Unit chains, AutoEQ import and settings presets.</p>' +
+                '<p>Built with SwiftUI, Core Audio and a DSP engine in C. Audio is processed locally, without recording it or sending it over the network.</p>',
+            it: '<p>Melicum permette di regolare il volume delle uscite audio HDMI e DisplayPort su macOS, anche quando il dispositivo non offre un controllo hardware. La regolazione avviene via software.</p>' +
+                '<p>Un componente opzionale collega Melicum al cursore del volume di macOS e ai tasti della tastiera, mantenendo sincronizzati volume e disattivazione dell’audio.</p>' +
+                '<p>Per intervenire sul suono, include equalizzatori con tre livelli di dettaglio, un analizzatore di spettro, un mixer per singola app, audio spaziale, catene di Audio Unit, importazione AutoEQ e preset delle impostazioni.</p>' +
+                '<p>È sviluppato con SwiftUI, Core Audio e un motore DSP in C. L’audio viene elaborato in locale, senza registrarlo né inviarlo in rete.</p>'
+        }
+    },
+    {
+        github_user: 'debba',
+        github_name: 'tuxcleaner',
+        emoji: '🐧',
+        image: {cover: "/images/projects/cover/tuxcleaner.png"},
+        name: "TuxCleaner",
+        short_description: {
+            en: 'Free up disk space, uninstall apps and check your Linux system from the terminal.',
+            it: 'Libera spazio, disinstalla app e controlla lo stato di Linux dal terminale.'
+        },
+        description: {
+            en: '<p>TuxCleaner helps you reclaim disk space and check the state of your Linux system from the terminal. Written in Rust, it brings cleanup, application removal and disk analysis into a Ratatui interface.</p>' +
+                '<p>It supports Arch Linux, Debian, Ubuntu, Fedora, RHEL and their derivatives, with package cleanup through pacman, apt and dnf. It can uninstall desktop apps, including Flatpaks, scan caches and clean up Docker resources while leaving volumes untouched.</p>' +
+                '<p>It also finds old development files such as node_modules and target directories, checks package database integrity and displays CPU, memory, disk and system load information.</p>' +
+                '<p>You can preview changes with a dry run before applying them. Operations are logged, JSON output is available for automation and updates are verified by checksum.</p>',
+            it: '<p>TuxCleaner aiuta a recuperare spazio su disco e controllare lo stato di Linux dal terminale. Scritto in Rust, riunisce pulizia, disinstallazione delle app e analisi del disco in un’interfaccia Ratatui.</p>' +
+                '<p>Supporta Arch Linux, Debian, Ubuntu, Fedora, RHEL e le loro derivate, con pulizia dei pacchetti tramite pacman, apt e dnf. Può disinstallare app desktop, comprese quelle Flatpak, analizzare le cache e ripulire le risorse Docker senza intervenire sui volumi.</p>' +
+                '<p>Individua anche vecchi file di sviluppo, come le cartelle node_modules e target, verifica l’integrità del database dei pacchetti e mostra informazioni su CPU, memoria, disco e carico del sistema.</p>' +
+                '<p>Puoi vedere in anteprima le modifiche con un dry run prima di applicarle. Le operazioni vengono registrate, l’output JSON permette di automatizzarle e gli aggiornamenti sono verificati tramite checksum.</p>'
+        }
+    },
+    {
+        github_user: 'debba',
+        github_name: 'free-my-arch',
+        emoji: '🧹',
+        image: {cover: "/images/projects/cover/free-my-arch.gif", still: "/images/projects/cover/free-my-arch-still.png"},
+        name: "free-my-arch",
+        short_description: {
+            en: 'A Claude Code skill that finds disk space to reclaim on Arch Linux and asks before cleaning.',
+            it: 'Una skill per Claude Code che trova spazio da liberare su Arch Linux e chiede prima di pulire.'
+        },
+        description: {
+            en: '<p>free-my-arch is a Claude Code skill for reclaiming disk space on Arch Linux. It scans package caches, AUR build leftovers, development caches, unused Docker files and large files in your home directory, then removes only what you approve.</p>' +
+                '<p>The process has four steps: scan without making changes, report the space available to reclaim, ask for confirmation and clean up with a before-and-after report. Caches are approved by group; personal files are reviewed one at a time.</p>' +
+                '<p>Configuration files, dotfiles, browser profiles and the pacman database are excluded. Docker volumes always require explicit confirmation, and sudo is used only for system cleanup groups you have approved.</p>',
+            it: '<p>free-my-arch è una skill per Claude Code che aiuta a recuperare spazio su Arch Linux. Analizza cache dei pacchetti, residui delle build AUR, cache di sviluppo, file Docker inutilizzati e file grandi nella home, poi elimina solo ciò che approvi.</p>' +
+                '<p>Il processo ha quattro passaggi: scansione senza modifiche, riepilogo dello spazio recuperabile, richiesta di conferma e pulizia con un confronto prima e dopo. Le cache si approvano per gruppo; i file personali si valutano uno alla volta.</p>' +
+                '<p>Configurazioni, dotfile, profili dei browser e database di pacman sono esclusi dalla pulizia. I volumi Docker richiedono sempre una conferma esplicita e sudo viene usato solo per i gruppi di pulizia del sistema che hai approvato.</p>'
+        }
+    },
+    {
+        github_user: 'debba',
+        github_name: 'storytel-player',
+        emoji: '🎧',
+        image: {cover: "/images/projects/cover/storytel-player.webp", icon: "/images/projects/icon/storytel-player.png"},
+        name: "Storytel Player",
+        short_description: {
+            en: 'An unofficial Storytel desktop player for Windows, macOS and Linux, with offline listening.',
+            it: 'Un player desktop non ufficiale per Storytel su Windows, macOS e Linux, anche per l’ascolto offline.'
+        },
+        description: {
+            en: '<p>Storytel Player brings Storytel audiobooks to the desktop with an unofficial app for Windows, macOS and Linux. Browse your library, listen to books and download them for offline playback.</p>' +
+                '<p>The player includes bookmarks, system tray integration, automatic updates and a multilingual interface designed for desktop use.</p>' +
+                '<p>Built with Electron, React and TypeScript, it is open source under the MIT licence. The project is not affiliated with Storytel, and an active Storytel subscription is required.</p>',
+            it: '<p>Storytel Player porta gli audiolibri di Storytel sul desktop con un’app non ufficiale per Windows, macOS e Linux. Puoi esplorare la libreria, ascoltare i libri e scaricarli per la riproduzione offline.</p>' +
+                '<p>Il player include segnalibri, integrazione con l’area di notifica, aggiornamenti automatici e un’interfaccia multilingua pensata per l’uso su desktop.</p>' +
+                '<p>È sviluppato con Electron, React e TypeScript ed è open source con licenza MIT. Il progetto non è affiliato a Storytel e richiede un abbonamento Storytel attivo.</p>'
         }
     },
     {
         github_user: 'rewindtty',
         github_name: 'rewindtty',
+        emoji: '⏪',
         image: {cover: "/images/projects/cover/rewindtty.png", icon: "/images/projects/icon/rewindtty.png" },
         name: "RewindTTY",
         short_description: {
-            en: "Terminal session recorder and replayer with JSON and ANSI escape sequences support",
-            it: "Registratore e riproduttore di sessioni terminale con supporto per sequenze ANSI e output in JSON"
+            en: 'Record and replay terminal sessions, with JSON output and support for ANSI escape sequences.',
+            it: 'Registra e riproduci sessioni del terminale, con output JSON e supporto alle sequenze ANSI.'
         },
         description: {
-            en: '<p>RewindTTY is an advanced terminal session recorder and player written in C.</p>' +
-                '<p>It captures input/output streams using PTYs and stores the session as structured JSON, including timestamp, command, output, and stderr.</p>' +
-                '<p>It also supports ANSI escape sequences, making it suitable for TUI applications like Vim, htop, or ncurses-based tools.</p>' +
-                '<p>The project is open-source and aims to offer a lightweight alternative to tools like asciinema with a focus on simplicity and integration potential.</p>',
-            it: '<p>RewindTTY è un registratore e riproduttore avanzato di sessioni terminale scritto in C.</p>' +
-                '<p>Cattura i flussi di input/output utilizzando PTY e salva la sessione in formato JSON strutturato, includendo timestamp, comando, output e stderr.</p>' +
-                '<p>Supporta anche le sequenze ANSI, rendendolo perfetto per applicazioni TUI come Vim, htop o strumenti basati su ncurses.</p>' +
-                '<p>Il progetto è open-source e mira a offrire un\'alternativa leggera a strumenti come asciinema, con un focus sulla semplicità e l’integrazione.</p>'
+            en: '<p>RewindTTY records terminal sessions and lets you replay them later. Written in C, it captures input and output through pseudo-terminals (PTYs).</p>' +
+                '<p>Sessions are saved as structured JSON with timestamps, commands, output and stderr, making the data available for other tools and workflows.</p>' +
+                '<p>Support for ANSI escape sequences allows it to capture terminal interfaces such as Vim, htop and ncurses applications. The project explores a lightweight alternative to tools such as asciinema, with a focus on simplicity and integration.</p>',
+            it: '<p>RewindTTY registra le sessioni del terminale e permette di riprodurle in seguito. È scritto in C e cattura input e output attraverso pseudo-terminali (PTY).</p>' +
+                '<p>Le sessioni vengono salvate in JSON strutturato, con timestamp, comandi, output e stderr: dati che possono essere usati anche da altri strumenti.</p>' +
+                '<p>Il supporto alle sequenze ANSI permette di catturare interfacce da terminale come Vim, htop e applicazioni ncurses. Il progetto esplora un’alternativa leggera a strumenti come asciinema, con attenzione alla semplicità e all’integrazione.</p>'
         }
     },
     {
         github_user: 'debba',
         github_name: 'gh-contributions-tetris-gif-maker',
-        image: {cover: "/images/projects/cover/gh-contributions-tetris-gif-maker.gif"},
+        emoji: '🧱',
+        image: {cover: "/images/projects/cover/gh-contributions-tetris-gif-maker.gif", still: "/images/projects/cover/gh-contributions-tetris-gif-maker-still.png"},
         name: "GitHub Contributions Tetris GIF Maker",
         short_description: {
-            en: "A script to generate an animated Tetris-style GIF based on a GitHub user's contributions for a specific year",
-            it: "Uno script per generare una GIF animata in stile Tetris basata sui contributi di un utente GitHub per un anno specifico"
+            en: 'Turn a year of GitHub contributions into a Tetris-style animated GIF.',
+            it: 'Trasforma un anno di contributi GitHub in una GIF animata in stile Tetris.'
         },
         description: {
-            en: '<p>This script generates an animated Tetris-style GIF based on a GitHub user\'s contributions for a specific year.</p>' +
-                '<p>It uses Python with libraries such as PIL and imageio to create the GIF.</p>' +
-                '<p>You just need to provide the username and year to generate the GIF.</p>' +
-                '<p>The script is open-source, and you can customize it according to your needs.</p>',
-            it: '<p>Questo script genera una GIF animata in stile Tetris basata sui contributi di un utente GitHub per un anno specifico.</p>' +
-                '<p>Utilizza Python con librerie come PIL e imageio per creare la GIF.</p>' +
-                '<p>Basta fornire il nome utente e l\'anno per generare la GIF.</p>' +
-                '<p>Lo script è open-source, e puoi personalizzarlo secondo le tue esigenze.</p>'
+            en: '<p>A Python script that turns a GitHub contribution graph into a Tetris-style animated GIF. Provide a username and a year to generate the animation.</p>' +
+                '<p>It uses PIL and imageio to create the GIF. The code is open source, so you can adapt the script and customise the result.</p>',
+            it: '<p>Uno script Python che trasforma il grafico dei contributi GitHub in una GIF animata in stile Tetris. Basta indicare il nome utente e l’anno per generare l’animazione.</p>' +
+                '<p>Usa PIL e imageio per creare la GIF. Il codice è open source, quindi puoi adattare lo script e personalizzare il risultato.</p>'
         }
     },
     {
         github_user: 'debba',
         github_name: 'fs-access-api-react-demo',
+        emoji: '📂',
         name: "File System Access API Demo",
         short_description: {
-            en: "File System Access API Demo in a React Application with Typescript",
-            it: "Applicazione che illustra il funzionamento delle File System Access API con React e Typescript"
+            en: 'A React and TypeScript demo for opening and saving local files with the File System Access API.',
+            it: 'Una demo React e TypeScript per aprire e salvare file locali con la File System Access API.'
         },
         description: {
-            en: '<p><strong>Demo features:</strong></p><ol class="list-inside list-decimal">' +
-                '<li class="py-2">Open file from local file system</li>' +
-                '<li class="py-2">Write the file to local file system</li>' +
-                '<li class="py-2">Fallback for unsupported browsers</li>' +
-                '</ul>',
-            it: '<p><strong>Funzionalità nella demo:</strong></p><ol class="list-inside list-decimal">' +
-                '<li class="py-2">Apertura di un file di testo da file system locale</li>' +
-                '<li class="py-2">Scrittura di un file di testo da file system locale</li>' +
-                '<li class="py-2">Fallback per i browsers non supportati.</li>' +
-                '</ul>'
+            en: '<p>A React and TypeScript demo showing how to use the File System Access API to work with local text files from a web application.</p>' +
+                '<ol class="list-inside list-decimal">' +
+                '<li class="py-2">Open a text file from the local file system.</li>' +
+                '<li class="py-2">Write a text file to the local file system.</li>' +
+                '<li class="py-2">Use a fallback in browsers that do not support the API.</li>' +
+                '</ol>',
+            it: '<p>Una demo in React e TypeScript che mostra come usare la File System Access API per lavorare su file di testo locali da un’applicazione web.</p>' +
+                '<ol class="list-inside list-decimal">' +
+                '<li class="py-2">Aprire un file di testo dal file system locale.</li>' +
+                '<li class="py-2">Scrivere un file di testo nel file system locale.</li>' +
+                '<li class="py-2">Usare una soluzione alternativa nei browser che non supportano l’API.</li>' +
+                '</ol>'
         }
     },
     {
         github_user: 'debba',
         github_name: 'greenpass-covid19-qrcode-decoder',
+        emoji: '✅',
         image: {cover: "/images/projects/cover/greenpass-covid19-qrcode-decoder.png"},
         name: "GreenPass Covid-19 QR Code Decoder",
         short_description: {
-            en: "An easy web app for decoding Green Pass Covid-19 QrCode",
-            it: "Una semplice web app per decodificare il QrCode del Green Pass Covid-19"
+            en: 'A web app built in 2021 to read the data in EU COVID-19 certificate QR codes.',
+            it: 'Una web app sviluppata nel 2021 per leggere i dati nel QR code del Green Pass europeo.'
         },
         description: {
-            en: '<p>In 2021 I developed a simple web app for decoding data from EU Green Pass QR Code.</p>' +
-                '<p>I used Python with Flask and deployed my app using Heroku.</p>' +
-                '<p>You just need to attach your certificate to immediately get a complete reading of the QR code.</p>' +
-                '<p>Also in this case, no data will be stored and that if you want, since the code is open source, you can' +
-                'create your instance without any worries.</p>',
-            it: '<p>Nel 2021 ho sviluppato una semplice web app il cui scopo è quello di decodificare il QRCode del Green Pass europeo.</p>' +
-                '<p>Ho utilizato Python con Flask e ho deployato l\'app con Heroku.</p>' +
-                '<p>Basta allegare il proprio certificato e immediatamente avviene la lettura dei dati dal QR Code.</p>' +
-                '<p>Nessun dato inviato viene salvato e dal momento che è open-source è possibile creare una propria istanza forkando il progetto di Github.</p>'
+            en: '<p>I built this web app in 2021 to read the data encoded in EU COVID-19 certificate QR codes. It was developed with Python and Flask and deployed on Heroku.</p>' +
+                '<p>The app reads a certificate uploaded by the user and displays the data contained in its QR code without storing the submitted data. The code is open source and can be used to run your own instance.</p>',
+            it: '<p>Ho sviluppato questa web app nel 2021 per leggere i dati contenuti nel QR code del Green Pass europeo. È realizzata con Python e Flask e all’epoca è stata pubblicata su Heroku.</p>' +
+                '<p>L’app legge un certificato caricato dall’utente e mostra i dati del QR code senza salvare i dati inviati. Il codice è open source e permette di creare una propria istanza.</p>'
         }
     },
     {
         github_user: 'dueclic',
         github_name: 'authpress',
+        emoji: '🔐',
         image: {
             cover: "/images/projects/cover/authpress.png",
             icon: "/images/projects/icon/authpress.png"
         },
         name: "AuthPress",
         short_description: {
-            en: "Enable Two-factor authentication for WordPress Login",
-            it: "Abilita l’autenticazione a 2 fattori su WordPress"
+            en: 'Add two-factor authentication to WordPress using Telegram.',
+            it: 'Aggiungi l’autenticazione a due fattori a WordPress tramite Telegram.'
         },
         description: {
-            en: '<ol class="list-inside list-decimal">' +
-                '<li class="py-2"><strong>Easy Configuration</strong>: install the plugin and configure it in a few seconds.</li>' +
-                '<li class="py-2"><strong>Increase Security</strong>: enhance your website security by adding an extra authentication factor.</li>' +
-                '<li class="py-2"><strong>Speed</strong>: Forget additional apps, SMS, or captcha. Use Telegram for a faster login experience!</li>' +
-                '<li class="py-2"><strong>User Control</strong>: each user can enable two-factor authentication directly from their profile.</li>' +
-                '<li class="py-2"><strong>Admin Alerts</strong>: set a Telegram Chat ID to receive notifications whenever users fail to log in.</li>' +
-                '<li class="py-2"><strong>FAQ</strong>: read the plugin FAQ to learn how to create your Telegram Bot.</li>' +
-                '<li class="py-2"><strong>Languages</strong>: available in Italian, English, and Spanish.</li>' +
-                '</ol>',
-            it: '<ol class="list-inside list-decimal">' +
-                '<li class="py-2"><strong>Facile Configurazione</strong>: installa il plugin e configuralo in pochi secondi.</li>' +
-                '<li class="py-2"><strong>Rafforza la Sicurezza</strong>: aumenta il livello di sicurezza del tuo sito aggiungendo un fattore di autenticazione extra.</li>' +
-                '<li class="py-2"><strong>Velocità</strong>: dimentica app aggiuntive, SMS o sistemi captcha. Usa Telegram per un login molto più veloce!</li>' +
-                '<li class="py-2"><strong>Controllo Utente</strong>: ogni utente può abilitare l’autenticazione a due fattori direttamente dal proprio profilo.</li>' +
-                '<li class="py-2"><strong>Notifiche Admin</strong>: imposta una Telegram Chat ID per ricevere notifiche ogni volta che gli utenti falliscono il login.</li>' +
-                '<li class="py-2"><strong>FAQ</strong>: consulta le FAQ del plugin per creare il tuo Bot su Telegram.</li>' +
-                '<li class="py-2"><strong>Lingue</strong>: disponibile in Italiano, Inglese e Spagnolo.</li>' +
-                '</ol>'
+            en: '<p>AuthPress adds two-factor authentication to WordPress using Telegram. Users can enable it from their profile to add a second check when signing in.</p>' +
+                '<ul class="list-inside list-disc">' +
+                '<li class="py-2"><strong>Telegram setup:</strong> the plugin FAQ explains how to create and connect a bot.</li>' +
+                '<li class="py-2"><strong>User settings:</strong> each user manages two-factor authentication from their own profile.</li>' +
+                '<li class="py-2"><strong>Login alerts:</strong> administrators can receive Telegram notifications about failed login attempts.</li>' +
+                '<li class="py-2"><strong>Languages:</strong> available in Italian, English and Spanish.</li>' +
+                '</ul>',
+            it: '<p>AuthPress aggiunge l’autenticazione a due fattori a WordPress tramite Telegram. Ogni utente può attivarla dal proprio profilo per aggiungere un secondo controllo all’accesso.</p>' +
+                '<ul class="list-inside list-disc">' +
+                '<li class="py-2"><strong>Configurazione di Telegram:</strong> le FAQ del plugin spiegano come creare e collegare un bot.</li>' +
+                '<li class="py-2"><strong>Impostazioni personali:</strong> ogni utente gestisce l’autenticazione a due fattori dal proprio profilo.</li>' +
+                '<li class="py-2"><strong>Avvisi di accesso:</strong> gli amministratori possono ricevere notifiche Telegram sui tentativi di accesso non riusciti.</li>' +
+                '<li class="py-2"><strong>Lingue:</strong> disponibile in italiano, inglese e spagnolo.</li>' +
+                '</ul>'
         }
     },
     {
         github_user: 'debba',
         github_name: 'less2scss',
+        emoji: '🎨',
         name: "Less2scss",
         short_description: {
-            en: "Npm package for converting LESS files to SCSS.",
-            it: "Pacchetto NPM per convertire i file LESS in SCSS."
+            en: 'Convert LESS files to SCSS while preserving the directory structure.',
+            it: 'Converti file LESS in SCSS mantenendo la struttura delle cartelle.'
         },
         description: {
-            en: '<p>You can provide an entire folder, this package will scan all less files whose find in subfolders and it\'ll create SCSS files in the same folder or in the new directory provided recreating the source hierarchy.</p>',
-            it: '<p>Puoi fornire un\'intera cartella, questo pacchetto scansionare tutti i files LESS (anche all\'interno delle sottocartelle) e genererà i files SCSS nella stessa cartella o in una nuova indicata ricreando la stessa gerarchia.</p>',
+            en: '<p>An npm package for converting LESS files to SCSS. Give it a directory and it scans the LESS files inside it, including subdirectories.</p>' +
+                '<p>Generated SCSS files can be saved alongside the originals or in a separate destination, preserving the source directory structure.</p>',
+            it: '<p>Un pacchetto npm per convertire file LESS in SCSS. Indicando una cartella, analizza i file LESS al suo interno, comprese le sottocartelle.</p>' +
+                '<p>I file SCSS generati possono essere salvati accanto agli originali oppure in una destinazione separata, mantenendo la struttura delle cartelle di partenza.</p>'
         }
     },
     {
         github_user: 'dueclic',
         github_name: 'emailchef-for-wordpress',
+        emoji: '✉️',
         image: {
             cover: "/images/projects/cover/emailchef-for-wordpress.png",
             icon: "/images/projects/icon/emailchef-for-wordpress.png"
         },
         name: "eMailChef for WordPress",
         short_description: {
-            en: "This is the perfect marketing WordPress tool to add an intuitive and solid email campaign solution with eMailChef to your website.",
-            it: "Strumento di marketing perfetto per aggiungere al tuo sito web WordPress una soluzione intuitiva e solida per le campagne e-mail con eMailChef."
+            en: 'Connect WordPress forms to eMailChef and sync contacts for your email campaigns.',
+            it: 'Collega i moduli WordPress a eMailChef e sincronizza i contatti per le tue campagne email.'
         },
         hide_stats: true,
         description: {
-            en: '<p>Send your email marketing campaigns through the interface provided on emailchef.com.</p>' +
-                '<p>With eMailChef you can choose between multiple subscription plans divided by functionality and contacts and you can also decide to subscribe to a custom plan, built to suit your needs.</p>' +
-                '<p>Every form submission from WPForms, Contact Form 7, Fast Secure Contact Form (FSCF) and Jetpack (more supported plugins coming: contact us for advices!) will be automatically synced with the selected eMailChef contact list.</p>' +
-                '<p>It also supports customized fields you can use to segment your customers! E.g. if in a form you ask for customers type (reseller, hotels, etc.) you can easily create a newsletter just for them.</p>',
-            it: '<p>Invia le tue campagne di email marketing attraverso la app di eMailChef.</p>' +
-                '<p>Con eMailChef puoi scegliere tra più piani di abbonamento suddivisi per funzionalità e contatti e puoi anche decidere di sottoscrivere un piano personalizzato, costruito in base alle vostre esigenze.</p>' +
-                '<p>Ogni invio di moduli da WPForms, Contact Form 7, Fast Secure Contact Form (FSCF) e Jetpack (altri plugin supportati sono in arrivo: contattateci per consigli!) sarà sincronizzato automaticamente con la lista eMailChef selezionata.</p>' +
-                '<p>Supporta anche campi personalizzati che puoi utilizzare per segmentare i tuoi clienti! Ad esempio, se in un modulo chiedi il tipo di cliente (rivenditore, hotel, ecc.) puoi facilmente creare una newsletter solo per il tipo richiesto.</p>'
+            en: '<p>eMailChef for WordPress connects your website forms to an eMailChef contact list. Form submissions are synced automatically, so you can use the collected contacts in your email campaigns.</p>' +
+                '<p>The plugin supports WPForms, Contact Form 7, Fast Secure Contact Form and Jetpack. Custom fields let you organise contacts into segments, for example by customer type or business sector.</p>' +
+                '<p>You create and send campaigns from eMailChef, using the contact data collected on your website.</p>',
+            it: '<p>eMailChef for WordPress collega i moduli del tuo sito a una lista contatti di eMailChef. Gli invii vengono sincronizzati automaticamente, così puoi usare i contatti raccolti nelle tue campagne email.</p>' +
+                '<p>Il plugin supporta WPForms, Contact Form 7, Fast Secure Contact Form e Jetpack. I campi personalizzati permettono di organizzare i contatti in segmenti, per esempio per tipo di cliente o settore di attività.</p>' +
+                '<p>Crei e invii le campagne da eMailChef, usando i dati raccolti sul tuo sito.</p>'
         }
     },
     {
         github_user: 'debba',
         github_name: 'github-tray-gnome-extension',
+        emoji: '🔔',
         image: {
-            cover: "/images/projects/cover/github-tray-gnome-extension.png"
+            cover: "/images/projects/cover/github-tray-gnome-extension.webp"
         },
         name: "GitHub Tray GNOME Extension",
         short_description: {
-            en: "A GNOME Shell extension for monitoring GitHub repositories from your desktop.",
-            it: "Un'estensione GNOME Shell per monitorare i repository GitHub dal desktop."
+            en: 'Keep track of GitHub repository activity from the GNOME desktop panel.',
+            it: 'Segui le attività dei repository GitHub dal pannello del desktop GNOME.'
         },
         description: {
-            en: '<p>A GNOME Shell extension that integrates GitHub repository monitoring directly into the desktop\'s top panel.</p>' +
-                '<p>Track repository statistics and activity without opening a web browser, with features including:</p>' +
+            en: '<p>A GNOME Shell extension that puts GitHub repository activity in your desktop’s top panel, so you can check it without opening a browser.</p>' +
                 '<ul class="list-outside hover:list-inside list-disc">' +
-                '<li class="py-1">Real-time notifications for new stars, issues, and forks</li>' +
-                '<li class="py-1">Repository metrics: stars, forks, issues, programming language, and last update</li>' +
-                '<li class="py-1">Direct links to open repositories on GitHub or locally in your editor</li>' +
-                '<li class="py-1">Automatic refresh every 5 minutes with sortable lists</li>' +
+                '<li class="py-1">Notifications for new stars, issues and forks.</li>' +
+                '<li class="py-1">Repository details, including stars, forks, issues, language and last update.</li>' +
+                '<li class="py-1">Links to open repositories on GitHub or locally in your editor.</li>' +
+                '<li class="py-1">Sortable lists with an automatic refresh every five minutes.</li>' +
                 '</ul>',
-            it: '<p>Un\'estensione GNOME Shell che integra il monitoraggio dei repository GitHub direttamente nel pannello superiore del desktop.</p>' +
-                '<p>Tieni traccia delle statistiche e dell\'attività dei repository senza aprire un browser web, con funzionalità tra cui:</p>' +
+            it: '<p>Un’estensione GNOME Shell che porta le attività dei repository GitHub nel pannello superiore del desktop, per consultarle senza aprire il browser.</p>' +
                 '<ul class="list-outside hover:list-inside list-disc">' +
-                '<li class="py-1">Notifiche in tempo reale per nuove stelle, issue e fork</li>' +
-                '<li class="py-1">Metriche del repository: stelle, fork, issue, linguaggio di programmazione e ultimo aggiornamento</li>' +
-                '<li class="py-1">Link diretti per aprire i repository su GitHub o localmente nel tuo editor</li>' +
-                '<li class="py-1">Aggiornamento automatico ogni 5 minuti con liste ordinabili</li>' +
+                '<li class="py-1">Notifiche per nuove stelle, issue e fork.</li>' +
+                '<li class="py-1">Dettagli dei repository: stelle, fork, issue, linguaggio e ultimo aggiornamento.</li>' +
+                '<li class="py-1">Link per aprire i repository su GitHub o in locale nel tuo editor.</li>' +
+                '<li class="py-1">Liste ordinabili con aggiornamento automatico ogni cinque minuti.</li>' +
                 '</ul>'
         }
     },
     {
         github_user: 'dueclic',
         github_name: 'emailchef-for-woocommerce',
+        emoji: '🛒',
         image: {
             cover: "/images/projects/cover/emailchef-for-woocommerce.png",
             icon: "/images/projects/icon/emailchef-for-woocommerce.png"
         },
         name: "eMailChef for WooCommerce",
         short_description: {
-            en: "Using this WooCommerce plugin, eMailChef can communicate with your online store and it creates easy, simply and automatic targeted campaigns. ",
-            it: "Usando questo plugin per WooCommerce, eMailChef può comunicare con il tuo negozio online e potrai creare in modo semplice automazioni per i tuoi clienti."
+            en: 'Sync WooCommerce customers and orders with eMailChef to create targeted email campaigns.',
+            it: 'Sincronizza clienti e ordini WooCommerce con eMailChef per creare campagne email mirate.'
         },
         hide_stats: true,
         description: {
-            en: '<p>When you own an e-commerce website, email marketing becomes one of the most powerful and effective tools to boost sales' +
-                'and to earn your customers loyalty.</p>' +
-                '<p>The eMailChef for WooCommerce plugin enables you to:</p>' +
+            en: '<p>eMailChef for WooCommerce connects your online store to eMailChef, making customer and order data available for email campaigns and automations.</p>' +
                 '<ul class="list-inside list-disc">' +
-                '<li class="py-2"><strong>Transfer information about your customers and their orders</strong> to your eMailChef account</li>' +
-                '<li class="py-2">You can <strong>create segmentations of customers</strong> according to their orders, abandoned carts, etc.</li>' +
-                '<li class="py-2"><strong>Manage and sync newsletter subscriptions</strong> between WooCommerce and eMailChef</li>' +
-                '<li class="py-2"><strong>Save money with automatic newsletters</strong> to keep your customers involved</li>' +
-                '<li class="py-2">Create <strong>targeted marketing actions</strong> to save <strong>abandoned shopping carts</strong>, rewards for <strong>recurring orders</strong> and more follow up practices</li>' +
+                '<li class="py-2"><strong>Customer and order data:</strong> transfer information from WooCommerce to your eMailChef account.</li>' +
+                '<li class="py-2"><strong>Segmentation:</strong> group customers by orders, abandoned carts and other store data.</li>' +
+                '<li class="py-2"><strong>Subscriptions:</strong> manage and sync newsletter signups between the two platforms.</li>' +
+                '<li class="py-2"><strong>Automations:</strong> set up abandoned cart reminders, recurring order campaigns and follow-up emails.</li>' +
                 '</ul>',
-            it: '<p>Se possiedi un e-commerce, l\'email marketing è uno degli strumenti più potenti ed efficaci per incrementare le vendite e fidelizzare i clienti.</p>' +
-                '<p>Il plugin di eMailChef per WooCommerce ti consente di:</p>' +
+            it: '<p>eMailChef for WooCommerce collega il tuo negozio online a eMailChef, rendendo disponibili i dati di clienti e ordini per campagne email e automazioni.</p>' +
                 '<ul class="list-inside list-disc">' +
-                '<li class="py-2"><strong>trasferire le informazioni relative ai clienti e ai loro ordini</strong> nel tuo account eMailChef</li>' +
-                '<li class="py-2"><strong>segmentare i clienti</strong> in base agli ordini, ai carrelli abbandonati, ecc.</li>' +
-                '<li class="py-2"><strong>gestire e sincronizzare le iscrizioni alla newsletter</strong> da WooCommerce a eMailChef</li>' +
-                '<li class="py-2"><strong>risparmiare soldi con le newsletter</strong> mantenendo i tuoi clienti coinvolti</li>' +
-                '<li class="py-2"><strong>Creare automazioni</strong> per carrelli abbandonati, ricomponese, ordini ricorrenti e molto altro.</li>' +
+                '<li class="py-2"><strong>Dati di clienti e ordini:</strong> trasferisci le informazioni da WooCommerce al tuo account eMailChef.</li>' +
+                '<li class="py-2"><strong>Segmentazione:</strong> raggruppi i clienti in base a ordini, carrelli abbandonati e altri dati del negozio.</li>' +
+                '<li class="py-2"><strong>Iscrizioni:</strong> gestisci e sincronizzi le iscrizioni alla newsletter tra le due piattaforme.</li>' +
+                '<li class="py-2"><strong>Automazioni:</strong> imposti promemoria per i carrelli abbandonati, campagne per ordini ricorrenti ed email di follow-up.</li>' +
                 '</ul>'
         }
     },
     {
         github_user: 'dueclic',
         github_name: 'turbosmtp-for-wordpress',
+        emoji: '🚀',
         image: {
             cover: "/images/projects/cover/turbosmtp-for-wordpress.jpg",
             icon: "/images/projects/icon/turbosmtp-for-wordpress.svg"
         },
         name: "turboSMTP for WordPress",
         short_description: {
-            en: " turboSMTP's official plugin for WordPress is a professional tool that delivers and tracks your transactional emails in real time. ",
-            it: "Il plugin ufficiale di turboSMTP per WordPress è uno strumento professionale che ti permette di consegnare e tracciare in tempo reale tutte le email inviate dal tuo sito web. "
+            en: 'Send WordPress emails through turboSMTP and track delivery, opens and clicks.',
+            it: 'Invia le email di WordPress con turboSMTP e monitora consegne, aperture e clic.'
         },
         hide_stats: true,
         description: {
-            en: '<ul class="list-inside list-disc">' +
-                '<li class="py-2"><strong>Easy setup</strong>: our plugin is ready to be used! It doesn\'t need advanced configuration. No special skills required: just fill in sender\'s credentials and you\'re done.</li>' +
-                '<li class="py-2"><strong>Transactional emails</strong>: the turboSMTP plugin can be used to deliver all the outgoing emails of the website working on behalf of the wp_mail() function. In fact, once activated, it will be automatically set as default. You don\'t have to set anything! This way you\'ll be able to deliver the email confirmation of your subscription form, the system notification and so on…</li>' +
-                '<li class="py-2"><strong>100% compatible</strong>: turboSMTP plugin will take charge of important emails such as your WordPress system emails, Woocommerce plugin and security alert ones.</li>' +
-                '<li class="py-2"><strong>Reports</strong>: your statistics are always under control thanks to the real time reports about clicks, opens, bounces and much more...</li>' +
-                '<li class="py-2"><strong>Test email</strong>: you can check the service status at anytime thanks to the test email feature</li>' +
-                '<li class="py-2"><strong>Whitelisted servers</strong>: the delivery of your emails is always fast and successful.</li>' +
-                '<li class="py-2"><strong>Languages</strong>: the plugin is available in english and italian languages. Soon available the french and spanish ones.</li>' +
+            en: '<p>The official turboSMTP plugin for WordPress sends your website’s outgoing emails through turboSMTP. Once configured, it handles messages sent with wp_mail(), including registration confirmations, system notifications and WooCommerce emails.</p>' +
+                '<ul class="list-inside list-disc">' +
+                '<li class="py-2"><strong>Setup:</strong> enter your sender credentials to connect the service.</li>' +
+                '<li class="py-2"><strong>Transactional emails:</strong> use turboSMTP for messages sent by WordPress and plugins that rely on wp_mail().</li>' +
+                '<li class="py-2"><strong>Reports:</strong> monitor delivery, opens, clicks and bounces in real time.</li>' +
+                '<li class="py-2"><strong>Test email:</strong> check your configuration by sending a test message.</li>' +
+                '<li class="py-2"><strong>Languages:</strong> available in English and Italian.</li>' +
                 '</ul>',
-            it: '<ul class="list-inside list-disc">' +
-                '<li class="py-2"><strong>Setup semplice</strong>: il plugin è subito pronto ad essere usato! Non necessita configurazioni avanzate né particolari competenze tecniche: inserisci solo le tue credenziali e sarai pronto.</li>' +
-                '<li class="py-2"><strong>Email transazionali</strong>: il plugin di turboSMTP può essere utilizzato per consegnare tutte le mail in uscita, lavorando al posto della funzione "wp_mail()". Infatti, appena attivato, sarà impostato automaticamente di default. Il tutto senza intervenire manualmente nei settaggi. In questo modo sarai in grado di consegnare, ad esempio, le email di conferma iscrizione del tuo form, le notifiche di sistema e così via...</li>' +
-                '<li class="py-2"><strong>Compatibile al 100%</strong>: il plugin turboSMTP avrà l\'incarico di gestire le email del tuo sistema, notifiche del sistema Woocommerce e avvisi di sicurezza.</li>' +
-                '<li class="py-2"><strong>Statistiche</strong>: Grazie ai report in tempo reale avrai sempre sotto controllo statistiche come click, aperture, bounce ecc.</li>' +
-                '<li class="py-2"><strong>Invio di prova</strong>: potrai verificare lo stato di invio tutte le volte che vorrai grazie alla funzione "test".</li>' +
-                '<li class="py-2"><strong>Server autorizzati</strong>: la consegna delle email andrà sempre a buon fine in pochi attimi.</li>' +
-                '<li class="py-2"><strong>Lingue</strong>: il plugin è attualmente disponibile in italiano e in inglese. Presto rilasceremo anche la versione in francese e in spagnolo.</li>' +
+            it: '<p>Il plugin ufficiale di turboSMTP per WordPress invia le email del tuo sito tramite turboSMTP. Una volta configurato, gestisce i messaggi inviati con wp_mail(), comprese conferme di registrazione, notifiche di sistema ed email di WooCommerce.</p>' +
+                '<ul class="list-inside list-disc">' +
+                '<li class="py-2"><strong>Configurazione:</strong> inserisci le credenziali del mittente per collegare il servizio.</li>' +
+                '<li class="py-2"><strong>Email transazionali:</strong> usi turboSMTP per i messaggi di WordPress e dei plugin che si appoggiano a wp_mail().</li>' +
+                '<li class="py-2"><strong>Statistiche:</strong> monitori consegne, aperture, clic e messaggi respinti in tempo reale.</li>' +
+                '<li class="py-2"><strong>Email di prova:</strong> verifichi la configurazione inviando un messaggio di test.</li>' +
+                '<li class="py-2"><strong>Lingue:</strong> disponibile in italiano e inglese.</li>' +
                 '</ul>'
         }
     },
     {
-        github_user: 'debba',
+        github_user: 'TabularisDB',
         github_name: 'tabularis',
+        emoji: '🗄️',
         image: {
           cover: "/images/projects/cover/tabularis.png",
           icon: "/images/projects/icon/tabularis.png"
         },
         name: "Tabularis",
         short_description: {
-            en: "A lightweight database management tool built with Tauri and React.",
-            it: "Un tool leggero per la gestione di database costruito con Tauri e React."
+            en: 'Explore databases, write SQL and build queries visually in a lightweight desktop app.',
+            it: 'Esplora database, scrivi SQL e costruisci query visuali in un’app desktop leggera.'
         },
         description: {
-            en: '<p>A modern, developer-focused database management desktop application built with Tauri and React.</p>' +
-                '<p>Tabularis enables developers to manage and interact with databases through an intuitive interface with features like:</p>' +
+            en: '<p>Tabularis is a lightweight desktop app for working with databases. It brings connections, SQL editing and visual query building into one interface, built with Tauri and React.</p>' +
                 '<ul class="list-outside hover:list-inside list-disc">' +
-                '<li class="py-1"><strong>Database Support</strong>: MySQL/MariaDB with ongoing PostgreSQL and SQLite compatibility</li>' +
-                '<li class="py-1"><strong>SQL Editor</strong>: Monaco editor integration with syntax highlighting and multi-tab support</li>' +
-                '<li class="py-1"><strong>Visual Query Builder</strong>: Drag-and-drop interface for constructing queries with automatic SQL generation</li>' +
-                '<li class="py-1"><strong>AI Integration</strong>: Optional text-to-SQL conversion powered by OpenAI, Anthropic, or Ollama</li>' +
-                '<li class="py-1"><strong>Connection Management</strong>: Secure profile storage with SSH tunneling capabilities</li>' +
+                '<li class="py-1"><strong>Databases:</strong> support for MySQL and MariaDB, with PostgreSQL and SQLite support in development.</li>' +
+                '<li class="py-1"><strong>SQL editor:</strong> write queries in Monaco, with syntax highlighting and multiple tabs.</li>' +
+                '<li class="py-1"><strong>Visual queries:</strong> build queries with drag and drop and generate the corresponding SQL.</li>' +
+                '<li class="py-1"><strong>Optional AI:</strong> turn natural-language requests into SQL with OpenAI, Anthropic or Ollama.</li>' +
+                '<li class="py-1"><strong>Connections:</strong> store connection profiles securely and connect through SSH tunnels.</li>' +
                 '</ul>',
-            it: '<p>Un\'applicazione desktop moderna per la gestione di database, focalizzata sugli sviluppatori, costruita con Tauri e React.</p>' +
-                '<p>Tabularis permette agli sviluppatori di gestire e interagire con i database attraverso un\'interfaccia intuitiva con funzionalità come:</p>' +
+            it: '<p>Tabularis è un’app desktop leggera per lavorare con i database. Riunisce connessioni, scrittura SQL e costruzione visuale delle query in un’unica interfaccia, sviluppata con Tauri e React.</p>' +
                 '<ul class="list-outside hover:list-inside list-disc">' +
-                '<li class="py-1"><strong>Supporto Database</strong>: MySQL/MariaDB con compatibilità PostgreSQL e SQLite in sviluppo</li>' +
-                '<li class="py-1"><strong>Editor SQL</strong>: Integrazione con Monaco editor con syntax highlighting e supporto multi-tab</li>' +
-                '<li class="py-1"><strong>Query Builder Visuale</strong>: Interfaccia drag-and-drop per costruire query con generazione automatica SQL</li>' +
-                '<li class="py-1"><strong>Integrazione AI</strong>: Conversione opzionale da testo a SQL con OpenAI, Anthropic o Ollama</li>' +
-                '<li class="py-1"><strong>Gestione Connessioni</strong>: Archiviazione sicura dei profili con capacità di tunneling SSH</li>' +
+                '<li class="py-1"><strong>Database:</strong> supporto a MySQL e MariaDB, con PostgreSQL e SQLite in sviluppo.</li>' +
+                '<li class="py-1"><strong>Editor SQL:</strong> scrivi query con Monaco, evidenziazione della sintassi e più schede aperte.</li>' +
+                '<li class="py-1"><strong>Query visuali:</strong> costruisci query con il drag and drop e generi il relativo SQL.</li>' +
+                '<li class="py-1"><strong>AI opzionale:</strong> trasformi richieste in linguaggio naturale in SQL con OpenAI, Anthropic o Ollama.</li>' +
+                '<li class="py-1"><strong>Connessioni:</strong> salvi i profili in modo sicuro e ti colleghi tramite tunnel SSH.</li>' +
                 '</ul>'
         }
     },
     {
         github_user: 'dueclic',
         github_name: 'turbosmtp-email-validator-for-wordpress',
+        emoji: '📮',
         image: {
             cover: "/images/projects/cover/turbosmtp-email-validator-for-wordpress.png",
             icon: "/images/projects/icon/turbosmtp-email-validator-for-wordpress.png"
         },
         name: "turboSMTP Email Validator for WordPress",
         short_description: {
-            en: "Validates email addresses using the turboSMTP AP",
-            it: "Valida gli indirizzi email utilizzando l'API di turboSMTP"
+            en: 'Check email addresses in WordPress forms and WooCommerce checkout with the turboSMTP API.',
+            it: 'Verifica gli indirizzi email nei moduli WordPress e nel checkout WooCommerce con l’API turboSMTP.'
         },
         hide_stats: true,
         description: {
-            en: '<p class="mb-2">Validates email addresses using the turboSMTP API in:</p>' +
+            en: '<p>turboSMTP Email Validator checks email addresses through the turboSMTP API when users fill in forms on your WordPress website. It helps reduce invalid addresses in your contact database.</p>' +
+                '<p>Supported forms and integrations include:</p>' +
                 '<ul class="list-inside list-disc">' +
-                '<li class="py-2">WooCommerce registration and checkout</li>' +
-                '<li class="py-2">Contact Form 7</li>' +
-                '<li class="py-2">WpForms</li>' +
-                '<li class="py-2">WordPress comments and registration</li>' +
-                '<li class="py-2">MC4WP</li>' +
-                '<li class="py-2">Gravity Forms</li>' +
-                '<li class="py-2">Elementor Forms</li>' +
-                '</ul>' +
-                '<p class="my-2">The turboSMTP Email Validator for WordPress plugin ensures that email addresses provided during user registration and checkout are valid. It uses the turboSMTP API to perform the validation, enhancing the quality of email addresses collected and reducing the number of invalid emails in your database.</p>',
-            it: '<p class="mb-2">Valida gli indirizzi email utilizzando l\'API di turboSMTP in:</p>' +
+                '<li class="py-2">WooCommerce registration and checkout.</li>' +
+                '<li class="py-2">WordPress registration and comments.</li>' +
+                '<li class="py-2">Contact Form 7 and WPForms.</li>' +
+                '<li class="py-2">MC4WP and Gravity Forms.</li>' +
+                '<li class="py-2">Elementor Forms.</li>' +
+                '</ul>',
+            it: '<p>turboSMTP Email Validator verifica gli indirizzi email tramite l’API di turboSMTP quando gli utenti compilano i moduli del tuo sito WordPress. Aiuta a ridurre gli indirizzi non validi nel database dei contatti.</p>' +
+                '<p>I moduli e le integrazioni supportati includono:</p>' +
                 '<ul class="list-inside list-disc">' +
-                '<li class="py-2">Registrazione e checkout di WooCommerce</li>' +
-                '<li class="py-2">Contact Form 7</li>' +
-                '<li class="py-2">WpForms</li>' +
-                '<li class="py-2">Commenti e registrazione di WordPress</li>' +
-                '<li class="py-2">MC4WP</li>' +
-                '<li class="py-2">Gravity Forms</li>' +
-                '<li class="py-2">Elementor Forms</li>' +
-                '</ul>' +
-                '<p class="my-2">Il plugin turboSMTP Email Validator for WordPress garantisce che gli indirizzi email forniti durante la registrazione degli utenti e il checkout siano validi. Utilizza l\'API di turboSMTP per eseguire la validazione, migliorando la qualità degli indirizzi email raccolti e riducendo il numero di email non valide nel tuo database.</p>'
+                '<li class="py-2">Registrazione e checkout di WooCommerce.</li>' +
+                '<li class="py-2">Registrazione e commenti di WordPress.</li>' +
+                '<li class="py-2">Contact Form 7 e WPForms.</li>' +
+                '<li class="py-2">MC4WP e Gravity Forms.</li>' +
+                '<li class="py-2">Elementor Forms.</li>' +
+                '</ul>'
         }
     },
     {
         github_user: 'debba',
         github_name: 'zed-freemarker',
-        name: "Zed Freemarker",
+        emoji: '🧩',
+        name: "Zed FreeMarker",
         short_description: {
-            en: "Syntax highlighting and language support for Apache Freemarker in Zed editor.",
-            it: "Syntax highlighting e supporto linguaggio per Apache Freemarker nell'editor Zed."
+            en: 'Syntax highlighting and editing support for Apache FreeMarker templates in Zed.',
+            it: 'Evidenziazione della sintassi e supporto alla scrittura dei template Apache FreeMarker in Zed.'
         },
         description: {
-            en: '<p>A Zed editor extension that provides full-featured syntax highlighting and language support for Apache Freemarker Template Language (FTL) files using tree-sitter parsing.</p>' +
+            en: '<p>A Zed extension for editing Apache FreeMarker Template Language (FTL) files, with syntax highlighting powered by tree-sitter.</p>' +
                 '<ul class="list-outside hover:list-inside list-disc">' +
-                '<li class="py-1">Complete syntax highlighting for FTL directives and expressions</li>' +
-                '<li class="py-1">Support for both angle bracket and square bracket comment styles</li>' +
-                '<li class="py-1">Smart bracket matching with automatic closing</li>' +
-                '<li class="py-1">Seamless HTML syntax integration within templates</li>' +
-                '<li class="py-1">Full directive support including conditionals, loops, macros, and variable assignment</li>' +
+                '<li class="py-1">Highlighting for FTL directives and expressions.</li>' +
+                '<li class="py-1">Support for angle-bracket and square-bracket comment styles.</li>' +
+                '<li class="py-1">Bracket matching and automatic closing.</li>' +
+                '<li class="py-1">HTML syntax highlighting within templates.</li>' +
+                '<li class="py-1">Support for conditionals, loops, macros and variable assignment.</li>' +
                 '</ul>',
-            it: '<p>Un\'estensione per l\'editor Zed che fornisce syntax highlighting completo e supporto linguaggio per i file Apache Freemarker Template Language (FTL) utilizzando il parsing tree-sitter.</p>' +
+            it: '<p>Un’estensione per Zed dedicata ai file Apache FreeMarker Template Language (FTL), con evidenziazione della sintassi basata su tree-sitter.</p>' +
                 '<ul class="list-outside hover:list-inside list-disc">' +
-                '<li class="py-1">Syntax highlighting completo per direttive ed espressioni FTL</li>' +
-                '<li class="py-1">Supporto per commenti sia con parentesi angolari che quadre</li>' +
-                '<li class="py-1">Corrispondenza intelligente delle parentesi con chiusura automatica</li>' +
-                '<li class="py-1">Integrazione perfetta della sintassi HTML nei template</li>' +
-                '<li class="py-1">Supporto completo per direttive inclusi condizionali, loop, macro e assegnazione variabili</li>' +
+                '<li class="py-1">Evidenziazione di direttive ed espressioni FTL.</li>' +
+                '<li class="py-1">Supporto ai commenti con parentesi angolari e quadre.</li>' +
+                '<li class="py-1">Corrispondenza delle parentesi e chiusura automatica.</li>' +
+                '<li class="py-1">Evidenziazione della sintassi HTML nei template.</li>' +
+                '<li class="py-1">Supporto a condizioni, cicli, macro e assegnazione di variabili.</li>' +
                 '</ul>'
         }
     }
+];
+
+// Projects shown as tiles on the home page, in order.
+export const HOME_PROJECTS = [
+    'tabularis',
+    'gitdeck',
+    'melicum',
+    'tuxcleaner',
+    'free-my-arch',
+    'storytel-player',
+    'rewindtty',
+];
+
+// Projects in the home dock tile, in order. Each needs an icon.
+export const DOCK_PROJECTS = [
+    'tabularis',
+    'gitdeck',
+    'melicum',
+    'storytel-player',
+    'turbosmtp-for-wordpress',
+    'emailchef-for-wordpress',
 ];

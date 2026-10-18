@@ -28,7 +28,7 @@ export const validateForm = (
         tempErrors["lastName"] = true;
         isValid = false;
     }
-    if (email.length <= 0) {
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
         tempErrors["email"] = true;
         isValid = false;
     }

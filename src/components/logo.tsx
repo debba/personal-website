@@ -1,37 +1,32 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, {useState} from "react";
+import React from "react";
 import {useRouter} from "next/router";
 import {getLocale} from "next-g11n";
-import {useTheme} from "next-themes";
 
 export interface LogoProps {
-    onClick?: Function
+    onClick?: () => void
 }
 
-export const Logo : React.FC<LogoProps> = (props) => {
-
-    const [isHovering, setIsHovered] = useState(false);
-    const onMouseEnter = () => setIsHovered(true);
-    const onMouseLeave = () => setIsHovered(false);
-
+export const Logo : React.FC<LogoProps> = ({onClick}) => {
     const router = useRouter();
     const g11nLocale = getLocale(router);
-    const { theme } = useTheme();
 
     return (
-        <div onClick={() => props.onClick && props.onClick()} onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave} className="text-secondary-color dark:text-white hover:text-secondary-color dark:hover:text-secondary-color">
-            <Link
-                href="/"
-                locale={g11nLocale}
-                className="flex items-center flex-shrink-0  mb-3">
-
-                <Image priority={true} src={`/images/logo-single${theme !== 'dark' || isHovering ? '-blue': ''}.png`} alt={"Andrea Debernardi"} width={54} height={54}/>
-                <span className="font-roboto text-lg uppercase tracking-tight">Andrea Debernardi</span>
-
-            </Link>
-        </div>
+        <Link
+            href="/"
+            locale={g11nLocale}
+            onClick={onClick}
+            className="group inline-flex min-h-[44px] items-center gap-2 rounded-lg text-fg">
+            {/* The white mark is swapped for the blue one on dark backgrounds, and on hover. */}
+            <Image priority src="/images/logo-single-blue.png" alt="" width={36} height={36}
+                   className="block dark:hidden dark:group-hover:block"/>
+            <Image priority src="/images/logo-single.png" alt="" width={36} height={36}
+                   className="hidden dark:block dark:group-hover:hidden"/>
+            <span className="text-sm font-bold uppercase tracking-wider transition-colors group-hover:text-accent">
+                Andrea Debernardi
+            </span>
+        </Link>
     );
 }
 
