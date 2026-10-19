@@ -1,37 +1,37 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-19T09:35:40.082Z",
+  "updatedAt": "2026-10-19T18:44:54.466Z",
   "projects": [
+    {
+      "repository": "TabularisDB/tabularis",
+      "updatedAt": "2026-10-19T13:13:23Z",
+      "name": "Tabularis",
+      "icon": "database",
+      "summary": {
+        "it": "Sistema di plugin migliorato con dichiarazione della sintassi SQL, gestione dei campi di connessione, costruttori DDL e controlli MCP di sicurezza potenziati.",
+        "en": "Enhanced plugin system with SQL syntax declaration, connection field management, DDL builders and improved MCP security checks."
+      }
+    },
+    {
+      "repository": "debba/storytel-player",
+      "updatedAt": "2026-10-18T20:20:45Z",
+      "name": "Storytel Player for Desktop",
+      "icon": "audio",
+      "summary": {
+        "it": "Download di audiolibri migliorati con denominazione dei file basata su titoli e visualizzazione del tempo dei capitoli tradotta.",
+        "en": "Improved audiobook downloads with title-based file naming and translated player chapter time display."
+      }
+    },
     {
       "repository": "debba/melicum",
       "updatedAt": "2026-10-18T18:34:37Z",
       "name": "Melicum",
-      "icon": "audio",
+      "icon": "desktop",
       "summary": {
-        "it": "Migliorato il sito web con supporto mobile, metadati social, dominio personalizzato e integrazione Gitdeck per l'app di controllo del volume HDMI e DisplayPort.",
-        "en": "Enhanced website with mobile support, social metadata, custom domain and Gitdeck integration for the HDMI and DisplayPort volume control app."
-      }
-    },
-    {
-      "repository": "TabularisDB/tabularis-bigquery-plugin",
-      "updatedAt": "2026-10-18T15:07:51Z",
-      "name": "Tabularis BigQuery Plugin",
-      "icon": "database",
-      "summary": {
-        "it": "Completato il driver BigQuery con esecuzione query, navigazione metadati, operazioni CRUD, metodi di autenticazione e supporto DDL.",
-        "en": "Completed BigQuery driver with full query execution, metadata browsing, CRUD operations, authentication methods and DDL support."
-      }
-    },
-    {
-      "repository": "TabularisDB/tabularis",
-      "updatedAt": "2026-10-18T15:01:26Z",
-      "name": "Tabularis",
-      "icon": "database",
-      "summary": {
-        "it": "Aggiunte dichiarazioni di sintassi SQL per i plugin, builder DDL consapevoli del contesto, personalizzazione campi connessione e miglioramenti dell'interfaccia.",
-        "en": "Added SQL syntax declarations for plugins, context-aware DDL builders, connection field customization, improved UI popover placement and schema picker behavior."
+        "it": "Sito web riprogettato per la reattività mobile con screenshot in lightbox, metadati di schede social e distribuzione su dominio personalizzato.",
+        "en": "Website redesigned for mobile responsiveness with lightbox screenshots, social card metadata and custom domain deployment."
       }
     }
   ],
-  "fingerprint": "39496b78289443d38f9cd3c872bdd1fbe5b2f5b267eafaae44b5bb05bf5536f8"
+  "fingerprint": "fd276fbf9097789c8e4ce0fa5bc71fc1f5da4ba1aa4c7d53a680eb480e03381b"
 }
