@@ -6,6 +6,7 @@ import {DICTIONARY} from "../../i18n/dictionary";
 import {PROJECTS} from "../../data/projects";
 import Breadcrumb from "../../components/atoms/breadcrumb";
 import ProjectTile from "../../components/home/project-tile";
+import {PROJECT_DETAILS} from '../../data/project-details';
 
 // Tabularis leads with a 2x2 tile; three wide tiles keep every 4-column row full.
 const FEATURED_PROJECT = 'tabularis';
@@ -44,7 +45,10 @@ const Projects: NextPage = () => {
                     const span = featured ? 'sm:col-span-2 lg:row-span-2' : WIDE_PROJECTS.includes(project.github_name) ? 'sm:col-span-2' : '';
                     return (
                         <li key={project.github_name} className={`flex ${span}`}>
-                            <ProjectTile project={project} className="w-full" showIcon featured={featured}/>
+                            <ProjectTile project={project} className="w-full" showIcon featured={featured} detailed
+                                         website={PROJECT_DETAILS[project.github_name]?.website}
+                                         documentation={PROJECT_DETAILS[project.github_name]?.websiteKind === 'documentation'}
+                                         technologies={PROJECT_DETAILS[project.github_name]?.technologies.slice(0, 3)}/>
                         </li>
                     );
                 })}

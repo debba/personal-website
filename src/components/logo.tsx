@@ -17,7 +17,7 @@ export const Logo : React.FC<LogoProps> = ({onClick}) => {
             href="/"
             locale={g11nLocale}
             onClick={onClick}
-            className="group inline-flex min-h-[44px] items-center gap-2 rounded-lg text-fg">
+            className="group inline-flex min-h-[44px] max-w-full items-center gap-2 rounded-lg text-fg">
             {/* The white mark is swapped for the blue one on dark backgrounds, and on hover. */}
             <Image priority src="/images/logo-single-blue.png" alt="" width={36} height={36}
                    className="block dark:hidden dark:group-hover:block"/>

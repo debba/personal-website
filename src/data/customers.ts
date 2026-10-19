@@ -1,7 +1,7 @@
 import {CustomerPortfolio} from "../interfaces/props";
 
 export const CUSTOMERS: CustomerPortfolio[] = [
-    {url_name: '0_emailchef.jpg', name: 'eMailChef', description: ''},
+    {url_name: '0_emailchef.jpg', name: 'Emailchef', description: ''},
     {url_name: '1_turbosmtp.jpg', name: 'turboSMTP', description: ''},
     {url_name: '2_saluteinerba.jpg', name: 'Saluteinerba', description: ''},
     {url_name: '3_customer_alliance.jpg', name: 'Customer Alliance', description: ''},

@@ -46,7 +46,7 @@ export const Footer = () => {
                             {t('footer_social_label') as string}
                         </h2>
                         <p className="mt-3 text-sm text-muted">{t('footer_socialnetwork_connect') as string}</p>
-                        <ul role="list" className="mt-4 flex gap-2">
+                        <ul role="list" className="mt-4 flex flex-wrap gap-2">
                             {SOCIALS.map(social => (
                                 <li key={social.name}>
                                     <a href={social.url} target="_blank" rel="noopener noreferrer"

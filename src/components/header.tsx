@@ -21,7 +21,7 @@ export const Header = () => {
         <header>
             <div className="container mx-auto flex flex-wrap items-center justify-between gap-3 px-4 pt-5 md:px-6">
                 <Logo/>
-                <div className="flex items-center gap-2">
+                <div className="flex max-w-full flex-wrap items-center gap-2">
                     <LanguagePicker/>
                     <ThemeSelector/>
                 </div>
@@ -31,14 +31,14 @@ export const Header = () => {
             <nav aria-label={t('nav_label') as string}
                  className="fixed inset-x-0 bottom-4 z-50 flex justify-center px-3 md:bottom-auto md:top-5 pointer-events-none">
                 <ul role="list"
-                    className="pointer-events-auto flex items-center gap-0.5 rounded-full border border-line bg-surface/85 p-1 shadow-lg shadow-black/5 backdrop-blur-md">
+                    className="pointer-events-auto flex max-w-full flex-wrap items-center justify-center gap-0.5 rounded-3xl border border-line bg-surface/85 p-1 shadow-lg shadow-black/5 backdrop-blur-md sm:rounded-full">
                     {MENU.map((menuItem) => {
                         const active = isActive(menuItem.link);
                         return (
                             <li key={menuItem.link}>
                                 <Link href={menuItem.link} locale={g11nLocale}
                                       aria-current={active ? 'page' : undefined}
-                                      className={`inline-flex min-h-[40px] items-center gap-1.5 rounded-full px-2.5 text-[13px] font-semibold transition-colors sm:px-4 sm:text-sm ${active ? 'bg-bg text-fg shadow-sm' : 'text-muted hover:text-fg'}`}>
+                                      className={`inline-flex min-h-[40px] items-center gap-1.5 rounded-full px-2.5 text-[0.8125rem] font-semibold transition-colors sm:px-4 sm:text-sm ${active ? 'bg-bg text-fg shadow-sm' : 'text-muted hover:text-fg'}`}>
                                     {menuItem.link === '/projects' && (
                                         <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[#ef4444]"/>
                                     )}

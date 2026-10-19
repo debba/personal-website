@@ -34,6 +34,8 @@ jobs:
 
       - run: pnpm typecheck
 
+      - run: pnpm test:activity
+
       - run: pnpm build
 
       - name: Install Chromium for Playwright
@@ -46,5 +48,10 @@ jobs:
 
       - name: Accessibility check (axe-core, WCAG 2.2 AA)
         run: pnpm test:a11y
+        env:
+          BASE_URL: http://localhost:3000
+
+      - name: Project galleries, links and mobile accessibility
+        run: pnpm test:projects
         env:
           BASE_URL: http://localhost:3000

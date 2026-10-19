@@ -133,9 +133,9 @@ export const PROJECTS: ProjectItem[] = [
         },
         description: {
             en: '<p>A Python script that turns a GitHub contribution graph into a Tetris-style animated GIF. Provide a username and a year to generate the animation.</p>' +
-                '<p>It uses PIL and imageio to create the GIF. The code is open source, so you can adapt the script and customise the result.</p>',
+                '<p>It uses Pillow to create the GIF. The code is open source, so you can adapt the script and customise the result.</p>',
             it: '<p>Uno script Python che trasforma il grafico dei contributi GitHub in una GIF animata in stile Tetris. Basta indicare il nome utente e l’anno per generare l’animazione.</p>' +
-                '<p>Usa PIL e imageio per creare la GIF. Il codice è open source, quindi puoi adattare lo script e personalizzare il risultato.</p>'
+                '<p>Usa Pillow per creare la GIF. Il codice è open source, quindi puoi adattare lo script e personalizzare il risultato.</p>'
         }
     },
     {
@@ -189,18 +189,18 @@ export const PROJECTS: ProjectItem[] = [
         },
         name: "AuthPress",
         short_description: {
-            en: 'Add two-factor authentication to WordPress using Telegram.',
-            it: 'Aggiungi l’autenticazione a due fattori a WordPress tramite Telegram.'
+            en: 'Add two-factor authentication to WordPress using Telegram, email or TOTP.',
+            it: 'Aggiungi l’autenticazione a due fattori a WordPress tramite Telegram, email o TOTP.'
         },
         description: {
-            en: '<p>AuthPress adds two-factor authentication to WordPress using Telegram. Users can enable it from their profile to add a second check when signing in.</p>' +
+            en: '<p>AuthPress adds two-factor authentication to WordPress using Telegram, email or TOTP. Users can enable it from their profile to add a second check when signing in.</p>' +
                 '<ul class="list-inside list-disc">' +
                 '<li class="py-2"><strong>Telegram setup:</strong> the plugin FAQ explains how to create and connect a bot.</li>' +
                 '<li class="py-2"><strong>User settings:</strong> each user manages two-factor authentication from their own profile.</li>' +
                 '<li class="py-2"><strong>Login alerts:</strong> administrators can receive Telegram notifications about failed login attempts.</li>' +
                 '<li class="py-2"><strong>Languages:</strong> available in Italian, English and Spanish.</li>' +
                 '</ul>',
-            it: '<p>AuthPress aggiunge l’autenticazione a due fattori a WordPress tramite Telegram. Ogni utente può attivarla dal proprio profilo per aggiungere un secondo controllo all’accesso.</p>' +
+            it: '<p>AuthPress aggiunge l’autenticazione a due fattori a WordPress tramite Telegram, email o TOTP. Ogni utente può attivarla dal proprio profilo per aggiungere un secondo controllo all’accesso.</p>' +
                 '<ul class="list-inside list-disc">' +
                 '<li class="py-2"><strong>Configurazione di Telegram:</strong> le FAQ del plugin spiegano come creare e collegare un bot.</li>' +
                 '<li class="py-2"><strong>Impostazioni personali:</strong> ogni utente gestisce l’autenticazione a due fattori dal proprio profilo.</li>' +
@@ -233,19 +233,19 @@ export const PROJECTS: ProjectItem[] = [
             cover: "/images/projects/cover/emailchef-for-wordpress.png",
             icon: "/images/projects/icon/emailchef-for-wordpress.png"
         },
-        name: "eMailChef for WordPress",
+        name: "Emailchef for WordPress",
         short_description: {
-            en: 'Connect WordPress forms to eMailChef and sync contacts for your email campaigns.',
-            it: 'Collega i moduli WordPress a eMailChef e sincronizza i contatti per le tue campagne email.'
+            en: 'Connect WordPress forms to Emailchef and sync contacts for your email campaigns.',
+            it: 'Collega i moduli WordPress a Emailchef e sincronizza i contatti per le tue campagne email.'
         },
         hide_stats: true,
         description: {
-            en: '<p>eMailChef for WordPress connects your website forms to an eMailChef contact list. Form submissions are synced automatically, so you can use the collected contacts in your email campaigns.</p>' +
-                '<p>The plugin supports WPForms, Contact Form 7, Fast Secure Contact Form and Jetpack. Custom fields let you organise contacts into segments, for example by customer type or business sector.</p>' +
-                '<p>You create and send campaigns from eMailChef, using the contact data collected on your website.</p>',
-            it: '<p>eMailChef for WordPress collega i moduli del tuo sito a una lista contatti di eMailChef. Gli invii vengono sincronizzati automaticamente, così puoi usare i contatti raccolti nelle tue campagne email.</p>' +
-                '<p>Il plugin supporta WPForms, Contact Form 7, Fast Secure Contact Form e Jetpack. I campi personalizzati permettono di organizzare i contatti in segmenti, per esempio per tipo di cliente o settore di attività.</p>' +
-                '<p>Crei e invii le campagne da eMailChef, usando i dati raccolti sul tuo sito.</p>'
+            en: '<p>Emailchef for WordPress connects your website forms to an Emailchef contact list. Form submissions are synced automatically, so you can use the collected contacts in your email campaigns.</p>' +
+                '<p>The plugin supports Elementor, WPForms, Contact Form 7, Fast Secure Contact Form and Jetpack. Custom fields let you organise contacts into segments, for example by customer type or business sector.</p>' +
+                '<p>You create and send campaigns from Emailchef, using the contact data collected on your website.</p>',
+            it: '<p>Emailchef for WordPress collega i moduli del tuo sito a una lista contatti di Emailchef. Gli invii vengono sincronizzati automaticamente, così puoi usare i contatti raccolti nelle tue campagne email.</p>' +
+                '<p>Il plugin supporta Elementor, WPForms, Contact Form 7, Fast Secure Contact Form e Jetpack. I campi personalizzati permettono di organizzare i contatti in segmenti, per esempio per tipo di cliente o settore di attività.</p>' +
+                '<p>Crei e invii le campagne da Emailchef, usando i dati raccolti sul tuo sito.</p>'
         }
     },
     {
@@ -285,23 +285,23 @@ export const PROJECTS: ProjectItem[] = [
             cover: "/images/projects/cover/emailchef-for-woocommerce.png",
             icon: "/images/projects/icon/emailchef-for-woocommerce.png"
         },
-        name: "eMailChef for WooCommerce",
+        name: "Emailchef for WooCommerce",
         short_description: {
-            en: 'Sync WooCommerce customers and orders with eMailChef to create targeted email campaigns.',
-            it: 'Sincronizza clienti e ordini WooCommerce con eMailChef per creare campagne email mirate.'
+            en: 'Sync WooCommerce customers and orders with Emailchef to create targeted email campaigns.',
+            it: 'Sincronizza clienti e ordini WooCommerce con Emailchef per creare campagne email mirate.'
         },
         hide_stats: true,
         description: {
-            en: '<p>eMailChef for WooCommerce connects your online store to eMailChef, making customer and order data available for email campaigns and automations.</p>' +
+            en: '<p>Emailchef for WooCommerce connects your online store to Emailchef, making customer and order data available for email campaigns and automations.</p>' +
                 '<ul class="list-inside list-disc">' +
-                '<li class="py-2"><strong>Customer and order data:</strong> transfer information from WooCommerce to your eMailChef account.</li>' +
+                '<li class="py-2"><strong>Customer and order data:</strong> transfer information from WooCommerce to your Emailchef account.</li>' +
                 '<li class="py-2"><strong>Segmentation:</strong> group customers by orders, abandoned carts and other store data.</li>' +
                 '<li class="py-2"><strong>Subscriptions:</strong> manage and sync newsletter signups between the two platforms.</li>' +
                 '<li class="py-2"><strong>Automations:</strong> set up abandoned cart reminders, recurring order campaigns and follow-up emails.</li>' +
                 '</ul>',
-            it: '<p>eMailChef for WooCommerce collega il tuo negozio online a eMailChef, rendendo disponibili i dati di clienti e ordini per campagne email e automazioni.</p>' +
+            it: '<p>Emailchef for WooCommerce collega il tuo negozio online a Emailchef, rendendo disponibili i dati di clienti e ordini per campagne email e automazioni.</p>' +
                 '<ul class="list-inside list-disc">' +
-                '<li class="py-2"><strong>Dati di clienti e ordini:</strong> trasferisci le informazioni da WooCommerce al tuo account eMailChef.</li>' +
+                '<li class="py-2"><strong>Dati di clienti e ordini:</strong> trasferisci le informazioni da WooCommerce al tuo account Emailchef.</li>' +
                 '<li class="py-2"><strong>Segmentazione:</strong> raggruppi i clienti in base a ordini, carrelli abbandonati e altri dati del negozio.</li>' +
                 '<li class="py-2"><strong>Iscrizioni:</strong> gestisci e sincronizzi le iscrizioni alla newsletter tra le due piattaforme.</li>' +
                 '<li class="py-2"><strong>Automazioni:</strong> imposti promemoria per i carrelli abbandonati, campagne per ordini ricorrenti ed email di follow-up.</li>' +
@@ -357,7 +357,7 @@ export const PROJECTS: ProjectItem[] = [
         description: {
             en: '<p>Tabularis is a lightweight desktop app for working with databases. It brings connections, SQL editing and visual query building into one interface, built with Tauri and React.</p>' +
                 '<ul class="list-outside hover:list-inside list-disc">' +
-                '<li class="py-1"><strong>Databases:</strong> support for MySQL and MariaDB, with PostgreSQL and SQLite support in development.</li>' +
+                '<li class="py-1"><strong>Databases:</strong> built-in support for MySQL/MariaDB, PostgreSQL and SQLite, with installable drivers for other databases.</li>' +
                 '<li class="py-1"><strong>SQL editor:</strong> write queries in Monaco, with syntax highlighting and multiple tabs.</li>' +
                 '<li class="py-1"><strong>Visual queries:</strong> build queries with drag and drop and generate the corresponding SQL.</li>' +
                 '<li class="py-1"><strong>Optional AI:</strong> turn natural-language requests into SQL with OpenAI, Anthropic or Ollama.</li>' +
@@ -365,7 +365,7 @@ export const PROJECTS: ProjectItem[] = [
                 '</ul>',
             it: '<p>Tabularis è un’app desktop leggera per lavorare con i database. Riunisce connessioni, scrittura SQL e costruzione visuale delle query in un’unica interfaccia, sviluppata con Tauri e React.</p>' +
                 '<ul class="list-outside hover:list-inside list-disc">' +
-                '<li class="py-1"><strong>Database:</strong> supporto a MySQL e MariaDB, con PostgreSQL e SQLite in sviluppo.</li>' +
+                '<li class="py-1"><strong>Database:</strong> supporto integrato a MySQL/MariaDB, PostgreSQL e SQLite, con driver installabili per altri database.</li>' +
                 '<li class="py-1"><strong>Editor SQL:</strong> scrivi query con Monaco, evidenziazione della sintassi e più schede aperte.</li>' +
                 '<li class="py-1"><strong>Query visuali:</strong> costruisci query con il drag and drop e generi il relativo SQL.</li>' +
                 '<li class="py-1"><strong>AI opzionale:</strong> trasformi richieste in linguaggio naturale in SQL con OpenAI, Anthropic o Ollama.</li>' +
@@ -449,12 +449,11 @@ export const HOME_PROJECTS = [
     'rewindtty',
 ];
 
-// Projects in the home dock tile, in order. Each needs an icon.
+// Featured open-source projects in the home dock, in order.
 export const DOCK_PROJECTS = [
     'tabularis',
     'gitdeck',
+    'tuxcleaner',
     'melicum',
     'storytel-player',
-    'turbosmtp-for-wordpress',
-    'emailchef-for-wordpress',
 ];

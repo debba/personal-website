@@ -9,7 +9,10 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "test:a11y": "node scripts/a11y.mjs"
+    "test:a11y": "node scripts/a11y.mjs",
+    "test:activity": "node --experimental-strip-types --test tests/github-activity.test.mjs",
+    "activity:update": "node --env-file=.env --experimental-strip-types scripts/update-github-activity.mjs .cache/github-activity.json",
+    "test:projects": "node scripts/check-projects.mjs"
   },
   "dependencies": {
     "@socialgouv/matomo-next": "^1.7.0",

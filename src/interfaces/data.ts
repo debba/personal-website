@@ -27,6 +27,23 @@ export interface ProjectItem {
     short_description: string | ProjectNameLocalized;
 }
 
+export interface ProjectMedia {
+    kind: 'image' | 'video';
+    src: string;
+    caption: ProjectNameLocalized;
+    poster?: string;
+}
+
+export interface ProjectDetails {
+    website: string;
+    websiteKind?: 'documentation';
+    platform: ProjectNameLocalized;
+    technologies: string[];
+    useCase: ProjectNameLocalized;
+    features: {it: string[]; en: string[]};
+    media?: ProjectMedia[];
+}
+
 export interface MenuItem {
     link: string;
     i18n: string;

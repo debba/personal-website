@@ -1,4 +1,4 @@
-import {ProjectImage, ProjectNameLocalized} from "./data";
+import {ProjectDetails, ProjectImage, ProjectNameLocalized} from "./data";
 
 export interface CustomerPortfolio {
     url_name: string;
@@ -19,6 +19,7 @@ interface ProjectDetail {
 }
 
 export interface ProjectProps {
+    details?: ProjectDetails;
     githubData: ProjectDetail;
     // Total downloads of GitHub release assets.
     downloads: number;

@@ -60,8 +60,15 @@
 }
 
 @layer base {
+    html {
+        /* Keep keyboard-focused controls clear of the floating navigation. */
+        scroll-padding-block: 6rem;
+    }
+
     body {
         @apply bg-bg text-fg font-sans antialiased;
+        /* Long names and addresses must reflow when visitors enlarge text. */
+        overflow-wrap: anywhere;
     }
 
     /* Keep anchored sections clear of the sticky header. */

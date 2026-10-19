@@ -1,11 +1,13 @@
-import type {NextPage} from 'next'
+import type {GetStaticProps, NextPage} from 'next'
 import Head from "next/head";
 import React, {useEffect} from "react";
 import {useRouter} from "next/router";
 import {useG11n} from "next-g11n";
 import {DICTIONARY} from "../i18n/dictionary";
 import {DOCK_PROJECTS, HOME_PROJECTS, PROJECTS} from "../data/projects";
-import ManifestoTile from "../components/home/manifesto-tile";
+import GithubActivityTile from "../components/home/github-activity-tile";
+import {ActivityFeed, EMPTY_ACTIVITY} from "../lib/github-activity";
+import {getPublishedActivity} from "../lib/github-activity.server";
 import DockTile from "../components/home/dock-tile";
 import ProfileTile from "../components/home/profile-tile";
 import ProjectTile from "../components/home/project-tile";
@@ -26,7 +28,19 @@ const LEGACY_ANCHORS: Record<string, string> = {
 
 const project = (slug: string) => PROJECTS.find(item => item.github_name === slug)!;
 
-const Home: NextPage = () => {
+export const getStaticProps: GetStaticProps<{activity: ActivityFeed}> = async ({revalidateReason}) => {
+    try {
+        const activity = await getPublishedActivity();
+        return {props: {activity}, revalidate: 300};
+    } catch (error) {
+        // ISR retains the last successful page if a refresh fails.
+        if (revalidateReason !== 'build') throw error;
+        console.warn('GitHub activity unavailable at build time; showing the profile link.');
+        return {props: {activity: EMPTY_ACTIVITY}, revalidate: 300};
+    }
+};
+
+const Home: NextPage<{activity: ActivityFeed}> = ({activity}) => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
     const [tabularis, gitdeck, melicum, tuxcleaner, freeMyArch, storytel, rewindtty] = HOME_PROJECTS.map(project);
     const dockProjects = DOCK_PROJECTS.map(project);
@@ -58,7 +72,7 @@ const Home: NextPage = () => {
 
             {/* Spans are tuned so every row is full at the 4-column breakpoint. */}
             <div className="bento pt-4 pb-6 md:pt-0 md:pb-10">
-                <ManifestoTile className="sm:col-span-2 lg:row-span-2"/>
+                <GithubActivityTile activity={activity} className="sm:col-span-2 lg:row-span-2"/>
                 <DockTile projects={dockProjects} className="sm:col-span-2"/>
                 <ProjectTile project={tabularis} showIcon/>
                 <ProfileTile/>
