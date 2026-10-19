@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-19T09:35:40.082Z",
+  "projects": [
+    {
+      "repository": "debba/melicum",
+      "updatedAt": "2026-10-18T18:34:37Z",
+      "name": "Melicum",
+      "icon": "audio",
+      "summary": {
+        "it": "Migliorato il sito web con supporto mobile, metadati social, dominio personalizzato e integrazione Gitdeck per l'app di controllo del volume HDMI e DisplayPort.",
+        "en": "Enhanced website with mobile support, social metadata, custom domain and Gitdeck integration for the HDMI and DisplayPort volume control app."
+      }
+    },
+    {
+      "repository": "TabularisDB/tabularis-bigquery-plugin",
+      "updatedAt": "2026-10-18T15:07:51Z",
+      "name": "Tabularis BigQuery Plugin",
+      "icon": "database",
+      "summary": {
+        "it": "Completato il driver BigQuery con esecuzione query, navigazione metadati, operazioni CRUD, metodi di autenticazione e supporto DDL.",
+        "en": "Completed BigQuery driver with full query execution, metadata browsing, CRUD operations, authentication methods and DDL support."
+      }
+    },
+    {
+      "repository": "TabularisDB/tabularis",
+      "updatedAt": "2026-10-18T15:01:26Z",
+      "name": "Tabularis",
+      "icon": "database",
+      "summary": {
+        "it": "Aggiunte dichiarazioni di sintassi SQL per i plugin, builder DDL consapevoli del contesto, personalizzazione campi connessione e miglioramenti dell'interfaccia.",
+        "en": "Added SQL syntax declarations for plugins, context-aware DDL builders, connection field customization, improved UI popover placement and schema picker behavior."
+      }
+    }
+  ],
+  "fingerprint": "39496b78289443d38f9cd3c872bdd1fbe5b2f5b267eafaae44b5bb05bf5536f8"
+}
