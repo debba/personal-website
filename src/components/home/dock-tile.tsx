@@ -96,7 +96,7 @@ export const DockTile: React.FC<{ projects: ProjectItem[], className?: string }>
                 {DAILY_WORK.map(product => <li key={product.name} className="min-w-0">
                     <a href={localize(product.url, g11nLocale)} target="_blank" rel="noopener noreferrer"
                        className="group flex h-full items-center gap-3 rounded-2xl border border-line bg-bg p-3 transition-colors hover:bg-surface-2">
-                        <Image src={product.icon} alt="" width={44} height={44} className="h-11 w-11 shrink-0 rounded-xl object-contain"/>
+                        <Image src={product.icon} alt="" width={44} height={44} className={`h-11 w-11 shrink-0 rounded-xl object-contain ${product.iconClassName ?? ''}`}/>
                         <div className="min-w-0 flex-1">
                             <p className="text-sm font-semibold text-fg">{product.name} <span aria-hidden="true">↗</span></p>
                             <p className="mt-1 text-xs leading-relaxed text-muted">{localize(product.description, g11nLocale)}</p>

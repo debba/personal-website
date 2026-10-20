@@ -3,6 +3,8 @@ export const DAILY_WORK = [
     {
         name: 'dueclic',
         icon: '/images/projects/icon/dueclic.png',
+        // The logo is drawn on transparency and needs a light backdrop in dark mode.
+        iconClassName: 'bg-white',
         url: {it: 'https://www.dueclic.com', en: 'https://www.dueclic.com'},
         description: {it: 'Sviluppo web e servizi IT.', en: 'Web development and IT services.'},
     },
