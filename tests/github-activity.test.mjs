@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {mkdtemp, readFile, writeFile, rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
-import {collectProjects, loadLocalActivity, updateActivity} from '../scripts/update-github-activity.mjs';
+import {collectProjects, generateActivity, loadLocalActivity, updateActivity} from '../scripts/update-github-activity.mjs';
 import {isActivityFeed} from '../src/lib/github-activity.ts';
 
 const now = new Date('2026-10-19T12:00:00Z');
@@ -165,6 +165,15 @@ test('no recent public work publishes an empty feed without contacting Claude', 
         assert.deepEqual(feed.projects, []);
         assert.equal(isActivityFeed(feed), true);
     } finally {await rm(directory, {recursive: true, force: true});}
+});
+
+test('server generation needs no filesystem and validates the feed', async () => {
+    const github = mockGithub([event('debba/example')]);
+    const fetcher = url => url.startsWith('https://api.anthropic.com') ? toolResponse(summaries) : github(url);
+    const feed = await generateActivity({now, fetcher, apiKey: 'test-key'});
+    assert.equal(isActivityFeed(feed), true);
+    assert.equal(feed.projects[0].summary.en, summaries[0].en);
+    assert.equal(feed.updatedAt, now.toISOString());
 });
 
 test('local development generates once, shares concurrent requests and caches for six hours', async () => {

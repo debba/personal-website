@@ -7,7 +7,7 @@ import {DICTIONARY} from "../i18n/dictionary";
 import {DOCK_PROJECTS, HOME_PROJECTS, PROJECTS} from "../data/projects";
 import GithubActivityTile from "../components/home/github-activity-tile";
 import {ActivityFeed, EMPTY_ACTIVITY} from "../lib/github-activity";
-import {getPublishedActivity} from "../lib/github-activity.server";
+import {getActivity} from "../lib/github-activity.server";
 import DockTile from "../components/home/dock-tile";
 import ProfileTile from "../components/home/profile-tile";
 import ProjectTile from "../components/home/project-tile";
@@ -30,12 +30,13 @@ const project = (slug: string) => PROJECTS.find(item => item.github_name === slu
 
 export const getStaticProps: GetStaticProps<{activity: ActivityFeed}> = async ({revalidateReason}) => {
     try {
-        const activity = await getPublishedActivity();
-        return {props: {activity}, revalidate: 300};
+        const activity = await getActivity();
+        // Regenerated in the background at most every six hours, only when the page is visited.
+        return {props: {activity}, revalidate: 6 * 60 * 60};
     } catch (error) {
         // ISR retains the last successful page if a refresh fails.
         if (revalidateReason !== 'build') throw error;
-        console.warn('GitHub activity unavailable at build time; showing the profile link.');
+        console.warn(`GitHub activity unavailable at build time (${(error as Error).message}); showing the profile link.`);
         return {props: {activity: EMPTY_ACTIVITY}, revalidate: 300};
     }
 };

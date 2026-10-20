@@ -139,8 +139,10 @@ export async function summarizeProjects(projects, {fetcher = fetch, apiKey, mode
     });
 }
 
-export async function updateActivity({
-    output = 'activity.json', previousPath = output, now = new Date(), fetcher = fetch,
+// Builds a validated feed without touching the filesystem, so it also runs during ISR on Vercel.
+// A previous feed with the same fingerprint is reused instead of calling Claude again.
+export async function generateActivity({
+    previous = null, now = new Date(), fetcher = fetch,
     username = process.env.GITHUB_ACTIVITY_USERNAME || 'debba',
     apiKey = process.env.ANTHROPIC_API_KEY,
     model = process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5-20251001',
@@ -148,13 +150,18 @@ export async function updateActivity({
 } = {}) {
     const projects = await collectProjects({username, now, fetcher, token});
     const fingerprint = createHash('sha256').update(JSON.stringify({projects, model, prompt: PROMPT_VERSION})).digest('hex');
-    let previous;
-    try { previous = JSON.parse(await readFile(previousPath, 'utf8')); }
-    catch (error) { if (error.code !== 'ENOENT') throw error; }
     const unchanged = isActivityFeed(previous) && previous.fingerprint === fingerprint;
     const summaries = unchanged ? previous.projects : projects.length ? await summarizeProjects(projects, {fetcher, apiKey, model}) : [];
     const feed = {version: 1, updatedAt: now.toISOString(), projects: summaries, fingerprint};
     if (!isActivityFeed(feed)) throw new Error('Invalid generated activity feed');
+    return feed;
+}
+
+export async function updateActivity({output = 'activity.json', previousPath = output, ...options} = {}) {
+    let previous;
+    try { previous = JSON.parse(await readFile(previousPath, 'utf8')); }
+    catch (error) { if (error.code !== 'ENOENT') throw error; }
+    const feed = await generateActivity({...options, previous});
     // Publish only after the entire generation succeeds. A failure preserves the old file.
     await mkdir(dirname(output), {recursive: true});
     await writeFile(`${output}.tmp`, `${JSON.stringify(feed, null, 2)}\n`);
@@ -164,7 +171,7 @@ export async function updateActivity({
 
 const localRefreshes = new Map();
 
-// Development uses a local snapshot, independent of the published Actions branch.
+// Development uses a local snapshot instead of regenerating on every request.
 // Reuse it for six hours and share concurrent requests from both language pages.
 export async function loadLocalActivity(options = {}) {
     const output = options.output || '.cache/github-activity.json';
