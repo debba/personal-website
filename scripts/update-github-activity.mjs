@@ -33,7 +33,9 @@ export async function collectProjects({username = 'debba', now = new Date(), ...
         const batch = await github(`/users/${username}/events/public?per_page=100&page=${page}`, options);
         if (!Array.isArray(batch)) throw new Error('Invalid GitHub events response');
         events.push(...batch);
-        if (batch.length < 100 || batch.at(-1)?.created_at < since) break;
+        // A short page does not mean the end: GitHub drops events the token cannot see
+        // after paginating, so only an empty page or one older than the window stops.
+        if (!batch.length || batch.at(-1)?.created_at < since) break;
     }
     const grouped = new Map();
     for (const event of events.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))) {

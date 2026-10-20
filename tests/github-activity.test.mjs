@@ -40,11 +40,21 @@ test('only public work by the account is included, across repository owners', as
     assert.deepEqual(projects[0].signals, [{kind: 'commit', title: 'Search improvements', at}]);
 });
 
+test('a short page does not stop pagination, since GitHub filters events after paginating', async () => {
+    const github = mockGithub([]);
+    const pages = [[event('debba/first')], [event('debba/second')], []];
+    const projects = await collectProjects({now, fetcher: async url => {
+        const page = new URL(url).searchParams.get('page');
+        return url.includes('/events/public?') ? json(pages[Number(page) - 1]) : github(url);
+    }});
+    assert.deepEqual(projects.map(project => project.repository).sort(), ['debba/first', 'debba/second']);
+});
+
 test('current PushEvent payloads are enriched via the commits endpoint with author and branch filters', async () => {
     const urls = [];
     const fetcher = mockGithub([event('debba/example')]);
     await collectProjects({now, fetcher: async url => {urls.push(url); return fetcher(url);}});
-    const url = new URL(urls[1]);
+    const url = new URL(urls.find(url => url.includes('/commits?')));
     assert.equal(url.searchParams.get('author'), 'debba');
     assert.equal(url.searchParams.get('sha'), 'a'.repeat(40));
     assert.equal(url.searchParams.get('since'), '2026-09-19T12:00:00.000Z');

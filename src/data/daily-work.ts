@@ -1,6 +1,12 @@
 // Professional products are separate from the open-source project catalog.
 export const DAILY_WORK = [
     {
+        name: 'dueclic',
+        icon: '/images/projects/icon/dueclic.png',
+        url: {it: 'https://www.dueclic.com', en: 'https://www.dueclic.com'},
+        description: {it: 'Sviluppo web e servizi IT.', en: 'Web development and IT services.'},
+    },
+    {
         name: 'Emailchef',
         icon: '/images/projects/icon/emailchef-for-wordpress.png',
         url: {it: 'https://emailchef.com/it/', en: 'https://emailchef.com/'},
