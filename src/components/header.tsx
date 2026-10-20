@@ -6,6 +6,7 @@ import {MENU} from "../data/menu";
 import {DICTIONARY} from "../i18n/dictionary";
 import LanguagePicker from "./sections/_header/language.picker";
 import ThemeSelector from "./atoms/theme-selector";
+import CommandPalette from "./command-palette";
 
 export const Header = () => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
@@ -22,6 +23,7 @@ export const Header = () => {
             <div className="container mx-auto flex flex-wrap items-center justify-between gap-3 px-4 pt-5 md:px-6">
                 <Logo/>
                 <div className="flex max-w-full flex-wrap items-center gap-2">
+                    <CommandPalette/>
                     <LanguagePicker/>
                     <ThemeSelector/>
                 </div>

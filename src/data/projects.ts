@@ -4,6 +4,7 @@ export const PROJECTS: ProjectItem[] = [
     {
         github_user: 'debba',
         github_name: 'gitdeck',
+        accent: '45 212 191',
         emoji: '🧭',
         image: {cover: "/images/projects/cover/gitdeck.webp", icon: "/images/projects/icon/gitdeck.png"},
         name: "Gitdeck",
@@ -25,6 +26,7 @@ export const PROJECTS: ProjectItem[] = [
     {
         github_user: 'debba',
         github_name: 'melicum',
+        accent: '239 68 68',
         emoji: '🔊',
         image: {cover: "/images/projects/cover/melicum.png", icon: "/images/projects/icon/melicum.png"},
         name: "Melicum",
@@ -46,6 +48,7 @@ export const PROJECTS: ProjectItem[] = [
     {
         github_user: 'debba',
         github_name: 'tuxcleaner',
+        accent: '234 179 8',
         emoji: '🐧',
         image: {cover: "/images/projects/cover/tuxcleaner.png"},
         name: "TuxCleaner",
@@ -67,6 +70,7 @@ export const PROJECTS: ProjectItem[] = [
     {
         github_user: 'debba',
         github_name: 'free-my-arch',
+        accent: '23 147 209',
         emoji: '🧹',
         image: {cover: "/images/projects/cover/free-my-arch.gif", still: "/images/projects/cover/free-my-arch-still.png"},
         name: "free-my-arch",
@@ -86,6 +90,7 @@ export const PROJECTS: ProjectItem[] = [
     {
         github_user: 'debba',
         github_name: 'storytel-player',
+        accent: '255 85 0',
         emoji: '🎧',
         image: {cover: "/images/projects/cover/storytel-player.webp", icon: "/images/projects/icon/storytel-player.png"},
         name: "Storytel Player",
@@ -105,6 +110,7 @@ export const PROJECTS: ProjectItem[] = [
     {
         github_user: 'rewindtty',
         github_name: 'rewindtty',
+        accent: '52 211 153',
         emoji: '⏪',
         image: {cover: "/images/projects/cover/rewindtty.png", icon: "/images/projects/icon/rewindtty.png" },
         name: "RewindTTY",
@@ -344,6 +350,7 @@ export const PROJECTS: ProjectItem[] = [
     {
         github_user: 'TabularisDB',
         github_name: 'tabularis',
+        accent: '37 99 235',
         emoji: '🗄️',
         image: {
           cover: "/images/projects/cover/tabularis.png",

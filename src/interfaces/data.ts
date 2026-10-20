@@ -21,6 +21,8 @@ export interface ProjectItem {
     emoji?: string;
     localeBlacklist?: string[];
     image?: ProjectImage;
+    // Space-separated RGB used for the tile glow, e.g. '37 99 235'.
+    accent?: string;
     name: string;
     hide_stats?: boolean;
     description: string | ProjectNameLocalized;

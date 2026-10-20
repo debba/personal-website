@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {useRouter} from 'next/router';
@@ -7,6 +7,19 @@ import {DICTIONARY} from '../../i18n/dictionary';
 import type {ActivityFeed} from '../../lib/github-activity';
 import ProjectActivityIcon from '../atoms/project-activity-icon';
 import {PROJECTS} from '../../data/projects';
+
+const DAY = 24 * 60 * 60 * 1000;
+
+// "3 hours ago" reads livelier than a date, but depends on the visitor's clock,
+// so it replaces the server-rendered date only after hydration.
+function relativeTime(date: string, now: number, language: string) {
+    const format = new Intl.RelativeTimeFormat(language, {numeric: 'auto'});
+    const minutes = Math.round((Date.parse(date) - now) / 60_000);
+    if (Math.abs(minutes) < 60) return format.format(minutes, 'minute');
+    const hours = Math.round(minutes / 60);
+    if (Math.abs(hours) < 24) return format.format(hours, 'hour');
+    return format.format(Math.round(hours / 24), 'day');
+}
 
 const SITE_PROJECTS = new Map(PROJECTS.map(project => [
     `${project.github_user}/${project.github_name}`.toLowerCase(),
@@ -20,10 +33,32 @@ export default function GithubActivityTile({activity, className = ''}: {activity
     const formatDate = (date: string) => new Intl.DateTimeFormat(language, {
         day: 'numeric', month: 'short', timeZone: 'UTC',
     }).format(new Date(date));
+    const [now, setNow] = useState<number | null>(null);
+
+    useEffect(() => {
+        setNow(Date.now());
+        const timer = setInterval(() => setNow(Date.now()), 60_000);
+        return () => clearInterval(timer);
+    }, []);
+
+    const showDate = (date: string) => now === null ? formatDate(date) : relativeTime(date, now, language);
+    const latest = activity.projects[0]?.updatedAt;
+    const live = now !== null && !!latest && now - Date.parse(latest) < DAY;
 
     return (
         <section aria-labelledby="github-activity-title" className={`tile flex flex-col p-7 md:p-9 ${className}`}>
-            <p className="tile-label mb-3 text-muted">{t('recent_activity_label') as string}</p>
+            <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+                <p className="tile-label text-muted">{t('recent_activity_label') as string}</p>
+                {live && (
+                    <p className="inline-flex items-center gap-2 rounded-full bg-bg px-3 py-1 text-xs font-semibold text-fg">
+                        <span aria-hidden="true" className="relative flex h-2.5 w-2.5">
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-75 motion-reduce:hidden"/>
+                            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-success"/>
+                        </span>
+                        {t('recent_activity_live') as string}
+                    </p>
+                )}
+            </div>
             <h1 id="github-activity-title" className="text-2xl font-bold tracking-tight text-fg md:text-3xl">
                 {t('recent_activity_title') as string}
             </h1>
@@ -58,7 +93,7 @@ export default function GithubActivityTile({activity, className = ''}: {activity
                                                       className="inline-flex min-h-6 items-center gap-1 underline-offset-4 hover:text-fg hover:underline">
                                         GitHub <span aria-hidden="true">↗</span>
                                     </a>}
-                                    <time dateTime={project.updatedAt}>{formatDate(project.updatedAt)}</time>
+                                    <time dateTime={project.updatedAt} title={formatDate(project.updatedAt)}>{showDate(project.updatedAt)}</time>
                                 </div>
                             </div>
                             <p className="mt-2 break-words text-base leading-relaxed text-muted">{project.summary[language]}</p>
@@ -71,7 +106,7 @@ export default function GithubActivityTile({activity, className = ''}: {activity
                 <a href="https://github.com/debba" className="inline-flex min-h-6 items-center underline underline-offset-4 hover:text-fg">
                     {t('recent_activity_github') as string}
                 </a>
-                {activity.updatedAt && <p>{t('recent_activity_updated') as string}{' '}<time dateTime={activity.updatedAt}>{formatDate(activity.updatedAt)}</time></p>}
+                {activity.updatedAt && <p>{t(now === null ? 'recent_activity_updated' : 'recent_activity_updated_relative') as string}{' '}<time dateTime={activity.updatedAt} title={formatDate(activity.updatedAt)}>{showDate(activity.updatedAt)}</time></p>}
             </div>
         </section>
     );

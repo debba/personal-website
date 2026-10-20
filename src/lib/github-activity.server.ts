@@ -1,5 +1,6 @@
-import {ActivityFeed, isActivityFeed} from './github-activity';
+import {ActivityFeed, EMPTY_ACTIVITY, isActivityFeed} from './github-activity';
 import {generateActivity, loadLocalActivity} from '../../scripts/update-github-activity.mjs';
+import {githubToken} from './github-token.server';
 
 // Each locale page regenerates separately. Within one warm instance, share a single
 // generation between them so both languages show the same summaries.
@@ -15,8 +16,9 @@ async function generate(): Promise<ActivityFeed> {
 // Runs only inside getStaticProps (build and ISR regeneration), never in the browser.
 export async function getActivity(): Promise<ActivityFeed> {
     if (process.env.NODE_ENV === 'development') {
-        const local: unknown = await loadLocalActivity();
-        if (isActivityFeed(local)) return local;
+        // Without a key or a local snapshot, development shows the empty state instead of failing.
+        const local: unknown = await loadLocalActivity({token: githubToken()});
+        return isActivityFeed(local) ? local : EMPTY_ACTIVITY;
     }
     if (!process.env.ANTHROPIC_API_KEY) throw new Error('ANTHROPIC_API_KEY is not configured');
     const now = Date.now();

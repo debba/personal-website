@@ -3,6 +3,7 @@ import {Header} from "./header";
 import {Footer} from "./footer";
 import {useG11n} from "next-g11n";
 import {DICTIONARY} from "../i18n/dictionary";
+import Konami from "./konami";
 
 type LayoutProps = {
     children: React.ReactNode,
@@ -21,6 +22,7 @@ export const Layout = ({ children } : LayoutProps) => {
                 </div>
             </main>
             <Footer />
+            <Konami />
         </>
     )
 }

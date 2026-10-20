@@ -28,7 +28,8 @@ for (const width of [320, 1280])
                 assert.equal(await page.locator('#project-gallery-title + p + div figure').first().locator('source').getAttribute('src'), '/media/projects/tabularis/overview.mp4');
                 const thumb = page.getByRole('button', { name: /Ingrandisci immagine/ }).first();
                 await thumb.click();
-                const dialog = page.locator('dialog');
+                // The command palette adds a second, closed dialog to every page.
+                const dialog = page.locator('dialog:not([data-command-palette])');
                 assert.equal(await dialog.evaluate(d => d.open), true);
                 await page.keyboard.press('ArrowRight');
                 await page.getByText('2 / 4', { exact: true }).waitFor();
@@ -92,7 +93,7 @@ const page = await context.newPage();
 await page.setViewportSize({ width: 667, height: 375 });
 await page.goto(`${BASE_URL}/it/projects/tabularis/`);
 await page.getByRole('button', { name: /Ingrandisci immagine/ }).first().click();
-const bounds = await page.locator('dialog').boundingBox();
+const bounds = await page.locator('dialog:not([data-command-palette])').boundingBox();
 assert.ok(bounds.y >= 0 && bounds.y + bounds.height <= 375, 'Dialog exceeds landscape viewport');
 await page.keyboard.press('Escape');
 await page.setViewportSize({ width: 320, height: 720 });

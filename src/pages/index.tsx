@@ -8,6 +8,10 @@ import {DOCK_PROJECTS, HOME_PROJECTS, PROJECTS} from "../data/projects";
 import GithubActivityTile from "../components/home/github-activity-tile";
 import {ActivityFeed, EMPTY_ACTIVITY} from "../lib/github-activity";
 import {getActivity} from "../lib/github-activity.server";
+import type {ContributionCalendar} from "../lib/github-contributions";
+import {getContributions} from "../lib/github-contributions.server";
+import {PROJECT_DETAILS} from "../data/project-details";
+import ContributionsTile from "../components/home/contributions-tile";
 import DockTile from "../components/home/dock-tile";
 import ProfileTile from "../components/home/profile-tile";
 import ProjectTile from "../components/home/project-tile";
@@ -28,20 +32,29 @@ const LEGACY_ANCHORS: Record<string, string> = {
 
 const project = (slug: string) => PROJECTS.find(item => item.github_name === slug)!;
 
-export const getStaticProps: GetStaticProps<{activity: ActivityFeed}> = async ({revalidateReason}) => {
-    try {
-        const activity = await getActivity();
+type HomeProps = {activity: ActivityFeed; contributions: ContributionCalendar | null};
+
+export const getStaticProps: GetStaticProps<HomeProps> = async ({revalidateReason}) => {
+    const [activity, contributions] = await Promise.allSettled([getActivity(), getContributions()]);
+    const failure = [activity, contributions].find((result): result is PromiseRejectedResult => result.status === 'rejected');
+    // ISR retains the last successful page if a refresh fails. Development has no previous
+    // page to keep, so it renders the fallbacks instead.
+    if (failure && revalidateReason !== 'build' && process.env.NODE_ENV !== 'development') throw failure.reason;
+    if (failure) console.warn(`GitHub data unavailable (${(failure.reason as Error).message}); using fallbacks.`);
+    return {
+        props: {
+            activity: activity.status === 'fulfilled' ? activity.value : EMPTY_ACTIVITY,
+            contributions: contributions.status === 'fulfilled' ? contributions.value : null,
+        },
         // Regenerated in the background at most every six hours, only when the page is visited.
-        return {props: {activity}, revalidate: 6 * 60 * 60};
-    } catch (error) {
-        // ISR retains the last successful page if a refresh fails.
-        if (revalidateReason !== 'build') throw error;
-        console.warn(`GitHub activity unavailable at build time (${(error as Error).message}); showing the profile link.`);
-        return {props: {activity: EMPTY_ACTIVITY}, revalidate: 300};
-    }
+        revalidate: failure ? 300 : 6 * 60 * 60,
+    };
 };
 
-const Home: NextPage<{activity: ActivityFeed}> = ({activity}) => {
+// Silent demo shown on hover, taken from the project's detail page.
+const demoVideo = (slug: string) => PROJECT_DETAILS[slug]?.media?.find(media => media.kind === 'video')?.src;
+
+const Home: NextPage<HomeProps> = ({activity, contributions}) => {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
     const [tabularis, gitdeck, melicum, tuxcleaner, freeMyArch, storytel, rewindtty] = HOME_PROJECTS.map(project);
     const dockProjects = DOCK_PROJECTS.map(project);
@@ -72,21 +85,22 @@ const Home: NextPage<{activity: ActivityFeed}> = ({activity}) => {
             </p>
 
             {/* Spans are tuned so every row is full at the 4-column breakpoint. */}
-            <div className="bento pt-4 pb-6 md:pt-0 md:pb-10">
+            <div className="bento bento-enter pt-4 pb-6 md:pt-0 md:pb-10">
                 <GithubActivityTile activity={activity} className="sm:col-span-2 lg:row-span-2"/>
                 <DockTile projects={dockProjects} className="sm:col-span-2"/>
-                <ProjectTile project={tabularis} showIcon/>
+                <ProjectTile project={tabularis} hoverVideo={demoVideo(tabularis.github_name)} showIcon/>
                 <ProfileTile/>
-                <ProjectTile project={gitdeck} className="sm:col-span-2" showIcon/>
+                <ProjectTile project={gitdeck} hoverVideo={demoVideo(gitdeck.github_name)} className="sm:col-span-2" showIcon/>
                 <LocationTile/>
-                <ProjectTile project={melicum} showIcon/>
-                <ProjectTile project={tuxcleaner} showIcon/>
-                <ProjectTile project={freeMyArch} showIcon/>
-                <ProjectTile project={storytel} showIcon/>
-                <ProjectTile project={rewindtty} showIcon/>
+                <ProjectTile project={melicum} hoverVideo={demoVideo(melicum.github_name)} showIcon/>
+                <ProjectTile project={tuxcleaner} hoverVideo={demoVideo(tuxcleaner.github_name)} showIcon/>
+                <ProjectTile project={freeMyArch} hoverVideo={demoVideo(freeMyArch.github_name)} showIcon/>
+                <ProjectTile project={storytel} hoverVideo={demoVideo(storytel.github_name)} showIcon/>
+                <ProjectTile project={rewindtty} hoverVideo={demoVideo(rewindtty.github_name)} showIcon/>
                 <AboutTile className="sm:col-span-2"/>
                 <ContactTile/>
                 <AllProjectsTile projects={PROJECTS}/>
+                {contributions && <ContributionsTile calendar={contributions} className="sm:col-span-2 lg:col-span-4"/>}
             </div>
         </>
     )

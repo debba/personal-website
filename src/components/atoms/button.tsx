@@ -25,7 +25,7 @@ export const Button: React.FC<{ url: string, title: string, icon: string, classN
         rel={openSelf ? undefined : "noopener noreferrer"}
         className={className || 'btn-primary'}>
 
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" aria-hidden="true"
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 shrink-0" aria-hidden="true"
              fill={filledIcon ? "currentColor" : "none"} viewBox="0 0 24 24"
              stroke={filledIcon ? "none" : "currentColor"} strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d={icon}/>

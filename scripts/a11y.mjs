@@ -52,6 +52,10 @@ for (const viewport of VIEWPORTS) {
             // Third-party embeds keep the network busy, so wait for load and fonts instead of network idle.
             const response = await page.goto(BASE_URL + route, {waitUntil: "load"});
             await page.evaluate(() => document.fonts.ready);
+            // Let entrance animations finish so contrast is checked on the final colors.
+            await page.evaluate(() => Promise.all(document.getAnimations()
+                .filter(animation => animation.effect?.getTiming().iterations !== Infinity)
+                .map(animation => animation.finished.catch(() => undefined))));
 
             const problems = [];
             const expectedStatus = route.includes("does-not-exist") ? 404 : 200;
