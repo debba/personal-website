@@ -66,6 +66,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetails> = {
             en: ['Connect multiple Subsonic/OpenSubsonic, Navidrome and Jellyfin libraries, plus Audiobookshelf and internet radio.', 'Discover music with Listen Now mixes, personal radio and listening statistics by day, month and year.', 'Shape the sound with a 10-band equalizer, AutoEq profiles, ReplayGain, gapless playback and crossfade.', 'Listen offline with manual and automatic downloads; the music assistant runs on the iPhone or with ChatGPT.'],
         },
         media: [
+            video('discophile', 'intro.mp4', '/media/projects/discophile/intro-poster.webp', 'Video di presentazione con musica: un giro tra le schermate dell’app.', 'Intro video with music: a tour through the app’s screens.'),
             image('discophile', 'listen-now.webp', 'Ascolta ora con mix di scoperta e album suggeriti.', 'Listen Now with discovery mixes and album suggestions.'),
             image('discophile', 'now-playing.webp', 'In riproduzione: copertina grande, avanzamento e controlli.', 'Now Playing with large artwork, timeline and transport controls.'),
             image('discophile', 'album.webp', 'La pagina di un album con Riproduci, Casuale e l’elenco dei brani.', 'An album page with Play, Shuffle and the track list.'),
