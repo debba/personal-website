@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {mkdtemp, readFile, writeFile, rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
-import {collectProjects, generateActivity, loadLocalActivity, updateActivity} from '../scripts/update-github-activity.mjs';
+import {collectProjects, generateActivity, parsePrivateRepositories, loadLocalActivity, updateActivity} from '../scripts/update-github-activity.mjs';
 import {isActivityFeed} from '../src/lib/github-activity.ts';
 
 const now = new Date('2026-10-19T12:00:00Z');
@@ -38,6 +38,20 @@ test('only public work by the account is included, across repository owners', as
     assert.equal(projects.length, 1);
     assert.equal(projects[0].repository, 'organization/example');
     assert.deepEqual(projects[0].signals, [{kind: 'commit', title: 'Search improvements', at}]);
+});
+
+test('allowed private repositories are read from the authenticated event stream', async () => {
+    const urls = [];
+    const github = mockGithub([]);
+    const projects = await collectProjects({now, token: 'secret', privateRepositories: parsePrivateRepositories(' Debba/Allowed, invalid , debba/other-private'), fetcher: async url => {
+        urls.push(url);
+        if (url.includes('/users/debba/events?')) return json([event('debba/allowed', {public: false}), event('debba/hidden', {public: false})]);
+        if (url.endsWith('/repos/debba/allowed')) return json({private: true, description: 'A music player.'});
+        return github(url);
+    }});
+    assert.deepEqual(projects.map(project => project.repository), ['debba/allowed']);
+    assert.ok(urls.every(url => !url.includes('/events/public?')));
+    assert.deepEqual([...parsePrivateRepositories(' Debba/Allowed, invalid ,,debba/x')], ['debba/allowed', 'debba/x']);
 });
 
 test('a short page does not stop pagination, since GitHub filters events after paginating', async () => {

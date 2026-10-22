@@ -10,6 +10,11 @@ const PROMPT_VERSION = 4;
 const sameUser = (a, b) => typeof a === 'string' && a.toLowerCase() === b.toLowerCase();
 const title = value => typeof value === 'string' ? value.split('\n')[0].trim().slice(0, 240) : '';
 
+// Private repositories allowed in the feed, as a comma-separated owner/name list.
+export function parsePrivateRepositories(value = '') {
+    return new Set(value.split(',').map(item => item.trim().toLowerCase()).filter(item => REPOSITORY_PATTERN.test(item)));
+}
+
 async function github(path, {fetcher = fetch, token = process.env.GITHUB_TOKEN, optional = false} = {}) {
     const response = await fetcher(`https://api.github.com${path}`, {
         headers: {
@@ -24,13 +29,17 @@ async function github(path, {fetcher = fetch, token = process.env.GITHUB_TOKEN, 
     return response.json();
 }
 
-// Public, authored work only. Stars, forks and other people's commits are excluded.
-export async function collectProjects({username = 'debba', now = new Date(), ...options} = {}) {
+// Public, authored work only, plus explicitly allowed private repositories.
+// Stars, forks and other people's commits are excluded.
+export async function collectProjects({username = 'debba', now = new Date(), privateRepositories = new Set(), ...options} = {}) {
     if (!/^[a-zA-Z0-9-]+$/.test(username)) throw new Error('Invalid GitHub username');
     const since = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000).toISOString();
+    const allowed = repository => privateRepositories.has(repository.toLowerCase());
+    // Private events are only listed to the account's own token, on the non-public endpoint.
+    const endpoint = privateRepositories.size && options.token ? 'events' : 'events/public';
     const events = [];
     for (let page = 1; page <= 3; page++) {
-        const batch = await github(`/users/${username}/events/public?per_page=100&page=${page}`, options);
+        const batch = await github(`/users/${username}/${endpoint}?per_page=100&page=${page}`, options);
         if (!Array.isArray(batch)) throw new Error('Invalid GitHub events response');
         events.push(...batch);
         // A short page does not mean the end: GitHub drops events the token cannot see
@@ -39,7 +48,7 @@ export async function collectProjects({username = 'debba', now = new Date(), ...
     }
     const grouped = new Map();
     for (const event of events.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))) {
-        if (event.public !== true || !sameUser(event.actor?.login, username)) continue;
+        if ((event.public !== true && !allowed(event.repo?.name || '')) || !sameUser(event.actor?.login, username)) continue;
         if (!Number.isFinite(Date.parse(event.created_at)) || event.created_at < since) continue;
         if (!REPOSITORY_PATTERN.test(event.repo?.name || '')) continue;
         if (!['PushEvent', 'PullRequestEvent'].includes(event.type)) continue;
@@ -82,7 +91,7 @@ export async function collectProjects({username = 'debba', now = new Date(), ...
     const described = await Promise.all(latest.map(async project => {
         const metadata = await github(`/repos/${project.repository}`, options);
         // A formerly public repository may have become private since the event.
-        if (metadata.private === true) return null;
+        if (metadata.private === true && !allowed(project.repository)) return null;
         const readme = await github(`/repos/${project.repository}/readme`, {...options, optional: true});
         const readmeIntro = readme?.encoding === 'base64' && typeof readme.content === 'string'
             ? Buffer.from(readme.content, 'base64').toString('utf8')
@@ -149,8 +158,9 @@ export async function generateActivity({
     apiKey = process.env.ANTHROPIC_API_KEY,
     model = process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5-20251001',
     token = process.env.GITHUB_TOKEN,
+    privateRepositories = parsePrivateRepositories(process.env.GITHUB_ACTIVITY_PRIVATE_REPOS),
 } = {}) {
-    const projects = await collectProjects({username, now, fetcher, token});
+    const projects = await collectProjects({username, now, fetcher, token, privateRepositories});
     const fingerprint = createHash('sha256').update(JSON.stringify({projects, model, prompt: PROMPT_VERSION})).digest('hex');
     const unchanged = isActivityFeed(previous) && previous.fingerprint === fingerprint;
     const summaries = unchanged ? previous.projects : projects.length ? await summarizeProjects(projects, {fetcher, apiKey, model}) : [];
