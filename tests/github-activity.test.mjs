@@ -40,17 +40,15 @@ test('only public work by the account is included, across repository owners', as
     assert.deepEqual(projects[0].signals, [{kind: 'commit', title: 'Search improvements', at}]);
 });
 
-test('allowed private repositories are read from the authenticated event stream', async () => {
-    const urls = [];
-    const github = mockGithub([]);
-    const projects = await collectProjects({now, token: 'secret', privateRepositories: parsePrivateRepositories(' Debba/Allowed, invalid , debba/other-private'), fetcher: async url => {
-        urls.push(url);
-        if (url.includes('/users/debba/events?')) return json([event('debba/allowed', {public: false}), event('debba/hidden', {public: false})]);
+test('allowed private repositories are read per repository and unreadable ones are skipped', async () => {
+    const github = mockGithub([event('debba/public', {id: '1'}), event('debba/hidden', {id: '2', public: false})]);
+    const projects = await collectProjects({now, privateRepositories: parsePrivateRepositories(' Debba/Allowed, invalid , debba/unreadable'), fetcher: async url => {
+        if (url.includes('/repos/debba/allowed/events?')) return json([event('debba/allowed', {id: '3', public: false})]);
+        if (url.includes('/repos/debba/unreadable/events?')) return new Response('{}', {status: 404});
         if (url.endsWith('/repos/debba/allowed')) return json({private: true, description: 'A music player.'});
         return github(url);
     }});
-    assert.deepEqual(projects.map(project => project.repository), ['debba/allowed']);
-    assert.ok(urls.every(url => !url.includes('/events/public?')));
+    assert.deepEqual(projects.map(project => project.repository).sort(), ['debba/allowed', 'debba/public']);
     assert.deepEqual([...parsePrivateRepositories(' Debba/Allowed, invalid ,,debba/x')], ['debba/allowed', 'debba/x']);
 });
 

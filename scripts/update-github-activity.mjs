@@ -35,16 +35,20 @@ export async function collectProjects({username = 'debba', now = new Date(), pri
     if (!/^[a-zA-Z0-9-]+$/.test(username)) throw new Error('Invalid GitHub username');
     const since = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000).toISOString();
     const allowed = repository => privateRepositories.has(repository.toLowerCase());
-    // Private events are only listed to the account's own token, on the non-public endpoint.
-    const endpoint = privateRepositories.size && options.token ? 'events' : 'events/public';
     const events = [];
     for (let page = 1; page <= 3; page++) {
-        const batch = await github(`/users/${username}/${endpoint}?per_page=100&page=${page}`, options);
+        const batch = await github(`/users/${username}/events/public?per_page=100&page=${page}`, options);
         if (!Array.isArray(batch)) throw new Error('Invalid GitHub events response');
         events.push(...batch);
         // A short page does not mean the end: GitHub drops events the token cannot see
         // after paginating, so only an empty page or one older than the window stops.
         if (!batch.length || batch.at(-1)?.created_at < since) break;
+    }
+    // Allowed private repositories are read one by one. A repository the token cannot
+    // see returns 404 and is skipped, so the public feed never depends on it.
+    for (const repository of privateRepositories) {
+        const batch = await github(`/repos/${repository}/events?per_page=100`, {...options, optional: true});
+        if (Array.isArray(batch)) events.push(...batch.filter(event => !events.some(known => known.id === event.id)));
     }
     const grouped = new Map();
     for (const event of events.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))) {
