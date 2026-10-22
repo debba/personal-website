@@ -75,7 +75,9 @@ export async function collectProjects({username = 'debba', now = new Date(), pri
             } else if (!checkedPush && typeof payload.head === 'string' && /^[0-9a-f]{40}$/i.test(payload.head)) {
                 checkedPush = true;
                 const params = new URLSearchParams({sha: payload.head, author: username, since, per_page: String(MAX_SIGNALS)});
-                const commits = await github(`/repos/${repository}/commits?${params}`, options);
+                // A repository that became private, or a rewritten history, returns 404: skip its commits.
+                const commits = await github(`/repos/${repository}/commits?${params}`, {...options, optional: true});
+                if (commits === null) continue;
                 if (!Array.isArray(commits)) throw new Error('Invalid GitHub commits response');
                 for (const commit of commits) {
                     if (!sameUser(commit.author?.login, username)) continue;
@@ -93,9 +95,9 @@ export async function collectProjects({username = 'debba', now = new Date(), pri
     }
     const latest = projects.sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt)).slice(0, MAX_PROJECTS);
     const described = await Promise.all(latest.map(async project => {
-        const metadata = await github(`/repos/${project.repository}`, options);
-        // A formerly public repository may have become private since the event.
-        if (metadata.private === true && !allowed(project.repository)) return null;
+        const metadata = await github(`/repos/${project.repository}`, {...options, optional: true});
+        // A formerly public repository may have become private since the event, or be unreadable.
+        if (!metadata || (metadata.private === true && !allowed(project.repository))) return null;
         const readme = await github(`/repos/${project.repository}/readme`, {...options, optional: true});
         const readmeIntro = readme?.encoding === 'base64' && typeof readme.content === 'string'
             ? Buffer.from(readme.content, 'base64').toString('utf8')

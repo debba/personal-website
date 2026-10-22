@@ -52,6 +52,15 @@ test('allowed private repositories are read per repository and unreadable ones a
     assert.deepEqual([...parsePrivateRepositories(' Debba/Allowed, invalid ,,debba/x')], ['debba/allowed', 'debba/x']);
 });
 
+test('a repository the token can no longer read is skipped instead of failing the feed', async () => {
+    const github = mockGithub([event('debba/public'), event('debba/now-private')]);
+    const projects = await collectProjects({now, fetcher: async url => {
+        if (url.includes('/repos/debba/now-private/')) return new Response('{}', {status: 404});
+        return github(url);
+    }});
+    assert.deepEqual(projects.map(project => project.repository), ['debba/public']);
+});
+
 test('a short page does not stop pagination, since GitHub filters events after paginating', async () => {
     const github = mockGithub([]);
     const pages = [[event('debba/first')], [event('debba/second')], []];
