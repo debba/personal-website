@@ -25,7 +25,7 @@ async function github(path, {fetcher = fetch, token = process.env.GITHUB_TOKEN, 
         signal: AbortSignal.timeout(15_000),
     });
     if (optional && response.status === 404) return null;
-    if (!response.ok) throw new Error(`GitHub request failed (${response.status})`);
+    if (!response.ok) throw new Error(`GitHub request failed (${response.status} ${path.split("?")[0]})`);
     return response.json();
 }
 
