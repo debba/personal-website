@@ -24,6 +24,7 @@ export interface ProjectProps {
     // Total downloads of GitHub release assets.
     downloads: number;
     hide_stats: boolean;
+    hide_github: boolean;
     image?: ProjectImage;
     name: string;
     description:  string | ProjectNameLocalized;

@@ -8,9 +8,9 @@ import Breadcrumb from "../../components/atoms/breadcrumb";
 import ProjectTile from "../../components/home/project-tile";
 import {PROJECT_DETAILS} from '../../data/project-details';
 
-// Tabularis leads with a 2x2 tile; three wide tiles keep every 4-column row full.
+// Tabularis leads with a 2x2 tile; six wide tiles keep every 4-column row full.
 const FEATURED_PROJECT = 'tabularis';
-const WIDE_PROJECTS = ['gitdeck', 'melicum', 'tuxcleaner'];
+const WIDE_PROJECTS = ['gitdeck', 'melicum', 'discophile', 'tuxcleaner', 'storytel-player', 'github-tray-gnome-extension'];
 const SORTED_PROJECTS = [
     ...PROJECTS.filter(project => project.github_name === FEATURED_PROJECT),
     ...PROJECTS.filter(project => project.github_name !== FEATURED_PROJECT),

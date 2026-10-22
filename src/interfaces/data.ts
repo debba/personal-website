@@ -25,6 +25,8 @@ export interface ProjectItem {
     accent?: string;
     name: string;
     hide_stats?: boolean;
+    // Hides links to the GitHub repository.
+    hide_github?: boolean;
     description: string | ProjectNameLocalized;
     short_description: string | ProjectNameLocalized;
 }

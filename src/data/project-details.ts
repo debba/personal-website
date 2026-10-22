@@ -56,6 +56,24 @@ export const PROJECT_DETAILS: Record<string, ProjectDetails> = {
             image('melicum', 'presets.png', 'Preset, lingua dell’interfaccia e preferenze dell’applicazione.', 'Presets, interface language and application preferences.'),
         ],
     },
+    discophile: {
+        website: 'https://discophile.app',
+        platform: text('iPhone con iOS 17 o successivo', 'iPhone with iOS 17 or later'),
+        technologies: ['SwiftUI', 'AVFoundation', 'Swift', 'Subsonic API'],
+        useCase: text('Per ascoltare dall’iPhone la propria libreria su Navidrome, Subsonic o Jellyfin, insieme ad audiolibri e radio, anche senza connessione.', 'For listening to your own Navidrome, Subsonic or Jellyfin library on iPhone, together with audiobooks and radio, even without a connection.'),
+        features: {
+            it: ['Collega più librerie Subsonic/OpenSubsonic, Navidrome e Jellyfin, oltre ad Audiobookshelf e alle radio online.', 'Scopri musica con i mix di Ascolta ora, la radio personale e le statistiche di ascolto per giorno, mese e anno.', 'Regola il suono con equalizzatore a 10 bande, profili AutoEq, ReplayGain, gapless e crossfade.', 'Ascolta offline con download manuali e automatici; l’assistente musicale funziona sull’iPhone o con ChatGPT.'],
+            en: ['Connect multiple Subsonic/OpenSubsonic, Navidrome and Jellyfin libraries, plus Audiobookshelf and internet radio.', 'Discover music with Listen Now mixes, personal radio and listening statistics by day, month and year.', 'Shape the sound with a 10-band equalizer, AutoEq profiles, ReplayGain, gapless playback and crossfade.', 'Listen offline with manual and automatic downloads; the music assistant runs on the iPhone or with ChatGPT.'],
+        },
+        media: [
+            image('discophile', 'listen-now.webp', 'Ascolta ora con mix di scoperta e album suggeriti.', 'Listen Now with discovery mixes and album suggestions.'),
+            image('discophile', 'now-playing.webp', 'In riproduzione: copertina grande, avanzamento e controlli.', 'Now Playing with large artwork, timeline and transport controls.'),
+            image('discophile', 'album.webp', 'La pagina di un album con Riproduci, Casuale e l’elenco dei brani.', 'An album page with Play, Shuffle and the track list.'),
+            image('discophile', 'statistics-charts.webp', 'Minuti di ascolto al giorno e brani più ascoltati.', 'Minutes listened per day and top songs.'),
+            image('discophile', 'ai-chatgpt.webp', 'L’assistente musicale con ChatGPT sceglie brani simili dalla libreria.', 'The music assistant with ChatGPT picking similar songs from the library.'),
+            image('discophile', 'audiobook-player.webp', 'Il player degli audiolibri con capitoli, salti e velocità.', 'The audiobook player with chapters, skip buttons and speed.'),
+        ],
+    },
     tuxcleaner: {
         website: 'https://github.com/debba/tuxcleaner#readme',
         websiteKind: 'documentation',

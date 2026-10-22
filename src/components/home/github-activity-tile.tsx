@@ -23,7 +23,7 @@ function relativeTime(date: string, now: number, language: string) {
 
 const SITE_PROJECTS = new Map(PROJECTS.map(project => [
     `${project.github_user}/${project.github_name}`.toLowerCase(),
-    {slug: project.github_name, name: project.name, icon: project.image?.icon},
+    {slug: project.github_name, name: project.name, icon: project.image?.icon, hideGithub: project.hide_github},
 ]));
 
 export default function GithubActivityTile({activity, className = ''}: {activity: ActivityFeed; className?: string}) {
@@ -89,7 +89,7 @@ export default function GithubActivityTile({activity, className = ''}: {activity
                                     ) : <a href={githubUrl} className={titleClass}>{titleContent}</a>}
                                 </h2>
                                 <div className="flex shrink-0 items-center gap-3 text-sm text-muted">
-                                    {siteProject && <a href={githubUrl} aria-label={`${t('github_repo') as string}: ${name}`}
+                                    {siteProject && !siteProject.hideGithub && <a href={githubUrl} aria-label={`${t('github_repo') as string}: ${name}`}
                                                       className="inline-flex min-h-6 items-center gap-1 underline-offset-4 hover:text-fg hover:underline">
                                         GitHub <span aria-hidden="true">↗</span>
                                     </a>}

@@ -9,6 +9,12 @@ Retrieved on 2026-10-19 from the projects’ public repositories. Screenshots an
 | `melicum/spatial-audio.png` | [Original](https://raw.githubusercontent.com/debba/melicum/main/docs/images/spatial-audio.png) |
 | `melicum/audio-units.png` | [Original](https://raw.githubusercontent.com/debba/melicum/main/docs/images/audio-units.png) |
 | `melicum/presets.png` | [Original](https://raw.githubusercontent.com/debba/melicum/main/docs/images/presets.png) |
+| `discophile/listen-now.webp` | [Original](https://raw.githubusercontent.com/debba/discophile/main/site/assets/screens/listen-now.webp) |
+| `discophile/now-playing.webp` | [Original](https://raw.githubusercontent.com/debba/discophile/main/site/assets/screens/now-playing.webp) |
+| `discophile/album.webp` | [Original](https://raw.githubusercontent.com/debba/discophile/main/site/assets/screens/album.webp) |
+| `discophile/statistics-charts.webp` | [Original](https://raw.githubusercontent.com/debba/discophile/main/site/assets/screens/statistics-charts.webp) |
+| `discophile/ai-chatgpt.webp` | [Original](https://raw.githubusercontent.com/debba/discophile/main/site/assets/screens/ai-chatgpt.webp) |
+| `discophile/audiobook-player.webp` | [Original](https://raw.githubusercontent.com/debba/discophile/main/site/assets/screens/audiobook-player.webp) |
 | `storytel-player/screenshot-1.png` | [Original](https://raw.githubusercontent.com/debba/storytel-player/develop/docs/assets/screenshot-1.png) |
 | `storytel-player/screenshot-2.png` | [Original](https://raw.githubusercontent.com/debba/storytel-player/develop/docs/assets/screenshot-2.png) |
 | `storytel-player/screenshot-3.png` | [Original](https://raw.githubusercontent.com/debba/storytel-player/develop/docs/assets/screenshot-3.png) |

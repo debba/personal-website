@@ -77,7 +77,7 @@ export const ProjectTile: React.FC<{ project: ProjectItem, className?: string, s
             </div>
         </Link>
         {detailed && <div className="px-4 pb-5">
-            <ProjectLinks projectName={project.name} compact documentation={documentation}
+            <ProjectLinks projectName={project.name} compact documentation={documentation} hideGithub={project.hide_github}
                           githubData={{html_url: `https://github.com/${project.github_user}/${project.github_name}`, homepage: website || ''}}/>
         </div>}
         </div>

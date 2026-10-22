@@ -47,6 +47,30 @@ export const PROJECTS: ProjectItem[] = [
     },
     {
         github_user: 'debba',
+        github_name: 'discophile',
+        accent: '199 45 98',
+        emoji: '💿',
+        image: {cover: "/images/projects/cover/discophile.webp", icon: "/images/projects/icon/discophile.png"},
+        name: "Discophile",
+        hide_github: true,
+        hide_stats: true,
+        short_description: {
+            en: 'A native iPhone player for Navidrome, Subsonic and Jellyfin, with audiobooks and internet radio.',
+            it: 'Un player nativo per iPhone per Navidrome, Subsonic e Jellyfin, con audiolibri e radio online.'
+        },
+        description: {
+            en: '<p>Discophile is a native iPhone player for the music library on your own server. It connects to Subsonic/OpenSubsonic, Navidrome and Jellyfin, alongside Audiobookshelf audiobooks and internet radio stations.</p>' +
+                '<p>Listen Now suggests discovery mixes and albums to play tonight, personal radio starts from any track, and listening statistics show time, plays and top songs, artists and albums. Everything works offline too, with manual and automatic downloads.</p>' +
+                '<p>A 10-band equalizer, AutoEq headphone correction, ReplayGain, gapless playback and crossfade shape the sound. Lyrics follow the song, and the music assistant can find music or propose playlists, running on the iPhone or with ChatGPT.</p>' +
+                '<p>Built with SwiftUI and AVFoundation for iOS 17 or later. Credentials stay in the iOS Keychain, and there is no backend, tracking or analytics.</p>',
+            it: '<p>Discophile è un player nativo per iPhone dedicato alla libreria musicale sul tuo server. Si collega a Subsonic/OpenSubsonic, Navidrome e Jellyfin, oltre agli audiolibri di Audiobookshelf e alle radio online.</p>' +
+                '<p>Ascolta ora propone mix di scoperta e album da ascoltare stasera, la radio personale parte da qualsiasi brano e le statistiche mostrano tempo di ascolto, riproduzioni e i brani, artisti e album più ascoltati. Funziona anche offline, con download manuali e automatici.</p>' +
+                '<p>Equalizzatore a 10 bande, correzione per cuffie AutoEq, ReplayGain, riproduzione gapless e crossfade intervengono sul suono. I testi seguono il brano e l’assistente musicale trova musica o propone playlist, sull’iPhone o con ChatGPT.</p>' +
+                '<p>È sviluppato con SwiftUI e AVFoundation per iOS 17 o successivo. Le credenziali restano nel portachiavi di iOS e non ci sono backend, tracciamento o statistiche d’uso.</p>'
+        }
+    },
+    {
+        github_user: 'debba',
         github_name: 'tuxcleaner',
         accent: '234 179 8',
         emoji: '🐧',
@@ -460,6 +484,7 @@ export const HOME_PROJECTS = [
 export const DOCK_PROJECTS = [
     'tabularis',
     'gitdeck',
+    'discophile',
     'tuxcleaner',
     'melicum',
     'storytel-player',

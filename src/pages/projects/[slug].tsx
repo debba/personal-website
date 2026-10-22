@@ -58,6 +58,7 @@ export const getStaticProps: GetStaticProps<ProjectProps, { slug: string }> = as
             name: project.name,
             description: project.description,
             hide_stats: project?.hide_stats || false,
+            hide_github: project?.hide_github || false,
             short_description: project.short_description,
             ...(PROJECT_DETAILS[slug] ? {details: PROJECT_DETAILS[slug]} : {})
         },
@@ -127,7 +128,7 @@ const ProjectNamePage: NextPage<ProjectProps> = ({githubData, downloads, details
             </header>
 
             <div className="mt-8">
-                <ProjectLinks githubData={githubData} projectName={data.name} documentation={details?.websiteKind === 'documentation'}/>
+                <ProjectLinks githubData={githubData} projectName={data.name} documentation={details?.websiteKind === 'documentation'} hideGithub={data.hide_github}/>
             </div>
 
             {details && <dl className="mt-8 grid gap-4 md:grid-cols-[1fr_2fr]">
