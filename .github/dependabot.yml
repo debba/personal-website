@@ -10,3 +10,12 @@ updates:
       dependencies:
         patterns:
           - "*"
+        update-types:
+          - minor
+          - patch
+      next-major:
+        patterns:
+          - next
+          - eslint-config-next
+        update-types:
+          - major

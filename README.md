@@ -9,7 +9,7 @@ pnpm install
 pnpm dev
 ```
 
-Use the pinned pnpm version in `package.json`; `pnpm-lock.yaml` is the only dependency lockfile. Dependabot groups dependency updates into one PR so CI validates them together.
+Use the pinned pnpm version in `package.json`; `pnpm-lock.yaml` is the only dependency lockfile. Dependabot groups minor and patch dependency updates into one PR so CI validates them together. Major upgrades stay separate; Next.js and its ESLint config are upgraded together.
 
 Open [http://localhost:3000](http://localhost:3000).
 

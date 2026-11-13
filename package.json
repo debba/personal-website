@@ -15,27 +15,27 @@
     "test:projects": "node scripts/check-projects.mjs"
   },
   "dependencies": {
-    "@socialgouv/matomo-next": "^1.7.0",
-    "@tailwindcss/forms": "^0.5.6",
+    "@socialgouv/matomo-next": "^1.14.2",
+    "@tailwindcss/forms": "^0.5.11",
     "flag-icons": "^7.6.0",
-    "next": "15.5.9",
+    "next": "15.5.29",
     "next-g11n": "^1.1.0",
-    "nodemailer": "^7.0.9",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "nodemailer": "^7.0.13",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
-    "@types/node": "^24.7.1",
-    "@types/nodemailer": "^6.4.10",
-    "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.1",
-    "autoprefixer": "^10.4.15",
-    "eslint": "^8.57.0",
-    "eslint-config-next": "^15.5.4",
-    "playwright": "^1.64.1",
-    "postcss": "^8.4.29",
-    "tailwindcss": "^3.3.3",
+    "@types/node": "^24.19.2",
+    "@types/nodemailer": "^6.4.24",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.6.2",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.5.29",
+    "playwright": "^1.65.0",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^3.4.19",
     "typescript": "^5.9.3"
   },
   "packageManager": "pnpm@12.11.2"
