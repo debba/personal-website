@@ -1,7 +1,7 @@
 import type {NextApiRequest, NextApiResponse} from 'next';
 import {getActivity} from '../../lib/github-activity.server';
 
-export const config = {maxDuration: 120};
+export const config = {maxDuration: 60};
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== 'GET') {
