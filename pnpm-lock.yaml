@@ -173,8 +173,8 @@ importers:
         specifier: ^0.5.6
         version: 0.5.11(tailwindcss@3.4.19)
       flag-icons:
-        specifier: ^6.11.0
-        version: 6.15.0
+        specifier: ^7.6.0
+        version: 7.6.0
       next:
         specifier: 15.5.9
         version: 15.5.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -1209,8 +1209,8 @@ packages:
     resolution: {integrity: sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==}
     engines: {node: '>=10'}
 
-  flag-icons@6.15.0:
-    resolution: {integrity: sha512-ARo9Q+aATZEjyjveeec9e+orx+xLWUBdOX9baOKoGqDzMbvZ65ghPhaHbVt5T7ZB+Q4OFsB4Hr+eQnpV8Q+dLA==}
+  flag-icons@7.6.0:
+    resolution: {integrity: sha512-hir/PsXwr0EESyizKrXJzmkzpLIMf+1vlNKLqAfvdh+bsU94a7LYWTiubkHKqptGoCPzOUGcm6c4PfC9/BaGSQ==}
 
   flat-cache@3.2.0:
     resolution: {integrity: sha512-CYcENa+FtcUKLmhhqyctpclsq7QF38pKjZHsGNiSQF5r4FtoKDWabFDl3hzaEQMvT1LHEysw5twgLvpYYb4vbw==}
@@ -3189,7 +3189,7 @@ snapshots:
       locate-path: 6.0.0
       path-exists: 4.0.0
 
-  flag-icons@6.15.0: {}
+  flag-icons@7.6.0: {}
 
   flat-cache@3.2.0:
     dependencies:
