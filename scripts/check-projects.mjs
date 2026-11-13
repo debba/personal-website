@@ -4,6 +4,17 @@ import assert from 'node:assert/strict';
 // Run against a running site. CHROMIUM_PATH optionally selects a system browser.
 const BASE_URL = (process.env.BASE_URL || 'http://localhost:3000').replace(/\/$/, '');
 const browser = await chromium.launch({ headless: true, ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}) });
+// Discophile intentionally exposes only its public website, not its private repository.
+// Keep the two-link requirement for every other project.
+async function checkProjectLinks(scope, route) {
+    const links = scope.locator('[role=group] a');
+    if (route.replace(/\/$/, '').endsWith('/discophile')) {
+        assert.deepEqual(await links.evaluateAll(links => links.map(a => a.href)),
+            ['https://discophile.app/'], `Unexpected public links: ${route}`);
+    } else {
+        assert.equal(await links.count(), 2, `Missing GitHub or website/documentation link: ${route}`);
+    }
+}
 let checked = 0;
 for (const width of [320, 1280])
     for (const theme of ['light', 'dark']) {
@@ -65,12 +76,13 @@ for (const locale of ['it', 'en']) {
     const cards = page.locator('ul.bento > li');
     const routes = [];
     for (const card of await cards.all()) {
-        assert.equal(await card.locator('[role=group] a').count(), 2, 'Every card has GitHub and website/documentation links');
-        routes.push(await card.locator('a').first().getAttribute('href'));
+        const route = await card.locator('a').first().getAttribute('href');
+        await checkProjectLinks(card, route);
+        routes.push(route);
     }
     for (const route of routes) {
         await page.goto(BASE_URL + route);
-        assert.equal(await page.locator('article [role=group] a').count(), 2, `Missing links: ${route}`);
+        await checkProjectLinks(page.locator('article'), route);
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `Overflow: ${route}`);
         assert.ok(await page.locator('video').count() <= 1);
         for (const image of await page.locator('[aria-labelledby="project-gallery-title"] figure img').all()) {

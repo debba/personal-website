@@ -9,6 +9,8 @@ pnpm install
 pnpm dev
 ```
 
+Use the pinned pnpm version in `package.json`; `pnpm-lock.yaml` is the only dependency lockfile. Dependabot groups dependency updates into one PR so CI validates them together.
+
 Open [http://localhost:3000](http://localhost:3000).
 
 | Script | What it does |
