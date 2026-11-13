@@ -4,7 +4,7 @@ import Image from 'next/image';
 import {useRouter} from 'next/router';
 import {useG11n} from 'next-g11n';
 import {DICTIONARY} from '../../i18n/dictionary';
-import type {ActivityFeed} from '../../lib/github-activity';
+import {ActivityFeed, isActivityFeed} from '../../lib/github-activity';
 import ProjectActivityIcon from '../atoms/project-activity-icon';
 import {PROJECTS} from '../../data/projects';
 
@@ -26,13 +26,15 @@ const SITE_PROJECTS = new Map(PROJECTS.map(project => [
     {slug: project.github_name, name: project.name, icon: project.image?.icon, hideGithub: project.hide_github},
 ]));
 
-export default function GithubActivityTile({activity, className = ''}: {activity: ActivityFeed; className?: string}) {
+export default function GithubActivityTile({activity: initialActivity, className = ''}: {activity: ActivityFeed; className?: string}) {
     const {translate: t} = useG11n<typeof DICTIONARY>(DICTIONARY, false);
     const {locale} = useRouter();
     const language = locale === 'it' ? 'it' : 'en';
     const formatDate = (date: string) => new Intl.DateTimeFormat(language, {
         day: 'numeric', month: 'short', timeZone: 'UTC',
     }).format(new Date(date));
+    const [activity, setActivity] = useState(initialActivity);
+    const [refreshFailed, setRefreshFailed] = useState(false);
     const [now, setNow] = useState<number | null>(null);
 
     useEffect(() => {
@@ -41,9 +43,37 @@ export default function GithubActivityTile({activity, className = ''}: {activity
         return () => clearInterval(timer);
     }, []);
 
+    useEffect(() => {
+        const controller = new AbortController();
+        let pending = false;
+        const refresh = async () => {
+            if (document.hidden || pending) return;
+            pending = true;
+            try {
+                const response = await fetch('/api/github-activity', {signal: controller.signal});
+                if (!response.ok) throw new Error('Activity unavailable');
+                const feed: unknown = await response.json();
+                if (!isActivityFeed(feed)) throw new Error('Invalid activity feed');
+                setActivity(current => !current.updatedAt || (feed.updatedAt && feed.updatedAt >= current.updatedAt) ? feed : current);
+                setRefreshFailed(false);
+            } catch {
+                if (!controller.signal.aborted) setRefreshFailed(true);
+            } finally {pending = false;}
+        };
+        refresh();
+        const timer = setInterval(refresh, 5 * 60_000);
+        document.addEventListener('visibilitychange', refresh);
+        return () => {
+            controller.abort();
+            clearInterval(timer);
+            document.removeEventListener('visibilitychange', refresh);
+        };
+    }, []);
+
     const showDate = (date: string) => now === null ? formatDate(date) : relativeTime(date, now, language);
     const latest = activity.projects[0]?.updatedAt;
-    const live = now !== null && !!latest && now - Date.parse(latest) < DAY;
+    const stale = now !== null && !!activity.updatedAt && now - Date.parse(activity.updatedAt) > DAY;
+    const live = !stale && now !== null && !!latest && now - Date.parse(latest) < DAY;
 
     return (
         <section aria-labelledby="github-activity-title" className={`tile flex flex-col p-7 md:p-9 ${className}`}>
@@ -108,6 +138,7 @@ export default function GithubActivityTile({activity, className = ''}: {activity
                 </a>
                 {activity.updatedAt && <p>{t(now === null ? 'recent_activity_updated' : 'recent_activity_updated_relative') as string}{' '}<time dateTime={activity.updatedAt} title={formatDate(activity.updatedAt)}>{showDate(activity.updatedAt)}</time></p>}
             </div>
+            {(stale || (refreshFailed && !activity.updatedAt)) && <p role="status" className="mt-2 text-sm text-muted">{t('recent_activity_refresh_failed') as string}</p>}
         </section>
     );
 }

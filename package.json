@@ -10,8 +10,9 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "test:a11y": "node scripts/a11y.mjs",
-    "test:activity": "node --experimental-strip-types --test tests/github-activity.test.mjs",
+    "test:activity": "node --experimental-strip-types --test tests/github-activity.test.mjs tests/activity-cache.test.mjs",
     "activity:update": "node --env-file=.env --experimental-strip-types scripts/update-github-activity.mjs .cache/github-activity.json",
+    "test:activity-ui": "node scripts/check-activity-refresh.mjs",
     "test:projects": "node scripts/check-projects.mjs"
   },
   "dependencies": {

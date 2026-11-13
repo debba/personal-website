@@ -16,6 +16,7 @@ export interface RecentProject {
 
 export interface ActivityFeed {
     version: 1;
+    summarySource?: 'claude' | 'github';
     updatedAt: string | null;
     projects: RecentProject[];
 }

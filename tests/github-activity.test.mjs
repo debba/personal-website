@@ -246,3 +246,52 @@ test('failed local refresh preserves stale content and throttles retries', async
         assert.deepEqual(JSON.parse(await readFile(output,'utf8')), previous);
     } finally {await rm(directory, {recursive: true, force: true});}
 });
+
+test('live refresh uses current authored GitHub titles when Claude is missing or fails', async () => {
+    for (const apiKey of ['', 'test-key']) {
+        const github = mockGithub([event('debba/example')]);
+        const feed = await generateActivity({now, apiKey, fallbackSummaries: true, fetcher: url =>
+            url.startsWith('https://api.anthropic.com') ? new Response('', {status: 503}) : github(url)});
+        assert.equal(isActivityFeed(feed), true);
+        assert.equal(feed.updatedAt, now.toISOString());
+        assert.equal(feed.summarySource, 'github');
+        assert.deepEqual(feed.projects[0].summary, {it: 'Attività recente: Improve search', en: 'Recent activity: Improve search'});
+    }
+});
+
+test('fallback keeps proposed PRs proposed and retries Claude after recovery', async () => {
+    const github = mockGithub([event('debba/example', {type: 'PullRequestEvent', payload: {
+        action: 'opened', pull_request: {user: {login: 'debba'}, title: 'Add export', merged: false},
+    }})]);
+    const previous = await generateActivity({now, fallbackSummaries: true, apiKey: '', fetcher: github});
+    assert.equal(previous.projects[0].summary.en, 'Proposed: Add export');
+    let calls = 0;
+    const feed = await generateActivity({now, previous, fallbackSummaries: true, apiKey: 'test-key', fetcher: url => {
+        if (!url.startsWith('https://api.anthropic.com')) return github(url);
+        calls++;
+        return toolResponse(summaries);
+    }});
+    assert.equal(calls, 1);
+    assert.equal(feed.summarySource, 'claude');
+});
+
+test('GitHub failures never publish an empty successful refresh', async () => {
+    await assert.rejects(generateActivity({now, fallbackSummaries: true,
+        fetcher: async () => new Response('', {status: 403})}), /GitHub request failed/);
+});
+
+test('an expired token falls back to public data without exposing allowed private repositories', async () => {
+    const github = mockGithub([event('debba/public')]);
+    let authenticated = 0;
+    let anonymous = 0;
+    const projects = await collectProjects({now, token: 'expired-token', privateRepositories: new Set(['debba/private']),
+        fetcher: async (url, options) => {
+            assert.equal(options.cache, 'no-store');
+            if (options.headers.Authorization) {authenticated++; return new Response('', {status: 401});}
+            anonymous++;
+            if (url.includes('/repos/debba/private/')) return new Response('', {status: 404});
+            return github(url);
+        }});
+    assert.ok(authenticated > 0 && anonymous > 0);
+    assert.deepEqual(projects.map(project => project.repository), ['debba/public']);
+});
