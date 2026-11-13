@@ -46,6 +46,11 @@ jobs:
           pnpm start --port 3000 &
           npx --yes wait-on@8 --timeout 60000 http://localhost:3000/
 
+      - name: Activity refresh, cached page recovery and failure handling
+        run: pnpm test:activity-ui
+        env:
+          BASE_URL: http://localhost:3000
+
       - name: Accessibility check (axe-core, WCAG 2.2 AA)
         run: pnpm test:a11y
         env:

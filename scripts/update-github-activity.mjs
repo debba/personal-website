@@ -22,8 +22,15 @@ async function github(path, {fetcher = fetch, token = process.env.GITHUB_TOKEN, 
             'X-GitHub-Api-Version': '2022-11-28',
             ...(token ? {Authorization: `Bearer ${token}`} : {}),
         },
+        cache: 'no-store',
         signal: AbortSignal.timeout(15_000),
     });
+    // An expired production token must not freeze public activity. Private repositories
+    // remain unreadable anonymously and are skipped through the normal optional 404.
+    if (token && response.status === 401) {
+        console.warn('GitHub activity token rejected; retrying public data anonymously.');
+        return github(path, {fetcher, token: null, optional});
+    }
     if (optional && response.status === 404) return null;
     if (!response.ok) throw new Error(`GitHub request failed (${response.status} ${path.split("?")[0]})`);
     return response.json();
@@ -116,12 +123,12 @@ export async function collectProjects({username = 'debba', now = new Date(), pri
     return described.filter(Boolean);
 }
 
-export async function summarizeProjects(projects, {fetcher = fetch, apiKey, model} = {}) {
+export async function summarizeProjects(projects, {fetcher = fetch, apiKey, model, timeoutMs = 60_000} = {}) {
     if (!apiKey) throw new Error('ANTHROPIC_API_KEY is required');
     const response = await fetcher('https://api.anthropic.com/v1/messages', {
         method: 'POST',
         headers: {'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01'},
-        signal: AbortSignal.timeout(60_000),
+        signal: AbortSignal.timeout(timeoutMs),
         body: JSON.stringify({
             model,
             max_tokens: 1500,
@@ -165,12 +172,32 @@ export async function generateActivity({
     model = process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5-20251001',
     token = process.env.GITHUB_TOKEN,
     privateRepositories = parsePrivateRepositories(process.env.GITHUB_ACTIVITY_PRIVATE_REPOS),
+    fallbackSummaries = false,
 } = {}) {
     const projects = await collectProjects({username, now, fetcher, token, privateRepositories});
     const fingerprint = createHash('sha256').update(JSON.stringify({projects, model, prompt: PROMPT_VERSION})).digest('hex');
-    const unchanged = isActivityFeed(previous) && previous.fingerprint === fingerprint;
-    const summaries = unchanged ? previous.projects : projects.length ? await summarizeProjects(projects, {fetcher, apiKey, model}) : [];
-    const feed = {version: 1, updatedAt: now.toISOString(), projects: summaries, fingerprint};
+    const unchanged = isActivityFeed(previous) && previous.fingerprint === fingerprint && previous.summarySource !== 'github';
+    let summaries;
+    let summarySource = 'claude';
+    try {
+        summaries = unchanged ? previous.projects : projects.length ? await summarizeProjects(projects, {fetcher, apiKey, model, timeoutMs: fallbackSummaries ? 20_000 : 60_000}) : [];
+        if (!isActivityFeed({version: 1, updatedAt: now.toISOString(), projects: summaries})) throw new Error('Invalid generated activity feed');
+    } catch (error) {
+        if (!fallbackSummaries) throw error;
+        console.warn(`Activity summaries unavailable (${error.message}); using current GitHub activity.`);
+        summarySource = 'github';
+        // Use only authored event titles, never README text or invented descriptions.
+        summaries = projects.map(({repository, updatedAt, signals}) => {
+            const signal = signals[0];
+            const proposed = signal.kind === 'opened pull request' || signal.kind === 'reopened pull request';
+            const it = proposed ? 'Proposta: ' : 'Attività recente: ';
+            const en = proposed ? 'Proposed: ' : 'Recent activity: ';
+            return {repository, updatedAt, icon: 'code', summary: {
+                it: (it + signal.title).slice(0, 220), en: (en + signal.title).slice(0, 220),
+            }};
+        });
+    }
+    const feed = {version: 1, updatedAt: now.toISOString(), projects: summaries, fingerprint, summarySource};
     if (!isActivityFeed(feed)) throw new Error('Invalid generated activity feed');
     return feed;
 }
